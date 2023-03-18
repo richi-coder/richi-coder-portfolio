@@ -1,3 +1,5 @@
+import "./styles/typing.css"
+
 export default function Project() {
     return (
       <div style={{backgroundColor: "transparent"}}>
@@ -22,7 +24,7 @@ export default function Project() {
                 <br />
                 Ecommerce
               </h2>
-              <p className="mt-6 text-lg leading-8 text-gray-300">
+              <p className="typing mt-6 text-lg leading-8 text-gray-300 text-left">
                 This is a Single Page Application mainly developed using React JS!
               </p>
               <div className="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">

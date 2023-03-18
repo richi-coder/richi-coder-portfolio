@@ -1,0 +1,18 @@
+.typing {
+    overflow: hidden;
+    border-right: .15em solid purple;
+    color: aliceblue;
+    white-space: nowrap;
+    width: 200%;
+    animation: 
+        typing 3s steps(30, end) infinite,
+        showing 1s step-end infinite;
+}
+@keyframes typing {
+    0% {width: 0%}
+    50% {width: 100%}
+    100% {width: 0%}
+}
+@keyframes showing {
+    50% {border-color: transparent;}
+}
