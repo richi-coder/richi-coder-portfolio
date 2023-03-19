@@ -4,11 +4,13 @@ import FirstView from '../components/FirstView.astro';
 import Project from '../components/Project.astro';
 import Video from '../components/Video.astro';
 import Title from '../components/Title.astro';
+import FirstAnimation from '../components/FirstAnimation.astro';
 
 ---
 
 <Layout title="Welcome to Astro.">
 	<main>
+		<FirstAnimation />
 		<FirstView />
 		<Video id="video" />
 		<Title id="projects-title"></Title>
@@ -16,8 +18,7 @@ import Title from '../components/Title.astro';
 		<!-- <Title client:load /> -->
 		<Project id="4pics-1word" />
 		<Project id="calculator" />
-		<script src="../scripts/scrollFunction.js"></script>
-		<script src="../scripts/main.js"></script>
+		
 	</main>
 </Layout>
 
