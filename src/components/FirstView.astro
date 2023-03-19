@@ -30,7 +30,7 @@
 		  <div class="flex flex-shrink-0 items-center">
 			<!-- <img class="block h-8 w-auto lg:hidden" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company"> -->
 			<div class="w-full h-screen flex flex-col items-start sticky top-0 left-0 justify-center m-0">
-				<div class="p-0 m-0 text-left typing"><h2 class="text-center p-0 m-0">richi<span class="text-gradient">Coder</span></h2></div>
+				<div class="p-0 m-0 text-left typing"><p class="text-center p-0 m-0">richi<span class="text-gradient">Coder</span></p></div>
 			</div>
 			<!-- <img class="hidden h-8 w-auto lg:block" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company"> -->
 		  </div>
@@ -101,7 +101,18 @@
   </nav>
 
 <div class="w-full h-screen flex flex-col items-center justify-center sticky top-0 left-0">
-    <div class="p-0 m-0"><h1 class="text-center p-0 m-0">richi<span class="text-gradient">Coder</span></h1></div>
+    <div class="logo">
+		<div class="richi">richi</div>
+		<div class="text-gradient coder">Coder</div>
+		<div class="tech text-white">
+			<div class="layer">h</div>
+			<div class="es5">ES5/ES6</div>
+			<div>React JS</div>
+			<div>HTML5</div>
+			<div>Redux</div>
+			<div>CSS</div>
+		</div>
+	</div>
 </div>
 
 
@@ -118,28 +129,69 @@
 	/* @import url('https://fonts.googleapis.com/css2?family=M+PLUS+1+Code&display=swap'); */
 	/* @import url('https://fonts.googleapis.com/css2?family=Genos&display=swap'); */
 	/* @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap'); */
-    h1 {
+
+
+	.logo {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		height: 50vh;
+		margin: 0;
+		padding: 0;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+	}
+	.richi {
 		font-size: 4rem; 
 		font-weight: 800;
 		margin: 0;
+		padding: 0;
 		color: white;
         font-family: 'Orbitron', system-ui;
-		
+		animation: richi 2s linear 1;
+		white-space: nowrap;
+		overflow: hidden;
+		text-align: start;
+		width: 10%;
 	}
-    @media only screen and (min-width: 1020px) {
-        h1 {
-            font-size: 10rem;
-			font-family: 'Orbitron', system-ui;
-        }
-		
-    }
-	h2 {
-		font-size: 1.5rem;
+	.coder {
+		font-size: 10rem;
 		font-weight: 500;
 		margin: 0;
-		color: white;
+		padding: 0;
 		font-family: 'Orbitron', system-ui;
+		animation: coder 2s linear 1;
+		white-space: nowrap;
+		overflow: hidden;
+		text-align: start;
+	    width: 15%; 
 	}
+	@keyframes richi {
+		0% { width: 10%; transform: translate(0,-70vh ); opacity: 0;}
+		10% { transform: translate(0,-70vh ); }
+		15% { transform: translate(0,0); opacity: 1;}
+		20% { transform: translate(0,-5vh);}
+		25% { transform: translate(0,0);}
+		35% { width: 10%}
+	}
+	@keyframes coder {
+		0% { width: 15%; transform: translate(0,-70vh); opacity: 1;}
+		25% { transform: translate(0,-70vh ); }
+		30% { transform: translate(0,0); opacity: 1 }
+		35% { transform: translate(0,-7vh);}
+		40% { transform: translate(0,0);}
+	}
+	@media only screen and (min-width: 1020px) {
+        .richi {
+            font-size: 10rem;
+        }
+		.coder {
+			font-size: 10rem;
+		}
+    }
 	.text-gradient {
 		background-image: var(--accent-gradient);
 		-webkit-background-clip: text;
@@ -147,4 +199,26 @@
 		background-size: 400%;
 		background-position: 0%;
 	}
+
+	.tech {
+		display: flex;
+		flex-direction: column;
+		align-self: center;
+	}
+	.tech > div:not(:first-child) {
+		position: relative;
+		font-size: 2rem;
+		font-family: 'Play', 'system-ui';
+		margin: 0;
+		padding: 0;
+	}
+	.layer {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: pink;
+	}
+	
 </style>
