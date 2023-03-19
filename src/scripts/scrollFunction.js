@@ -1,13 +1,13 @@
 export function scrollFunction(component, notShown, showUp) {
-    window.addEventListener("scroll", () => {
-        const showingComponent = component.current.getBoundingClientRect()
+    const projectComponent = document.getElementById(component)
+    
+        const showingComponent = projectComponent.getBoundingClientRect()
          if (showingComponent.top < window.innerHeight*0.7) {
-          component.current.classList.remove(notShown)
-          component.current.classList.add(showUp)
+          projectComponent.classList.remove(notShown)
+          projectComponent.classList.add(showUp)
          } else if (showingComponent.top > window.innerHeight) {
-          component.current.classList.remove(showUp)
-          component.current.classList.add(notShown)
+          projectComponent.classList.remove(showUp)
+          projectComponent.classList.add(notShown)
          }
-      })
 }
 

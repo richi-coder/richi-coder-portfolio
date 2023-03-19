@@ -1,25 +1,23 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
-import Projcet from '../components/Project';
-import Project from '../components/Project';
 import FirstView from '../components/FirstView.astro';
-import Title from '../components/Title';
-import Video from '../components/Video';
+import Project from '../components/Project.astro';
+import Video from '../components/Video.astro';
+import Title from '../components/Title.astro';
+
 ---
 
 <Layout title="Welcome to Astro.">
 	<main>
 		<FirstView />
-		<Video client:load />
-		<Title client:load />
-		<Project client:load />
-		<Title client:load />
-		<Project client:load />
-		<Project client:load />
-		<script>
-			
-		</script>
+		<Video id="video" />
+		<Title id="projects-title"></Title>
+		<Project id="richi-shop" />
+		<!-- <Title client:load /> -->
+		<Project id="4pics-1word" />
+		<Project id="calculator" />
+		<script src="../scripts/scrollFunction.js"></script>
+		<script src="../scripts/main.js"></script>
 	</main>
 </Layout>
 
