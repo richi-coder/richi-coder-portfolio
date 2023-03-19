@@ -1,0 +1,14 @@
+.showVideo {
+    animation: showVideo 1s ease-in-out 1;
+    transform-origin: top left;
+}
+@keyframes showVideo {
+    0% {transform: translate(20vw,0); opacity: 0;}
+}
+.videoNotShown {
+    visibility: hidden;
+    animation: notShown 0.5s ease-in-out 1 ;
+}
+@keyframes notShown {
+    100% {opacity: 0;}
+}

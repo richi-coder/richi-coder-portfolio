@@ -1,21 +1,22 @@
 import { useEffect, useRef } from "react"
 import "./styles/typing.css"
 import "./styles/showup.css"
+import { scrollFunction } from "../scripts/scrollFunction";
 
 export default function Project() {
     const component = useRef();
-    let scroll = 0;
     useEffect(() => {
-      window.addEventListener("scroll", () => {
-        const showingComponent = component.current.getBoundingClientRect()
-         if (showingComponent.top < window.innerHeight*0.7) {
-          component.current.classList.remove("notShown")
-          component.current.classList.add("showUp")
-         } else {
-          component.current.classList.remove("showUp")
-          component.current.classList.add("notShown")
-         }
-      })
+      scrollFunction(component, "notShown", "showUp")
+      // window.addEventListener("scroll", () => {
+      //   const showingComponent = component.current.getBoundingClientRect()
+      //    if (showingComponent.top < window.innerHeight*0.7) {
+      //     component.current.classList.remove("notShown")
+      //     component.current.classList.add("showUp")
+      //    } else if (showingComponent.top > window.innerHeight) {
+      //     component.current.classList.remove("showUp")
+      //     component.current.classList.add("notShown")
+      //    }
+      // })
     }, [])
     
     return (
