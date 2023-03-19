@@ -1,10 +1,27 @@
+import { useEffect, useRef } from "react"
 import "./styles/typing.css"
+import "./styles/showup.css"
 
 export default function Project() {
+    const component = useRef();
+    let scroll = 0;
+    useEffect(() => {
+      window.addEventListener("scroll", () => {
+        const showingComponent = component.current.getBoundingClientRect()
+         if (showingComponent.top < window.innerHeight*0.7) {
+          component.current.classList.remove("notShown")
+          component.current.classList.add("showUp")
+         } else {
+          component.current.classList.remove("showUp")
+          component.current.classList.add("notShown")
+         }
+      })
+    }, [])
+    
     return (
-      <div className='bg-transparent'>
+      <div ref={component} className='bg-transparent notShown'>
         <div className="mx-auto max-w-full py-24 sm:px-6 sm:py-12 lg:px-8">
-          <div className="relative isolate overflow-hidden bg-cyan-600 px-6 pt-16 shadow-2xl sm:rounded-3xl sm:px-16 md:pt-1 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
+          <div className="relative isolate overflow-hidden bg-black px-6 pt-16 shadow-2xl sm:rounded-3xl sm:px-16 md:pt-1 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
             <svg
               viewBox="0 0 1024 1024"
               className="absolute top-1/2 left-1/2 -z-10 h-[64rem] w-[64rem] -translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:translate-y-0 lg:-translate-x-1/2"

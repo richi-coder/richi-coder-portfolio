@@ -1,0 +1,14 @@
+.showUp {
+    animation: showUp 1s ease-in-out 1;
+    transform-origin: top left;
+}
+@keyframes showUp {
+    0% {transform: rotate3d(0,1,1,20deg); opacity: 0;}
+}
+.notShown {
+    visibility: hidden;
+    animation: notShown 0.5s ease-in-out 1 ;
+}
+@keyframes notShown {
+    100% {opacity: 0;}
+}
