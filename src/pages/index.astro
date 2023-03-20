@@ -5,6 +5,7 @@ import Project from '../components/Project.astro';
 import Video from '../components/Video.astro';
 import Title from '../components/Title.astro';
 import FirstAnimation from '../components/FirstAnimation.astro';
+import Portfolio from '../components/Portfolio.astro';
 
 ---
 
@@ -13,12 +14,13 @@ import FirstAnimation from '../components/FirstAnimation.astro';
 		<FirstAnimation />
 		<FirstView />
 		<Video id="video" />
-		<Title id="projects-title"></Title>
-		<Project id="richi-shop" />
-		<!-- <Title client:load /> -->
-		<Project id="4pics-1word" />
-		<Project id="calculator" />
-		
+		<Portfolio>
+			<Title id="projects-title"></Title>
+			<Project id="richi-shop" />
+			<!-- <Title client:load /> -->
+			<Project id="4pics-1word" />
+			<Project id="calculator" />
+		</Portfolio>
 	</main>
 </Layout>
 
@@ -28,6 +30,7 @@ import FirstAnimation from '../components/FirstAnimation.astro';
 		padding: 0rem;
 		background-color: rgb(10, 10, 10);
 		overflow-x: clip;
+		scroll-behavior: smooth;
 	}
 	
 	.instructions {

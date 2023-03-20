@@ -18,13 +18,13 @@ const { title } = Astro.props;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap"
-      rel="preload"
+      rel="preload" as="font"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Play&display=swap"
-      rel="stylesheet"
+      rel="stylesheet" as="font"
     />
     <link rel="preload" href="/main.css" as="style" />
     <link rel="preload" href="/firstAnimation.js" as="script" />
@@ -48,7 +48,11 @@ const { title } = Astro.props;
   }
   html {
     background-color: #f6f6f6;
-    animation: html 7s ease-in-out 1;
+    /* animation: html 7s ease-in-out 1; */
+  }
+  body {
+    padding: 0;
+    margin: 0;
   }
   @keyframes html {
     0% {overflow-y: clip;}
