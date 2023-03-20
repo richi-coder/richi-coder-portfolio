@@ -48,5 +48,10 @@ const { title } = Astro.props;
   }
   html {
     background-color: #f6f6f6;
+    animation: html 7s ease-in-out 1;
+  }
+  @keyframes html {
+    0% {overflow-y: clip;}
+    90% {overflow-y: clip;}
   }
 </style>
