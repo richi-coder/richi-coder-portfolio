@@ -3,7 +3,6 @@
 
 .title {
     font-family: 'Play';
-    height: 50vh;
 }
 
 .logoTitle {
@@ -21,7 +20,7 @@
 }
 
 .showTitle {
-    /* animation: showTitle 1s ease-in 1; */
+    animation: showTitle 1s ease-in 1;
     transform-origin: top left;
 }
 @keyframes showTitle {
@@ -33,7 +32,7 @@
 }
 .titleNotShown {
     visibility: hidden;
-    /* animation: notShown 0.5s ease-in-out 1 ; */
+    animation: notShown 0.5s ease-in-out 1 ;
 }
 @keyframes notShown {
     100% {opacity: 0;}

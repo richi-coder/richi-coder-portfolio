@@ -1,4 +1,7 @@
 ---
 import "./styles/number.css"
+const { number } = Astro.props;
 ---
-<h3 class='number absolute text-9xl'>01</h3>
+<div class='number absolute mx-auto w-full sm:w-full left-0 flex flex-row justify-end p-0 pr-10'>
+    <div class='tracking-tighter p-0 text-[70vw] sm:text-[50vw] h-full -my-6 sm:-my-52'>{number}</div>
+</div>

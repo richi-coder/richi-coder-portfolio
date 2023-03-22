@@ -3,7 +3,7 @@
 }
 
 .showUp {
-    /* animation: showUp 1s ease-in-out 1; */
+    animation: showUp 1s ease-in-out 1;
     transform-origin: top left;
 }
 @keyframes showUp {
@@ -11,7 +11,7 @@
 }
 .notShown {
     visibility: hidden;
-    /* animation: notShown 0.5s ease-in-out 1 ; */
+    animation: notShown 0.5s ease-in-out 1;
 }
 @keyframes notShown {
     100% {opacity: 0;}
