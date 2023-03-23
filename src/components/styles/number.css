@@ -1,3 +1,4 @@
 .number {
-    text-shadow: 0 0 5px white;
+    text-shadow: 10px 10px 5px rgb(255,255,255);
+    color: rgb(0,0,0);
 }

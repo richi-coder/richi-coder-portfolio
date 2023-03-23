@@ -4,18 +4,20 @@ import FirstView from '../components/FirstView.astro';
 import Project from '../components/Project.astro';
 import Video from '../components/Video.astro';
 import Title from '../components/Title.astro';
-import FirstAnimation from '../components/FirstAnimation.astro';
 import Portfolio from '../components/Portfolio.astro';
+import Shortbio from '../components/Shortbio.astro';
+import Photo from '../components/Photo.astro';
 
 ---
 
 <Layout title="Welcome to Astro.">
 	<main class="main">
-		<FirstAnimation />
 		<FirstView />
+		<Shortbio />
+		<Photo />
 		<Video id="video" />
 		<Portfolio>
-			<Title id="projects-title"></Title>
+			<Title id="projects-title" title="Projects" />
 			<Project id="PORTFOLIO" number="01" app="richicoder.com" description="Multi Page App developed with Astro!" />
 			<Project id="RICHI-SHOP" number="02" app="E-commerce Site" description="Single Page App developed with React!" />
 			<!-- <Title client:load /> -->
