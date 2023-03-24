@@ -1,5 +1,5 @@
 .photo {
-    background-color: purple; 
+    /* background-color: purple;  */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -12,6 +12,8 @@
     left: 0;
     margin: 0;
     z-index: 0;
-    /* background-image: url(https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/themes/3005842/settings_images/zvGndHZDQXq73e25gfx7_vlcsnap-2020-11-10-16h36m27s957.png);
-    background-position: top left; */
+    background-image: url(https://kajabi-storefronts-production.kajabi-cdn.com/kajabi-storefronts-production/themes/3005842/settings_images/zvGndHZDQXq73e25gfx7_vlcsnap-2020-11-10-16h36m27s957.png);
+    background-position: top left;
+    background-size: cover;
+    opacity: 0.7;
 }

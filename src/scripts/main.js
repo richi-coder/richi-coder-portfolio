@@ -18,16 +18,16 @@ let controller = new ScrollMagic.Controller();
     // Logo scene
 let tweenLogo = new TimelineMax ()
 		.add([
-			TweenMax.fromTo(".firstView", 20, { yPercent: '0', ease: Power0.easeNone}, {yPercent: '50', ease: Power0.easeNone},  ),
+			TweenMax.fromTo(".logoContainer", 20, { yPercent: '0', ease: Power0.easeNone}, {yPercent: '50', ease: Power0.easeNone},  0),
 		]);
 
 let sceneLogo = new ScrollMagic.Scene({
-  triggerElement: ".shortbio",
-  triggerHook: "onEnter",
+  triggerElement: ".firstView",
+  triggerHook: 0,
   duration: '100%',
   })
 					.setTween(tweenLogo)
-					// .addIndicators() // add indicators (requires plugin)
+					.addIndicators({name: "logoScene"}) // add indicators (requires plugin)
 					.addTo(controller)
 
     // Bio Photo scene
