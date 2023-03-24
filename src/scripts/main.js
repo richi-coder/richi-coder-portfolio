@@ -11,6 +11,7 @@ ScrollMagicPluginIndicator(ScrollMagic);
 let scrollbar = Scrollbar.init(document.body);
 // Force fixing:
 const fixedPhoto = document.querySelector(".photo");
+const fixedBio = document.querySelector(".bio")
 
 // 2 Parallax Effect with scrollMagic
 let controller = new ScrollMagic.Controller();
@@ -31,11 +32,6 @@ let sceneLogo = new ScrollMagic.Scene({
 					.addTo(controller)
 
     // Bio Photo scene
-// let tweenBio = new TimelineMax ()
-// 		.add([
-// 			TweenMax.fromTo(".shortbio", 10, { yPercent: '0', ease: Power0.easeNone}, {yPercent: '100', ease: Power0.easeNone},  ),
-// 		]);
-
 let sceneBio = new ScrollMagic.Scene({
   triggerElement: ".firstView",
   triggerHook: 0,
@@ -44,6 +40,44 @@ let sceneBio = new ScrollMagic.Scene({
 					.setPin("#photo", {pushFollowers: false})
           .addIndicators({name: "1 (photo: 500%)"})
 					.addTo(controller)
+
+    // Photo animation
+let scenePhoto = new ScrollMagic.Scene({
+  triggerElement: ".shortbio",
+  triggerHook: 0,
+  duration: '50%',
+})
+      .setTween(".photolayer", {opacity: 1})
+      .addIndicators({name: "photoOpacity"})
+      .addTo(controller)
+
+    // Mybio animation
+let tweenMybio = new TimelineMax()
+    .add([
+      TweenMax.fromTo(".bio", {opacity: 0, ease: Power0.easeNone}, {opacity: 1, ease: Power0.easeNone }),
+      TweenMax.fromTo(".bio", {yPercent: -50, ease: Power0.easeNone} , {yPercent: 0, ease: Power0.easeNone} )
+    ])
+
+let sceneMybio = new ScrollMagic.Scene({
+  triggerElement: ".shortbio",
+  triggerHook: 1,
+  duration: '100%',
+  offset: 700
+})
+      // .setClassToggle(".bio", 'fixed')
+      .setTween(tweenMybio)
+      .setPin("#bio1", {pushFollowers: true })
+      .addIndicators({name: "bioFixed "})
+      .addTo(controller)
+
+let sceneMybioOff = new ScrollMagic.Scene({
+  triggerElement: ".videoContainer",
+  triggerHook: 1,
+  offset: -500
+})
+      .setTween(".bio", {autoAlpha: 0})
+      .addIndicators({name: "videoContainer"})
+      .addTo(controller)
 
     // Number scene          
 let tweenNumber = new TimelineMax ()
@@ -77,7 +111,11 @@ scrollbar.addListener((status) => {
   const offset = status.offset;
   fixedPhoto.style.top = offset.y + 'px'
   fixedPhoto.style.left = offset.x + 'px';
+  fixedBio.style.top = offset.y + 'px'
+  fixedBio.style.left = offset.x + 'px';
   sceneLogo.refresh()
+  scenePhoto.refresh()
+  // sceneMybioOff.refresh()
   sceneNumber.refresh()
     scrollFunction("PORTFOLIO", "notShown", "showUp")
     scrollFunction("RICHI-SHOP", "notShown", "showUp")
