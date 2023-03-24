@@ -1,32 +1,34 @@
 import { scrollFunction } from "./scrollFunction";
 import Scrollbar from 'smooth-scrollbar';
-import * as ScrollMagic from "scrollmagic";
+import ScrollMagic from "scrollmagic";
 import { TweenMax, TimelineMax, Power0 } from "gsap";
 import { ScrollMagicPluginGsap } from "scrollmagic-plugins";
+import { ScrollMagicPluginIndicator} from "scrollmagic-plugins";
 ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
+ScrollMagicPluginIndicator(ScrollMagic);
 
 // 1 smooth-scrollbar
-// let scrollbar = Scrollbar.init(document.body);
+let scrollbar = Scrollbar.init(document.body);
+// Force fixing:
+const fixedPhoto = document.querySelector(".photo");
 
 // 2 Parallax Effect with scrollMagic
-let controller = new ScrollMagic.Controller({
-  refreshInterval: 0 
-});
+let controller = new ScrollMagic.Controller();
 
     // Logo scene
-// let tweenLogo = new TimelineMax ()
-// 		.add([
-// 			TweenMax.fromTo(".firstView", 20, { yPercent: '0', ease: Power0.easeNone}, {yPercent: '50', ease: Power0.easeNone},  ),
-// 		]);
+let tweenLogo = new TimelineMax ()
+		.add([
+			TweenMax.fromTo(".firstView", 20, { yPercent: '0', ease: Power0.easeNone}, {yPercent: '50', ease: Power0.easeNone},  ),
+		]);
 
-// let sceneLogo = new ScrollMagic.Scene({
-//   triggerElement: ".shortbio",
-//   triggerHook: "onEnter",
-//   duration: '100%',
-//   })
-// 					.setTween(tweenLogo)
-// 					//.addIndicators() // add indicators (requires plugin)
-// 					.addTo(controller)
+let sceneLogo = new ScrollMagic.Scene({
+  triggerElement: ".shortbio",
+  triggerHook: "onEnter",
+  duration: '100%',
+  })
+					.setTween(tweenLogo)
+					// .addIndicators() // add indicators (requires plugin)
+					.addTo(controller)
 
     // Bio Photo scene
 // let tweenBio = new TimelineMax ()
@@ -35,25 +37,27 @@ let controller = new ScrollMagic.Controller({
 // 		]);
 
 let sceneBio = new ScrollMagic.Scene({
-  triggerElement: ".photo",
-  offset: '50'
+  triggerElement: ".firstView",
+  triggerHook: 0,
+  duration: '500%',
  },)
-					.setPin(".photo")
+					.setPin("#photo", {pushFollowers: false})
+          .addIndicators({name: "1 (photo: 500%)"})
 					.addTo(controller)
 
     // Number scene          
-// let tweenNumber = new TimelineMax ()
-//     .add([
-//       TweenMax.fromTo("#n-01", 10, {autoAlpha: 0, yPercent: -50, ease: Power0.easeNone}, {autoAlpha: 1, yPercent: 50, ease: Power0.easeNone}, 0)
-//     ])
+let tweenNumber = new TimelineMax ()
+    .add([
+      TweenMax.fromTo("#n-01", 10, {autoAlpha: 0, yPercent: -50, ease: Power0.easeNone}, {autoAlpha: 1, yPercent: 50, ease: Power0.easeNone}, 0)
+    ])
 
-// let sceneNumber = new ScrollMagic.Scene({
-//   offset: 150,
-//   triggerElement: ".portfolio",
-//   duration: '100%',
-// })
-//     .setTween(tweenNumber)
-//     .addTo(controller)
+let sceneNumber = new ScrollMagic.Scene({
+  offset: 150,
+  triggerElement: ".portfolio",
+  duration: '100%',
+})
+    .setTween(tweenNumber)
+    .addTo(controller)
 
 // 3 Add classes to hide elements (case using JS)
 window.addEventListener("DOMContentLoaded", () => {
@@ -69,16 +73,16 @@ window.addEventListener("DOMContentLoaded", () => {
 })
 
 // 4 new scrollbar listener, instead of window.addEventListener
-// scrollbar.addListener(() => {
-//   console.log("Scrolling")
-//   // controller.update()
-//   // sceneLogo.refresh()
-//   // // sceneBio.refresh()
-//   // sceneNumber.refresh()
-//     scrollFunction("PORTFOLIO", "notShown", "showUp")
-//     scrollFunction("RICHI-SHOP", "notShown", "showUp")
-//     scrollFunction("4PICS-1WORD", "notShown", "showUp")
-//     scrollFunction("CALCULATOR", "notShown", "showUp")
-//     scrollFunction("video", "videoNotShown", "showVideo")
-//     scrollFunction("projects-title", "titleNotShown", "showTitle")
-//   })
+scrollbar.addListener((status) => {
+  const offset = status.offset;
+  fixedPhoto.style.top = offset.y + 'px'
+  fixedPhoto.style.left = offset.x + 'px';
+  sceneLogo.refresh()
+  sceneNumber.refresh()
+    scrollFunction("PORTFOLIO", "notShown", "showUp")
+    scrollFunction("RICHI-SHOP", "notShown", "showUp")
+    scrollFunction("4PICS-1WORD", "notShown", "showUp")
+    scrollFunction("CALCULATOR", "notShown", "showUp")
+    scrollFunction("video", "videoNotShown", "showVideo")
+    scrollFunction("projects-title", "titleNotShown", "showTitle")
+  })
