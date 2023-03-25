@@ -103,10 +103,10 @@ import Precomponent from '../components/Precomponent.astro';
 <div class="firstView w-full h-screen relative top-0 left-0 z-10 overflow-hidden">
 	<div class="logoContainer flex flex-col items-center w-full h-full absolute top-0 left-0">
 	<div class="layer"></div>
-    <div class="logo h-1/4">
+    <div class="logo ">
 		<div class="richi">richi</div>
 		<div class="text-gradient coder">Coder</div>
-		<div class='bar ml-5 border-l-8 border-white h-full w-1'></div>
+		<div class='bar ml-5 h-full w-1'></div>
 		<div class="tech text-white">
 			<!-- <div class="layer bg-black"></div> -->
 			<div class="es5">React JS</div>
@@ -144,13 +144,13 @@ import Precomponent from '../components/Precomponent.astro';
 		margin: 0;
 		padding: 0;
 		position: relative;
-		height: 22vh;
+		height: 2rem;
 	}
 	.firstView {
 		background-color: rgb(10,10,10);
 	}
 	.richi {
-		font-size: 4rem; 
+		font-size: 2rem; 
 		font-weight: 800;
 		margin: 0;
 		padding: 0;
@@ -163,7 +163,7 @@ import Precomponent from '../components/Precomponent.astro';
 		width: 5%;
 	}
 	.coder {
-		font-size: 10rem;
+		font-size: 2rem;
 		font-weight: 500;
 		margin: 0;
 		padding: 0;
@@ -188,14 +188,7 @@ import Precomponent from '../components/Precomponent.astro';
 		35% { transform: translate(0,-7vh);}
 		40% { transform: translate(0,0);}
 	}
-	@media only screen and (min-width: 1020px) {
-        .richi {
-            font-size: 10rem;
-        }
-		.coder {
-			font-size: 10rem;
-		}
-    }
+
 	.text-gradient {
 		background-image: var(--accent-gradient);
 		-webkit-background-clip: text;
@@ -207,10 +200,10 @@ import Precomponent from '../components/Precomponent.astro';
 	.tech {
 		display: flex;
 		flex-direction: column;
-		align-self: center;
+		align-self: start;
 		background-color: transparent;
 		position: relative;
-		top: 350%;
+		top: 2.5rem;
 		left: 0; 
 		animation: tech 7s ease-in-out infinite 1s;
 		padding: 0;
@@ -235,7 +228,7 @@ import Precomponent from '../components/Precomponent.astro';
 		100% {transform: translate(0,-100%); opacity: 0; width: 0% }
 	}
 	.tech > div {
-		font-size: 8rem;
+		font-size: 2rem;
 		font-family: 'Play', 'system-ui';
 		margin: 0;
 		padding: 0;
@@ -259,6 +252,7 @@ import Precomponent from '../components/Precomponent.astro';
 		background: linear-gradient(0deg, rgb(10,10,10) 90%, transparent 100%);
 	}
 	.bar {
+		border: 2px solid white;
 		animation: bar 7s ease-in 1;
 	}
 	@keyframes bar {
@@ -275,4 +269,90 @@ import Precomponent from '../components/Precomponent.astro';
 		90% {transform: translate(-50%,-100%); opacity: 1;}
 	}
 
+	@media only screen and (min-width: 1020px) {
+        .richi {
+            font-size: 10rem;
+        } 
+		.coder {
+			font-size: 10rem;
+		}
+		.logo {
+			height: 12rem;
+		}
+		.tech {
+			top: 13rem;
+		}
+		.tech > div {
+			font-size: 8rem;
+		}
+	} 
+	@media only screen and (min-width: 750px) and (max-width: 1020px) {
+        .richi {
+            font-size: 5rem;
+        } 
+		.coder {
+			font-size: 5rem;
+		}
+		.logo {
+			height: 6rem;
+		}
+		.tech {
+			top: 6.5rem;
+		}
+		.tech > div {
+			font-size: 4rem;
+		}
+	} 
+	@media only screen and (min-width: 500px) and (max-width: 750px) {
+        .richi {
+            font-size: 4rem;
+        } 
+		.coder {
+			font-size: 4rem;
+		}
+		.logo {
+			height: 4.8rem;
+		}
+		.tech {
+			top: 5.2rem;
+		}
+		.tech > div {
+			font-size: 3.2rem;
+		}
+	} 
+	@media only screen and (min-width: 350px) and (max-width: 500px) {
+        .richi {
+            font-size: 3rem;
+        } 
+		.coder {
+			font-size: 3rem;
+		}
+		.logo {
+			height: 3.3rem;
+		}
+		.tech {
+			top: 3.9rem;
+		}
+		.tech > div {
+			font-size: 2.4rem;
+		}
+	} 
+	@media only screen and (min-width: 300px) and (max-width: 350px) {
+        .richi {
+            font-size: 5rem;
+        } 
+		.coder {
+			font-size: 5rem;
+		}
+		.logo {
+			height: 6rem;
+		}
+		.tech {
+			top: 6.5rem;
+		}
+		.tech > div {
+			font-size: 4rem;
+		}
+	} 
+	
 </style>
