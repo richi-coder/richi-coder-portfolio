@@ -109,11 +109,11 @@ import Precomponent from '../components/Precomponent.astro';
 		<div class='bar ml-5 h-full w-1'></div>
 		<div class="tech text-white">
 			<!-- <div class="layer bg-black"></div> -->
-			<div class="es5">React JS</div>
-			<div>Bootstrap</div>
-			<div>APIs</div>
-			<div>Redux</div>
-			<div>PWAs</div>
+			<div class="es5">Web Development</div>
+			<div>Single Page Apps</div>
+			<div>Progressive Web Apps</div>
+			<div>Static Site Generation</div>
+			<div>API communications	</div>
 		</div>
 	</div>
 	<div class="layer"></div>
@@ -135,7 +135,12 @@ import Precomponent from '../components/Precomponent.astro';
 	/* @import url('https://fonts.googleapis.com/css2?family=M+PLUS+1+Code&display=swap'); */
 	/* @import url('https://fonts.googleapis.com/css2?family=Genos&display=swap'); */
 	/* @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap'); */
-
+	:root {
+		--factor: 0.8125;
+		--techwidth: 95%;
+		--richiwidth: 0.85rem;
+		--coderwidth: 1.3rem;
+	}
 	.logo {
 		display: flex;
 		flex-direction: row;
@@ -144,49 +149,56 @@ import Precomponent from '../components/Precomponent.astro';
 		margin: 0;
 		padding: 0;
 		position: relative;
-		height: 2rem;
+		height: 1.5rem;
 	}
 	.firstView {
 		background-color: rgb(10,10,10);
 	}
 	.richi {
-		font-size: 2rem; 
+		font-size: 1.5rem; 
 		font-weight: 800;
 		margin: 0;
 		padding: 0;
 		color: white;
         font-family: 'Orbitron', system-ui;
-		animation: richi 2s linear 1;
+		animation: richi 12s linear 1;
 		white-space: nowrap;
 		overflow: hidden;
-		text-align: start;
-		width: 5%;
+		text-align: end;
+		width: calc(var(--richiwidth)*4); 
+		z-index: 9999;
 	}
 	.coder {
-		font-size: 2rem;
+		font-size: 1.5rem;
 		font-weight: 500;
 		margin: 0;
 		padding: 0;
 		font-family: 'Orbitron', system-ui;
-		animation: coder 2s linear 1;
+		animation: coder 12s linear 1;
 		white-space: nowrap;
 		overflow: hidden;
-		text-align: start;
-	    width: 9%; 
+		text-align:start;
+	    width: calc(var(--coderwidth)*4); 
+		z-index: 9999;
 	}
 	@keyframes richi {
-		0% { width: 5%; transform: translate(0,-70vh ); opacity: 0;}
-		10% { transform: translate(0,-70vh ); }
-		15% { transform: translate(0,0); opacity: 1;}
-		20% { transform: translate(0,-5vh);}
-		25% { transform: translate(0,0);}
+		0% { width: var(--richiwidth); transform: translate(0,-70vh ); opacity: 0;}
+		15% { transform: translate(0,-70vh ); }
+		16.25% { transform: translate(0,0); opacity: 1;}
+		16.875% { transform: translate(0,-5vh);}
+		17.5% { transform: translate(0,0);}
+		98% { width: calc(var(--richiwidth))}
+		100% { width: calc(var(--richiwidth)*4);}
 	}
 	@keyframes coder {
-		0% { width: 9	%; transform: translate(0,-70vh); opacity: 1;}
-		25% { transform: translate(0,-70vh ); }
-		30% { transform: translate(0,0); opacity: 1 }
-		35% { transform: translate(0,-7vh);}
-		40% { transform: translate(0,0);}
+		0% { width: var(--coderwidth); transform: translate(0,-70vh); opacity: 0;}
+		20% { transform: translate(0,-70vh ); }
+		21.25% { transform: translate(0,0); opacity: 1 }
+		21.875% { transform: translate(0,-7vh);}
+		22.5% { transform: translate(0,0);}
+		94% { width: var(--coderwidth)}
+		96% { width: calc(var(--coderwidth)*4);}
+		100% { width: calc(var(--coderwidth)*4);}
 	}
 
 	.text-gradient {
@@ -203,19 +215,21 @@ import Precomponent from '../components/Precomponent.astro';
 		align-self: start;
 		background-color: transparent;
 		position: relative;
-		top: 2.5rem;
+		top: 1.88rem;
 		left: 0; 
-		animation: tech 7s ease-in-out infinite 1s;
+		animation: tech 8s ease-in-out 3s 1;
 		padding: 0;
 		margin: 0;
-		padding-left: 15px;
+		padding-left: 5px;
 		z-index: 5;
 		white-space: nowrap;
 		overflow: hidden;
+		width: 0;
+		opacity: 0; 
 	}
 	@keyframes tech {
-		0% {opacity: 0; width: 40%;}
-		5% {opacity: 1 ; width: 35%;}
+		0% {opacity: 0; width: 0 }
+		5% {opacity: 1 ; width: var(--techwidth);}
 		15% {transform: translate(0,-20%);}
 		20% {transform: translate(0,-20%);}
 		35% {transform: translate(0,-40%);}
@@ -224,11 +238,11 @@ import Precomponent from '../components/Precomponent.astro';
 		60% {transform: translate(0,-60%);}
 		75% {transform: translate(0,-80%);}
 		80% {transform: translate(0,-80%);}
-		95% {transform: translate(0,-100%); opacity: 1; width: 50% }
-		100% {transform: translate(0,-100%); opacity: 0; width: 0% }
+		95% {transform: translate(0,-100%); width: var(--techwidth)}
+		100% {transform: translate(0,-100%); opacity: 1; width: 0; }
 	}
 	.tech > div {
-		font-size: 2rem;
+		font-size: 1.5rem;
 		font-family: 'Play', 'system-ui';
 		margin: 0;
 		padding: 0;
@@ -252,16 +266,20 @@ import Precomponent from '../components/Precomponent.astro';
 		background: linear-gradient(0deg, rgb(10,10,10) 90%, transparent 100%);
 	}
 	.bar {
-		border: 2px solid white;
-		animation: bar 7s ease-in 1;
+		border: 1px solid white;
+		animation: bar 8s ease-in 3s 1;
+		opacity: 0;
+		width: 0;
+		margin-left: 5px;
 	}
 	@keyframes bar {
-		0% {opacity: 0;}
-		13% {opacity: 0;}
-		25% {opacity: 1;}
+		5% {opacity: 0;}
+		15% {opacity: 1;}
+		98% {opacity: 1;}
+		100% {opacity: 0;}
 	}
 	.view-navbar {
-		animation: viewNavbar 7.5s ease-in-out 1;
+		animation: viewNavbar 12.5s ease-in-out 1;
 		transform: translate(-50%,0%);
 	}
 	@keyframes viewNavbar {
@@ -270,88 +288,114 @@ import Precomponent from '../components/Precomponent.astro';
 	}
 
 	@media only screen and (min-width: 1020px) {
+		:root {
+			--richiwidth: 4.6rem;
+			--coderwidth: 7rem;
+		}
         .richi {
-            font-size: 10rem;
+            font-size: calc(var(--factor)*10rem);
         } 
 		.coder {
-			font-size: 10rem;
+			font-size: calc(var(--factor)*10rem);
 		}
 		.logo {
-			height: 12rem;
+			height: calc(var(--factor)*12rem);
 		}
 		.tech {
-			top: 13rem;
+			top: calc(var(--factor)*13rem);
+			width: ;
 		}
 		.tech > div {
-			font-size: 8rem;
+			font-size: calc(var(--factor)*8rem);
 		}
 	} 
 	@media only screen and (min-width: 750px) and (max-width: 1020px) {
+		:root {
+			--richiwidth: 2.3rem;
+			--coderwidth: 3.5rem;
+		}
         .richi {
-            font-size: 5rem;
+            font-size: calc(var(--factor)*5rem);
         } 
 		.coder {
-			font-size: 5rem;
+			font-size: calc(var(--factor)*5rem);
 		}
 		.logo {
-			height: 6rem;
+			height: calc(var(--factor)*6rem);
 		}
 		.tech {
-			top: 6.5rem;
+			top: calc(var(--factor)*6.5rm);
 		}
 		.tech > div {
-			font-size: 4rem;
+			font-size: calc(var(--factor)*4rem);
 		}
 	} 
-	@media only screen and (min-width: 500px) and (max-width: 750px) {
+	@media only screen and (min-width: 540px) and (max-width: 750px) {
+		:root {
+			--richiwidth: 1.85rem;
+			--coderwidth: 2.8rem;
+		}
         .richi {
-            font-size: 4rem;
+            font-size: calc(var(--factor)*4rem);
         } 
 		.coder {
-			font-size: 4rem;
+			font-size: calc(var(--factor)*4rem);
 		}
 		.logo {
-			height: 4.8rem;
+			height: calc(var(--factor)*4.8rem);
 		}
 		.tech {
-			top: 5.2rem;
+			top: calc(var(--factor)*5.2rem);
 		}
 		.tech > div {
-			font-size: 3.2rem;
+			font-size: calc(var(--factor)*3.2rem);
 		}
 	} 
-	@media only screen and (min-width: 350px) and (max-width: 500px) {
+	@media only screen and (min-width: 410px) and (max-width: 540px) {
+		:root {
+			--richiwidth: 1.38rem;
+			--coderwidth: 2.1rem;
+		}
         .richi {
-            font-size: 3rem;
+            font-size: calc(var(--factor)*3rem);
         } 
 		.coder {
-			font-size: 3rem;
+			font-size: calc(var(--factor)*3rem);
 		}
 		.logo {
-			height: 3.3rem;
+			height: calc(var(--factor)*3.3rem);
 		}
 		.tech {
-			top: 3.9rem;
+			top: calc(var(--factor)*3.9rem);
 		}
 		.tech > div {
-			font-size: 2.4rem;
+			font-size: calc(var(--factor)*2.4rem);
 		}
 	} 
-	@media only screen and (min-width: 300px) and (max-width: 350px) {
+	@media only screen and (min-width: 330px) and (max-width: 410px) {
+		:root {
+			--richiwidth: 1.13rem;
+			--coderwidth: 1.7rem;
+		}
         .richi {
-            font-size: 5rem;
+            font-size: calc(var(--factor)*2.49rem);
         } 
 		.coder {
-			font-size: 5rem;
+			font-size: calc(var(--factor)*2.49rem);
 		}
 		.logo {
-			height: 6rem;
+			height: calc(var(--factor)*2.99rem);
 		}
 		.tech {
-			top: 6.5rem;
+			top: calc(var(--factor)*3.24rem);
+			padding-left: 10px;
 		}
 		.tech > div {
-			font-size: 4rem;
+			font-size: calc(var(--factor)*1.99rem);
+		}
+		.bar {
+			margin-left: 10px;
+			padding: 0;
 		}
 	} 
 	

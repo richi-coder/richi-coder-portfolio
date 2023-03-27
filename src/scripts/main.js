@@ -64,7 +64,7 @@ let tweenPhoto = new TimelineMax()
 let scenePhoto = new ScrollMagic.Scene({
   triggerElement: ".shortbio",
   triggerHook: 0,
-  duration: '50%',
+  duration: '30%',
   offset: 100 
 })
       .setTween(tweenPhoto)
