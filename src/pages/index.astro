@@ -7,12 +7,14 @@ import Title from '../components/Title.astro';
 import Portfolio from '../components/Portfolio.astro';
 import Shortbio from '../components/Shortbio.astro';
 import Photo from '../components/Photo.astro';
-import Precomponent from '../components/Precomponent.astro';
-
+import Contact from '../components/Contact.astro';
+import Header from '../components/Header.astro';
+import ProjectDetails from '../components/ProjectDetails.astro';
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="richiCoder">
 	<main class="main">
+		<Header />
 		<FirstView />
 		<Photo />
 		<!-- <Precomponent /> -->
@@ -21,12 +23,14 @@ import Precomponent from '../components/Precomponent.astro';
 		<Portfolio>
 			<Title id="projects-title" title="Projects" />
 			<Project id="PORTFOLIO" number="01" app="richicoder.com" description="Multi Page App developed with Astro!" />
+			<ProjectDetails />
 			<Project id="RICHI-SHOP" number="02" app="E-commerce Site" description="Single Page App developed with React!" />
 			<!-- <Title client:load /> -->
 			<Project id="4PICS-1WORD" number="03" app="Web Game" description="Multi Page App developed with React/Redux" />
 			<Project id="CALCULATOR" number="04"  app="Web App" />
 		</Portfolio>
 		<Video id="video" /> 
+		<Contact  />
 	</main>
 </Layout>
 
@@ -65,3 +69,4 @@ import Precomponent from '../components/Precomponent.astro';
 		padding: 0;
 	}
 </style>
+

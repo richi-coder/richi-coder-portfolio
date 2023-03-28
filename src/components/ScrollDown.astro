@@ -1,0 +1,22 @@
+<div class="scrolldown absolute bottom-0 left-0 w-full h-[10vh] flex flex-row items-center justify-between z-50 text-white pb-20">
+    <div class='scrollsign'>- scroll down</div>
+    <div class='scrollsign'>scroll down -</div>
+</div>
+
+<style>
+    .scrolldown {
+        opacity: 0;
+        animation: scrolldown 1s ease-out 12s infinite;
+    }
+    .scrollsign:nth-of-type(1) {
+        transform: rotate(-90deg)
+    }
+    .scrollsign:nth-of-type(2) {
+        transform: rotate(90deg)
+    }
+    @keyframes scrolldown {
+        0% {opacity: 1;}
+        80% {transform: translate(0,-100%);}
+        100% {transform: translate(0,0); opacity: 1;}
+    }
+</style>

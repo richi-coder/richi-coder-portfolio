@@ -21,7 +21,18 @@ if (isMobile) {
   numberYpercernt = 50
 }
 
-// 1 smooth-scrollbar
+// 1 first-scroll
+function firstScroll(element) {
+  window.addEventListener("animationend", (e) => {
+    if (e.target.classList.contains("view-navbar")) {
+      element.scroll({
+        top: 200,
+        left: 0,
+        behavior: 'smooth'
+      })
+     }
+   })
+}
 
 
 
@@ -31,7 +42,7 @@ let controller = new ScrollMagic.Controller();
     // Logo scene
 let tweenLogo = new TimelineMax ()
 		.add([
-			TweenMax.fromTo(".logoContainer", 20, { yPercent: '0', ease: Power0.easeNone}, {yPercent: '50', ease: Power0.easeNone},  0),
+			TweenMax.fromTo(".logoContainer", 20, { yPercent: '0', ease: Power0.easeNone}, {yPercent: '50', ease: Power0.easeNone},  0)
 		]);
 
 let sceneLogo = new ScrollMagic.Scene({
@@ -39,18 +50,30 @@ let sceneLogo = new ScrollMagic.Scene({
   triggerHook: 0,
   duration: '100%',
   })
+          
 					.setTween(tweenLogo)
-					.addIndicators({name: "logoScene"}) // add indicators (requires plugin)
+					// .addIndicators({name: "logoScene"}) // add indicators (requires plugin)
+					.addTo(controller)
+    
+    // Nav Logo scene
+let sceneNavlogo = new ScrollMagic.Scene({
+  triggerElement: ".shortbio",
+  triggerHook: 0,
+  })
+          
+					.setClassToggle(".nav-logo", "typing-nav-logo")
+					// .addIndicators({name: "nav-logo"}) // add indicators (requires plugin)
 					.addTo(controller)
 
     // Bio Photo scene
 let sceneBio = new ScrollMagic.Scene({
   triggerElement: ".firstView",
   triggerHook: 0,
-  duration: '1500%',
+  duration: '1000%',
  },)
+          .setPin('.view-navbar')
 					.setPin("#photo", {pushFollowers: false})
-          .addIndicators({name: "1 (photo: 500%)"}) 
+          // .addIndicators({name: "1 (photo: 1000%)"}) 
 					.addTo(controller)
 
     // Photo animation
@@ -68,7 +91,7 @@ let scenePhoto = new ScrollMagic.Scene({
   offset: 100 
 })
       .setTween(tweenPhoto)
-      .addIndicators({name: "photoOpacity"})
+      // .addIndicators({name: "photoOpacity"})
       .addTo(controller)
 
     // Mybio animation
@@ -89,7 +112,7 @@ let sceneMybio1 = new ScrollMagic.Scene({
       // .setClassToggle(".bio", 'fixed')
       .setTween(tweenMybio1)
       // .setPin("#bio1", {pushFollowers: true }, )
-      .addIndicators({name: "bioFixed 1"})
+      // .addIndicators({name: "bioFixed 1"})
       .addTo(controller)
 
 let tweenMybio2 = new TimelineMax()
@@ -107,7 +130,7 @@ let sceneMybio2 = new ScrollMagic.Scene({
       // .setClassToggle(".bio", 'fixed')
       .setTween(tweenMybio2)
       // .setPin("#bio2", {pushFollowers: true })
-      .addIndicators({name: "bioFixed 2"})
+      // .addIndicators({name: "bioFixed 2"})
       .addTo(controller)
 
       // sceneLayerBlack
@@ -124,7 +147,7 @@ let sceneLayer = new ScrollMagic.Scene({
   offset: -1500 
 })
       .setTween(tweenLayer)
-      .addIndicators({name: "layerBlack"})
+      // .addIndicators({name: "layerBlack"})
       .addTo(controller)
 
 
@@ -143,23 +166,98 @@ let sceneMybioOff = new ScrollMagic.Scene({
   offset: -800 
 })
       .setTween(tweenOff)
-      .addIndicators({name: "videoContainer"})
+      // .addIndicators({name: "videoContainer"})
       .addTo(controller)
 
     // Number scene          
-let tweenNumber = new TimelineMax ()
+let tweenNumber1 = new TimelineMax ()
     .add([
       TweenMax.fromTo("#n-01", 15, {autoAlpha: 0, yPercent: -20, ease: Power0.easeNone}, {autoAlpha: 1, yPercent: numberYpercernt, ease: Power0.easeNone},0)
     ])
 
-let sceneNumber = new ScrollMagic.Scene({
-  triggerElement: ".portfolio",
+let sceneNumber1 = new ScrollMagic.Scene({
+  triggerElement: "#n-01",
   duration: '100%',
   triggerHook: 0,
   offset: numberOffset
 })
-    .setTween(tweenNumber)
-    .addIndicators({name: "Number 01"})
+    .setTween(tweenNumber1)
+    // .addIndicators({name: "Number 01"})
+    .addTo(controller)
+
+let tweenNumber2 = new TimelineMax ()
+    .add([
+      TweenMax.fromTo("#n-02", 15, {autoAlpha: 0, yPercent: -20, ease: Power0.easeNone}, {autoAlpha: 1, yPercent: numberYpercernt, ease: Power0.easeNone},0)
+    ])
+
+let sceneNumber2 = new ScrollMagic.Scene({
+  triggerElement: "#n-02",
+  duration: '100%',
+  triggerHook: 0,
+  offset: numberOffset
+})
+    .setTween(tweenNumber2)
+    // .addIndicators({name: "Number 02"})
+    .addTo(controller)
+
+let tweenNumber3 = new TimelineMax ()
+    .add([
+      TweenMax.fromTo("#n-03", 15, {autoAlpha: 0, yPercent: -20, ease: Power0.easeNone}, {autoAlpha: 1, yPercent: numberYpercernt, ease: Power0.easeNone},0)
+    ])
+
+let sceneNumber3 = new ScrollMagic.Scene({
+  triggerElement: "#n-03",
+  duration: '100%',
+  triggerHook: 0,
+  offset: numberOffset
+})
+    .setTween(tweenNumber3)
+    // .addIndicators({name: "Number 03"})
+    .addTo(controller)
+
+let tweenNumber4 = new TimelineMax ()
+    .add([
+      TweenMax.fromTo("#n-04", 15, {autoAlpha: 0, yPercent: -20, ease: Power0.easeNone}, {autoAlpha: 1, yPercent: numberYpercernt, ease: Power0.easeNone},0)
+    ])
+
+let sceneNumber4 = new ScrollMagic.Scene({
+  triggerElement: "#n-04",
+  duration: '100%',
+  triggerHook: 0,
+  offset: numberOffset
+})
+    .setTween(tweenNumber4)
+    // .addIndicators({name: "Number 04"})
+    .addTo(controller)
+
+    // Project Details scene          
+let tweenProjectDetails = new TimelineMax ()
+    .add([
+      TweenMax.fromTo(".project-details", 15, {autoAlpha: 0, yPercent: -50, ease: Power0.easeNone}, {autoAlpha: 1, yPercent: 0, ease: Power0.easeNone},0)
+    ])
+
+let sceneProjectDetails = new ScrollMagic.Scene({
+  triggerElement: ".project-component",
+  duration: '100%',
+  triggerHook: 0,
+})
+    .setTween(tweenProjectDetails)
+    // .addIndicators({name: "Project Details"})
+    .addTo(controller)
+
+    // Contact scene          
+let tweenContact = new TimelineMax ()
+    .add([
+      TweenMax.fromTo(".contactContainer", {y: -450, ease: Power0.easeNone}, {y: 0, ease: Power0.easeNone} )
+    ])
+
+let sceneContact = new ScrollMagic.Scene({
+  triggerElement: ".videoContainer",
+  duration: '100%',
+  triggerHook: 0,
+})
+    .setTween(tweenContact)
+    // .addIndicators({name: "Contact"})
     .addTo(controller)
 
 // 3 Add classes to hide elements (case using JS)
@@ -180,29 +278,39 @@ function desktopScrolling() {
   let scrollbar = Scrollbar.init(document.body);
   // Force fixing:
 const fixedPhoto = document.querySelector(".photo");
+const fixedNav = document.querySelector(".view-navbar");
 // const fixedBio1 = document.querySelector("#bio1")
 // const fixedBio2 = document.querySelector("#bio2")
   scrollbar.addListener((status) => {
     const offset = status.offset;
-    fixedPhoto.style.top = offset.y + 'px'
+    fixedPhoto.style.top = offset.y + 'px';
     fixedPhoto.style.left = offset.x + 'px';
+    fixedNav.style.top = offset.y + 'px';
+    fixedNav.style.left = offset.x + ' px';
     // fixedBio1.style.top = offset.y + 'px'
     // fixedBio1.style.left = offset.x + 'px';
     // fixedBio2.style.top = offset.y + 'px'
     // fixedBio2 .style.left = offset.x + 'px';
     sceneLogo.refresh()
+    sceneNavlogo.refresh()
     scenePhoto.refresh()
     sceneMybio1.refresh()
     sceneMybio2.refresh()
     sceneLayer.refresh()
     sceneMybioOff.refresh()
-    sceneNumber.refresh()
+    sceneNumber1.refresh()
+    sceneNumber2.refresh()
+    sceneNumber3.refresh()
+    sceneNumber4.refresh()
+    sceneContact.refresh()
+    sceneProjectDetails.refresh()
     myAnimationScroll();
   })
 }
 
 
 function mobileScrolling() {
+  //firstScroll(window)
   window.addEventListener("scroll", () => {
     myAnimationScroll()
   })

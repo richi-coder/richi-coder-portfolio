@@ -1,104 +1,8 @@
 ---
 import Precomponent from '../components/Precomponent.astro';
+import ScrollDown from '../components/ScrollDown.astro';
 ---
-<nav class="bg-slate-900 rounded-b-xl z-50 fixed top-0 left-1/2 -translate-x-1/2 w-2/3 md:w-3/4 view-navbar">
-	<div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-	  <div class="relative flex h-16 items-center justify-between">
-		<div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-		  <!-- Mobile menu button-->
-		  <button type="button" class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
-			<span class="sr-only">Open main menu</span>
-			<!--
-			  Icon when menu is closed.
-  
-			  Menu open: "hidden", Menu closed: "block"
-			-->
-			<svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-			  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-			</svg>
-			<!--
-			  Icon when menu is open.
-  
-			  Menu open: "block", Menu closed: "hidden"
-			-->
-			<svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-			  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-			</svg>
-		  </button>
-		</div>
-		<div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-		  <div class="flex flex-shrink-0 items-center">
-			<!-- <img class="block h-8 w-auto lg:hidden" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company"> -->
-			<div class="w-full h-screen flex flex-col items-start sticky top-0 left-0 justify-center m-0">
-				<div class="p-0 m-0 text-left typing"><p class="text-center p-0 m-0">richi<span class="text-gradient">Coder</span></p></div>
-			</div>
-			<!-- <img class="hidden h-8 w-auto lg:block" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company"> -->
-		  </div>
-		  <div class="hidden sm:ml-6 sm:hidden">
-			<div class="flex space-x-4">
-			  <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-			  <a href="#" class="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium" aria-current="page">Dashboard</a>
-  
-			  <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Team</a>
-  
-			  <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Projects</a>
-  
-			  <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Calendar</a>
-			</div>
-		  </div>
-		</div>
-		<div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-		  <button type="button" class="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-			<span class="sr-only">View notifications</span>
-			<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-			  <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
-			</svg>
-		  </button>
-  
-		  <!-- Profile dropdown -->
-		  <div class="relative ml-3">
-			<!-- <div>
-			  <button type="button" class="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800" id="user-menu-button" aria-expanded="false" aria-haspopup="true">
-				<span class="sr-only">Open user menu</span>
-				<img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="">
-			  </button>
-			</div> -->
-  
-			<!--
-			  Dropdown menu, show/hide based on menu state.
-  
-			  Entering: "transition ease-out duration-100"
-				From: "transform opacity-0 scale-95"
-				To: "transform opacity-100 scale-100"
-			  Leaving: "transition ease-in duration-75"
-				From: "transform opacity-100 scale-100"
-				To: "transform opacity-0 scale-95"
-			-->
-			<!-- <div class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1"> -->
-			  <!-- Active: "bg-gray-100", Not Active: "" -->
-			  <!-- <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
-			  <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
-			  <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
-			</div> -->
-		  </div>
-		</div>
-	  </div>
-	</div>
-  
-	<!-- Mobile menu, show/hide based on menu state. -->
-	<div class="hidden" id="mobile-menu">
-	  <div class="space-y-1 px-2 pt-2 pb-3">
-		<!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-		<a href="#" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Dashboard</a>
-  
-		<a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Team</a>
-  
-		<a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Projects</a>
-  
-		<a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Calendar</a>
-	  </div>
-	</div>
-  </nav>
+
 
 <div class="firstView w-full h-screen relative top-0 left-0 z-10 overflow-hidden">
 	<div class="logoContainer flex flex-col items-center w-full h-full absolute top-0 left-0">
@@ -118,13 +22,18 @@ import Precomponent from '../components/Precomponent.astro';
 	</div>
 	<div class="layer"></div>
 	</div>
-	<Precomponent /> 
+	<Precomponent />
+	<ScrollDown />
 </div>
 
 
 
 
 <style>
+
+	.nav-logo {
+		opacity: 0;
+	}
 	/* @import url('https://fonts.googleapis.com/css2?family=Six+Caps&display=swap'); */
 	/* @import url('https://fonts.googleapis.com/css2?family=Play&display=swap'); */
 	/* @import url('https://fonts.googleapis.com/css2?family=Syncopate:wght@700&display=swap'); */
@@ -140,6 +49,7 @@ import Precomponent from '../components/Precomponent.astro';
 		--techwidth: 95%;
 		--richiwidth: 0.85rem;
 		--coderwidth: 1.3rem;
+		--layerPercentage: 95%;
 	}
 	.logo {
 		display: flex;
@@ -149,7 +59,7 @@ import Precomponent from '../components/Precomponent.astro';
 		margin: 0;
 		padding: 0;
 		position: relative;
-		height: 1.5rem;
+		height: 1rem;
 	}
 	.firstView {
 		background-color: rgb(10,10,10);
@@ -215,7 +125,7 @@ import Precomponent from '../components/Precomponent.astro';
 		align-self: start;
 		background-color: transparent;
 		position: relative;
-		top: 1.88rem;
+		top: 1.6rem;
 		left: 0; 
 		animation: tech 8s ease-in-out 3s 1;
 		padding: 0;
@@ -255,15 +165,15 @@ import Precomponent from '../components/Precomponent.astro';
 		margin: 0;
 	}
 	.layer:first-child {
-		background: linear-gradient(180deg, rgb(10,10,10) 90%, transparent 100%);
-		animation: firstLayer 1s ease-in-out 1;
+		background: linear-gradient(180deg, rgb(10,10,10) var(--layerPercentage), transparent 100%);
+		/* animation: firstLayer 1s ease-in-out 1; */
 	}
-	@keyframes firstLayer {
+	/* @keyframes firstLayer {
 		0% {opacity: 0;}
 		100% {opacity: 0;}
-	}
+	} */
 	.layer:last-child {
-		background: linear-gradient(0deg, rgb(10,10,10) 90%, transparent 100%);
+		background: linear-gradient(0deg, rgb(10,10,10) var(--layerPercentage), transparent 100%);
 	}
 	.bar {
 		border: 1px solid white;
@@ -278,16 +188,9 @@ import Precomponent from '../components/Precomponent.astro';
 		98% {opacity: 1;}
 		100% {opacity: 0;}
 	}
-	.view-navbar {
-		animation: viewNavbar 12.5s ease-in-out 1;
-		transform: translate(-50%,0%);
-	}
-	@keyframes viewNavbar {
-		0% {transform: translate(-50%,-100%); opacity: 1;}
-		90% {transform: translate(-50%,-100%); opacity: 1;}
-	}
+	
 
-	@media only screen and (min-width: 1020px) {
+	@media only screen and (min-width: 1300px) {
 		:root {
 			--richiwidth: 4.6rem;
 			--coderwidth: 7rem;
@@ -299,40 +202,75 @@ import Precomponent from '../components/Precomponent.astro';
 			font-size: calc(var(--factor)*10rem);
 		}
 		.logo {
-			height: calc(var(--factor)*12rem);
+			height: calc(var(--factor)*11rem);
 		}
 		.tech {
-			top: calc(var(--factor)*13rem);
-			width: ;
+			top: calc(var(--factor)*12rem);
+			padding-left: 30px;
 		}
 		.tech > div {
 			font-size: calc(var(--factor)*8rem);
 		}
+		.bar {
+		border: 5px solid white;
+		margin-left: 30px;
+		}
 	} 
-	@media only screen and (min-width: 750px) and (max-width: 1020px) {
+	@media only screen and (min-width: 1090px) and (max-width: 1300px) {
 		:root {
-			--richiwidth: 2.3rem;
-			--coderwidth: 3.5rem;
+			--richiwidth: 4rem;
+			--coderwidth: 6rem;
 		}
         .richi {
-            font-size: calc(var(--factor)*5rem);
+            font-size: calc(0.7*10rem);
         } 
 		.coder {
-			font-size: calc(var(--factor)*5rem);
+			font-size: calc(0.7*10rem);
 		}
 		.logo {
-			height: calc(var(--factor)*6rem);
+			height: calc(0.7*11rem);
 		}
 		.tech {
-			top: calc(var(--factor)*6.5rm);
+			top: calc(0.7*12rem);
+			padding-left: 15px;
 		}
 		.tech > div {
-			font-size: calc(var(--factor)*4rem);
+			font-size: calc(0.7*8rem);
+		}
+		.bar {
+		border: 3px solid white;
+		margin-left: 15px;
 		}
 	} 
-	@media only screen and (min-width: 540px) and (max-width: 750px) {
+	@media only screen and (min-width: 775px) and (max-width: 1090px) {
 		:root {
-			--richiwidth: 1.85rem;
+			--richiwidth: 2.8rem;
+			--coderwidth: 4.3rem;
+		}
+        .richi {
+            font-size: 5rem;
+        } 
+		.coder {
+			font-size: 5rem;
+		}
+		.logo {
+			height: 5rem;
+		}
+		.tech {
+			top: 5.7rem;
+			padding-left: 10px;
+		}
+		.tech > div {
+			font-size: calc(4rem);
+		}
+		.bar {
+			border: 2px solid white;
+			margin-left: 10px;
+		}
+	} 
+	@media only screen and (min-width: 540px) and (max-width: 775px) {
+		:root {
+			--richiwidth: 1.83rem;
 			--coderwidth: 2.8rem;
 		}
         .richi {
@@ -342,19 +280,25 @@ import Precomponent from '../components/Precomponent.astro';
 			font-size: calc(var(--factor)*4rem);
 		}
 		.logo {
-			height: calc(var(--factor)*4.8rem);
+			height: calc(var(--factor)*3.5rem);
 		}
 		.tech {
-			top: calc(var(--factor)*5.2rem);
+			top: calc(var(--factor)*4.2rem);
+			padding-left: 10px;
 		}
 		.tech > div {
 			font-size: calc(var(--factor)*3.2rem);
 		}
+		.bar {
+			border: 2px solid white;
+			margin-left: 10px;
+		}
 	} 
 	@media only screen and (min-width: 410px) and (max-width: 540px) {
 		:root {
-			--richiwidth: 1.38rem;
+			--richiwidth: 1.37rem;
 			--coderwidth: 2.1rem;
+			--layerPercentage: 95%;
 		}
         .richi {
             font-size: calc(var(--factor)*3rem);
@@ -363,19 +307,25 @@ import Precomponent from '../components/Precomponent.astro';
 			font-size: calc(var(--factor)*3rem);
 		}
 		.logo {
-			height: calc(var(--factor)*3.3rem);
+			height: calc(var(--factor)*2rem);
 		}
 		.tech {
-			top: calc(var(--factor)*3.9rem);
+			top: calc(var(--factor)*2.8rem);
+			padding-left: 10px;
 		}
 		.tech > div {
 			font-size: calc(var(--factor)*2.4rem);
+		}
+		.bar {
+			border: 1px solid white;
+			margin-left: 10px;
 		}
 	} 
 	@media only screen and (min-width: 330px) and (max-width: 410px) {
 		:root {
 			--richiwidth: 1.13rem;
 			--coderwidth: 1.7rem;
+			--layerPercentage: 97%;
 		}
         .richi {
             font-size: calc(var(--factor)*2.49rem);
@@ -384,19 +334,20 @@ import Precomponent from '../components/Precomponent.astro';
 			font-size: calc(var(--factor)*2.49rem);
 		}
 		.logo {
-			height: calc(var(--factor)*2.99rem);
+			height: calc(var(--factor)*2.3rem);
 		}
 		.tech {
-			top: calc(var(--factor)*3.24rem);
+			top: calc(var(--factor)*2.7rem);
 			padding-left: 10px;
 		}
 		.tech > div {
 			font-size: calc(var(--factor)*1.99rem);
 		}
 		.bar {
+			border: 0.7px solid white;
 			margin-left: 10px;
-			padding: 0;
 		}
 	} 
 	
 </style>
+
