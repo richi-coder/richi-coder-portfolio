@@ -10,6 +10,35 @@ import Photo from '../components/Photo.astro';
 import Contact from '../components/Contact.astro';
 import Header from '../components/Header.astro';
 import ProjectDetails from '../components/ProjectDetails.astro';
+
+const gameProps = {
+	id: "4PICS-1WORD",
+	number: "01",
+	app: "Web Game",
+	description: "Multi Page App - React/Redux",
+	mobileImage: "/4pics_1word_mobile.png",
+	desktopImage: "/4pics_1word_desktop.png",
+	demoURL: "https://pics-1word-6a8f0.web.app/",
+	githubURL: "https://github.com/richi-coder/4pics-1word-richi-coder"
+}
+const ecommerceProps = {
+	id: "RICHI-SHOP",
+	number: "02",
+	app: "Ecommerce Site",
+	description: "Single Page App - React/Router",
+	mobileImage: "/richi_shop_mobile.png",
+	desktopImage: "/richi_shop_desktop.png",
+	demoURL: "https://richi-shop.web.app/",
+	githubURL: "https://github.com/richi-coder/richi-coder-portfolio"
+}
+const calculatorProps = {
+	id: "CALCULATOR",
+	number: "03",
+	app: "Web App",
+	description: "Single Page App - React",
+	mobileImage: "/4pics_1word_mobile.png",
+	desktopImage: "/4pics_1word_desktop.png"
+}
 ---
 
 <Layout title="richiCoder">
@@ -22,12 +51,12 @@ import ProjectDetails from '../components/ProjectDetails.astro';
 		
 		<Portfolio>
 			<Title id="projects-title" title="Projects" />
-			<Project id="PORTFOLIO" number="01" app="richicoder.com" description="Multi Page App developed with Astro!" />
-			<ProjectDetails />
-			<Project id="RICHI-SHOP" number="02" app="E-commerce Site" description="Single Page App developed with React!" />
+			<!-- <ProjectDetails /> -->
+			<Project projectDetails={gameProps} />
 			<!-- <Title client:load /> -->
-			<Project id="4PICS-1WORD" number="03" app="Web Game" description="Multi Page App developed with React/Redux" />
-			<Project id="CALCULATOR" number="04"  app="Web App" />
+			<Project projectDetails={ecommerceProps} />
+			<Project projectDetails={calculatorProps} />
+			
 		</Portfolio>
 		<Video id="video" /> 
 		<Contact  />
