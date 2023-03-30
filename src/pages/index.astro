@@ -9,7 +9,8 @@ import Shortbio from '../components/Shortbio.astro';
 import Photo from '../components/Photo.astro';
 import Contact from '../components/Contact.astro';
 import Header from '../components/Header.astro';
-import ProjectDetails from '../components/ProjectDetails.astro';
+import SkillsTitle from '../components/SkillsTitle.astro';
+
 
 const gameProps = {
 	id: "4PICS-1WORD",
@@ -58,6 +59,7 @@ const calculatorProps = {
 			<Project projectDetails={calculatorProps} />
 			
 		</Portfolio>
+		<SkillsTitle />
 		<Video id="video" /> 
 		<Contact  />
 	</main>

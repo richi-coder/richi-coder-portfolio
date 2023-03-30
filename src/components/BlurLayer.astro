@@ -1,8 +1,8 @@
 ---
-const { projectClass } = Astro.props;
+const { id } = Astro.props;
 ---
 
-<div id={`l-${projectClass}`} class="blur-layer absolute top-0 left-0 w-full h-full"></div>
+<div id={`l-${id}`} class="blur-layer absolute top-0 left-0 w-full h-full"></div>
 
 <style>
     .blur-layer {
@@ -16,7 +16,7 @@ const { projectClass } = Astro.props;
         z-index: -1;
         backdrop-filter: blur(0);
         -webkit-backdrop-filter: blur(0);
-        animation: blur-layer-off 1.5s ease-in-out 1;
+        animation: blur-layer-off 2s ease-in-out 1;
     }
     @keyframes blur-layer-off {
         0% {background-color: rgba(0,0,0,0.1); z-index: 1; backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);}

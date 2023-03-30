@@ -1,0 +1,56 @@
+---
+import Title from "./Title.astro";
+
+---
+
+<div class='skillsTitleContainer w-full bg-[rgb(10,10,10)] relative'>
+    
+    <div id="slideContainer" class='absolute top-0 left-0'>
+		<section class="panel blue">
+			<Title id="skills-title" title="Skills" />
+		</section>
+		<section class="panel turqoise">
+			<b>TWO</b>
+		</section>
+		<section class="panel green">
+			<b>THREE</b>
+		</section>
+		<section class="panel bordeaux">
+			<b>FOUR</b>
+		</section>
+	</div>
+</div>
+
+<style>
+    .skillsTitleContainer {
+        perspective: 1000; 
+    }
+    #slideContainer {
+        width: 400%;
+        height: 100vh;
+        /* display: flex;
+        flex-direction: row;  */
+    }
+    .panel {
+        /* position: relative; */
+        float: left;
+        width: 25%;
+        height: 100vh;
+    }
+    .blue {
+        background-color: rgb(10,10,10) ;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .turqoise {
+        background-color: blue;
+    }
+    .green {
+        background-color: green;
+    }
+    .bordeaux {
+        background-color: rgb(10,10,10);
+    }
+</style>

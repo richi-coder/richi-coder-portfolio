@@ -12,16 +12,22 @@ let isMobile = (function(a){return /(android|bb\d+|meego).+mobile|avantgo|bada\/
 let numberOffset = 0;
 let numberYpercent = 0;
 let numberYpercentStart = 0;
+let skillsFixedDuration = '';
+let skillsContainer = document.querySelector('.skillsTitleContainer');
 if (isMobile) {
   mobileScrolling()
   numberOffset = -500;
   numberYpercentStart = 0;
   numberYpercent = 80;
+  skillsFixedDuration = '400%';
+  skillsContainer.style.height = '100vh'
 } else {
   desktopScrolling()
   numberOffset = -200;
   numberYpercentStart = -20;
   numberYpercent = 50;
+  skillsFixedDuration = '0.0000001%' //0.01%
+  skillsContainer.style.height = '400vh'
 }
 
 // 1 first-scroll
@@ -46,7 +52,7 @@ let controller = new ScrollMagic.Controller();
 let tweenLogo = new TimelineMax ()
 		.add([
 			TweenMax.fromTo(".logoContainer", 20, { yPercent: '0', ease: Power0.easeNone}, {yPercent: '50', ease: Power0.easeNone},  0),
-      TweenMax.fromTo(".photolayer", { filter: 'blur(50px)', ease: Power0.easeNone}, { filter: 'blur(0)', ease: Power0.easeNone})
+      TweenMax.fromTo(".photolayer", { filter: 'blur(50px)', ease: Power0.easeNone}, { filter: 'blur(0px)', ease: Power0.easeNone})
 		]);
 
 let sceneLogo = new ScrollMagic.Scene({
@@ -73,11 +79,10 @@ let sceneNavlogo = new ScrollMagic.Scene({
 let sceneBio = new ScrollMagic.Scene({
   triggerElement: ".firstView",
   triggerHook: 0,
-  duration: '1000%',
  },)
           .setPin('.view-navbar')
-					.setPin("#photo", {pushFollowers: false})
-          // .addIndicators({name: "1 (photo: 1000%)"}) 
+					.setPin("#photo", {pushFollowers: true})
+          .addIndicators({name: "1 (photo: 500%)"}) 
 					.addTo(controller)
 
     // Photo animation
@@ -140,7 +145,7 @@ let sceneMybio2 = new ScrollMagic.Scene({
       // sceneLayerBlack
 let tweenLayer = new TimelineMax()
     .add([
-      TweenMax.to(".photolayer", {backgroundColor: 'rgb(10,10,10)', ease: Power0.easeNone} ),
+      TweenMax.to(".photolayer", {backgroundColor: 'rgb(10,10,10)', zIndex: 50, ease: Power0.easeNone} ),
       TweenMax.to("#shortbio-title", {color: 'white', ease: Power0.easeNone} ),
       TweenMax.to(".bio", {color: 'white', backgroundColor: 'rgb(10,10,10)', ease: Power0.easeNone} )
     ])
@@ -148,10 +153,10 @@ let tweenLayer = new TimelineMax()
 let sceneLayer = new ScrollMagic.Scene({
   triggerElement: ".portfolio",
   triggerHook: 1,
-  offset: -1500 
+  offset: -1500
 })
       .setTween(tweenLayer)
-      // .addIndicators({name: "layerBlack"})
+      .addIndicators({name: "layerBlack"})
       .addTo(controller)
 
 
@@ -176,7 +181,7 @@ let sceneMybioOff = new ScrollMagic.Scene({
     // Number scene          
 let tweenNumber1 = new TimelineMax ()
     .add([
-      TweenMax.fromTo("#n-01", {autoAlpha: 0, filter: 'blur(2px)', yPercent: numberYpercentStart, ease: Power0.easeNone}, {autoAlpha: 1, filter: 'blur(0)', yPercent: numberYpercent, ease: Power0.easeNone} )
+      TweenMax.fromTo("#n-01", {autoAlpha: 0, yPercent: numberYpercentStart, ease: Power0.easeNone}, {autoAlpha: 1, yPercent: numberYpercent, ease: Power0.easeNone} )
     ])
 
 let sceneNumber1 = new ScrollMagic.Scene({
@@ -249,10 +254,70 @@ let sceneNumber3 = new ScrollMagic.Scene({
 //     // .addIndicators({name: "Project Details"})
 //     .addTo(controller)
 
+    // SkillsTitle scene          
+let tweenSkillsTitle = new TimelineMax ()
+    .add([
+      TweenMax.fromTo(".skillsTitleContainer", { yPercent: -10, filter: 'blur(5px)', ease: Power0.easeNone}, { yPercent: 0, filter: 'blur(0px)', ease: Power0.easeNone}),
+    ])
+
+let sceneSkillsTitle = new ScrollMagic.Scene({
+  triggerElement: ".skillsTitleContainer",
+  duration: '95%',
+  triggerHook: 1,
+})
+    
+    .setTween(tweenSkillsTitle)
+    .addIndicators({name: "SkillsTitle"})
+    .addTo(controller)
+
+        // SkillsTitle FIXED scene          
+let tweenSkillsFixed = new TimelineMax ()
+    .add([
+      TweenMax.fromTo(".skillsTitleContainer", {position: 'relative'} , {position: 'fixed'}),
+      // TweenMax.to("#photo", {position: 'relative', ease: Power0.easeNone})
+    ])
+
+let sceneSkillsFixed = new ScrollMagic.Scene({
+  triggerElement: ".skillsTitleContainer",
+  duration: skillsFixedDuration,
+  triggerHook: 0,
+})
+    
+    .setTween(tweenSkillsFixed)
+    // .setClassToggle(".skillsTitleContainer", "fixed")
+    .setPin(".skillsTitleContainer", )
+    .addIndicators({name: "Skills FIX"})
+    .addTo(controller)
+
+        // skillSlider         
+let tweenSkillSlider = new TimelineMax ()
+      .to("#slideContainer", 0.5, {z: -150})		// move back in 3D space
+			.to("#slideContainer", 1,   {x: "-25%"})	// move in to first panel
+			.to("#slideContainer", 0.5, {z: 0})				// move back to origin in 3D space
+			// animate to third panel
+			.to("#slideContainer", 0.5, {z: -150, delay: 1})
+			.to("#slideContainer", 1,   {x: "-50%"})
+			.to("#slideContainer", 0.5, {z: 0})
+			// animate to forth panel
+			.to("#slideContainer", 0.5, {z: -150, delay: 1})
+			.to("#slideContainer", 1,   {x: "-75%"})
+			.to("#slideContainer", 0.5, {z: 0});
+
+let sceneSkillSlider = new ScrollMagic.Scene({
+  triggerElement: ".skillsTitleContainer",
+  duration: '400%',
+  triggerHook: 0,
+  offset: 10
+})
+    
+    .setTween(tweenSkillSlider)
+    .addIndicators({name: "skillSlider"})
+    .addTo(controller)
+
     // Contact scene          
 let tweenContact = new TimelineMax ()
     .add([
-      TweenMax.fromTo(".contactContainer", {y: -450, ease: Power0.easeNone}, {y: 0, ease: Power0.easeNone} )
+      TweenMax.fromTo(".contactContainer", {yPercent: -45, filter: 'blur(5px)', ease: Power0.easeNone}, {yPercent: 0, filter: 'blur(0px)', ease: Power0.easeNone}),
     ])
 
 let sceneContact = new ScrollMagic.Scene({
@@ -283,14 +348,21 @@ function desktopScrolling() {
   // Force fixing:
 const fixedPhoto = document.querySelector(".photo");
 const fixedNav = document.querySelector(".view-navbar");
+const fixedSkills = document.querySelector(".skillsTitleContainer");
 // const fixedBio1 = document.querySelector("#bio1")
 // const fixedBio2 = document.querySelector("#bio2")
   scrollbar.addListener((status) => {
     const offset = status.offset;
-    fixedPhoto.style.top = offset.y + 'px';
-    fixedPhoto.style.left = offset.x + 'px';
+    // if (fixedPhoto.style.position === 'fixed'){
+      fixedPhoto.style.top = offset.y + 'px';
+      fixedPhoto.style.left = offset.x + 'px';
+    // }
     fixedNav.style.top = offset.y + 'px';
-    fixedNav.style.left = offset.x + ' px';
+    fixedNav.style.left = offset.x + 'px';
+    if (fixedSkills.style.position === 'fixed') {
+      fixedSkills.style.top = offset.y + 'px'; 
+      fixedSkills.style.left = offset.x + 'px';
+    }
     // fixedBio1.style.top = offset.y + 'px'
     // fixedBio1.style.left = offset.x + 'px';
     // fixedBio2.style.top = offset.y + 'px'
@@ -306,6 +378,9 @@ const fixedNav = document.querySelector(".view-navbar");
     sceneNumber2.refresh()
     sceneNumber3.refresh()
     // sceneNumber4.refresh()
+    sceneSkillsTitle.refresh()
+    sceneSkillsFixed.refresh()
+    sceneSkillSlider.refresh()
     sceneContact.refresh()
     // sceneProjectDetails.refresh()
     myAnimationScroll();
