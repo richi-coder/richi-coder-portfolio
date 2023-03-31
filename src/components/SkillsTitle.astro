@@ -3,20 +3,23 @@ import Title from "./Title.astro";
 
 ---
 
-<div class='skillsTitleContainer w-full bg-[rgb(10,10,10)] relative'>
+<div class='skillsTitleContainer w-full h-screen absolute top-0 left-0 pt-20 -z-10 '>
     
     <div id="slideContainer" class='absolute top-0 left-0'>
 		<section class="panel blue">
-			<Title id="skills-title" title="Skills" />
+			<Title id="skills-title" title="Skills" preTitle='richi' />
 		</section>
 		<section class="panel turqoise">
-			<b>TWO</b>
+			<Title id="responsive-title" title="Design" preTitle='responsive' />
 		</section>
 		<section class="panel green">
-			<b>THREE</b>
+			<Title id="spa-title" title="Development" preTitle='spa' />
 		</section>
 		<section class="panel bordeaux">
-			<b>FOUR</b>
+			<Title id="projectInit-title" title="Initialization" preTitle='project' />
+		</section>
+        <section class="panel orange">
+			<Title id="others-title" title="Initialization" preTitle='project' />
 		</section>
 	</div>
 </div>
@@ -26,15 +29,15 @@ import Title from "./Title.astro";
         perspective: 1000; 
     }
     #slideContainer {
-        width: 400%;
+        width: 500%;
         height: 100vh;
-        /* display: flex;
-        flex-direction: row;  */
+        display: flex;
+        flex-direction: row; 
     }
     .panel {
-        /* position: relative; */
-        float: left;
-        width: 25%;
+        position: relative;
+        /* float: left; */
+        width: 20%;
         height: 100vh;
     }
     .blue {
@@ -48,9 +51,12 @@ import Title from "./Title.astro";
         background-color: blue;
     }
     .green {
-        background-color: green;
+        background-color: rgb(10,10,10);
     }
     .bordeaux {
-        background-color: rgb(10,10,10);
+        background-color: purple;
+    }
+    .orange {
+        background-color: orange;
     }
 </style>

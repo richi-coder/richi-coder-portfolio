@@ -13,21 +13,21 @@ let numberOffset = 0;
 let numberYpercent = 0;
 let numberYpercentStart = 0;
 let skillsFixedDuration = '';
-let skillsContainer = document.querySelector('.skillsTitleContainer');
+// let skillsContainer = document.querySelector('.skillsTitleContainer');
 if (isMobile) {
   mobileScrolling()
   numberOffset = -500;
   numberYpercentStart = 0;
   numberYpercent = 80;
   skillsFixedDuration = '400%';
-  skillsContainer.style.height = '100vh'
+  // skillsContainer.style.height = '100vh'
 } else {
   desktopScrolling()
   numberOffset = -200;
   numberYpercentStart = -20;
   numberYpercent = 50;
-  skillsFixedDuration = '0.0000001%' //0.01%
-  skillsContainer.style.height = '400vh'
+  skillsFixedDuration = '100%' //0.01%
+  // skillsContainer.style.height = '400vh'
 }
 
 // 1 first-scroll
@@ -67,7 +67,7 @@ let sceneLogo = new ScrollMagic.Scene({
     
     // Nav Logo scene
 let sceneNavlogo = new ScrollMagic.Scene({
-  triggerElement: ".shortbio",
+  triggerElement: "#shortbio",
   triggerHook: 0,
   })
           
@@ -79,22 +79,31 @@ let sceneNavlogo = new ScrollMagic.Scene({
 let sceneBio = new ScrollMagic.Scene({
   triggerElement: ".firstView",
   triggerHook: 0,
- },)
-          .setPin('.view-navbar')
-					.setPin("#photo", {pushFollowers: true})
+},)
+          .setPin("#photo")
           .addIndicators({name: "1 (photo: 500%)"}) 
 					.addTo(controller)
+          
+    // Skills Fixing
+// let sceneSkillFixing = new ScrollMagic.Scene({
+//   triggerElement: ".firstView",
+//   triggerHook: 0,
+// },)
+//           .setPin(".skillsTitleContainer")
+//           .addIndicators({name: "1 (photo: 500%)"}) 
+// 					.addTo(controller)          
 
     // Photo animation
 let tweenPhoto = new TimelineMax()
     .add([
       TweenMax.to(".photolayer", {autoAlpha: 1, ease: Power0.easeNone, reversed: false }),
       TweenMax.fromTo("#shortbio-title", {autoAlpha:0}, {autoAlpha: 1, color: 'black', ease: Power0.easeNone, reversed: false} ),
-      TweenMax.to(".bio", {backgroundColor: 'white', ease: Power0.easeNone, reversed: false} )
+      TweenMax.to(".bio", {backgroundColor: 'white', ease: Power0.easeNone, reversed: false} ),
+      // TweenMax.to("#photo", {position: 'relative', ease: Power0.easeNone})
     ])
 
 let scenePhoto = new ScrollMagic.Scene({
-  triggerElement: ".shortbio",
+  triggerElement: "#shortbio",
   triggerHook: 0,
   duration: '30%',
   offset: 100 
@@ -113,7 +122,7 @@ let tweenMybio1 = new TimelineMax()
     ])
 
 let sceneMybio1 = new ScrollMagic.Scene({
-  triggerElement: ".shortbio",
+  triggerElement: "#shortbio",
   triggerHook: 0, 
   duration: '30%',
   offset: 500
@@ -131,7 +140,7 @@ let tweenMybio2 = new TimelineMax()
     ])
 
 let sceneMybio2 = new ScrollMagic.Scene({
-  triggerElement: ".shortbio",
+  triggerElement: "#shortbio",
   triggerHook: 0,
   duration: '30%',
   offset: 750
@@ -254,60 +263,88 @@ let sceneNumber3 = new ScrollMagic.Scene({
 //     // .addIndicators({name: "Project Details"})
 //     .addTo(controller)
 
-    // SkillsTitle scene          
-let tweenSkillsTitle = new TimelineMax ()
-    .add([
-      TweenMax.fromTo(".skillsTitleContainer", { yPercent: -10, filter: 'blur(5px)', ease: Power0.easeNone}, { yPercent: 0, filter: 'blur(0px)', ease: Power0.easeNone}),
-    ])
+//     // SkillsTitle scene          
+// let tweenSkillsTitle = new TimelineMax ()
+//     .add([
+//       TweenMax.fromTo(".skillsTitleContainer", { yPercent: -10, filter: 'blur(5px)', ease: Power0.easeNone}, { yPercent: 0, filter: 'blur(0px)', ease: Power0.easeNone}),
+//       // TweenMax.to("#photo", {position: 'relative', ease: Power0.easeNone}) 
+//     ])
 
-let sceneSkillsTitle = new ScrollMagic.Scene({
-  triggerElement: ".skillsTitleContainer",
-  duration: '95%',
-  triggerHook: 1,
-})
+// let sceneSkillsTitle = new ScrollMagic.Scene({
+//   triggerElement: ".skillsTitleContainer",
+//   duration: '100%',
+//   triggerHook: 1,
+// })
     
-    .setTween(tweenSkillsTitle)
-    .addIndicators({name: "SkillsTitle"})
-    .addTo(controller)
+//     // .setTween(tweenSkillsTitle)
+//     .setClassToggle('.skillsTitleContainer', 'fixed')
+//     .addIndicators({name: "SkillsTitleeeeee"})
+//     .on("start", () => { 
+//       sceneBio.destroy()
+//       sceneBio = null
+//     })
+//     .addTo(controller)
 
-        // SkillsTitle FIXED scene          
-let tweenSkillsFixed = new TimelineMax ()
+    // SkillsTitle Prereveal scene          
+let tweenSkillsPrereveal = new TimelineMax ()
     .add([
-      TweenMax.fromTo(".skillsTitleContainer", {position: 'relative'} , {position: 'fixed'}),
-      // TweenMax.to("#photo", {position: 'relative', ease: Power0.easeNone})
+      TweenMax.to(".myphoto", {autoAlpha: 0,  zIndex: -60, ease: Power0.easeNone}),
+      TweenMax.to(".titleContainer", {autoAlpha: 0,  zIndex: -60, ease: Power0.easeNone}),
+      TweenMax.to(".photolayer", {autoAlpha: 1,  zIndex: 60, ease: Power0.easeNone}),
+      TweenMax.to(".skillsTitleContainer", {autoAlpha: 1,  zIndex: 70, ease: Power0.easeNone})
     ])
 
-let sceneSkillsFixed = new ScrollMagic.Scene({
-  triggerElement: ".skillsTitleContainer",
-  duration: skillsFixedDuration,
+let sceneSkillsPrereveal = new ScrollMagic.Scene({
+  triggerElement: "#shortbio2",
   triggerHook: 0,
+  offset: -1000,
 })
     
-    .setTween(tweenSkillsFixed)
-    // .setClassToggle(".skillsTitleContainer", "fixed")
-    .setPin(".skillsTitleContainer", )
-    .addIndicators({name: "Skills FIX"})
+    .setTween(tweenSkillsPrereveal)
+    .addIndicators({name: "Skills Prereveal"})
     .addTo(controller)
+
+    // SkillsTitle Prereveal scene          
+let tweenSkillsReveal = new TimelineMax ()
+    .add([
+      TweenMax.fromTo("#skills-title", {filter: 'blur(5px)', yPercent: 40, ease: Power0.easeNone}, {filter: 'blur(0)', yPercent: 0, ease: Power0.easeNone}),
+    ])
+
+let sceneSkillsReveal = new ScrollMagic.Scene({
+  triggerElement: "#shortbio2",
+  triggerHook: 0.8,
+  duration: '80%'
+})
+    
+    .setTween(tweenSkillsReveal)
+    .addIndicators({name: "Skills SHOWUP"})
+    .addTo(controller)
+
+    //TweenMax.fromTo(".skillsTitleContainer", {autoAlpha: 0, ease: Power0.easeNone}, {autoAlpha: 1, zIndex: 100, ease: Power0.easeNone}),
 
         // skillSlider         
 let tweenSkillSlider = new TimelineMax ()
       .to("#slideContainer", 0.5, {z: -150})		// move back in 3D space
-			.to("#slideContainer", 1,   {x: "-25%"})	// move in to first panel
+			.to("#slideContainer", 1,   {x: "-20%"})	// move in to first panel
 			.to("#slideContainer", 0.5, {z: 0})				// move back to origin in 3D space
 			// animate to third panel
 			.to("#slideContainer", 0.5, {z: -150, delay: 1})
-			.to("#slideContainer", 1,   {x: "-50%"})
+			.to("#slideContainer", 1,   {x: "-40%"})
 			.to("#slideContainer", 0.5, {z: 0})
 			// animate to forth panel
 			.to("#slideContainer", 0.5, {z: -150, delay: 1})
-			.to("#slideContainer", 1,   {x: "-75%"})
+			.to("#slideContainer", 1,   {x: "-60%"})
+			.to("#slideContainer", 0.5, {z: 0})
+      // animate to fifth panel
+			.to("#slideContainer", 0.5, {z: -150, delay: 1})
+			.to("#slideContainer", 1,   {x: "-80%"})
 			.to("#slideContainer", 0.5, {z: 0});
 
 let sceneSkillSlider = new ScrollMagic.Scene({
-  triggerElement: ".skillsTitleContainer",
-  duration: '400%',
+  triggerElement: "#shortbio2",
+  duration: '300%',
   triggerHook: 0,
-  offset: 10
+  offset: '100%' 
 })
     
     .setTween(tweenSkillSlider)
@@ -326,7 +363,11 @@ let sceneContact = new ScrollMagic.Scene({
   triggerHook: 0,
 })
     .setTween(tweenContact)
-    // .addIndicators({name: "Contact"})
+    // .on("update", () => {
+    //   sceneSkillsFixed.destroy()
+    //   sceneSkillsFixed = null
+    // })
+    .addIndicators({name: "Contact"})
     .addTo(controller)
 
 // 3 Add classes to hide elements (case using JS)
@@ -348,21 +389,22 @@ function desktopScrolling() {
   // Force fixing:
 const fixedPhoto = document.querySelector(".photo");
 const fixedNav = document.querySelector(".view-navbar");
-const fixedSkills = document.querySelector(".skillsTitleContainer");
+// const fixedSkills = document.querySelector(".skillsTitleContainer");
 // const fixedBio1 = document.querySelector("#bio1")
 // const fixedBio2 = document.querySelector("#bio2")
   scrollbar.addListener((status) => {
     const offset = status.offset;
-    // if (fixedPhoto.style.position === 'fixed'){
+    // if (sceneBio !== null) {
       fixedPhoto.style.top = offset.y + 'px';
       fixedPhoto.style.left = offset.x + 'px';
+    // } else {
+    //   fixedPhoto.style.top = 0;
+    //   fixedPhoto.style.left = 0;
     // }
     fixedNav.style.top = offset.y + 'px';
-    fixedNav.style.left = offset.x + 'px';
-    if (fixedSkills.style.position === 'fixed') {
-      fixedSkills.style.top = offset.y + 'px'; 
-      fixedSkills.style.left = offset.x + 'px';
-    }
+    // fixedNav.style.left = offset.x + 'px';
+      // fixedSkills.style.top = offset.y + 'px'; 
+      // fixedSkills.style.left = offset.x + 'px';
     // fixedBio1.style.top = offset.y + 'px'
     // fixedBio1.style.left = offset.x + 'px';
     // fixedBio2.style.top = offset.y + 'px'
@@ -378,8 +420,10 @@ const fixedSkills = document.querySelector(".skillsTitleContainer");
     sceneNumber2.refresh()
     sceneNumber3.refresh()
     // sceneNumber4.refresh()
-    sceneSkillsTitle.refresh()
-    sceneSkillsFixed.refresh()
+    // sceneSkillsTitle.refresh()
+      // sceneSkillsFixed.refresh()
+    sceneSkillsPrereveal.refresh()
+    sceneSkillsReveal.refresh()
     sceneSkillSlider.refresh()
     sceneContact.refresh()
     // sceneProjectDetails.refresh()

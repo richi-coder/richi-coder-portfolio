@@ -48,10 +48,10 @@ const calculatorProps = {
 		<FirstView />
 		<Photo />
 		<!-- <Precomponent /> -->
-		<Shortbio />
+		<Shortbio id='shortbio' />
 		
 		<Portfolio>
-			<Title id="projects-title" title="Projects" />
+			<Title id="projects-title" title="Projects" preTitle='richi' />
 			<!-- <ProjectDetails /> -->
 			<Project projectDetails={gameProps} />
 			<!-- <Title client:load /> -->
@@ -59,7 +59,8 @@ const calculatorProps = {
 			<Project projectDetails={calculatorProps} />
 			
 		</Portfolio>
-		<SkillsTitle />
+		<Shortbio id='shortbio2' />
+		<!-- <SkillsTitle /> -->
 		<Video id="video" /> 
 		<Contact  />
 	</main>

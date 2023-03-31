@@ -1,11 +1,11 @@
 ---
 import "./styles/title.css"
-const { id, title } = Astro.props;
+const { id, title, preTitle } = Astro.props;
 ---
     <div id={id} class='title text-white text-6xl sm:text-9xl z-40 sm:pb-16 pl-4 sm:pl-14'>
       
             <div class="logoTitle">
-            richi<span class="text-gradient">{title}</span>
+            {preTitle}<span class="text-gradient">{title}</span>
             </div>
             
     </div>
