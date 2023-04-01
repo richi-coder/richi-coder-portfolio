@@ -1,62 +1,121 @@
 ---
 import Title from "./Title.astro";
-
+// import {  } from '@fortawesome/fontawesome-free'
+// import { faAirbnb } from '@fortawesome/free-brands-svg-icons'
 ---
 
-<div class='skillsTitleContainer w-full h-screen absolute top-0 left-0 pt-20 -z-10 '>
-    
-    <div id="slideContainer" class='absolute top-0 left-0'>
-		<section class="panel blue">
-			<Title id="skills-title" title="Skills" preTitle='richi' />
-		</section>
-		<section class="panel turqoise">
-			<Title id="responsive-title" title="Design" preTitle='responsive' />
-		</section>
-		<section class="panel green">
-			<Title id="spa-title" title="Development" preTitle='spa' />
-		</section>
-		<section class="panel bordeaux">
-			<Title id="projectInit-title" title="Initialization" preTitle='project' />
-		</section>
-        <section class="panel orange">
-			<Title id="others-title" title="Initialization" preTitle='project' />
-		</section>
-	</div>
+<div class="skillsTitleContainer w-full h-screen absolute top-0 left-0 -z-10">
+  <div id="slideContainer" class="absolute top-0 left-0">
+    <section class="panel blue">
+      <Title id="skills-title" title="Skills" preTitle="richi" />
+    </section>
+    <section class="panel turqoise flex flex-col justify-center">
+      <Title id="responsive-title" title="Design" preTitle="responsive" />
+      <div
+        class="responsive-tools container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 text-5xl sm:text-5xl lg:text-6xl m-auto gap-5 sm:gap-10"
+      >
+        <div
+          class="flex flex-row md:flex-col items-center justify-start pl-14 gap-7 md:justify-center"
+        >
+          <i class="devicon-html5-plain"></i>
+
+          <div>HTML5</div>
+        </div>
+        <div
+          class="flex flex-row md:flex-col items-center justify-start pl-14 gap-7 md:justify-center"
+        >
+          <i class="devicon-css3-plain"></i>
+
+          <div>CSS</div>
+        </div>
+        <div
+          class="flex flex-row md:flex-col items-center justify-start pl-14 gap-7 md:justify-center"
+        >
+          <i class="devicon-markdown-original"></i>
+
+          <div>Markdown</div>
+        </div>
+        <div
+          class="flex flex-row md:flex-col items-center justify-start pl-14 gap-7 md:justify-center"
+        >
+          <i class="devicon-bootstrap-plain"></i>
+
+          <div>Bootstrap</div>
+        </div>
+        <div
+          class="flex flex-row md:flex-col items-center justify-start pl-14 gap-7 md:justify-center"
+        >
+          <i class="devicon-tailwindcss-plain"></i>
+
+          <div>TailwindCSS</div>
+        </div>
+        <div
+          class="flex flex-row md:flex-col items-center justify-start pl-14 gap-7 md:justify-center"
+        >
+          <i class="devicon-sass-original"></i>
+
+          <div>SASS</div>
+        </div>
+        <div
+          class="flex flex-row items-center justify-start pl-14 gap-7 md:justify-center md:col-span-3"
+        >
+          <i class="devicon-firefox-plain"></i>
+          <i class="devicon-chrome-plain"></i>
+          <div>Dev Tools</div>
+        </div>
+      </div>
+    </section>
+    <section class="panel green">
+      <Title id="spa-title" title="Development" preTitle="spa" />
+    </section>
+    <section class="panel bordeaux">
+      <Title id="projectInit-title" title="Initialization" preTitle="project" />
+    </section>
+    <section class="panel orange">
+      <Title id="others-title" title="Tools" preTitle="other" />
+    </section>
+  </div>
 </div>
 
 <style>
-    .skillsTitleContainer {
-        perspective: 1000; 
-    }
-    #slideContainer {
-        width: 500%;
-        height: 100vh;
-        display: flex;
-        flex-direction: row; 
-    }
-    .panel {
-        position: relative;
-        /* float: left; */
-        width: 20%;
-        height: 100vh;
-    }
-    .blue {
-        background-color: rgb(10,10,10) ;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-    .turqoise {
-        background-color: blue;
-    }
-    .green {
-        background-color: rgb(10,10,10);
-    }
-    .bordeaux {
-        background-color: purple;
-    }
-    .orange {
-        background-color: orange;
-    }
+  .skillsTitleContainer {
+    perspective: 1000;
+  }
+  #slideContainer {
+    width: 500%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+  }
+  .panel {
+    position: relative;
+    /* float: left; */
+    width: 20%;
+    height: 100vh;
+    padding-top: 7vh;
+  }
+  .blue {
+    background-color: rgb(10, 10, 10);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .turqoise {
+    background-color: blue;
+  }
+  .green {
+    background-color: rgb(10, 10, 10);
+  }
+  .bordeaux {
+    background-color: purple;
+  }
+  .orange {
+    background-color: orange;
+  }
+  /* .responsive-tools > div {
+        min-width: 400px;
+        width: 40vw;
+        text-align: center;
+    } */
 </style>

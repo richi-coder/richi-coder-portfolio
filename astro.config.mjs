@@ -7,5 +7,10 @@ export default defineConfig({
   server: {
     host: true
   },
-  integrations: [react(), tailwind()]
+  integrations: [react(), tailwind()],
+  vite: {
+    ssr: {
+      external: ['svgo']
+    }
+  }
 });
