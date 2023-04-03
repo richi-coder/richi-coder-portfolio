@@ -7,6 +7,13 @@ import { ScrollMagicPluginIndicator} from "scrollmagic-plugins";
 ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
 ScrollMagicPluginIndicator(ScrollMagic);
 
+let navLogoLink1 = document.querySelector('#nav-logo1');
+let navLogoLink2 = document.querySelector('#nav-logo2');
+let navLink = document.querySelector('#profile-photo')
+let bioLink = document.querySelector('#biolink'); 
+let projectsLink = document.querySelector('#projectslink'); 
+let skillsLink = document.querySelector('#skillslink'); 
+let contactLink = document.querySelector('#contactlink'); 
 // isMobile?
 let isMobile = (function(a){return /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4));})(navigator.userAgent||navigator.vendor||window.opera);
 let numberOffset = 0;
@@ -96,42 +103,59 @@ let sceneBio = new ScrollMagic.Scene({
     // Photo animation
 let tweenPhoto = new TimelineMax()
     .add([
-      TweenMax.to(".photolayer", {autoAlpha: 1, ease: Power0.easeNone, reversed: false }),
-      TweenMax.fromTo("#shortbio-title", {autoAlpha:0}, {autoAlpha: 1, color: 'black', ease: Power0.easeNone, reversed: false} ),
-      TweenMax.to(".bio", {backgroundColor: 'white', ease: Power0.easeNone, reversed: false} ),
+      TweenMax.to(".photolayer", {autoAlpha: 0.8, ease: Power0.easeNone, reversed: false }),
+      // TweenMax.fromTo("#shortbio-title", {autoAlpha:0}, {autoAlpha: 1, color: 'black', ease: Power0.easeNone, reversed: false} ),
+      // TweenMax.to(".bio", {backgroundColor: 'white', ease: Power0.easeNone, reversed: false} ),
       // TweenMax.to("#photo", {position: 'relative', ease: Power0.easeNone})
     ])
 
 let scenePhoto = new ScrollMagic.Scene({
   triggerElement: "#shortbio",
   triggerHook: 0,
-  duration: '30%',
-  offset: 100 
+  duration: '10%',
 })
       .setTween(tweenPhoto)
-      // .addIndicators({name: "photoOpacity"})
+      .addIndicators({name: "photoOpacity"})
+      .addTo(controller)
+
+    // richiBio animation
+let tweenRichibio = new TimelineMax()
+    .add([
+      TweenMax.fromTo("#shortbio-title", {autoAlpha: 0, yPercent: 50, scale: 3, ease: Power0.easeNone}, {autoAlpha: 1, yPercent: 0, scale: 1, ease: Power0.easeNone})
+    ])
+
+let sceneRichiBio = new ScrollMagic.Scene({
+  triggerElement: "#shortbio",
+  triggerHook: 0,
+  duration: '20%',
+  offset: 50
+})
+      .setTween(tweenRichibio)
+      .addIndicators({name: "richiBio"})
       .addTo(controller)
 
     // Mybio animation
 
     // 1
+    
 let tweenMybio1 = new TimelineMax()
     .add([
-      TweenMax.fromTo("#bio1", {autoAlpha: 0, ease: Power0.easeNone}, {autoAlpha: 1, ease: Power0.easeNone }),
-      TweenMax.fromTo("#bio1", {yPercent: 0, ease: Power0.easeNone} , {yPercent: 50, ease: Power0.easeNone} )
+      TweenMax.fromTo("#bio1", {autoAlpha: 0, filter: 'blur(5px)', ease: Power0.easeNone}, {autoAlpha: 1, filter: 'blur(0px)', ease: Power0.easeNone }),
     ])
 
 let sceneMybio1 = new ScrollMagic.Scene({
-  triggerElement: "#shortbio",
-  triggerHook: 0, 
-  duration: '30%',
-  offset: 500
+  triggerElement: "#bio1",
+  triggerHook: 1, 
+  duration: '10%',
+  offset: 100
 })
       // .setClassToggle(".bio", 'fixed')
       .setTween(tweenMybio1)
       // .setPin("#bio1", {pushFollowers: true }, )
-      // .addIndicators({name: "bioFixed 1"})
+      .addIndicators({name: "bioFixed 1"})
       .addTo(controller)
+
+      //2
 
 let tweenMybio2 = new TimelineMax()
     .add([
@@ -140,15 +164,54 @@ let tweenMybio2 = new TimelineMax()
     ])
 
 let sceneMybio2 = new ScrollMagic.Scene({
-  triggerElement: "#shortbio",
-  triggerHook: 0,
-  duration: '30%',
-  offset: 750
+  triggerElement: "#bio2",
+  triggerHook: 1,
+  duration: '10%',
+  offset: 180
 })
       // .setClassToggle(".bio", 'fixed')
       .setTween(tweenMybio2)
       // .setPin("#bio2", {pushFollowers: true })
-      // .addIndicators({name: "bioFixed 2"})
+      .addIndicators({name: "bioFixed 2"})
+      .addTo(controller)
+
+    // 3
+    
+let tweenMybio3 = new TimelineMax()
+    .add([
+      TweenMax.fromTo("#bio3", {autoAlpha: 0, filter: 'blur(5px)', ease: Power0.easeNone}, {autoAlpha: 1, filter: 'blur(0px)', ease: Power0.easeNone }),
+    ])
+
+let sceneMybio3 = new ScrollMagic.Scene({
+  triggerElement: "#bio3",
+  triggerHook: 1, 
+  duration: '10%',
+  offset: 100
+})
+      // .setClassToggle(".bio", 'fixed')
+      .setTween(tweenMybio3)
+      // .setPin("#bio1", {pushFollowers: true }, )
+      .addIndicators({name: "bioFixed 3"})
+      .addTo(controller)
+
+      //4
+
+let tweenMybio4 = new TimelineMax()
+    .add([
+      TweenMax.fromTo("#bio4", {autoAlpha: 0, ease: Power0.easeNone}, {autoAlpha: 1, ease: Power0.easeNone }),
+      TweenMax.fromTo("#bio4", {yPercent: 0, ease: Power0.easeNone} , {yPercent: 100, ease: Power0.easeNone} )
+    ])
+
+let sceneMybio4 = new ScrollMagic.Scene({
+  triggerElement: "#bio4",
+  triggerHook: 1,
+  duration: '10%',
+  offset: 180
+})
+      // .setClassToggle(".bio", 'fixed')
+      .setTween(tweenMybio4)
+      // .setPin("#bio2", {pushFollowers: true })
+      .addIndicators({name: "bioFixed 4"})
       .addTo(controller)
 
       // sceneLayerBlack
@@ -156,7 +219,7 @@ let tweenLayer = new TimelineMax()
     .add([
       TweenMax.to(".photolayer", {backgroundColor: 'rgb(10,10,10)', zIndex: 50, ease: Power0.easeNone} ),
       TweenMax.to("#shortbio-title", {color: 'white', ease: Power0.easeNone} ),
-      TweenMax.to(".bio", {color: 'white', backgroundColor: 'rgb(10,10,10)', ease: Power0.easeNone} )
+      TweenMax.to(".bio", {color: 'white', ease: Power0.easeNone} )
     ])
 
 let sceneLayer = new ScrollMagic.Scene({
@@ -414,8 +477,11 @@ const fixedNav = document.querySelector(".view-navbar");
     sceneLogo.refresh()
     sceneNavlogo.refresh()
     scenePhoto.refresh()
+    sceneRichiBio.refresh()
     sceneMybio1.refresh()
     sceneMybio2.refresh()
+    sceneMybio3.refresh()
+    sceneMybio4.refresh()
     sceneLayer.refresh()
     sceneMybioOff.refresh()
     sceneNumber1.refresh()
@@ -430,7 +496,48 @@ const fixedNav = document.querySelector(".view-navbar");
     sceneContact.refresh()
     // sceneProjectDetails.refresh()
     myAnimationScroll();
+  });
+
+  navLogoLink1.addEventListener('click', () => {
+    scrollbar.scrollIntoView(document.querySelector('.firstView'))
   })
+
+  navLogoLink2.addEventListener('click', () => {
+    scrollbar.scrollIntoView(document.querySelector('.firstView'))
+  })
+
+  navLink.addEventListener('click', () => {
+    scrollbar.scrollIntoView(document.querySelector('.firstView'))
+  })
+  
+  bioLink.addEventListener('click', () => {
+    console.log('clicked ')
+    // scrollbar.scrollTo(0, 1000, 600 )
+    scrollbar.scrollIntoView(document.querySelector('#shortbio-title'), {
+      alignToTop: true,
+      offsetTop: 350
+    })
+  })
+  projectsLink.addEventListener('click', () => {
+    console.log('clicked ')
+    // scrollbar.scrollTo(0, 1000, 600 )
+    scrollbar.scrollIntoView(document.querySelector('#portfolioContainer'), {
+      offsetTop: 150
+    })
+  })
+  skillsLink.addEventListener('click', () => {
+    console.log('clicked ')
+    // scrollbar.scrollTo(0, 1000, 600 )
+    scrollbar.scrollIntoView(document.querySelector('#shortbio2'))
+  })
+  contactLink.addEventListener('click', () => {
+    console.log('clicked ')
+    // scrollbar.scrollTo(0, 1000, 600 )
+    scrollbar.scrollIntoView(document.querySelector('.contactContainer'), {
+      alignToTop: false
+    })
+  })
+  
 }
 
 
@@ -447,5 +554,5 @@ function myAnimationScroll() {
     scrollFunction("RICHI-SHOP", "notShown", "showUp")
     scrollFunction("CALCULATOR", "notShown", "showUp")
     scrollFunction("video", "videoNotShown", "showVideo")
-    scrollFunction("projects-title", "titleNotShown", "showTitle")
+    // scrollFunction("projects-title", "titleNotShown", "showTitle")
 }

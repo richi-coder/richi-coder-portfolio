@@ -9,7 +9,7 @@ import Shortbio from '../components/Shortbio.astro';
 import Photo from '../components/Photo.astro';
 import Contact from '../components/Contact.astro';
 import Header from '../components/Header.astro';
-import SkillsTitle from '../components/SkillsTitle.astro';
+import Bios from '../components/Bios.astro';
 
 
 const gameProps = {
@@ -48,7 +48,10 @@ const calculatorProps = {
 		<FirstView />
 		<Photo />
 		<!-- <Precomponent /> -->
-		<Shortbio id='shortbio' />
+		<Shortbio id='shortbio'>
+			<Title id="shortbio-title" title="Bio" preTitle='richi' titleClass='absolute top-[85vh]' />
+			<Bios />
+		</Shortbio>
 		
 		<Portfolio>
 			<Title id="projects-title" title="Projects" preTitle='richi' />

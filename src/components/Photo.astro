@@ -4,13 +4,12 @@ import "./styles/photo.css"
 import Title from "./Title.astro";
 ---
 <div id="photo" class="photo text-white fixed z-50">
-    <div class='absolute top-0 left-0 h-screen w-full z-0 myphoto'><img src="richicoder.png" alt="richicoder.com" class='absolute top-0 left-0 h-screen w-full'></div>
+    <div class='absolute top-0 left-0 h-screen w-full z-0 myphoto'><img src="richicoder.png" alt="richicoder.com" class='absolute top-0 left-0 h-screen w-full object-cover object-right'></div>
     <SkillsTitle /> 
     <div class="photolayer "></div>
     
     <div class="titleContainer absolute top-16 left-0 w-fit h-fit z-40">
-        <Title id="shortbio-title" title="Bio" preTitle='richi' />
+        <!-- <Title id="shortbio-title" title="Bio" preTitle='richi' /> -->
     </div>
-    <div id="bio1" class="bio relative text-black w-full mx-auto text-7xl h-1/3 opacity-0 z-10">Frontend Developer</div>
-    <div id="bio2" class="bio relative text-black w-full mx-auto text-7xl h-1/3 opacity-0 ">Self-driven Developer</div>
+
 </div>
