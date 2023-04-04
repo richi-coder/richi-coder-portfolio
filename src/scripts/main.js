@@ -115,7 +115,7 @@ let scenePhoto = new ScrollMagic.Scene({
   duration: '10%',
 })
       .setTween(tweenPhoto)
-      .addIndicators({name: "photoOpacity"})
+      // .addIndicators({name: "photoOpacity"})
       .addTo(controller)
 
     // richiBio animation
@@ -131,7 +131,23 @@ let sceneRichiBio = new ScrollMagic.Scene({
   offset: 50
 })
       .setTween(tweenRichibio)
-      .addIndicators({name: "richiBio"})
+      // .addIndicators({name: "richiBio"})
+      .addTo(controller)
+
+    // richiProjects animation
+let tweenRichiprojects = new TimelineMax()
+    .add([
+      TweenMax.fromTo("#projects-title", {autoAlpha: 0, yPercent: 50, scale: 3, ease: Power0.easeNone}, {autoAlpha: 1, yPercent: 0, scale: 1, ease: Power0.easeNone})
+    ])
+
+let sceneRichiprojects = new ScrollMagic.Scene({
+  triggerElement: "#projects-title",
+  triggerHook: 1,
+  duration: '20%',
+  offset: 150
+})
+      .setTween(tweenRichiprojects)
+      // .addIndicators({name: "richiProjects"})
       .addTo(controller)
 
     // Mybio animation
@@ -152,7 +168,7 @@ let sceneMybio1 = new ScrollMagic.Scene({
       // .setClassToggle(".bio", 'fixed')
       .setTween(tweenMybio1)
       // .setPin("#bio1", {pushFollowers: true }, )
-      .addIndicators({name: "bioFixed 1"})
+      // .addIndicators({name: "bioFixed 1"})
       .addTo(controller)
 
       //2
@@ -478,6 +494,7 @@ const fixedNav = document.querySelector(".view-navbar");
     sceneNavlogo.refresh()
     scenePhoto.refresh()
     sceneRichiBio.refresh()
+    sceneRichiprojects.refresh()
     sceneMybio1.refresh()
     sceneMybio2.refresh()
     sceneMybio3.refresh()

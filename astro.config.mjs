@@ -8,9 +8,11 @@ export default defineConfig({
     host: true
   },
   integrations: [react(), tailwind()],
-  vite: {
-    ssr: {
-      external: ['svgo']
-    }
-  }
+  // vite: {
+  //   ssr: {
+  //     external: ['svgo']
+  //   }
+  // },
+  site: 'https://richi-coder.github.io',
+  base: '/richi-coder-portfolio',
 });
