@@ -188,7 +188,7 @@ let sceneMybio2 = new ScrollMagic.Scene({
       // .setClassToggle(".bio", 'fixed')
       .setTween(tweenMybio2)
       // .setPin("#bio2", {pushFollowers: true })
-      .addIndicators({name: "bioFixed 2"})
+      // .addIndicators({name: "bioFixed 2"})
       .addTo(controller)
 
     // 3
@@ -207,7 +207,7 @@ let sceneMybio3 = new ScrollMagic.Scene({
       // .setClassToggle(".bio", 'fixed')
       .setTween(tweenMybio3)
       // .setPin("#bio1", {pushFollowers: true }, )
-      .addIndicators({name: "bioFixed 3"})
+      // .addIndicators({name: "bioFixed 3"})
       .addTo(controller)
 
       //4
@@ -227,7 +227,7 @@ let sceneMybio4 = new ScrollMagic.Scene({
       // .setClassToggle(".bio", 'fixed')
       .setTween(tweenMybio4)
       // .setPin("#bio2", {pushFollowers: true })
-      .addIndicators({name: "bioFixed 4"})
+      // .addIndicators({name: "bioFixed 4"})
       .addTo(controller)
 
       // sceneLayerBlack
@@ -244,7 +244,7 @@ let sceneLayer = new ScrollMagic.Scene({
   offset: -1500
 })
       .setTween(tweenLayer)
-      .addIndicators({name: "layerBlack"})
+      // .addIndicators({name: "layerBlack"})
       .addTo(controller)
 
 
