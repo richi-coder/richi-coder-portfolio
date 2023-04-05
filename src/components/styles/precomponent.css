@@ -1,4 +1,4 @@
 .precomponent {
-    background: linear-gradient(0deg, rgb(10,10,10) 20%, rgba(0,0,0,0));
-    height: 50vh;
+    background-image: linear-gradient(0deg, rgba(10,10,10,1) 30%, rgba(0,0,0,0));
+    height: 40vh;
 }

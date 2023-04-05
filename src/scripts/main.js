@@ -7,20 +7,39 @@ import { ScrollMagicPluginIndicator} from "scrollmagic-plugins";
 ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
 ScrollMagicPluginIndicator(ScrollMagic);
 
-let navLogoLink1 = document.querySelector('#nav-logo1');
-let navLogoLink2 = document.querySelector('#nav-logo2');
-let navLink = document.querySelector('#profile-photo')
-let bioLink = document.querySelector('#biolink'); 
-let projectsLink = document.querySelector('#projectslink'); 
-let skillsLink = document.querySelector('#skillslink'); 
-let contactLink = document.querySelector('#contactlink'); 
+// PAGE SECTIONS
+
+let firstView = document.querySelector('.firstView');
+let bioSection = document.querySelector('#bio-title-container');
+let portfolioSection = document.querySelector('#portfolioContainer');
+let skillsSection = document.querySelector('#shortbio2');
+let contactSection = document.querySelector('.contactContainer');
+
+
+// LINKS
+
+let hamburguerButton = document.querySelector('#hamburguer-button'); // Hamburguer mobile button
+let closeButton = document.querySelector('#close-button'); // Close mobile button
+let mobileMenu = document.querySelector('#mobile-menu'); // Mobile menu
+let navLogoLink1 = document.querySelector('#nav-logo1'); // Link at first logo
+let navLogoLink2 = document.querySelector('#nav-logo2'); // Link at second logo
+let navLink = document.querySelector('#profile-photo'); // Link at profile photo
+let bioLink = document.querySelector('#biolink');  // Desktop link to bio
+let projectsLink = document.querySelector('#projectslink');  // Desktop link to portfolio
+let skillsLink = document.querySelector('#skillslink');  // Desktop link to skills
+let contactLink = document.querySelector('#contactlink');  // Desktop link to contact
+let mobileBioLink = document.querySelector('#mobile-bio-link');  // Mobio link to bio
+let mobilePortfolioLink = document.querySelector('#mobile-portfolio-link');  // Mobio link to portfolio
+let mobileSkillsLink = document.querySelector('#mobile-skills-link');  // Mobio link to skills
+let mobileContactLink = document.querySelector('#mobile-contact-link');  // Mobio link to contact
+
 // isMobile?
 let isMobile = (function(a){return /(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(a)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(a.substr(0,4));})(navigator.userAgent||navigator.vendor||window.opera);
 let numberOffset = 0;
 let numberYpercent = 0;
 let numberYpercentStart = 0;
 let skillsFixedDuration = '';
-// let skillsContainer = document.querySelector('.skillsTitleContainer');
+
 if (isMobile) {
   mobileScrolling()
   numberOffset = -500;
@@ -28,6 +47,7 @@ if (isMobile) {
   numberYpercent = 80;
   skillsFixedDuration = '400%';
   // skillsContainer.style.height = '100vh'
+  // Mobile Links
 } else {
   desktopScrolling()
   numberOffset = -200;
@@ -35,7 +55,44 @@ if (isMobile) {
   numberYpercent = 50;
   skillsFixedDuration = '100%' //0.01%
   // skillsContainer.style.height = '400vh'
+  // Desktop Links
 }
+
+// Hamburguer Menu
+
+hamburguerButton.addEventListener('click', () => {
+  if (mobileMenu.classList.contains('-translate-y-full')) {
+    mobileMenu.classList.remove('-translate-y-full')
+    mobileMenu.classList.remove('scale-50')
+    mobileMenu.classList.remove('opacity-0')
+    mobileMenu.classList.remove('rounded-3xl')
+    mobileMenu.classList.remove('rotate-45')
+  } else {
+    mobileMenu.classList.add('-translate-y-full')
+    mobileMenu.classList.add('scale-50')
+    mobileMenu.classList.add('opacity-0')
+    mobileMenu.classList.add('rounded-3xl')
+    mobileMenu.classList.add('rotate-45')
+  }
+})
+
+closeButton.addEventListener('click', () => {
+  if (!mobileMenu.classList.contains('-translate-y-full')) {
+    mobileMenu.classList.add('-translate-y-full')
+    mobileMenu.classList.add('scale-50')
+    mobileMenu.classList.add('opacity-0')
+    mobileMenu.classList.add('rounded-3xl')
+    mobileMenu.classList.add('rotate-45')
+  } else {
+    mobileMenu.classList.remove('-translate-y-full')
+    mobileMenu.classList.remove('scale-50')
+    mobileMenu.classList.remove('opacity-0')
+    mobileMenu.classList.remove('rounded-3xl')
+    mobileMenu.classList.remove('rotate-45')
+  }
+})
+
+
 
 // 1 first-scroll
 function firstScroll(element) {
@@ -67,7 +124,6 @@ let sceneLogo = new ScrollMagic.Scene({
   triggerHook: 0,
   duration: '100%',
   })
-          
 					.setTween(tweenLogo)
 					// .addIndicators({name: "logoScene"}) // add indicators (requires plugin)
 					.addTo(controller)
@@ -77,7 +133,6 @@ let sceneNavlogo = new ScrollMagic.Scene({
   triggerElement: "#shortbio",
   triggerHook: 0,
   })
-          
 					.setClassToggle(".nav-logo", "typing-nav-logo")
 					// .addIndicators({name: "nav-logo"}) // add indicators (requires plugin)
 					.addTo(controller)
@@ -125,10 +180,10 @@ let tweenRichibio = new TimelineMax()
     ])
 
 let sceneRichiBio = new ScrollMagic.Scene({
-  triggerElement: "#shortbio",
-  triggerHook: 0,
+  triggerElement: "#shortbio-title",
+  triggerHook: 1,
   duration: '20%',
-  offset: 50
+  offset: 100
 })
       .setTween(tweenRichibio)
       // .addIndicators({name: "richiBio"})
@@ -150,87 +205,77 @@ let sceneRichiprojects = new ScrollMagic.Scene({
       // .addIndicators({name: "richiProjects"})
       .addTo(controller)
 
-    // Mybio animation
+    // Mybio animations
 
-    // 1
-    
-let tweenMybio1 = new TimelineMax()
-    .add([
-      TweenMax.fromTo("#bio1", {autoAlpha: 0, filter: 'blur(5px)', ease: Power0.easeNone}, {autoAlpha: 1, filter: 'blur(0px)', ease: Power0.easeNone }),
-    ])
+let sceneMybio1;
+let sceneMybio3;
+let sceneMybio5;
+let sceneMybio7;
+let sceneMybio9;
+let sceneMybio11;
+let sceneMybio13;
 
-let sceneMybio1 = new ScrollMagic.Scene({
-  triggerElement: "#bio1",
-  triggerHook: 1, 
-  duration: '10%',
-  offset: 100
-})
-      // .setClassToggle(".bio", 'fixed')
-      .setTween(tweenMybio1)
-      // .setPin("#bio1", {pushFollowers: true }, )
-      // .addIndicators({name: "bioFixed 1"})
-      .addTo(controller)
+let sceneMybio2;
+let sceneMybio4;
+let sceneMybio6;
+let sceneMybio8;
+let sceneMybio10;
+let sceneMybio12;
+let sceneMybio14;
+  
+// oddScenes
+function oddScene(sceneOdd, number){
+  sceneOdd = new ScrollMagic.Scene({
+    triggerElement: number,
+    triggerHook: 1, 
+    duration: '10%',
+    offset: 100
+  })
+        .setTween(new TimelineMax()
+          .add([
+            TweenMax.fromTo(number, {autoAlpha: 0, filter: 'blur(5px)', ease: Power0.easeNone}, {autoAlpha: 1, filter: 'blur(0px)', ease: Power0.easeNone }),
+        ]))
+        // .addIndicators({name: `scene ${number}`})
+        .addTo(controller)
+    return sceneOdd
+}
+sceneMybio1 = oddScene(sceneMybio1,'#bio1')
+sceneMybio3 = oddScene(sceneMybio3,'#bio3')
+sceneMybio5 = oddScene(sceneMybio5,'#bio5')
+sceneMybio7 = oddScene(sceneMybio7,'#bio7')
+sceneMybio9 = oddScene(sceneMybio9,'#bio9')
+sceneMybio11 = oddScene(sceneMybio11,'#bio11')
+sceneMybio13 = oddScene(sceneMybio13,'#bio13')
 
-      //2
 
-let tweenMybio2 = new TimelineMax()
-    .add([
-      TweenMax.fromTo("#bio2", {autoAlpha: 0, ease: Power0.easeNone}, {autoAlpha: 1, ease: Power0.easeNone }),
-      TweenMax.fromTo("#bio2", {yPercent: 0, ease: Power0.easeNone} , {yPercent: 100, ease: Power0.easeNone} )
-    ])
-
-let sceneMybio2 = new ScrollMagic.Scene({
-  triggerElement: "#bio2",
+// evenScenes
+function evenScene(sceneEven, number) {
+  sceneEven = new ScrollMagic.Scene({
+  triggerElement: number,
   triggerHook: 1,
   duration: '10%',
   offset: 180
 })
-      // .setClassToggle(".bio", 'fixed')
-      .setTween(tweenMybio2)
-      // .setPin("#bio2", {pushFollowers: true })
-      // .addIndicators({name: "bioFixed 2"})
+      .setTween(new TimelineMax()
+      .add([
+        TweenMax.fromTo(number, {autoAlpha: 0, yPercent: 0, ease: Power0.easeNone}, {autoAlpha: 1, yPercent: 100, ease: Power0.easeNone })
+      ]))
+      // .addIndicators({name: `scene ${number}`})
       .addTo(controller)
+    return sceneEven
+}
 
-    // 3
-    
-let tweenMybio3 = new TimelineMax()
-    .add([
-      TweenMax.fromTo("#bio3", {autoAlpha: 0, filter: 'blur(5px)', ease: Power0.easeNone}, {autoAlpha: 1, filter: 'blur(0px)', ease: Power0.easeNone }),
-    ])
+sceneMybio2 = evenScene(sceneMybio2, '#bio2')
+sceneMybio4 = evenScene(sceneMybio4, '#bio4')
+sceneMybio6 = evenScene(sceneMybio6, '#bio6')
+sceneMybio8 = evenScene(sceneMybio8, '#bio8')
+sceneMybio10 = evenScene(sceneMybio10, '#bio10')
+sceneMybio12 = evenScene(sceneMybio12, '#bio12')
+sceneMybio14 = evenScene(sceneMybio14, '#bio14')
 
-let sceneMybio3 = new ScrollMagic.Scene({
-  triggerElement: "#bio3",
-  triggerHook: 1, 
-  duration: '10%',
-  offset: 100
-})
-      // .setClassToggle(".bio", 'fixed')
-      .setTween(tweenMybio3)
-      // .setPin("#bio1", {pushFollowers: true }, )
-      // .addIndicators({name: "bioFixed 3"})
-      .addTo(controller)
 
-      //4
 
-let tweenMybio4 = new TimelineMax()
-    .add([
-      TweenMax.fromTo("#bio4", {autoAlpha: 0, ease: Power0.easeNone}, {autoAlpha: 1, ease: Power0.easeNone }),
-      TweenMax.fromTo("#bio4", {yPercent: 0, ease: Power0.easeNone} , {yPercent: 100, ease: Power0.easeNone} )
-    ])
-
-let sceneMybio4 = new ScrollMagic.Scene({
-  triggerElement: "#bio4",
-  triggerHook: 1,
-  duration: '10%',
-  offset: 180
-})
-      // .setClassToggle(".bio", 'fixed')
-      .setTween(tweenMybio4)
-      // .setPin("#bio2", {pushFollowers: true })
-      // .addIndicators({name: "bioFixed 4"})
-      .addTo(controller)
-
-      // sceneLayerBlack
+    // sceneLayerBlack
 let tweenLayer = new TimelineMax()
     .add([
       TweenMax.to(".photolayer", {backgroundColor: 'rgb(10,10,10)', zIndex: 50, ease: Power0.easeNone} ),
@@ -253,7 +298,7 @@ let sceneLayer = new ScrollMagic.Scene({
       // sceneMybioOff
 let tweenOff = new TimelineMax()
     .add([
-      TweenMax.to(".bio", {autoAlpha: 0, ease: Power0.easeNone }),
+      // TweenMax.to(".bio", {autoAlpha: 0, ease: Power0.easeNone }),
       TweenMax.to(".photolayer", 5, {autoAlpha: 0, ease: Power0.easeNone}, 0 )
     ])
 
@@ -370,7 +415,7 @@ let tweenSkillsPrereveal = new TimelineMax ()
       TweenMax.to(".myphoto", {autoAlpha: 0,  zIndex: -60, ease: Power0.easeNone}),
       TweenMax.to(".titleContainer", {autoAlpha: 0,  zIndex: -60, ease: Power0.easeNone}),
       TweenMax.to(".photolayer", {autoAlpha: 1,  zIndex: 60, ease: Power0.easeNone}),
-      TweenMax.to(".skillsTitleContainer", {autoAlpha: 1,  zIndex: 70, ease: Power0.easeNone})
+      TweenMax.fromTo(".skillsTitleContainer", {autoAlpha: 0, ease: Power0.easeNone}, {autoAlpha: 1,  zIndex: 70, ease: Power0.easeNone})
     ])
 
 let sceneSkillsPrereveal = new ScrollMagic.Scene({
@@ -496,9 +541,20 @@ const fixedNav = document.querySelector(".view-navbar");
     sceneRichiBio.refresh()
     sceneRichiprojects.refresh()
     sceneMybio1.refresh()
-    sceneMybio2.refresh()
+    
     sceneMybio3.refresh()
+    sceneMybio5.refresh()
+    sceneMybio7.refresh()
+    sceneMybio9.refresh()
+    sceneMybio11.refresh()
+    sceneMybio13.refresh()
+    sceneMybio2.refresh()
     sceneMybio4.refresh()
+    sceneMybio6.refresh()
+    sceneMybio8.refresh()
+    sceneMybio10.refresh()
+    sceneMybio12.refresh()
+    sceneMybio14.refresh()
     sceneLayer.refresh()
     sceneMybioOff.refresh()
     sceneNumber1.refresh()
@@ -515,42 +571,44 @@ const fixedNav = document.querySelector(".view-navbar");
     myAnimationScroll();
   });
 
-  navLogoLink1.addEventListener('click', () => {
-    scrollbar.scrollIntoView(document.querySelector('.firstView'))
-  })
+  // Link scrolling DESKTOP
+
+  
 
   navLogoLink2.addEventListener('click', () => {
-    scrollbar.scrollIntoView(document.querySelector('.firstView'))
+    scrollbar.scrollIntoView(firstView) // Desktop
   })
 
   navLink.addEventListener('click', () => {
-    scrollbar.scrollIntoView(document.querySelector('.firstView'))
+    if (!isMobile) {
+      scrollbar.scrollIntoView(firstView) // Desktop
+    }
   })
   
   bioLink.addEventListener('click', () => {
     console.log('clicked ')
     // scrollbar.scrollTo(0, 1000, 600 )
-    scrollbar.scrollIntoView(document.querySelector('#shortbio-title'), {
+    scrollbar.scrollIntoView(bioSection, {
       alignToTop: true,
-      offsetTop: 350
+      offsetTop: -250
     })
   })
   projectsLink.addEventListener('click', () => {
     console.log('clicked ')
     // scrollbar.scrollTo(0, 1000, 600 )
-    scrollbar.scrollIntoView(document.querySelector('#portfolioContainer'), {
+    scrollbar.scrollIntoView(portfolioSection, {
       offsetTop: 150
     })
   })
   skillsLink.addEventListener('click', () => {
     console.log('clicked ')
     // scrollbar.scrollTo(0, 1000, 600 )
-    scrollbar.scrollIntoView(document.querySelector('#shortbio2'))
+    scrollbar.scrollIntoView(skillsSection)
   })
   contactLink.addEventListener('click', () => {
     console.log('clicked ')
     // scrollbar.scrollTo(0, 1000, 600 )
-    scrollbar.scrollIntoView(document.querySelector('.contactContainer'), {
+    scrollbar.scrollIntoView(contactSection, {
       alignToTop: false
     })
   })
@@ -562,6 +620,37 @@ function mobileScrolling() {
   //firstScroll(window)
   window.addEventListener("scroll", () => {
     myAnimationScroll()
+  })
+  // Link scrolling MOBILE
+  navLink.addEventListener('click', () => {
+    if (isMobile) {
+      firstView.scrollIntoView() // Mobile
+    }
+  })
+  navLogoLink1.addEventListener('click', () => {
+      firstView.scrollIntoView() // Mobile
+  })
+  mobileBioLink.addEventListener('click', (e) => {
+      mobileMenu.classList.add('-translate-y-full')
+      bioSection.scrollIntoView()
+  })
+  mobilePortfolioLink.addEventListener('click', (e) => {
+      mobileMenu.classList.add('-translate-y-full')
+      portfolioSection.scrollIntoView({
+        block: 'start'
+      })
+  })
+  mobileSkillsLink.addEventListener('click', (e) => {
+      mobileMenu.classList.add('-translate-y-full')
+      skillsSection.scrollIntoView({
+        block: 'start'
+      })
+  })
+  mobileContactLink.addEventListener('click', (e) => {
+      mobileMenu.classList.add('-translate-y-full')
+      contactSection.scrollIntoView({
+        behavior: 'instant'
+      })
   })
 }
 

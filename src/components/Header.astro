@@ -1,68 +1,146 @@
 ---
-import "./styles/typing.css"
+import "./styles/typing.css";
 ---
 
-<nav class="bg-white/30 rounded-b-xl fixed top-0 left-1/2 -translate-x-1/2 w-2/3 md:w-3/4 view-navbar backdrop-blur">
-	<div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-	  <div class="relative flex h-16 items-center justify-between">
-		
-		<div class="flex flex-1 items-center  sm:items-stretch sm:justify-start">
-		  <div class="flex flex-shrink-0 items-center">
-			<!-- <img class="block h-8 w-auto lg:hidden" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company"> -->
-			<div class='ml-3 sm:ml-0'> 
-				<button id="profile-photo" type="button" class="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 md:hover:scale-150 md:transition-all md:hover:translate-y-1" id="user-menu-button" aria-expanded="false" aria-haspopup="true" tabindex="1">
-				  <span class="sr-only">Open user menu</span>
-				  <img class="h-8 w-8 rounded-full" src="richicoder_profile_photo.png" alt="richiCoder profile photo">
-				</button>
-			</div>
-			
-			<!-- <img class="hidden h-8 w-auto lg:block" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company"> -->
-		  </div>
-		  <div class="hidden sm:ml-6 sm:block">
-			<div class="flex sm:space-0 md:space-x-6">
-			  <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-			  <a id="biolink" class="text-white rounded-md px-3 py-2 text-sm font-medium md:hover:cursor-pointer md:hover:scale-150 md:transition-all md:hover:translate-y-1" aria-current="page" tabindex="2">bio</a>
-			  <a id="projectslink" class="text-white rounded-md px-3 py-2 text-sm font-medium md:hover:cursor-pointer md:hover:scale-150 md:transition-all md:hover:translate-y-1" aria-current="page" tabindex="3">projects</a>
-			  <a id="skillslink" class="text-white rounded-md px-3 py-2 text-sm font-medium md:hover:cursor-pointer md:hover:scale-150 md:transition-all md:hover:translate-y-1" aria-current="page" tabindex="4">skills</a>
-			  <a id="contactlink" class="text-white rounded-md px-3 py-2 text-sm font-medium md:hover:cursor-pointer md:hover:scale-150 md:transition-all md:hover:translate-y-1" aria-current="page" tabindex="5">contact</a>
-			</div>
-			
-		  </div>
-		  <div id="nav-logo1" class="w-fit h-screen flex flex-col items-start pl-5 sticky top-0 left-0 justify-center m-0 sm:hidden cursor-pointer">
-				<div style="font-family: Orbitron;" class="nav-logo p-0 m-0 text-left opacity-0"><p class="text-center p-0 m-0">richi<span class="text-gradient">Coder</span></p></div>
-		  </div>
-		</div>
-		<div class="absolute inset-y-0 right-0 flex items-center pr-0 sm:static sm:inset-auto sm:ml-6 sm:pr-0 -mr-3">
-			<div id="nav-logo2" class="w-fit h-screen sm:flex flex-col items-start sticky top-0 left-0 justify-center m-0 hidden cursor-pointer">
-				<div style="font-family: Orbitron;" class="nav-logo p-0 m-0 text-left opacity-0"><p class="text-center p-0 m-0">richi<span class="text-gradient">Coder</span></p></div>
-		  	</div>
-			<div class='sm:hidden block'>
-			<button type="button" class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
-			<span class="sr-only">Open main menu</span>
-			<!--
+<nav
+  class="bg-white/30 rounded-b-xl fixed top-0 left-1/2 -translate-x-1/2 w-2/3 md:w-3/4 view-navbar backdrop-blur"
+>
+  <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+    <div class="relative flex h-16 items-center justify-between">
+      <div class="flex flex-1 items-center sm:items-stretch sm:justify-start h-full">
+        <div class="flex flex-shrink-0 items-center">
+          <!-- <img class="block h-8 w-auto lg:hidden" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company"> -->
+          <div class="ml-3 sm:ml-0">
+            <button
+              id="profile-photo"
+              type="button"
+              class="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 md:hover:scale-150 md:transition-all md:hover:translate-y-1"
+              id="user-menu-button"
+              aria-expanded="false"
+              aria-haspopup="true"
+              tabindex="1"
+            >
+              <span class="sr-only">Open user menu</span>
+              <img
+                class="h-8 w-8 rounded-full"
+                src="richicoder_profile_photo.png"
+                alt="richiCoder profile photo"
+              />
+            </button>
+          </div>
+
+          <!-- <img class="hidden h-8 w-auto lg:block" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500" alt="Your Company"> -->
+        </div>
+        <div class="hidden sm:ml-6 sm:block">
+          <div class="flex flex-row items-center sm:space-0 md:space-x-6 h-full">
+            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+            <a
+              id="biolink"
+              class="text-white rounded-md px-3 py-2 text-sm font-medium md:hover:cursor-pointer md:hover:scale-150 md:transition-all md:hover:translate-y-1"
+              aria-current="page"
+              tabindex="2">bio</a
+            >
+            <a
+              id="projectslink"
+              class="text-white rounded-md px-3 py-2 text-sm font-medium md:hover:cursor-pointer md:hover:scale-150 md:transition-all md:hover:translate-y-1"
+              aria-current="page"
+              tabindex="3">projects</a
+            >
+            <a
+              id="skillslink"
+              class="text-white rounded-md px-3 py-2 text-sm font-medium md:hover:cursor-pointer md:hover:scale-150 md:transition-all md:hover:translate-y-1"
+              aria-current="page"
+              tabindex="4">skills</a
+            >
+            <a
+              id="contactlink"
+              class="text-white rounded-md px-3 py-2 text-sm font-medium md:hover:cursor-pointer md:hover:scale-150 md:transition-all md:hover:translate-y-1"
+              aria-current="page"
+              tabindex="5">contact</a
+            >
+          </div>
+        </div>
+        <div
+          id="nav-logo1"
+          class="w-fit h-full flex flex-col items-start pl-5 sticky top-0 left-0 justify-center m-0 sm:hidden sm:cursor-pointer"
+        >
+          <div
+            style="font-family: Orbitron;"
+            class="nav-logo p-0 m-0 text-left opacity-0"
+          >
+            <p class="text-center p-0 m-0">
+              richi<span class="text-gradient">Coder</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div
+        class="absolute inset-y-0 right-0 flex items-center pr-0 sm:static sm:inset-auto sm:ml-6 sm:pr-0 -mr-3"
+      >
+        <div
+          id="nav-logo2"
+          class="w-fit h-screen sm:flex flex-col items-start sticky top-0 left-0 justify-center m-0 hidden cursor-pointer"
+        >
+          <div
+            style="font-family: Orbitron;"
+            class="nav-logo p-0 m-0 text-left opacity-0"
+          >
+            <p class="text-center p-0 m-0">
+              richi<span class="text-gradient">Coder</span>
+            </p>
+          </div>
+        </div>
+        <div class="sm:hidden block">
+          <button
+            id="hamburguer-button"
+            type="button"
+            class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+            aria-controls="mobile-menu"
+            aria-expanded="false"
+          >
+            <span class="sr-only">Open main menu</span>
+            <!--
 			  Icon when menu is closed.
   
 			  Menu open: "hidden", Menu closed: "block"
 			-->
-			<svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-			  <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-			</svg>
-			<!--
+            <svg
+              class="block h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+            </svg>
+            <!--
 			  Icon when menu is open.
   
 			  Menu open: "block", Menu closed: "hidden"
 			-->
-			<svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-			  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-			</svg>
-		  </button>
-		  </div>
-  
-		  <!-- Profile dropdown -->
-		  <div class="relative ml-3">
-			
-  
-			<!--
+            <svg
+              class="hidden h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Profile dropdown -->
+        <div class="relative ml-3">
+          <!--
 			  Dropdown menu, show/hide based on menu state.
   
 			  Entering: "transition ease-out duration-100"
@@ -72,40 +150,75 @@ import "./styles/typing.css"
 				From: "transform opacity-100 scale-100"
 				To: "transform opacity-0 scale-95"
 			-->
-			<!-- <div class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
+          <!-- <div class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
 			  <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
 			  <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
 			  <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
 			</div> -->
-		  </div>
-		</div>
-	  </div>
-	</div>
-  
-	<!-- Mobile menu, show/hide based on menu state. -->
-	<!-- <div class="hidden" id="mobile-menu">
-	  <div class="space-y-1 px-2 pt-2 pb-3"> -->
-		<!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-		<!-- <a href="#" class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium" aria-current="page">Dashboard</a>
-  
-		<a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Team</a>
-  
-		<a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Projects</a>
-  
-		<a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium">Calendar</a>
-	  </div>
-	</div> -->
-  </nav>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <style>
-    .view-navbar {
-		animation: viewNavbar 12.5s ease-in-out 1;
-		transform: translate(-50%,0%);
-        z-index: 999;
-		font-family: 'Play';
-	}
-	@keyframes viewNavbar {
-		0% {transform: translate(-50%,-100%); }
-		90% {transform: translate(-50%,-100%); }
-	}
-  </style>
+  <div
+    id="mobile-menu"
+    class="w-screen h-screen bg-pink-500 absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full scale-50 opacity-0 rounded-3xl rotate-45 transition duration-1000 ease-in-out sm:hidden"
+  >
+    <div
+      class="absolute right-0 w-full top-0 -ml-8 flex pr-2 pt-4 sm:-ml-10 sm:pr-4"
+    >
+      <button
+        id="close-button"
+        type="button"
+        class="rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white transition-all"
+      >
+        <span class="sr-only">Close panel</span>
+        <svg
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+    <!-- Mobile menu, show/hide based on menu state. -->
+    <div class="block sm:hidden" id="mobile-menu">
+		<div class='space-y-1 px-2 pt-12  pb-3 text-7xl'>
+		<!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+	
+			<a id='mobile-bio-link' class="text-gray-100 block rounded-md px-3 py-3 font-medium mobile-link">bio</a>
+	
+			<a id='mobile-portfolio-link' class="text-gray-100 block rounded-md px-3 py-3 font-medium mobile-link">projects</a>
+
+			<a id='mobile-skills-link' class="text-gray-100 block rounded-md px-3 py-3 font-medium mobile-link">skills</a>
+
+			<a id='mobile-contact-link' class="text-gray-100 rounded-md px-3 py-3 font-medium mobile-link">contact</a>
+		</div>
+	</div>
+  </div>
+</nav>
+
+<style>
+  .view-navbar {
+    /* animation: viewNavbar 12.5s ease-in-out 1; */
+    transform: translate(-50%, 0%);
+    z-index: 999;
+    font-family: "Play";
+  }
+
+  @keyframes viewNavbar {
+    0% {
+      transform: translate(-50%, -100%);
+    }
+    90% {
+      transform: translate(-50%, -100%);
+    }
+  }
+</style>
