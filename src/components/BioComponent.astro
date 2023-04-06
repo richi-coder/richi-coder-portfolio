@@ -1,9 +1,9 @@
 ---
 import Bio from "./Bio.astro";
-const { ids, titles } = Astro.props;
+const { ids, titles, fontSize } = Astro.props;
 ---
 
-<div class='w-full h-[50vh] relative'>
-    <Bio bioId={ids[0]} bioDescription={titles[0]} />
-	<Bio bioId={ids[1]} bioDescription={titles[1]} />
+<div class={`w-full h-[50vh] relative`}>
+    <Bio bioId={ids[0]} bioDescription={titles[0]} fontSize={fontSize} />
+	<Bio bioId={ids[1]} bioDescription={titles[1]} fontSize={fontSize} />
 </div>

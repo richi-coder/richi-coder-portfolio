@@ -65,14 +65,18 @@ hamburguerButton.addEventListener('click', () => {
     mobileMenu.classList.remove('-translate-y-full')
     mobileMenu.classList.remove('scale-50')
     mobileMenu.classList.remove('opacity-0')
-    mobileMenu.classList.remove('rounded-3xl')
-    mobileMenu.classList.remove('rotate-45')
+    mobileBioLink.classList.remove('-translate-y-96')
+    mobilePortfolioLink.classList.remove('-translate-y-96')
+    mobileSkillsLink.classList.remove('-translate-y-96')
+    mobileContactLink.classList.remove('-translate-y-96')
   } else {
     mobileMenu.classList.add('-translate-y-full')
     mobileMenu.classList.add('scale-50')
     mobileMenu.classList.add('opacity-0')
-    mobileMenu.classList.add('rounded-3xl')
-    mobileMenu.classList.add('rotate-45')
+    mobileBioLink.classList.add('-translate-y-96')
+    mobilePortfolioLink.classList.add('-translate-y-96')
+    mobileSkillsLink.classList.add('-translate-y-96')
+    mobileContactLink.classList.add('-translate-y-96')
   }
 })
 
@@ -81,14 +85,18 @@ closeButton.addEventListener('click', () => {
     mobileMenu.classList.add('-translate-y-full')
     mobileMenu.classList.add('scale-50')
     mobileMenu.classList.add('opacity-0')
-    mobileMenu.classList.add('rounded-3xl')
-    mobileMenu.classList.add('rotate-45')
+    mobileBioLink.classList.add('-translate-y-96')
+    mobilePortfolioLink.classList.add('-translate-y-96')
+    mobileSkillsLink.classList.add('-translate-y-96')
+    mobileContactLink.classList.add('-translate-y-96')
   } else {
     mobileMenu.classList.remove('-translate-y-full')
     mobileMenu.classList.remove('scale-50')
     mobileMenu.classList.remove('opacity-0')
-    mobileMenu.classList.remove('rounded-3xl')
-    mobileMenu.classList.remove('rotate-45')
+    mobileBioLink.classList.remove('-translate-y-96')
+    mobilePortfolioLink.classList.remove('-translate-y-96')
+    mobileSkillsLink.classList.remove('-translate-y-96')
+    mobileContactLink.classList.remove('-translate-y-96')
   }
 })
 
@@ -519,6 +527,7 @@ const fixedNav = document.querySelector(".view-navbar");
 // const fixedBio1 = document.querySelector("#bio1")
 // const fixedBio2 = document.querySelector("#bio2")
   scrollbar.addListener((status) => {
+    console.log(scrollbar, 'scrollbar ')
     const offset = status.offset;
     // if (sceneBio !== null) {
       fixedPhoto.style.top = offset.y + 'px';

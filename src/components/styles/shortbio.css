@@ -1,11 +1,6 @@
 .shortbio {
     background-color: transparent;
-    height: 500vh;
     width: 100vw;
     position: relative;
     z-index: 10;
 }
-
-/* .prebio {
-    background: linear-gradient(0, transparent, rgb(10,10,10), transparent)
-} */

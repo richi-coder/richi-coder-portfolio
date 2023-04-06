@@ -16,7 +16,7 @@ const gameProps = {
 	id: "4PICS-1WORD",
 	number: "01",
 	app: "Web Game",
-	description: "Multi Page App - React/Redux",
+	description: "Multi Page App / React - Redux - Astro",
 	mobileImage: "4pics_1word_mobile.png",
 	desktopImage: "4pics_1word_desktop.png",
 	demoURL: "https://pics-1word-6a8f0.web.app/",
@@ -26,11 +26,11 @@ const ecommerceProps = {
 	id: "RICHI-SHOP",
 	number: "02",
 	app: "Ecommerce Site",
-	description: "Single Page App - React/Router",
+	description: "Single Page App / React - Router - PWA",
 	mobileImage: "richi_shop_mobile.png",
 	desktopImage: "richi_shop_desktop.png",
 	demoURL: "https://richi-shop.web.app/",
-	githubURL: "https://github.com/richi-coder/richi-coder-portfolio"
+	githubURL: "https://github.com/richi-coder/Ecommerce/tree/linux"
 }
 const calculatorProps = {
 	id: "CALCULATOR",
@@ -48,7 +48,7 @@ const calculatorProps = {
 		<FirstView />
 		<Photo />
 		<!-- <Precomponent /> -->
-		<Shortbio id='shortbio'>
+		<Shortbio id='shortbio' ownClass='h-[350vh] sm:h-[450vh]'>
 			<div id='bio-title-container' class='w-full h-screen relative'>
 				<Title id="shortbio-title" title="Bio" preTitle='richi' titleClass='absolute top-2/3 sm:top-3/4' />
 			</div>
@@ -66,7 +66,7 @@ const calculatorProps = {
 			<Project projectDetails={calculatorProps} />
 			
 		</Portfolio>
-		<Shortbio id='shortbio2' />
+		<Shortbio id='shortbio2' ownClass='h-[500vh]' />
 		<!-- <SkillsTitle /> -->
 		<Video id="video" /> 
 		<Contact  />

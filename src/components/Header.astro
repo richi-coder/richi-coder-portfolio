@@ -18,7 +18,6 @@ import "./styles/typing.css";
               id="user-menu-button"
               aria-expanded="false"
               aria-haspopup="true"
-              tabindex="1"
             >
               <span class="sr-only">Open user menu</span>
               <img
@@ -37,32 +36,31 @@ import "./styles/typing.css";
             <a
               id="biolink"
               class="text-white rounded-md px-3 py-2 text-sm font-medium md:hover:cursor-pointer md:hover:scale-150 md:transition-all md:hover:translate-y-1"
-              aria-current="page"
-              tabindex="2">bio</a
+              aria-current="page">bio</a
             >
             <a
               id="projectslink"
               class="text-white rounded-md px-3 py-2 text-sm font-medium md:hover:cursor-pointer md:hover:scale-150 md:transition-all md:hover:translate-y-1"
               aria-current="page"
-              tabindex="3">projects</a
+              >projects</a
             >
             <a
               id="skillslink"
               class="text-white rounded-md px-3 py-2 text-sm font-medium md:hover:cursor-pointer md:hover:scale-150 md:transition-all md:hover:translate-y-1"
               aria-current="page"
-              tabindex="4">skills</a
+              >skills</a
             >
             <a
               id="contactlink"
               class="text-white rounded-md px-3 py-2 text-sm font-medium md:hover:cursor-pointer md:hover:scale-150 md:transition-all md:hover:translate-y-1"
               aria-current="page"
-              tabindex="5">contact</a
+              >contact</a
             >
           </div>
         </div>
         <div
           id="nav-logo1"
-          class="w-fit h-full flex flex-col items-start pl-5 sticky top-0 left-0 justify-center m-0 sm:hidden sm:cursor-pointer"
+          class="w-fit h-full flex flex-col items-start pl-1 sticky top-0 left-0 justify-center m-0 sm:hidden sm:cursor-pointer"
         >
           <div
             style="font-family: Orbitron;"
@@ -162,19 +160,19 @@ import "./styles/typing.css";
 
   <div
     id="mobile-menu"
-    class="w-screen h-screen bg-pink-500 absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full scale-50 opacity-0 rounded-3xl rotate-45 transition duration-1000 ease-in-out sm:hidden"
+    class="w-screen h-screen bg-gradient-to-br from-blue-900 from-60% via-indigo-600 via-80% to-purple-800 to-90% absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full scale-50 opacity-0 transition duration-500 ease-in-out sm:hidden"
   >
     <div
-      class="absolute right-0 w-full top-0 -ml-8 flex pr-2 pt-4 sm:-ml-10 sm:pr-4"
+      class="relative w-full mt-12"
     >
       <button
         id="close-button"
         type="button"
-        class="rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white transition-all"
+        class="absolute top-0 right-0 mr-8 rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white transition-all"
       >
         <span class="sr-only">Close panel</span>
         <svg
-          class="h-6 w-6"
+          class="h-12 w-12"
           fill="none"
           viewBox="0 0 24 24"
           stroke-width="1.5"
@@ -190,16 +188,16 @@ import "./styles/typing.css";
     </div>
     <!-- Mobile menu, show/hide based on menu state. -->
     <div class="block sm:hidden" id="mobile-menu">
-		<div class='space-y-1 px-2 pt-12  pb-3 text-7xl'>
+		<div class='flex flex-col gap-14 px-2 pt-16 pb-3 text-7xl'>
 		<!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
 	
-			<a id='mobile-bio-link' class="text-gray-100 block rounded-md px-3 py-3 font-medium mobile-link">bio</a>
+			<a id='mobile-bio-link' class="text-gray-100 block rounded-md px-1 py-3 font-medium mobile-link transition duration-300 -translate-y-96">bio</a>
 	
-			<a id='mobile-portfolio-link' class="text-gray-100 block rounded-md px-3 py-3 font-medium mobile-link">projects</a>
+			<a id='mobile-portfolio-link' class="text-gray-100 block rounded-md px-1 py-3 font-medium mobile-link transition duration-500 -translate-y-96">projects</a>
 
-			<a id='mobile-skills-link' class="text-gray-100 block rounded-md px-3 py-3 font-medium mobile-link">skills</a>
+			<a id='mobile-skills-link' class="text-gray-100 block rounded-md px-1 py-3 font-medium mobile-link transition duration-700 -translate-y-96">skills</a>
 
-			<a id='mobile-contact-link' class="text-gray-100 rounded-md px-3 py-3 font-medium mobile-link">contact</a>
+			<a id='mobile-contact-link' class="text-gray-100 block rounded-md px-1 py-3 font-medium mobile-link transition duration-1000 -translate-y-96">contact</a>
 		</div>
 	</div>
   </div>
@@ -207,12 +205,12 @@ import "./styles/typing.css";
 
 <style>
   .view-navbar {
-    /* animation: viewNavbar 12.5s ease-in-out 1; */
+    animation: viewNavbar 12.5s ease-in-out 1;
     transform: translate(-50%, 0%);
     z-index: 999;
     font-family: "Play";
   }
-
+ 
   @keyframes viewNavbar {
     0% {
       transform: translate(-50%, -100%);

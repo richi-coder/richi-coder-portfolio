@@ -1,5 +1,5 @@
 ---
-const { bioId, bioDescription} = Astro.props;
+const { bioId, bioDescription, fontSize } = Astro.props;
 ---
 
-<div id={bioId} class="bio absolute text-white w-full mx-auto text-7xl text-center ">{bioDescription}</div>
+<div id={bioId} class={`bio absolute text-white w-full mx-auto ${fontSize} sm:text-7xl lg:text-7xl text-center`}>{bioDescription}</div>

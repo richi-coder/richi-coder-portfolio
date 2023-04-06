@@ -3,9 +3,9 @@ import Photo from "./Photo.astro";
 import Precomponent from "./Precomponent.astro";
 import "./styles/shortbio.css"
 import Title from "./Title.astro";
-const { id } = Astro.props;
+const { id, ownClass } = Astro.props;
 ---
-<div id={id} class="shortbio w-screen">
+<div id={id} class={`shortbio w-screen ${ownClass}`}>
     <Precomponent />
     <!-- <div class="absolute top-0 left-0 -translate-y-1/2 prebio w-screen h-2/3 -mb-10"></div> -->
     <!-- <Title id="shortbio-title" title="Bio" /> -->
