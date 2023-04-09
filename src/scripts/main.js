@@ -488,7 +488,7 @@ let sceneSkillSlider = new ScrollMagic.Scene({
     // Contact scene          
 let tweenContact = new TimelineMax ()
     .add([
-      TweenMax.fromTo(".contactContainer", {yPercent: 0, filter: 'blur(5px)', ease: Power0.easeNone}, {yPercent: 0, filter: 'blur(0px)', ease: Power0.easeNone}),
+      TweenMax.fromTo("#contact-title", {yPercent: -250, filter: 'blur(5px)', ease: Power0.easeNone}, {yPercent: 0, filter: 'blur(0px)', ease: Power0.easeNone}),
     ])
 
 let sceneContact = new ScrollMagic.Scene({
@@ -497,11 +497,22 @@ let sceneContact = new ScrollMagic.Scene({
   triggerHook: 0,
 })
     .setTween(tweenContact)
-    // .on("update", () => {
-    //   sceneSkillsFixed.destroy()
-    //   sceneSkillsFixed = null
-    // })
     // .addIndicators({name: "Contact"})
+    .addTo(controller)
+
+    // Map scene          
+let tweenMap = new TimelineMax ()
+    .add([
+      TweenMax.fromTo("#worldmap", {yPercent: 0, filter: 'blur(5px)', ease: Power0.easeNone}, {yPercent: -80, filter: 'blur(0px)', ease: Power0.easeNone}),
+    ])
+
+let sceneMap = new ScrollMagic.Scene({
+  triggerElement: "#worldmap",
+  duration: '100%',
+  triggerHook: 1,
+})
+    .setTween(tweenMap)
+    .addIndicators({name: "worldMap"})
     .addTo(controller)
 
 // 3 Add classes to hide elements (case using JS)
@@ -519,7 +530,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
 // 4 new scrollbar listener, instead of window.addEventListener
 function desktopScrolling() {
-  let scrollbar = Scrollbar.init(document.body);
+  let scrollbar = Scrollbar.init(document.body, {
+    renderByPixels: true
+  });
   // Force fixing:
 const fixedPhoto = document.querySelector(".photo");
 const fixedNav = document.querySelector(".view-navbar");
@@ -576,6 +589,7 @@ const fixedNav = document.querySelector(".view-navbar");
     sceneSkillsReveal.refresh()
     sceneSkillSlider.refresh()
     sceneContact.refresh()
+    sceneMap.refresh()
     // sceneProjectDetails.refresh()
     myAnimationScroll();
   });
