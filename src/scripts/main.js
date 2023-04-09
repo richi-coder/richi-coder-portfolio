@@ -307,7 +307,7 @@ let sceneLayer = new ScrollMagic.Scene({
 let tweenOff = new TimelineMax()
     .add([
       // TweenMax.to(".bio", {autoAlpha: 0, ease: Power0.easeNone }),
-      TweenMax.to(".photolayer", 5, {autoAlpha: 0, ease: Power0.easeNone}, 0 )
+      TweenMax.to(".photolayer", 5, {autoAlpha: 1, ease: Power0.easeNone}, 0 )
     ])
 
 let sceneMybioOff = new ScrollMagic.Scene({
@@ -439,12 +439,12 @@ let sceneSkillsPrereveal = new ScrollMagic.Scene({
     // SkillsTitle Prereveal scene          
 let tweenSkillsReveal = new TimelineMax ()
     .add([
-      TweenMax.fromTo("#skills-title", {filter: 'blur(5px)', yPercent: 40, ease: Power0.easeNone}, {filter: 'blur(0)', yPercent: 0, ease: Power0.easeNone}),
+      TweenMax.fromTo("#skills-title", {filter: 'blur(10px)', yPercent: 200, ease: Power0.easeNone}, {filter: 'blur(0px)', yPercent: 0, ease: Power0.easeNone}),
     ])
 
 let sceneSkillsReveal = new ScrollMagic.Scene({
   triggerElement: "#shortbio2",
-  triggerHook: 0.8,
+  triggerHook: 0.9,
   duration: '80%'
 })
     
@@ -488,7 +488,7 @@ let sceneSkillSlider = new ScrollMagic.Scene({
     // Contact scene          
 let tweenContact = new TimelineMax ()
     .add([
-      TweenMax.fromTo(".contactContainer", {yPercent: -45, filter: 'blur(5px)', ease: Power0.easeNone}, {yPercent: 0, filter: 'blur(0px)', ease: Power0.easeNone}),
+      TweenMax.fromTo(".contactContainer", {yPercent: 0, filter: 'blur(5px)', ease: Power0.easeNone}, {yPercent: 0, filter: 'blur(0px)', ease: Power0.easeNone}),
     ])
 
 let sceneContact = new ScrollMagic.Scene({
