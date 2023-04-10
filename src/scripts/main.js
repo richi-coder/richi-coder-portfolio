@@ -1,7 +1,7 @@
 import { scrollFunction } from "./scrollFunction";
 import Scrollbar from 'smooth-scrollbar';
 import ScrollMagic from "scrollmagic";
-import { TweenMax, TimelineMax, Power0 } from "gsap";
+import { TweenMax, TimelineMax, Power0, Back } from "gsap";
 import { ScrollMagicPluginGsap } from "scrollmagic-plugins";
 import { ScrollMagicPluginIndicator} from "scrollmagic-plugins";
 ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
@@ -515,6 +515,19 @@ let sceneMap = new ScrollMagic.Scene({
     .addIndicators({name: "worldMap"})
     .addTo(controller)
 
+    // Socials scene
+let tweenSocials = TweenMax.staggerFromTo('.fa-brands', 2, {left: 700}, {left: 0, ease: Back.easeOut}, 0.15)
+
+let sceneSocials = new ScrollMagic.Scene({
+  triggerElement: '#socials',
+  duration: 350,
+  triggerHook: 1,
+  offset: 200
+})
+    .setTween(tweenSocials)
+    .addIndicators({name: 'socialsss'})
+    .addTo(controller)
+
 // 3 Add classes to hide elements (case using JS)
 window.addEventListener("DOMContentLoaded", () => {
   // Video: injecting a class to make it not visible
@@ -590,6 +603,7 @@ const fixedNav = document.querySelector(".view-navbar");
     sceneSkillSlider.refresh()
     sceneContact.refresh()
     sceneMap.refresh()
+    sceneSocials.refresh()
     // sceneProjectDetails.refresh()
     myAnimationScroll();
   });
