@@ -550,16 +550,16 @@ let sceneBlockContact = new ScrollMagic.Scene({
     .addTo(controller)
 
     // Talk scene
-let tweenTalk = TweenMax.staggerFromTo('.talk', 3, {right: 700}, {left: 0, ease: Back.easeOut}, 0.15)
+let tweenTalk = TweenMax.staggerFromTo('.talk', 3, {right: 800}, {right: 0, ease: Back.easeOut}, 0.5)
 
 let sceneTalk = new ScrollMagic.Scene({
-  triggerElement: '#socials',
-  duration: 400,
+  triggerElement: '.talk',
+  duration: 360,
   triggerHook: 0.9,
-  offset: 200
+  offset: 170
 })
     .setTween(tweenTalk)
-    // .addIndicators({name: 'socialsss'})
+    .addIndicators({name: 'TALK'})
     .addTo(controller)
   
     // Socials scene
@@ -567,12 +567,12 @@ let tweenSocials = TweenMax.staggerFromTo('.fa-brands', 3, {left: 700}, {left: 0
 
 let sceneSocials = new ScrollMagic.Scene({
   triggerElement: '#socials',
-  duration: 400,
+  duration: 360,
   triggerHook: 0.9,
-  offset: 200
+  offset: 250
 })
     .setTween(tweenSocials)
-    // .addIndicators({name: 'socialsss'})
+    .addIndicators({name: 'socialsss'})
     .addTo(controller)
 
 // 3 Add classes to hide elements (case using JS)
