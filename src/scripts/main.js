@@ -530,7 +530,7 @@ let sceneMap = new ScrollMagic.Scene({
   triggerHook: 1,
 })
     .setTween(tweenMap)
-    .addIndicators({name: "worldMap"})
+    // .addIndicators({name: "worldMap"})
     .addTo(controller)
 
     // Map scene          
