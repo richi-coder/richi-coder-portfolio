@@ -485,16 +485,34 @@ let sceneSkillSlider = new ScrollMagic.Scene({
     // .addIndicators({name: "skillSlider"})
     .addTo(controller)
 
+    // Video scene          
+let tweenVideo = new TimelineMax ()
+    .add([
+      TweenMax.fromTo("#video", {yPercent: 0, filter: 'blur(0px)', ease: Power0.easeNone}, {yPercent: 0, filter: 'blur(5px)', ease: Power0.easeNone}),
+      TweenMax.to(".orange", {backgroundColor: 'rgb(10,10,10)', ease: Power0.easeNone})
+    ])
+
+let sceneVideo = new ScrollMagic.Scene({
+  triggerElement: ".videoContainer",
+  duration: '150%',
+  triggerHook: 0,
+  offset: 150
+})
+    .setTween(tweenVideo)
+    // .addIndicators({name: "Video OFF"})
+    .addTo(controller)
+
+
     // Contact scene          
 let tweenContact = new TimelineMax ()
     .add([
-      TweenMax.fromTo("#contact-title", {yPercent: -250, filter: 'blur(5px)', ease: Power0.easeNone}, {yPercent: 0, filter: 'blur(0px)', ease: Power0.easeNone}),
+      TweenMax.fromTo("#contact-title", {yPercent: 110, filter: 'blur(3px)', ease: Power0.easeNone}, {yPercent: 0, filter: 'blur(0px)', ease: Power0.easeNone}),
     ])
 
 let sceneContact = new ScrollMagic.Scene({
-  triggerElement: ".videoContainer",
-  duration: '100%',
-  triggerHook: 0,
+  triggerElement: "#contact-title",
+  duration: '50%',
+  triggerHook: 1,
 })
     .setTween(tweenContact)
     // .addIndicators({name: "Contact"})
@@ -503,7 +521,7 @@ let sceneContact = new ScrollMagic.Scene({
     // Map scene          
 let tweenMap = new TimelineMax ()
     .add([
-      TweenMax.fromTo("#worldmap", {yPercent: 0, filter: 'blur(5px)', ease: Power0.easeNone}, {yPercent: -80, filter: 'blur(0px)', ease: Power0.easeNone}),
+      TweenMax.fromTo("#worldmap", {yPercent: -20, filter: 'blur(3px)', ease: Power0.easeNone}, {yPercent: 15, filter: 'blur(0px)', ease: Power0.easeNone}),
     ])
 
 let sceneMap = new ScrollMagic.Scene({
@@ -512,20 +530,36 @@ let sceneMap = new ScrollMagic.Scene({
   triggerHook: 1,
 })
     .setTween(tweenMap)
-    .addIndicators({name: "worldMap"})
+    // .addIndicators({name: "worldMap"})
+    .addTo(controller)
+
+    // Map scene          
+let tweenBlockContact = new TimelineMax ()
+    .add([
+      TweenMax.fromTo("#contact-block", {yPercent: -80, ease: Power0.easeNone}, {yPercent: 0, ease: Power0.easeNone}),
+    ])
+
+let sceneBlockContact = new ScrollMagic.Scene({
+  triggerElement: "#contact-block",
+  duration: '105%',
+  triggerHook: 1,
+  offset: -200
+})
+    .setTween(tweenBlockContact)
+    .addIndicators({name: "contactBLOCK"})
     .addTo(controller)
 
     // Socials scene
-let tweenSocials = TweenMax.staggerFromTo('.fa-brands', 2, {left: 700}, {left: 0, ease: Back.easeOut}, 0.15)
+let tweenSocials = TweenMax.staggerFromTo('.fa-brands', 3, {left: 700}, {left: 0, ease: Back.easeOut}, 0.15)
 
 let sceneSocials = new ScrollMagic.Scene({
   triggerElement: '#socials',
-  duration: 350,
-  triggerHook: 1,
+  duration: 400,
+  triggerHook: 0.9,
   offset: 200
 })
     .setTween(tweenSocials)
-    .addIndicators({name: 'socialsss'})
+    // .addIndicators({name: 'socialsss'})
     .addTo(controller)
 
 // 3 Add classes to hide elements (case using JS)
@@ -601,8 +635,10 @@ const fixedNav = document.querySelector(".view-navbar");
     sceneSkillsPrereveal.refresh()
     sceneSkillsReveal.refresh()
     sceneSkillSlider.refresh()
+    sceneVideo.refresh()
     sceneContact.refresh()
     sceneMap.refresh()
+    sceneBlockContact.refresh()
     sceneSocials.refresh()
     // sceneProjectDetails.refresh()
     myAnimationScroll();

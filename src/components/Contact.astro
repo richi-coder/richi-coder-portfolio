@@ -5,18 +5,19 @@ import Socials from "./Socials.astro";
 ---
 
 <div
-  class="contactContainer relative w-full h-fit bg-[rgb(10,10,10)] text-lg overflow-hidden"
+  class="contactContainer relative w-full h-fit bg-[rgb(10,10,10)] text-lg overflow-hidden z-50"
 >
   <!-- <BlurLayer id="contact-blur" /> -->
-  <div class="w-full h-[50vh] relative">
+  <div class="w-full pt-24 relative z-10">
     <Title
       id="contact-title"
       title="Contact"
       preTitle="richi"
-      titleClass="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 mx-auto "
+      titleClass="mx-auto"
     />
   </div>
-  <div class="w-full h-fit">
+  <!-- world Map -->
+  <div class="w-full h-fit relative z-40">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       version="1.1"
@@ -46,7 +47,7 @@ import Socials from "./Socials.astro";
   <!-- <button style='font-family: Play;' class='contact absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-lg sm:text-7xl border-red-500 px-20 py-10' tabindex="-1">CONTACT</button> -->
   <svg
     viewBox="0 0 1024 1024"
-    class="absolute top-1/2 left-1/2 -z-10 h-[64rem] w-[64rem] -translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:translate-y-0 lg:-translate-x-1/2"
+    class="absolute bottom-0 left-1/2 -z-10 h-[64rem] w-[64rem] -translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:translate-y-2/3 lg:-translate-x-1/2"
     aria-hidden="true"
   >
     <circle
@@ -62,12 +63,12 @@ import Socials from "./Socials.astro";
       </radialGradient>
     </defs>
   </svg>
-  <div class='flex flex-col w-full sm:flex-row'>
+  <div id='contact-block' class='flex flex-col w-full sm:flex-row pt-24 pb-2'>
     <ContactForm />
     <Socials />
   </div>
   
-  <div class='w-full flex flex-row items-center justify-center pt-16 pb-8'>
+  <div class='w-full flex flex-row items-center justify-center pt-8 pb-8'>
   <div
     style="font-family: Orbitron;"
     class="p-0 m-0 text-white "
