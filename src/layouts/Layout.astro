@@ -21,7 +21,7 @@ const { title } = Astro.props;
     <meta name="description" content="richiCoder, React Developer based in Tachira, Venezuela. Languages: Spanish, English, Portuguese.">
     <meta name="keywords" content="richiCoder, react-developer, portfolio, frontend developer, web developer, javascript, html5, css3, es6, react js, react, bootstrap, tailwindcss, sass, jquery, markdown, restful apis, git, github, next.js, astro, react/redux, react-bootstrap, npm, terminal">
     <meta name="author" content="richiCoder">
-    <title>{title}</title>
+    <title>{title === 'index' ? 'richiCoder | React Developer | Frontend' : title}</title>
     <!-- Fonts preloading -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -36,7 +36,7 @@ const { title } = Astro.props;
       rel="preload" as="style" type="font/woff" crossorigin
     />
     <!-- Image preload -->
-    <link rel="preload" href="richicoder.png" as="image" />
+    {title === 'index' ? <link rel="preload" href="richicoder.png" as="image" /> : null}
 
     <script src="../scripts/scrollFunction.js"></script>
     <script src="../scripts/main.js"></script>
@@ -51,7 +51,7 @@ const { title } = Astro.props;
     />
     <!-- Devicon -->
     
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    {title === 'index' ? <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" /> : null}
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
     <script defer src="https://kit.fontawesome.com/4a2b28f8c7.js" crossorigin="anonymous"></script>
     

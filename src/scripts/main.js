@@ -546,9 +546,22 @@ let sceneBlockContact = new ScrollMagic.Scene({
   offset: -200
 })
     .setTween(tweenBlockContact)
-    .addIndicators({name: "contactBLOCK"})
+    // .addIndicators({name: "contactBLOCK"})
     .addTo(controller)
 
+    // Talk scene
+let tweenTalk = TweenMax.staggerFromTo('.talk', 3, {right: 700}, {left: 0, ease: Back.easeOut}, 0.15)
+
+let sceneTalk = new ScrollMagic.Scene({
+  triggerElement: '#socials',
+  duration: 400,
+  triggerHook: 0.9,
+  offset: 200
+})
+    .setTween(tweenTalk)
+    // .addIndicators({name: 'socialsss'})
+    .addTo(controller)
+  
     // Socials scene
 let tweenSocials = TweenMax.staggerFromTo('.fa-brands', 3, {left: 700}, {left: 0, ease: Back.easeOut}, 0.15)
 
@@ -639,6 +652,7 @@ const fixedNav = document.querySelector(".view-navbar");
     sceneContact.refresh()
     sceneMap.refresh()
     sceneBlockContact.refresh()
+    sceneTalk.refresh()
     sceneSocials.refresh()
     // sceneProjectDetails.refresh()
     myAnimationScroll();
