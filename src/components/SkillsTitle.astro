@@ -7,72 +7,251 @@ import Title from "./Title.astro";
 <div class="skillsTitleContainer w-full h-screen absolute top-0 left-0 -z-10">
   <div id="slideContainer" class="absolute top-0 left-0">
     <section class="panel blue">
-      <Title id="skills-title" title="Skills" preTitle="richi" />
+      <Title id="skills-title" title="Skills" preTitle="richi" titleClass='text-6xl sm:text-9xl' />
     </section>
     <section class="panel turqoise flex flex-col justify-center">
       <Title id="responsive-title" title="Design" preTitle="responsive" />
       <div
-        class="responsive-tools container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 text-4xl sm:text-3xl md:text-5xl m-auto gap-5 sm:gap-7 md:gap-6 "
+        class="responsive-tools container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 text-4xl sm:text-3xl md:text-5xl m-auto gap-9 sm:gap-7 md:gap-y-40 md:-gap-x-5 lg:gap-y-12"
       >
         <div
-          class="flex flex-row md:flex-col items-center justify-start pl-14 sm:pl-0 gap-7 sm:gap-3 sm:justify-center"
+          class="flex flex-row md:flex-col items-center justify-start pl-[15vw] sm:pl-0 gap-7 sm:gap-3 sm:justify-center"
         >
-          <i class="devicon-html5-plain text-7xl"></i>
+          <i class="devicon-html5-plain text-5xl sm:text-7xl"></i>
 
           <div>HTML5</div>
         </div>
         <div
-          class="flex flex-row md:flex-col items-center justify-start pl-14 sm:pl-0 gap-7 sm:gap-3 sm:justify-center"
+          class="flex flex-row md:flex-col items-center justify-start pl-[15vw] sm:pl-0 gap-7 sm:gap-3 sm:justify-center"
         >
-          <i class="devicon-css3-plain text-7xl"></i>
+          <i class="devicon-css3-plain text-5xl sm:text-7xl"></i>
 
           <div>CSS</div>
         </div>
         <div
-          class="flex flex-row md:flex-col items-center justify-start pl-14 sm:pl-0 gap-7 sm:gap-3 sm:justify-center"
+          class="flex flex-row md:flex-col items-center justify-start pl-[15vw] sm:pl-0 gap-7 sm:gap-3 sm:justify-center"
         >
-          <i class="devicon-markdown-original text-7xl"></i>
+          <i class="devicon-markdown-original text-5xl sm:text-7xl"></i>
 
           <div>Markdown</div>
         </div>
         <div
-          class="flex flex-row md:flex-col items-center justify-start pl-14 sm:pl-0 gap-7 sm:gap-3 sm:justify-center"
+          class="flex flex-row md:flex-col items-center justify-start pl-[15vw] sm:pl-0 gap-7 sm:gap-3 sm:justify-center"
         >
-          <i class="devicon-bootstrap-plain text-7xl"></i>
+          <i class="devicon-bootstrap-plain text-5xl sm:text-7xl"></i>
 
           <div>Bootstrap</div>
         </div>
         <div
-          class="flex flex-row md:flex-col items-center justify-start pl-14 sm:pl-0 gap-7 sm:gap-3 sm:justify-center"
+          class="flex flex-row md:flex-col items-center justify-start pl-[15vw] sm:pl-0 gap-7 sm:gap-3 sm:justify-center"
         >
-          <i class="devicon-tailwindcss-plain text-7xl"></i>
+          <i class="devicon-tailwindcss-plain text-5xl sm:text-7xl"></i>
 
           <div>TailwindCSS</div>
         </div>
         <div
-          class="flex flex-row md:flex-col items-center justify-start pl-14 sm:pl-0 gap-7 sm:gap-3 sm:justify-center"
+          class="flex flex-row md:flex-col items-center justify-start pl-[15vw] sm:pl-0 gap-7 sm:gap-3 sm:justify-center"
         >
-          <i class="devicon-sass-original text-7xl"></i>
+          <i class="devicon-sass-original text-5xl sm:text-7xl"></i>
 
           <div>SASS</div>
         </div>
         <div
-          class="flex flex-row items-center justify-start pl-14 sm:pl-0 gap-7 sm:gap-3 sm:justify-center sm:col-span-2 md:col-span-3"
+          class="flex flex-row items-center justify-start pl-[15vw] sm:pl-0 gap-7 sm:gap-3 sm:justify-center sm:col-span-2 md:col-span-3"
         >
-          <i class="devicon-firefox-plain text-7xl"></i>
-          <i class="devicon-chrome-plain text-7xl"></i>
-          <div>Dev Tools</div>
+          <i class="devicon-firefox-plain text-5xl sm:text-7xl"></i>
+          <i class="devicon-chrome-plain text-5xl sm:text-7xl -ml-5 sm:ml-0"></i>
+          <div class='-ml-2 sm:ml-0'>Dev Tools</div>
         </div>
       </div>
     </section>
-    <section class="panel green">
+    <section class="panel green flex flex-col justify-center">
       <Title id="spa-title" title="Development" preTitle="spa" />
+      <div
+        class="spa-tools container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 text-4xl sm:text-3xl md:text-5xl m-auto gap-9 sm:gap-7 md:gap-y-40 md:-gap-x-5 lg:gap-y-12"
+      >
+        <div
+          class="flex flex-row md:flex-col items-center justify-start pl-[12vw] sm:pl-0 gap-7 sm:gap-3 sm:justify-center"
+        >
+        <i class="devicon-javascript-plain text-5xl sm:text-7xl"></i>
+
+          <div>Javascript</div>
+        </div>
+        <div
+          class="flex flex-row md:flex-col items-center justify-start pl-[12vw] sm:pl-0 gap-7 sm:gap-3 sm:justify-center"
+        >
+        <i class="devicon-react-original text-5xl sm:text-7xl"></i>
+
+          <div>React</div>
+        </div>
+        <div
+          class="flex flex-row md:flex-col items-center justify-start pl-[12vw] sm:pl-0 gap-7 sm:gap-3 sm:justify-center"
+        >
+        <i class="devicon-redux-original text-5xl sm:text-7xl"></i>
+
+          <div>Router</div>
+        </div>
+        <div
+        class="flex flex-row md:flex-col items-center justify-start pl-[12vw] sm:pl-0 gap-7 sm:gap-3 sm:justify-center"
+        >
+        <div class='flex flex-row'>
+        <i class="devicon-react-original text-5xl sm:text-7xl"></i>
+        <i class="devicon-bootstrap-plain text-5xl sm:text-7xl -ml-9"></i>
+        </div>
+          <div class='-ml-7 sm:ml-0'>React/BS</div>
+        </div>
+        <div
+          class="flex flex-row md:flex-col items-center justify-start pl-[12vw] sm:pl-0 gap-7 sm:gap-3 sm:justify-center"
+        >
+        <i class="devicon-redux-original text-5xl sm:text-7xl"></i>
+          
+          <div>Redux</div>
+        </div>
+        <div
+          class="flex flex-row md:flex-col items-center justify-start pl-[12vw] sm:pl-0 gap-7 sm:gap-3 sm:justify-center"
+        >
+        <i class="devicon-typescript-plain text-5xl sm:text-7xl"></i>
+
+          <div>Typescript</div>
+        </div>
+        <div
+          class="flex flex-row items-center justify-start pl-[12vw] sm:pl-0 gap-7 sm:gap-3 sm:justify-center sm:col-span-2 md:col-span-3"
+        >
+          
+        <i class="devicon-react-original text-5xl sm:text-7xl"></i>
+        <i class="devicon-redux-original text-5xl sm:text-7xl"></i>
+          
+          <div class='-ml-2 sm:ml-0'>Dev Tools</div>
+        </div>
+      </div>
     </section>
     <section class="panel bordeaux">
       <Title id="projectInit-title" title="Initialization" preTitle="project" />
+      <div
+        class="init-tools container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 text-4xl sm:text-3xl md:text-5xl pt-14 md:pt-32 sm:pt-12 m-auto gap-10 sm:gap-7 md:gap-y-52 md:gap-x-0 lg:gap-y-12 lg:pt-16"
+      >
+        <div
+          class="flex flex-row md:flex-col items-center justify-start pl-[12vw] sm:pl-0 gap-7 sm:gap-3 sm:justify-center"
+        >
+        <i class="devicon-vscode-plain text-5xl sm:text-7xl"></i>
+
+          <div>VSCode</div>
+        </div>
+        <div
+          class="flex flex-row md:flex-col items-center justify-start pl-[12vw] sm:pl-0 gap-7 sm:gap-3 sm:justify-center"
+        >
+        <i class="devicon-github-original text-5xl sm:text-7xl"></i>
+
+          <div>GIT/Github</div>
+        </div>
+        <div
+        class="flex flex-row md:flex-col items-center justify-start pl-[12vw] sm:pl-0 gap-7 sm:gap-3 sm:justify-center"
+        >
+        <i class="fa-solid fa-terminal text-5xl sm:text-7xl"></i>
+        
+        <div>Terminal</div>
+        </div>
+        <div
+          class="flex flex-row md:flex-col items-center justify-start pl-[12vw] sm:pl-0 gap-7 sm:gap-3 sm:justify-center"
+        >
+        <i class="devicon-npm-original-wordmark text-5xl sm:text-7xl"></i>
+          
+          <div>NPM</div>
+        </div>
+        <div
+          class="flex flex-row md:flex-col items-center justify-start pl-[12vw] sm:pl-0 gap-7 sm:gap-3 sm:justify-center"
+        >
+        <i class="devicon-webpack-plain text-5xl sm:text-7xl"></i>
+
+          <div>Webpack</div>
+        </div>
+        <div
+        class="flex flex-row md:flex-col items-center justify-start pl-[12vw] sm:pl-0 gap-7 sm:gap-3 sm:justify-center"
+        >
+        <i class="devicon-react-original text-5xl sm:text-7xl"></i>
+          
+          <div class='-ml-2 sm:ml-0'>Vite/Astro</div>
+        </div>
+      </div>
     </section>
     <section class="panel orange">
       <Title id="others-title" title="Tools" preTitle="other" />
+      <div
+        class="other-tools container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 text-4xl sm:text-3xl md:text-5xl m-auto gap-1 sm:gap-7 md:gap-y-32 lg:gap-y-6 md:pt-20 lg:pt-12"
+      >
+        <div
+          class="flex flex-row md:flex-col items-center justify-start pl-[12vw] sm:pl-0 gap-7 sm:gap-3 sm:justify-center"
+        >
+
+          <div>REST APIs</div>
+        </div>
+        <div
+          class="flex flex-row md:flex-col items-center justify-start pl-[12vw] sm:pl-0 gap-7 sm:gap-3 sm:justify-center"
+        >
+
+          <div>AJAX</div>
+        </div>
+        <div
+        class="flex flex-row md:flex-col items-center justify-start pl-[12vw] sm:pl-0 gap-7 sm:gap-3 sm:justify-center"
+        >
+        
+        <div>Chart JS</div>
+        </div>
+        <div
+          class="flex flex-row md:flex-col items-center justify-start pl-[12vw] sm:pl-0 gap-7 sm:gap-3 sm:justify-center"
+        >
+          
+          <div>jQuery</div>
+        </div>
+        <div
+          class="flex flex-row md:flex-col items-center justify-start pl-[12vw] sm:pl-0 gap-7 sm:gap-3 sm:justify-center"
+        >
+
+          <div>Firebase</div>
+        </div>
+        <div
+        class="flex flex-row md:flex-col items-center justify-start pl-[12vw] sm:pl-0 gap-7 sm:gap-3 sm:justify-center"
+        >
+          
+          <div class='-ml-2 sm:ml-0'>PWA</div>
+        </div>
+        <div
+        class="flex flex-row md:flex-col items-center justify-start pl-[12vw] sm:pl-0 gap-7 sm:gap-3 sm:justify-center"
+        >
+          
+          <div class='-ml-2 sm:ml-0'>Tabnine</div>
+        </div>
+        <div
+        class="flex flex-row md:flex-col items-center justify-start pl-[12vw] sm:pl-0 gap-7 sm:gap-3 sm:justify-center"
+        >
+          
+          <div class='-ml-2 sm:ml-0'>ESLint</div>
+        </div>
+        <div
+        class="flex flex-row md:flex-col items-center justify-start pl-[12vw] sm:pl-0 gap-7 sm:gap-3 sm:justify-center"
+        >
+          
+          <div class='-ml-2 sm:ml-0'>Miro</div>
+        </div>
+        <div
+        class="flex flex-row md:flex-col items-center justify-start pl-[12vw] sm:pl-0 gap-7 sm:gap-3 sm:justify-center"
+        >
+          
+          <div class='-ml-2 sm:ml-0'>Figma</div>
+        </div>
+        <div
+        class="flex flex-row md:flex-col items-center justify-start pl-[12vw] sm:pl-0 gap-7 sm:gap-3 sm:justify-center"
+        >
+          
+          <div class='-ml-2 sm:ml-0'>Prettier</div>
+        </div>
+        <div
+        class="flex flex-row md:flex-col items-center justify-start pl-[12vw] sm:pl-0 gap-7 sm:gap-3 sm:justify-center"
+        >
+          
+          <div class='-ml-2 sm:ml-0'>Testing</div>
+        </div>
+      </div>
     </section>
   </div>
 </div>
@@ -111,7 +290,7 @@ import Title from "./Title.astro";
     background-color: purple;
   }
   .orange {
-    background-color: orange;
+    background-color: rgb(10, 10, 10);
   }
   /* .responsive-tools > div {
         min-width: 400px;
