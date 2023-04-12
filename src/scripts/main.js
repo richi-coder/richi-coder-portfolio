@@ -316,7 +316,7 @@ let sceneMybioOff = new ScrollMagic.Scene({
   offset: -800 
 })
       .setTween(tweenOff)
-      // .addIndicators({name: "videoContainer"})
+      // .addIndicators({name: "PORTFOLIO"})
       .addTo(controller)
 
     // Number scene          
@@ -464,10 +464,13 @@ let tweenSkillSlider = new TimelineMax ()
 			// animate to third panel
 			.to("#slideContainer", 0.5, {z: -150, delay: 1})
 			.to("#slideContainer", 1,   {x: "-40%"})
+      .fromTo("#spa-title", 9, {filter: 'blur(10px)', xPercent: 100}, {filter: 'blur(0px)', xPercent: 0}, 0)
+      .fromTo(".spa-tools", {filter: 'blur(10px)', xPercent: 100}, {filter: 'blur(0px)', xPercent: 0})
 			.to("#slideContainer", 0.5, {z: 0})
 			// animate to forth panel
 			.to("#slideContainer", 0.5, {z: -150, delay: 1})
 			.to("#slideContainer", 1,   {x: "-60%"})
+      .fromTo("#init-title", 12, {filter: 'blur(10px)', xPercent: 100}, {filter: 'blur(0px)', xPercent: 0}, 0)
 			.to("#slideContainer", 0.5, {z: 0})
       // animate to fifth panel
 			.to("#slideContainer", 0.5, {z: -150, delay: 1})
@@ -488,15 +491,14 @@ let sceneSkillSlider = new ScrollMagic.Scene({
     // Video scene          
 let tweenVideo = new TimelineMax ()
     .add([
-      TweenMax.fromTo("#video", {yPercent: 0, filter: 'blur(0px)', ease: Power0.easeNone}, {yPercent: 0, filter: 'blur(5px)', ease: Power0.easeNone}),
-      TweenMax.to(".orange", {backgroundColor: 'rgb(10,10,10)', ease: Power0.easeNone})
+      // TweenMax.fromTo("#video", {yPercent: 0, filter: 'blur(0px)', ease: Power0.easeNone}, {yPercent: 0, filter: 'blur(5px)', ease: Power0.easeNone}),
+      TweenMax.fromTo(".orange", {yPercent: 0}, {yPercent: -30, ease: Power0.easeNone})
     ])
 
 let sceneVideo = new ScrollMagic.Scene({
   triggerElement: ".videoContainer",
   duration: '150%',
-  triggerHook: 0,
-  offset: 150
+  triggerHook: 1,
 })
     .setTween(tweenVideo)
     // .addIndicators({name: "Video OFF"})
