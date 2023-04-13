@@ -56,7 +56,7 @@ if (isMobile) {
   numberYpercent = 80;
   skillsFixedDuration = '400%';
   talkRight = 400
-  contactYpercent = -40
+  contactYpercent = -10
   socialOffset = 0
   socialDuration = 180
   // skillsContainer.style.height = '100vh'
@@ -594,7 +594,7 @@ let sceneSocials = new ScrollMagic.Scene({
   offset: socialOffset
 })
     .setTween(tweenSocials)
-    .addIndicators({name: 'socialsss'})
+    // .addIndicators({name: 'socialsss'})
     .addTo(controller)
 
 // 3 Add classes to hide elements (case using JS)
