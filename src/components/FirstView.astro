@@ -58,12 +58,16 @@ import ScrollDown from '../components/ScrollDown.astro';
 		padding: 0;
 		color: white;
         font-family: 'Orbitron', system-ui;
-		animation: richi 12s linear 1;
+		transform: translate(0,-70vh);
 		white-space: nowrap;
 		overflow: hidden;
 		text-align: end;
 		width: calc(var(--richiwidth)*4); 
 		z-index: 9999;
+	}
+	.richi-animation {
+		animation: richi 12s linear 1;
+		transform: translate(0,0);
 	}
 	.coder {
 		font-size: 1.5rem;
@@ -71,12 +75,16 @@ import ScrollDown from '../components/ScrollDown.astro';
 		margin: 0;
 		padding: 0;
 		font-family: 'Orbitron', system-ui;
-		animation: coder 12s linear 1;
+		transform: translate(0,-70vh);
 		white-space: nowrap;
 		overflow: hidden;
 		text-align:start;
 	    width: calc(var(--coderwidth)*4); 
 		z-index: 9999;
+	}
+	.coder-animation {
+		animation: coder 12s linear 1;
+		transform: translate(0,0);
 	}
 	@keyframes richi {
 		0% { width: var(--richiwidth); transform: translate(0,-70vh ); opacity: 0;}
@@ -114,7 +122,7 @@ import ScrollDown from '../components/ScrollDown.astro';
 		position: relative;
 		top: 1.6rem;
 		left: 0; 
-		animation: tech 8s ease-in-out 3s 1;
+		
 		padding: 0;
 		margin: 0;
 		padding-left: 5px;
@@ -123,6 +131,9 @@ import ScrollDown from '../components/ScrollDown.astro';
 		overflow: hidden;
 		width: 0;
 		opacity: 0; 
+	}
+	.tech-animation {
+		animation: tech 8s ease-in-out 3s 1;
 	}
 	@keyframes tech {
 		0% {opacity: 0; width: 0 }
@@ -164,18 +175,21 @@ import ScrollDown from '../components/ScrollDown.astro';
 	}
 	.bar {
 		border: 1px solid white;
-		animation: bar 8s ease-in 3s 1;
 		opacity: 0;
 		width: 0;
 		margin-left: 5px;
 	}
+	.bar-animation {
+		animation: bar 8s ease-in 3s 1;
+	}
 	@keyframes bar {
 		5% {opacity: 0;}
 		15% {opacity: 1;}
-		98% {opacity: 1;}
+		98% {opacity: 1;} 
 		100% {opacity: 0;}
 	}
 	
+	/* Media queries */
 
 	@media only screen and (min-width: 1300px) {
 		:root {
