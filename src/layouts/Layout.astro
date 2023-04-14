@@ -55,7 +55,7 @@ const { title } = Astro.props;
     
     <!-- FontAwesome Own Kit -->
     
-    <script defer src="https://kit.fontawesome.com/4a2b28f8c7.js" crossorigin="anonymous"></script>
+    {title === 'index' ? <script defer src="https://kit.fontawesome.com/4a2b28f8c7.js" crossorigin="anonymous"></script> : null}
     
   </head>
   <body>

@@ -1,0 +1,42 @@
+---
+import DataForm from "./DataForm";
+export function getStaticPaths() {
+  // we need to define all the possible react routes so astro knows to redirect here
+  return [{ params: { route: undefined } }, { params: { route: "input" } }];
+}
+---
+<div class="w-full z-10">
+          <div class="mx-auto max-w-full sm:px-6 pb-20 lg:px-8">
+            <div class="relative isolate overflow-hidden bg-black px-6 pt-16 shadow-2xl sm:rounded-3xl sm:px-16 md:pt-1 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
+              <svg
+                viewBox="0 0 1024 1024"
+                class="absolute top-1/2 left-1/2 -z-10 h-[64rem] w-[64rem] -translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:translate-y-0 lg:-translate-x-1/2"
+                aria-hidden="true"
+              >
+                <circle cx="512" cy="512" r="512" fill="url(#759c1415-0410-454c-8f7c-9a820de03641)" fill-opacity="0.7" />
+                <defs>
+                  <radialGradient id="759c1415-0410-454c-8f7c-9a820de03641">
+                    <stop stop-Color="#7775D6" />
+                    <stop offset="1" stop-Color="blue" />
+                  </radialGradient>
+                </defs>
+              </svg>
+              <div class="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-48 lg:text-left">
+                <h3 style="font-family: Play;" class="text-5xl font-bold tracking-tight text-white sm:text-5xl">
+                  <br />
+                  <em style="font-family: Play;" class='text-blue-900 text-3xl'>APP DESC</em>
+                </h3>
+                <div class='w-fit'>
+                        React Form
+                        <DataForm client:only='react' />
+                </div>
+                <div class="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
+                 
+                </div>
+              </div>
+              <div class="relative mt-16 h-80 lg:mt-8">
+               
+              </div>
+            </div>
+          </div>
+</div>
