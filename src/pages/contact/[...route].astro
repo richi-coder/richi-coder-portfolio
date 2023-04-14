@@ -1,7 +1,10 @@
 ---
-import ContactForm from "../components/[...route].astro";
-import Layout from "../layouts/Layout.astro";
-
+import DataForm from "../../components/DataForm";
+import Layout from "../../layouts/Layout.astro";
+export function getStaticPaths() {
+  // we need to define all the possible react routes so astro knows to redirect here
+  return [{ params: { route: undefined } }, { params: { route: "input" } }];
+}
 ---
 
 <Layout title="Contact | richiCoder">
@@ -9,7 +12,7 @@ import Layout from "../layouts/Layout.astro";
     <div class='contact-form'>Contact Form</div>
 
     <div>PAGE UNDER CONSTRUCTION</div>
-        <ContactForm />
+        <DataForm client:only='react' />
         <br>
         <br>
     <div>richiCoder</div>

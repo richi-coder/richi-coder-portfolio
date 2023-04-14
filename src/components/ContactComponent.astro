@@ -1,9 +1,6 @@
 ---
 import DataForm from "./DataForm";
-export function getStaticPaths() {
-  // we need to define all the possible react routes so astro knows to redirect here
-  return [{ params: { route: undefined } }, { params: { route: "input" } }];
-}
+
 ---
 <div class="w-full z-10">
           <div class="mx-auto max-w-full sm:px-6 pb-20 lg:px-8">
@@ -28,7 +25,7 @@ export function getStaticPaths() {
                 </h3>
                 <div class='w-fit'>
                         React Form
-                        <DataForm client:only='react' />
+                        
                 </div>
                 <div class="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
                  
