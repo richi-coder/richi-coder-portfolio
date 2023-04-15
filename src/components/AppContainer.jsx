@@ -2,6 +2,7 @@ import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
 import { useFormContext } from "./AppContext"
 import Input from "./Input";
 import FormButtons from "./FormButtons";
+import LoginButton from "./LoginButton";
 
 
 function AppContainer() {
@@ -10,7 +11,8 @@ function AppContainer() {
     <div>
         <BrowserRouter>
           <br />
-          <Link to="/contact">
+          <LoginButton />
+          {/* <Link to="/contact">
             <div className="bg-blue-500">Root Link</div>
           </Link>
           <Link to="/contact/input1">
@@ -22,7 +24,7 @@ function AppContainer() {
           <Link to="/contact/input3">
             <div className="bg-green-500">Input-3 Link</div>
           </Link>
-          BrowserRouter
+          BrowserRouter */}
           <Routes>
             <Route path="/contact" element={<div>ROOT</div>}></Route>
             <Route

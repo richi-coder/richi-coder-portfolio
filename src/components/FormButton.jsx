@@ -26,7 +26,7 @@ function FormButton({direction}) {
     location === '/contact' && direction === 'backward' ?
     null :
     <button onClick={navigation}>
-        {location === '/contact' && direction === 'forward' ? 'START' : direction}
+        {location === '/contact' && direction === 'forward' ? 'START' : <i className={direction === 'forward' ? 'fa fa-chevron-right' : 'fa fa-chevron-left'}></i>}
     </button>
     }
     </> 

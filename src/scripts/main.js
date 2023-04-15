@@ -50,7 +50,7 @@ let mobileBioLink = document.querySelector('#mobile-bio-link');  // Mobio link t
 let mobilePortfolioLink = document.querySelector('#mobile-portfolio-link');  // Mobio link to portfolio
 let mobileSkillsLink = document.querySelector('#mobile-skills-link');  // Mobio link to skills
 let mobileContactLink = document.querySelector('#mobile-contact-link');  // Mobio link to contact
-let socials = document.querySelectorAll('.fa-brands')
+let socials = document.querySelectorAll('.fa')
   Array.from(socials).forEach(social => {
     social.addEventListener('mouseover', () => {if(!social.classList.contains('fa-bounce')) social.classList.add('fa-bounce')})
   }
@@ -520,7 +520,7 @@ let sceneTalk = new ScrollMagic.Scene({
     .addTo(controller)
   
     // Socials scene
-let tweenSocials = TweenMax.staggerFromTo('.fa-brands', 3, {left: 700}, {left: 0, ease: Back.easeOut}, 0.15)
+let tweenSocials = TweenMax.staggerFromTo('.fa', 3, {left: 700}, {left: 0, ease: Back.easeOut}, 0.15)
 
 let sceneSocials = new ScrollMagic.Scene({
   triggerElement: '#socials',
