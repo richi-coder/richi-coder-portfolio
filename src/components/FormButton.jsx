@@ -1,21 +1,35 @@
 import { useLocation, useNavigate } from 'react-router-dom'
+import { useFormContext } from './AppContext';
 
 
 function FormButton({direction}) {
     const navigate = useNavigate()
     const location = useLocation().pathname;
     const locationSplitted = location.split('');
-    let currentInput;
+    const formData = useFormContext();
+    const lastInput = Object.values(formData).length;
+   
 
     const navigation = () => {
-        if (direction === 'backward') navigate(-1)
-        if (direction === 'forward') {
-            currentInput = locationSplitted[locationSplitted.length - 1]
-            if (location === '/contact') {
-                navigate(`contact/input1`)
+        let currentInput = locationSplitted[locationSplitted.length - 1]
+        if (direction === 'backward') {
+            if (location === '/contact/input1') {
+                navigate(`/contact`)
             }
             else {
-            navigate(`contact/input${Number(currentInput) + 1}`)
+            navigate(`/contact/input${Number(currentInput) - 1}`)
+            }
+        }
+        if (direction === 'forward') {
+            if (location === `/contact/input${lastInput}`) {
+                navigate('/contact/formend')
+                return
+            }
+            if (location === '/contact') {
+                navigate(`/contact/input1`)
+            }
+            else {
+            navigate(`/contact/input${Number(currentInput) + 1}`)
             }
         }
     }

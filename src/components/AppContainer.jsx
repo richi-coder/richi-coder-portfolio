@@ -3,15 +3,44 @@ import { useFormContext } from "./AppContext"
 import Input from "./Input";
 import FormButtons from "./FormButtons";
 import LoginButton from "./LoginButton";
+import { useEffect, useState } from "react";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import SignOutButton from "./SignOutButton";
+import RootContact from "./RootContact";
+import FormEnd from "./FormEnd";
 
 
 function AppContainer() {
     const formData = useFormContext();
+    const auth = getAuth()
+    const [userOnline, setUserOnline] = useState(false)
+
+    useEffect(() => {
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          // User is signed in, see docs for a list of available properties
+          // https://firebase.google.com/docs/reference/js/firebase.User
+          const uid = user.uid;
+          console.log('done', user)
+          setUserOnline(true)
+          // ...
+        } else {
+          // User is signed out
+          // ...
+          console.log('rejected')
+          setUserOnline(false)
+        }
+      });    
+    }, [])
+    
   return (
     <div>
+      {
+        userOnline ? 
         <BrowserRouter>
           <br />
-          <LoginButton />
+          <div className='bg-green-600 mb-10'>user is ONLINE</div>
+          
           {/* <Link to="/contact">
             <div className="bg-blue-500">Root Link</div>
           </Link>
@@ -26,7 +55,7 @@ function AppContainer() {
           </Link>
           BrowserRouter */}
           <Routes>
-            <Route path="/contact" element={<div>ROOT</div>}></Route>
+            <Route path="/contact" element={<RootContact />}></Route>
             <Route
               path="/contact/input1"
               element={
@@ -55,14 +84,28 @@ function AppContainer() {
                 <Input
                   id={"venture"}
                   inputName="Venture"
-                  color="bg-green-500"
+                  color="bg-blue-500"
                   value={formData.venture}
+                />
+              }
+            ></Route>
+            <Route
+              path="/contact/formend"
+              element={
+                <FormEnd
                 />
               }
             ></Route>
           </Routes>
           <FormButtons />
-        </BrowserRouter>
+          <SignOutButton />
+
+        </BrowserRouter> :
+        <div>
+          <div className='bg-red-600 mb-10'>Please choose a method to get in touch with richiCoder</div>
+          <LoginButton />
+        </div>
+        }
         
     </div>
   )
