@@ -8,6 +8,7 @@ function FormButton({direction}) {
     const locationSplitted = location.split('');
     const formData = useFormContext();
     const lastInput = Object.values(formData).length;
+    const isButton = location === '/contact' && direction === 'forward'
    
 
     const navigation = () => {
@@ -39,8 +40,8 @@ function FormButton({direction}) {
     {
     location === '/contact' && direction === 'backward' ?
     null :
-    <button onClick={navigation}>
-        {location === '/contact' && direction === 'forward' ? 'START' : <i className={direction === 'forward' ? 'fa fa-chevron-right' : 'fa fa-chevron-left'}></i>}
+    <button onClick={navigation} className={isButton ? 'bg-blue-500 px-6 py-3 rounded-lg sm:hover:bg-blue-300' : ''}>
+        {isButton ? 'Let him know!' : <i className={direction === 'forward' ? 'fa fa-chevron-right' : 'fa fa-chevron-left'}></i>}
     </button>
     }
     </> 

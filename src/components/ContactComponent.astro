@@ -24,8 +24,12 @@ import DataForm from "./DataForm";
                   <em style="font-family: Play;" class='text-blue-900 text-3xl'>APP DESC</em>
                 </h3>
                 <div class='w-fit'>
-                        <a href="http://localhost:3000/contact" target="_blank">TEST LINK</a>
-                        Contact richiCoder
+                        <a href="http://localhost:3001/contact" target="_blank">TEST LINK</a>
+                        <br />
+                        <p>Contact</p>
+                        <h1 class="p-0 m-0 contactFormLogo">
+                          richi<span class="text-gradient">Coder</span>
+                        </h1>
                         <DataForm client:only='react' />
                 </div>
                 <div class="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
@@ -38,3 +42,16 @@ import DataForm from "./DataForm";
             </div>
           </div>
 </div>
+
+<style>
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+} 
+.contactFormLogo {
+  font-family: 'Orbitron';
+}
+</style>

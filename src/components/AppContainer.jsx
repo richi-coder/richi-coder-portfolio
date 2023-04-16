@@ -13,7 +13,8 @@ import FormEnd from "./FormEnd";
 function AppContainer() {
     const formData = useFormContext();
     const auth = getAuth()
-    const [userOnline, setUserOnline] = useState(false)
+    const [userOnline, setUserOnline] = useState(false);
+    const [user, setUser] = useState(null)
 
     useEffect(() => {
       onAuthStateChanged(auth, (user) => {
@@ -23,6 +24,7 @@ function AppContainer() {
           const uid = user.uid;
           console.log('done', user)
           setUserOnline(true)
+          setUser(user)
           // ...
         } else {
           // User is signed out
@@ -39,7 +41,7 @@ function AppContainer() {
         userOnline ? 
         <BrowserRouter>
           <br />
-          <div className='bg-green-600 mb-10'>user is ONLINE</div>
+          
           
           {/* <Link to="/contact">
             <div className="bg-blue-500">Root Link</div>
@@ -55,7 +57,7 @@ function AppContainer() {
           </Link>
           BrowserRouter */}
           <Routes>
-            <Route path="/contact" element={<RootContact />}></Route>
+            <Route path="/contact" element={<RootContact user={user} />}></Route>
             <Route
               path="/contact/input1"
               element={
@@ -102,7 +104,7 @@ function AppContainer() {
 
         </BrowserRouter> :
         <div>
-          <div className='bg-red-600 mb-10'>Please choose a method to get in touch with richiCoder</div>
+          <div className='text-2xl'>Please select an access method</div>
           <LoginButton />
         </div>
         }
