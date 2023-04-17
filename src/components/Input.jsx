@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useFormContext, useUpdateFormContext } from './AppContext'
 import { useLocation, useNavigate } from 'react-router';
 
@@ -49,7 +49,7 @@ function Input({inputName, color, value, id}) {
       !check ?
     <div className={color}>
         <div>{inputName}</div>
-        <input onChange={onChange} className={`text-black`} type="text" value={value} placeholder={`Enter ${inputName}`} />
+        <input onChange={onChange} className={`text-black pl-2`} type="text" value={value} placeholder={`Enter ${inputName}`} autoFocus />
     </div> :
     <div>Go to last step please!</div>
     }

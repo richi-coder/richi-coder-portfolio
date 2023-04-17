@@ -12,6 +12,7 @@ function FormButton({direction}) {
    
 
     const navigation = () => {
+        // Here goes firebase updateUserData (frontend has been protected in some way, now it is necessary to protect contactForm from firebase backend)
         let currentInput = locationSplitted[locationSplitted.length - 1]
         if (direction === 'backward') {
             if (location === '/contact/input1') {

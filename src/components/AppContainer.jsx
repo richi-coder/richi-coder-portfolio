@@ -9,6 +9,7 @@ import SignOutButton from "./SignOutButton";
 import RootContact from "./RootContact";
 import FormEnd from "./FormEnd";
 import { registerPageLoad } from "../scripts/ipservice";
+import { checkJobContact } from "../scripts/firebase";
 
 
 function AppContainer() {
@@ -25,29 +26,31 @@ function AppContainer() {
     })
 
     useEffect(() => {
-      onAuthStateChanged(auth, (user) => {
-        if (user) {
+      // localStorage User Identifier
+      if (!browserUser) {
+        // Fetch IP API
+        registerPageLoad()
+      }
+      console.log(browserUser, 'BROWSER')
+      onAuthStateChanged(auth, (firebaseUser) => {
+        if (firebaseUser) {
           // User is signed in, see docs for a list of available properties
           // https://firebase.google.com/docs/reference/js/firebase.User
-          const uid = user.uid;
-          console.log('user Online!', user)
-          setUser(user)
-          // ...
+          const uid = firebaseUser.uid;
+          console.log('user Online!', firebaseUser)
+          setUser(firebaseUser)
+          // ... Put user to jobContacts after login
+          // First check if the user is at jobContacts Database
+          checkJobContact(browserUser, firebaseUser)
         } else {
           // User is signed out
           // ...
-          setUser(user)
-          console.log('user Offline!', user)
+          setUser(firebaseUser)
+          console.log('user Offline!', firebaseUser)
         }
+      
+        
       });    
-        // localStorage User Identifier
-        if (!browserUser) {
-            // Fetch IP API
-            registerPageLoad()
-        } else {
-          console.log('USER AT DATABASE')
-        }
-
 
       
     }, [])
