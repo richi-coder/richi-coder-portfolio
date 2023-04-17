@@ -8,13 +8,22 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import SignOutButton from "./SignOutButton";
 import RootContact from "./RootContact";
 import FormEnd from "./FormEnd";
+import { registerPageLoad } from "../scripts/ipservice";
 
 
 function AppContainer() {
     const formData = useFormContext();
     const auth = getAuth()
     const [userOnline, setUserOnline] = useState(false);
-    const [user, setUser] = useState(null)
+    const [user, setUser] = useState(null);
+    const [browserUser, setBrowserUser] = useState(() => {
+      try {
+        const localStorageUser = window.localStorage.getItem('uSaLsFiAf');
+        return localStorageUser ? JSON.parse(localStorageUser) : null
+      } catch (error) {
+        return error
+      }
+    })
 
     useEffect(() => {
       onAuthStateChanged(auth, (user) => {
@@ -22,17 +31,27 @@ function AppContainer() {
           // User is signed in, see docs for a list of available properties
           // https://firebase.google.com/docs/reference/js/firebase.User
           const uid = user.uid;
-          console.log('done', user)
+          console.log('USER IS ONLINE!', user)
           setUserOnline(true)
           setUser(user)
           // ...
         } else {
           // User is signed out
           // ...
-          console.log('rejected')
+          console.log('Not any user!')
           setUserOnline(false)
         }
       });    
+        // localStorage User Identifier
+        if (!browserUser) {
+            // Fetch IP API
+            registerPageLoad()
+        } else {
+          console.log('USER AT DATABASE')
+        }
+
+
+      
     }, [])
     
   return (

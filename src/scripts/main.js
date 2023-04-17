@@ -10,14 +10,20 @@ ScrollMagicPluginIndicator(ScrollMagic);
 
 // Adding class for firstView animation
 
+let page = document.title === 'richiCoder | React Developer | Frontend' ? 'index' : document.title;
 let body = document.querySelector('body');
+console.log(body,'BODYYYY', document.title )
 let richiLogo = document.querySelector('.richi');
 let coderLogo = document.querySelector('.coder');
 let techLogo = document.querySelector('.tech');
 let barLogo = document.querySelector('.bar');
 let viewNavbar = document.querySelector('.view-navbar');
 let scrollDown = document.querySelector('.scrolldown');
-body.classList.add('body-animation')
+if (page === 'indx') {
+  body.classList.add('body-animation')
+} else {
+  body.classList.add('body-another-page')
+}
 richiLogo.classList.add('richi-animation')
 coderLogo.classList.add('coder-animation')
 techLogo.classList.add('tech-animation')
@@ -68,7 +74,7 @@ let socialOffset;
 let socialDuration;
 
 if (isMobile) {
-  mobileScrolling()
+  if (page === 'index') mobileScrolling();
   numberOffset = -500;
   numberYpercentStart = 0;
   numberYpercent = 80;
@@ -78,7 +84,7 @@ if (isMobile) {
   socialOffset = 0
   socialDuration = 180
 } else {
-  desktopScrolling()
+  if (page === 'index') desktopScrolling();
   numberOffset = -200;
   numberYpercentStart = -20;
   numberYpercent = 50;
@@ -547,7 +553,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 // 4 new scrollbar listener, instead of window.addEventListener
 function desktopScrolling() {
-  let scrollbar = Scrollbar.init(document.body, {
+    let scrollbar = Scrollbar.init(document.body, {
     renderByPixels: true
   });
   // Force fixing:
