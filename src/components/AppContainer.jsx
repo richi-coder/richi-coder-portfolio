@@ -14,7 +14,6 @@ import { registerPageLoad } from "../scripts/ipservice";
 function AppContainer() {
     const formData = useFormContext();
     const auth = getAuth()
-    const [userOnline, setUserOnline] = useState(false);
     const [user, setUser] = useState(null);
     const [browserUser, setBrowserUser] = useState(() => {
       try {
@@ -31,15 +30,14 @@ function AppContainer() {
           // User is signed in, see docs for a list of available properties
           // https://firebase.google.com/docs/reference/js/firebase.User
           const uid = user.uid;
-          console.log('USER IS ONLINE!', user)
-          setUserOnline(true)
+          console.log('user Online!', user)
           setUser(user)
           // ...
         } else {
           // User is signed out
           // ...
-          console.log('Not any user!')
-          setUserOnline(false)
+          setUser(user)
+          console.log('user Offline!', user)
         }
       });    
         // localStorage User Identifier
@@ -57,7 +55,7 @@ function AppContainer() {
   return (
     <div>
       {
-        userOnline ? 
+        user ? 
         <BrowserRouter>
           <br />
           

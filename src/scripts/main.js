@@ -12,7 +12,6 @@ ScrollMagicPluginIndicator(ScrollMagic);
 
 let page = document.title === 'richiCoder | React Developer | Frontend' ? 'index' : document.title;
 let body = document.querySelector('body');
-console.log(body,'BODYYYY', document.title )
 let richiLogo = document.querySelector('.richi');
 let coderLogo = document.querySelector('.coder');
 let techLogo = document.querySelector('.tech');

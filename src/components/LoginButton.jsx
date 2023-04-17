@@ -30,7 +30,7 @@ function LoginButton() {
                             window.location.replace("http://localhost:3000/contact");
                         })
                         .catch(res => {
-                            console.log('ERROR')
+                            console.log('ERROR:', res)
                         })
     
             }
