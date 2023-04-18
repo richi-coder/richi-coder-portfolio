@@ -1,17 +1,16 @@
 import { getAuth, signOut } from 'firebase/auth';
 import React from 'react'
-import { useNavigate } from 'react-router';
 
 function SignOutButton() {
     const auth = getAuth();
-    const navigate = useNavigate();
 
     const logout = () => {
         signOut(auth)
             .then(() => {
             // Sign-out successful.
             console.log('Signed out')
-            navigate('/contact')
+            window.localStorage.removeItem('uSaLsFiAf')
+            window.location.replace('/contact')
             })
             .catch((error) => {
                 // An error happened.

@@ -1,19 +1,79 @@
 import { useLocation, useNavigate } from 'react-router-dom'
-import { useFormContext } from './AppContext';
+import { useFormContext, useUpdateFormContext } from './AppContext';
+import { db, readUserData } from '../scripts/firebase';
+import { useEffect, useState } from 'react';
+import { doc, setDoc, updateDoc } from 'firebase/firestore';
 
 
-function FormButton({direction}) {
+function FormButton({direction, user}) {
     const navigate = useNavigate()
     const location = useLocation().pathname;
+    const splittedLocation = location.split('');
+    const currentLocation = splittedLocation[splittedLocation.length - 1]
     const locationSplitted = location.split('');
     const formData = useFormContext();
-    const lastInput = Object.values(formData).length;
+    const lastInput = Object.values(formData).length - 1;
     const isButton = location === '/contact' && direction === 'forward'
-   
+    const [buttonEnabled, setButtonEnabled] = useState(false) // Disabled
+    let currentInput = locationSplitted[locationSplitted.length - 1]
+
+    useEffect(() => {
+        if (location !== '/contact' && location !== '/contact/formend' && formData[formData.formLocation] === '' || /\s/.test(formData[formData.formLocation])) {
+            console.log('BUTTTOOOON')
+            setButtonEnabled(true)
+        } else {
+            console.log('ENTRAAA PAH')
+            setButtonEnabled(false)
+        }
+    }, [location, formData[formData.formLocation]])
+
+    const inputNavigation = () => { // URLs moving
+        if (location === `/contact/input${lastInput}`) {
+            navigate('/contact/formend')
+            return
+        }
+        if (location === '/contact') {
+            navigate(`/contact/input1`)
+        }
+        else {
+        navigate(`/contact/input${Number(currentInput) + 1}`)
+        }
+    }
+
+    const backendUpdate = () => {
+        readUserData(user.uid, formData)
+            .then(async(userIDToUpdate) => {
+                await updateDoc(doc(db, "jobContacts", userIDToUpdate), {'formData': formData})
+                // After updating data in the server, just navigate to next input
+                inputNavigation()
+            })
+    }
+
+    const frontendValidation = () => {
+        if (location !== '/contact' && location !== '/contact/formend') {
+            // Form validation at frontend
+            if (formData[formData.formLocation] === '') {
+                setButtonEnabled(true)
+                return
+            }
+            if (/\s/.test(formData[formData.formLocation])) {
+                setButtonEnabled(true)
+                return
+            }
+
+            // Backend fulfill
+            backendUpdate()
+            // return true
+        }
+        if (location === '/contact') {
+            inputNavigation()
+        }
+    }
+    
+    
 
     const navigation = () => {
-        // Here goes firebase updateUserData (frontend has been protected in some way, now it is necessary to protect contactForm from firebase backend)
-        let currentInput = locationSplitted[locationSplitted.length - 1]
+        // Backward click
         if (direction === 'backward') {
             if (location === '/contact/input1') {
                 navigate(`/contact`)
@@ -22,17 +82,10 @@ function FormButton({direction}) {
             navigate(`/contact/input${Number(currentInput) - 1}`)
             }
         }
+        // Forward click
         if (direction === 'forward') {
-            if (location === `/contact/input${lastInput}`) {
-                navigate('/contact/formend')
-                return
-            }
-            if (location === '/contact') {
-                navigate(`/contact/input1`)
-            }
-            else {
-            navigate(`/contact/input${Number(currentInput) + 1}`)
-            }
+            // Frontend validation
+            frontendValidation();
         }
     }
 
@@ -41,7 +94,11 @@ function FormButton({direction}) {
     {
     location === '/contact' && direction === 'backward' ?
     null :
-    <button onClick={navigation} className={isButton ? 'bg-blue-500 px-6 py-3 rounded-lg sm:hover:bg-blue-300' : ''}>
+    <button
+    onClick={navigation}
+    className={isButton ? 'bg-blue-500 px-6 py-3 rounded-lg sm:hover:bg-blue-300' : ''}
+    disabled={direction === 'backward' ? false : buttonEnabled}
+    >
         {isButton ? 'Let him know!' : <i className={direction === 'forward' ? 'fa fa-chevron-right' : 'fa fa-chevron-left'}></i>}
     </button>
     }

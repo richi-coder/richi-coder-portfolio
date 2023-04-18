@@ -1,6 +1,5 @@
 import { GoogleAuthProvider, signInWithPopup, getAuth, GithubAuthProvider, onAuthStateChanged, signInWithRedirect, signOut } from "firebase/auth";
 import { app } from "../scripts/firebase";
-import { useLocation } from "react-router-dom";
 
 
 function LoginButton() {

@@ -11,23 +11,24 @@ function Input({inputName, color, value, id}) {
   // Current input page
   const baseLocation = location.pathname.split('')
   const inputLocation = Number(baseLocation[baseLocation.length - 1]);
-  // When the user tries a url input like 3 without filling 1 and two CHECKING
+  // When the user tries a url input like 3 without filling 1 and 2 / CHECKING
   const formValues = Object.values(formData);
   const lastData = formValues.slice(0,inputLocation-1);
   const check = lastData.some(item => item === '');
   // Where to redirect after pretending the last
   const currentLocation = formValues.indexOf('')
   // Form fulfillment
-  let checkFulfillment = false;
+  let checkFulfillment = true;
   if (formValues.some(item => item === '') === false && location.pathname === '/contact' || location.pathname === '/contact/formend') {
-    checkFulfillment = true
+    checkFulfillment = false
   }
 
 
     useEffect(() => {
-      if (checkFulfillment) {
-        navigate('/contact')
-      }
+      updateFormData('formLocation', id)
+      // if (!checkFulfillment) {
+      //   navigate('/contact')
+      // }
       if (check) {
         navigate(`/contact/input${currentLocation + 1}`)
       }

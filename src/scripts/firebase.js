@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { addDoc, collection, doc, getDoc, getFirestore, setDoc, updateDoc } from "firebase/firestore";
+import { addDoc, collection, doc, getDoc, getDocs, getFirestore, query, setDoc, updateDoc, where } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -19,22 +19,30 @@ export const app = initializeApp(firebaseConfig);
 
 export const db = getFirestore(app);
 
+let firebaseID;
+
 export const pageLoad = async(data) => {
   const pageLoadResult = await addDoc(collection(db, "pageLoads"), data);
-  window.localStorage.setItem('uSaLsFiAf', JSON.stringify(pageLoadResult.id))
+  window.localStorage.setItem('uSaLsFiAf', pageLoadResult.id)
   const updatePageLoadInfo = await updateDoc(doc(db, "pageLoads", pageLoadResult.id), {
     id: pageLoadResult.id
   })
 }
 
 export const checkJobContact = async(browserUser, firebaseUser) => {
-  const docRef = doc(db, "jobContacts", browserUser);
-  const docSnap = await getDoc(docRef);
-  if (docSnap.exists()) {
-    console.log("Document data:", docSnap.data());
+  const q = query(collection(db, "jobContacts"), where('firebaseUser.uid', '==', firebaseUser.uid));
+  const querySnapshot = await getDocs(q);
+
+  // Saving UID into memory, requires OOP encapsulation, this method for now
+  firebaseID = browserUser;
+
+  if (querySnapshot.docs.length > 0) {
+    console.log("Document data:", querySnapshot.docs[0].data());
+    const padeLoadID = querySnapshot.docs[0].data().id;
+    window.localStorage.removeItem('uSaLsFiAf')
   } else {
     // docSnap.data() will be undefined in this case
-    console.log("No such document!");
+    console.log("No such document!", querySnapshot.docs);
     readPageLoadandUpdateJobContact(browserUser, firebaseUser)
   }
 }
@@ -54,14 +62,16 @@ const readPageLoadandUpdateJobContact = async(browserUser, firebaseUser) => {
       photoURL: firebaseUser.photoURL,
       providerData: firebaseUser.providerData,
       uid: firebaseUser.uid
-    }
+    },
   }
   const jobContactResult = await setDoc(doc(db, "jobContacts", docSnap.data().id), updatedData)
-  console.log('User Updated at jobContacts')
+  window.localStorage.removeItem('uSaLsFiAf')
+  console.log('User created at jobContacts')
 }
 
-const updateUserData = async(uid) => {
-  const updateJobContactData = await updateDoc(doc(db, "jobContacts", uid), {
-    id: pageLoadResult.id
-  })
+export const readUserData = async(uid, formData) => {
+  const q = query(collection(db, "jobContacts"), where('firebaseUser.uid', '==', uid));
+  const querySnapshot = await getDocs(q);
+  const docID = querySnapshot.docs[0].id
+  return docID
 }

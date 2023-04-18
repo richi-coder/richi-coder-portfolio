@@ -1,4 +1,4 @@
-import { BrowserRouter, Link, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Link, Routes, Route, useLocation } from "react-router-dom";
 import { useFormContext } from "./AppContext"
 import Input from "./Input";
 import FormButtons from "./FormButtons";
@@ -16,28 +16,25 @@ function AppContainer() {
     const formData = useFormContext();
     const auth = getAuth()
     const [user, setUser] = useState(null);
-    const [browserUser, setBrowserUser] = useState(() => {
+    const browserUserCheck = () => {
       try {
         const localStorageUser = window.localStorage.getItem('uSaLsFiAf');
-        return localStorageUser ? JSON.parse(localStorageUser) : null
+        return localStorageUser ? localStorageUser : null
       } catch (error) {
         return error
       }
-    })
+    }
+    const browserUser = browserUserCheck()
 
     useEffect(() => {
-      // localStorage User Identifier
-      if (!browserUser) {
-        // Fetch IP API
-        registerPageLoad()
-      }
-      console.log(browserUser, 'BROWSER')
+      
+      console.log('Checking AUTH')
       onAuthStateChanged(auth, (firebaseUser) => {
         if (firebaseUser) {
           // User is signed in, see docs for a list of available properties
           // https://firebase.google.com/docs/reference/js/firebase.User
           const uid = firebaseUser.uid;
-          console.log('user Online!', firebaseUser)
+          console.log('user Online!', firebaseUser.uid)
           setUser(firebaseUser)
           // ... Put user to jobContacts after login
           // First check if the user is at jobContacts Database
@@ -49,6 +46,11 @@ function AppContainer() {
           console.log('user Offline!', firebaseUser)
         }
       
+        // localStorage User Identifier
+      if (!browserUser && !firebaseUser) {
+        // Fetch IP API
+        registerPageLoad()
+      }
         
       });    
 
@@ -119,7 +121,7 @@ function AppContainer() {
               }
             ></Route>
           </Routes>
-          <FormButtons />
+          <FormButtons user={user} />
           <SignOutButton />
 
         </BrowserRouter> :

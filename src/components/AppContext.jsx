@@ -16,7 +16,8 @@ function AppContext({children}) {
     const [inputData, setInputData] = useState({
         'name': '',
         'lastname': '',
-        'venture': ''
+        'venture': '',
+        'formLocation': null
     })
 
     const app = {
@@ -36,6 +37,12 @@ function AppContext({children}) {
             setInputData({
                 ...inputData,
                 venture: value
+            })
+        },
+        formLocation (value) {
+            setInputData({
+                ...inputData,
+                formLocation: value
             })
         }
     }

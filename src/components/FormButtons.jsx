@@ -4,7 +4,7 @@ import { useLocation } from 'react-router'
 import { useFormContext } from './AppContext';
 
 
-function FormButtons() {
+function FormButtons({user}) {
   const location = useLocation().pathname;
   const formData = useFormContext();
   const formDataArray = Object.values(formData);
@@ -20,7 +20,7 @@ function FormButtons() {
     checkFulfillment ?
     <div className='flex flex-row items-center justify-around py-16'>
       <FormButton direction={'backward'} />
-      <FormButton direction={'forward'} />
+      <FormButton direction={'forward'} user={user} />
     </div> :
     null
     }
