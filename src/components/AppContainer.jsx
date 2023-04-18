@@ -39,6 +39,7 @@ function AppContainer() {
           // ... Put user to jobContacts after login
           // First check if the user is at jobContacts Database
           checkJobContact(browserUser, firebaseUser)
+              .then(res => console.log(res, 'user completed'))
         } else {
           // User is signed out
           // ...

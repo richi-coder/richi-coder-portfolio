@@ -45,6 +45,7 @@ export const checkJobContact = async(browserUser, firebaseUser) => {
     console.log("No such document!", querySnapshot.docs);
     readPageLoadandUpdateJobContact(browserUser, firebaseUser)
   }
+  return querySnapshot.docs[0].data()
 }
 
 const readPageLoadandUpdateJobContact = async(browserUser, firebaseUser) => {
