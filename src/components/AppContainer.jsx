@@ -1,5 +1,5 @@
-import { BrowserRouter, Link, Routes, Route, useLocation } from "react-router-dom";
-import { useFormContext } from "./AppContext"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useFormContext, useUpdateFormContext } from "./AppContext"
 import Input from "./Input";
 import FormButtons from "./FormButtons";
 import LoginButton from "./LoginButton";
@@ -9,13 +9,14 @@ import SignOutButton from "./SignOutButton";
 import RootContact from "./RootContact";
 import FormEnd from "./FormEnd";
 import { registerPageLoad } from "../scripts/ipservice";
-import { checkJobContact } from "../scripts/firebase";
+import { auth, checkJobContact } from "../scripts/firebase";
 
 
 function AppContainer() {
     const formData = useFormContext();
-    const auth = getAuth()
+    const updateFormData = useUpdateFormContext()
     const [user, setUser] = useState(null);
+
     const browserUserCheck = () => {
       try {
         const localStorageUser = window.localStorage.getItem('uSaLsFiAf');
@@ -34,12 +35,33 @@ function AppContainer() {
           // User is signed in, see docs for a list of available properties
           // https://firebase.google.com/docs/reference/js/firebase.User
           const uid = firebaseUser.uid;
-          console.log('user Online!', firebaseUser.uid)
+          // console.log('user Online!', firebaseUser.uid)
           setUser(firebaseUser)
           // ... Put user to jobContacts after login
+
           // First check if the user is at jobContacts Database
           checkJobContact(browserUser, firebaseUser)
-              .then(res => console.log(res, 'user completed'))
+              .then(doc => {
+
+                  // Checking data at the server
+                  if (doc.formData !== false && doc.formData !== null && doc.formData !== undefined) {
+                    const currentDatabaseState = Object.values(doc.formData)
+
+                    //0 Inputs updated when reloading the page
+
+                    //1 Data completed!
+                    if (currentDatabaseState.every(inputItem => inputItem !== '')) {
+                      console.log('USER READY')
+                      updateFormData('formComplete', true )
+                    } else {
+                      console.log('USER NOT READY')
+                    }
+                  } else {
+                    console.log('DATA NOT CREATED YET!')
+                  }
+              })
+          
+          
         } else {
           // User is signed out
           // ...
@@ -56,7 +78,7 @@ function AppContainer() {
       });    
 
       
-    }, [])
+    }, [formData.formLocation])
     
   return (
     <div>

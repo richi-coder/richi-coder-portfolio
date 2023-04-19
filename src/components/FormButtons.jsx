@@ -8,11 +8,11 @@ function FormButtons({user}) {
   const location = useLocation().pathname;
   const formData = useFormContext();
   const formDataArray = Object.values(formData);
-  let checkFulfillment = true;
-  if (formDataArray.some(item => item === '') === false && location === '/contact' || location === '/contact/formend') {
-    console.log('IFFFFF')
-    checkFulfillment = false
-  }
+  // let checkFulfillment = true
+  // if (formDataArray.some(item => item === '') === false && location === '/contact' || location === '/contact/formend') {
+  //   checkFulfillment = false
+  // }
+  const checkFulfillment = formData.formComplete === true || location === '/contact/formend' ? false : true;
   
   return (
     <>

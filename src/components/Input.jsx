@@ -25,6 +25,11 @@ function Input({inputName, color, value, id}) {
 
 
     useEffect(() => {
+      console.log('NAVIGATEEEEEEEE', formData)
+      if (formData.formComplete) {
+        console.log('NAVIGATEEEEEEEE', formData)
+        navigate('/contact/formend')
+      }
       updateFormData('formLocation', id)
       // if (!checkFulfillment) {
       //   navigate('/contact')
@@ -37,7 +42,7 @@ function Input({inputName, color, value, id}) {
             navigate(`/contact`)
         } 
       })
-    }, [location])
+    }, [location, formData.formComplete])
     
 
     const onChange = (e) => {

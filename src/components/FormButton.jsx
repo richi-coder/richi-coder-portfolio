@@ -12,7 +12,8 @@ function FormButton({direction, user}) {
     const currentLocation = splittedLocation[splittedLocation.length - 1]
     const locationSplitted = location.split('');
     const formData = useFormContext();
-    const lastInput = Object.values(formData).length - 1;
+    const updateFormData = useUpdateFormContext();
+    const lastInput = Object.values(formData).length - 2;
     const isButton = location === '/contact' && direction === 'forward'
     const [buttonEnabled, setButtonEnabled] = useState(false) // Disabled
     let currentInput = locationSplitted[locationSplitted.length - 1]
@@ -29,6 +30,7 @@ function FormButton({direction, user}) {
 
     const inputNavigation = () => { // URLs moving
         if (location === `/contact/input${lastInput}`) {
+            updateFormData('formComplete', true)
             navigate('/contact/formend')
             return
         }
@@ -39,18 +41,20 @@ function FormButton({direction, user}) {
         navigate(`/contact/input${Number(currentInput) + 1}`)
         }
     }
-
+    // Backend Update
     const backendUpdate = () => {
+        const {formLocation, formComplete, ...dataForm} = formData
+        console.log(dataForm, 'DATA TO SAVE', formData)
         readUserData(user.uid, formData)
             .then(async(userIDToUpdate) => {
-                await updateDoc(doc(db, "jobContacts", userIDToUpdate), {'formData': formData})
-                // After updating data in the server, just navigate to next input
+                await updateDoc(doc(db, "jobContacts", userIDToUpdate), {'formData': dataForm})
+                // After updating data in the server, just navigates to next input
                 inputNavigation()
             })
     }
 
     const frontendValidation = () => {
-        if (location !== '/contact' && location !== '/contact/formend') {
+        if (location !== '/contact/formend') {
             // Form validation at frontend
             if (formData[formData.formLocation] === '') {
                 setButtonEnabled(true)

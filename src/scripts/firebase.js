@@ -1,5 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
 import { addDoc, collection, doc, getDoc, getDocs, getFirestore, query, setDoc, updateDoc, where } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -18,6 +19,7 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 
 export const db = getFirestore(app);
+export const auth = getAuth(app)
 
 let firebaseID;
 
@@ -35,24 +37,28 @@ export const checkJobContact = async(browserUser, firebaseUser) => {
 
   // Saving UID into memory, requires OOP encapsulation, this method for now
   firebaseID = browserUser;
-
+  let result;
   if (querySnapshot.docs.length > 0) {
     console.log("Document data:", querySnapshot.docs[0].data());
-    const padeLoadID = querySnapshot.docs[0].data().id;
+    const pageLoadID = querySnapshot.docs[0].data();
     window.localStorage.removeItem('uSaLsFiAf')
+    result = pageLoadID
   } else {
     // docSnap.data() will be undefined in this case
     console.log("No such document!", querySnapshot.docs);
     readPageLoadandUpdateJobContact(browserUser, firebaseUser)
+    result = {'formLocation': false}
+    
   }
-  return querySnapshot.docs[0].data()
+  return result
 }
 
 const readPageLoadandUpdateJobContact = async(browserUser, firebaseUser) => {
+  console.log('raeaad', browserUser, firebaseUser)
   const docRef = doc(db, "pageLoads", browserUser)
   const docSnap = await getDoc(docRef);
+  
   const updatedData = {
-    ...docSnap.data(),
     'firebaseUser': {
       accessToken: firebaseUser.accessToken,
       displayName: firebaseUser.displayName,
@@ -64,6 +70,7 @@ const readPageLoadandUpdateJobContact = async(browserUser, firebaseUser) => {
       providerData: firebaseUser.providerData,
       uid: firebaseUser.uid
     },
+    ...docSnap.data(),
   }
   const jobContactResult = await setDoc(doc(db, "jobContacts", docSnap.data().id), updatedData)
   window.localStorage.removeItem('uSaLsFiAf')
@@ -75,4 +82,12 @@ export const readUserData = async(uid, formData) => {
   const querySnapshot = await getDocs(q);
   const docID = querySnapshot.docs[0].id
   return docID
+}
+
+export const checkFormCompleted = async (docID) => {
+  // const q = query(collection(db, "jobContacts"), where('firebaseUser.uid', '==', firebaseUser.uid));
+  // const querySnapshot = await getDocs(q);
+  const docRef = doc(db, "jobContacts", docID)
+  const docSnap = await getDoc(docRef);
+  return docSnap.data()
 }

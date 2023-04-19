@@ -1,17 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router'
-import { useFormContext } from './AppContext';
+import { useFormContext, useUpdateFormContext } from './AppContext';
 
 function RootContact({user}) {
     const location = useLocation().pathname;
     const navigate = useNavigate();
     const formData = useFormContext();
+    const updateFormData = useUpdateFormContext();
     const formDataArray = Object.values(formData);
-    const check = formDataArray.some(item => item === '');
+    const check = formData.formComplete === true ? false : true;
 
     window.addEventListener('popstate', (e) => {
         navigate(`/contact`)
       })
+
+    useEffect(() => {
+      updateFormData('formLocation', location)
+      if (formData.formComplete) {
+        navigate('/contact/formend')
+      }
+    }, [formData.formComplete])
+    
 
   return (
     <div className='w-full text-2xl'>

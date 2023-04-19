@@ -1,17 +1,25 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router'
-import { useFormContext } from './AppContext';
+import { useFormContext, useUpdateFormContext } from './AppContext';
 
 function FormEnd() {
     const navigate = useNavigate();
     const formData = useFormContext();
+    const updateFormData = useUpdateFormContext()
     const location = useLocation();
     const formValues = Object.values(formData);
     const lastData = formValues.slice(0);
-    const check = lastData.some(item => item === '');
+    const [check, setCheck] = useState(() => {
+      return formData.formComplete ? false : true
+    });
     const currentLocation = formValues.indexOf('')
 
     useEffect(() => {
+      // setCheck(false)
+      // if (formData.formLocation === '/contact/formend') {
+      //   return
+      // }
+      // updateFormData('formLocation', location.pathname)
         if (check) {
             setTimeout(() => {
                 navigate(`/contact/input${currentLocation + 1}`)
