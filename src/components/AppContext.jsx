@@ -68,9 +68,12 @@ function AppContext({children}) {
                 formComplete: value
             })
         },
-        updateServerDataAtState (data) {
+        updateServerDataAtContext (data) {
             setInputData({
-                ...data,
+                ...inputData,
+                name: data.name,
+                lastname: data.lastname,
+                venture: data.venture,
             })
         }
     }

@@ -48,14 +48,16 @@ function AppContainer() {
                     const currentDatabaseState = Object.values(doc.formData)
 
                     //0 Inputs updated when reloading the page
-
+                    console.log(doc.formData, 'REVISANDO')
+                    if (!formData.formComplete) {
+                      console.log('USER NOT READY', doc.formData)
+                      updateFormData('updateServerDataAtContext', doc.formData)
+                    }
                     //1 Data completed!
                     if (currentDatabaseState.every(inputItem => inputItem !== '')) {
                       console.log('USER READY')
                       updateFormData('formComplete', true )
-                    } else {
-                      console.log('USER NOT READY')
-                    }
+                    } 
                   } else {
                     console.log('DATA NOT CREATED YET!')
                   }
@@ -111,6 +113,7 @@ function AppContainer() {
                   inputName="Name"
                   color="bg-red-500"
                   value={formData.name}
+                  inputType='text'
                 />
               }
             ></Route>
@@ -122,6 +125,7 @@ function AppContainer() {
                   inputName="Last Name"
                   color="bg-yellow-500"
                   value={formData.lastname}
+                  inputType='text'
                 />
               }
             ></Route>
@@ -133,6 +137,7 @@ function AppContainer() {
                   inputName="Venture"
                   color="bg-blue-500"
                   value={formData.venture}
+                  inputType='text'
                 />
               }
             ></Route>

@@ -17,7 +17,9 @@ function RootContact({user}) {
     useEffect(() => {
       updateFormData('formLocation', location)
       if (formData.formComplete) {
-        navigate('/contact/formend')
+        setTimeout(() => {
+          navigate('/contact/formend')
+        }, 3000);
       }
     }, [formData.formComplete])
     
@@ -34,7 +36,11 @@ function RootContact({user}) {
           <div>Please let me know how to contact you!</div>
           </>
      :
-    <div>You already contacted me!</div> 
+     <>
+    <div>You already contacted me</div> 
+    <br />
+    <div>I hope to talk to you soon!</div> 
+    </>
     }
     </div>
   )

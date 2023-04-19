@@ -68,7 +68,8 @@ const readPageLoadandUpdateJobContact = async(browserUser, firebaseUser) => {
       phoneNumber: firebaseUser.phoneNumber,
       photoURL: firebaseUser.photoURL,
       providerData: firebaseUser.providerData,
-      uid: firebaseUser.uid
+      uid: firebaseUser.uid,
+      registrationTime: Date()
     },
     ...docSnap.data(),
   }

@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { useFormContext, useUpdateFormContext } from './AppContext'
 import { useLocation, useNavigate } from 'react-router';
 
-function Input({inputName, color, value, id}) {
+function Input({ inputName, color, value, id, inputType }) {
   // Hooks
   const formData = useFormContext();
   const updateFormData = useUpdateFormContext();
@@ -46,7 +46,14 @@ function Input({inputName, color, value, id}) {
     
 
     const onChange = (e) => {
-        updateFormData(id, e.target.value)
+        const { value } = e.target; 
+      // input onChange validations
+        // No spaces OK
+        // if (/\s/.test(value)) return
+        // No digits OK
+        // if (/\d/.test(value)) return
+        
+        updateFormData(id, value)
     }
     
   return (
@@ -55,7 +62,7 @@ function Input({inputName, color, value, id}) {
       !check ?
     <div className={color}>
         <div>{inputName}</div>
-        <input onChange={onChange} className={`text-black pl-2`} type="text" value={value} placeholder={`Enter ${inputName}`} autoFocus />
+        <input onChange={onChange} className={`text-black pl-2`} type={inputType} value={value} placeholder={`Enter ${inputName}`} autoFocus />
     </div> :
     <div>Go to last step please!</div>
     }

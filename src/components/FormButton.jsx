@@ -98,6 +98,8 @@ function FormButton({direction, user}) {
     {
     location === '/contact' && direction === 'backward' ?
     null :
+    <>
+    {/* <div className='errorMessage'>{errorMessage}</div> */}
     <button
     onClick={navigation}
     className={isButton ? 'bg-blue-500 px-6 py-3 rounded-lg sm:hover:bg-blue-300' : ''}
@@ -105,6 +107,7 @@ function FormButton({direction, user}) {
     >
         {isButton ? 'Let him know!' : <i className={direction === 'forward' ? 'fa fa-chevron-right' : 'fa fa-chevron-left'}></i>}
     </button>
+    </>
     }
     </> 
   )
