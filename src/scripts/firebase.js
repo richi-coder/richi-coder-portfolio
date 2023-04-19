@@ -7,7 +7,7 @@ import { addDoc, collection, doc, getDoc, getDocs, getFirestore, query, setDoc, 
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBGEAyqCeN85wuSreyz7zFANUEdm-lsAQg",
+  apiKey: import.meta.env.PUBLIC_FIREBASE_KEY,
   authDomain: "richi-coder.firebaseapp.com",
   projectId: "richi-coder",
   storageBucket: "richi-coder.appspot.com",
