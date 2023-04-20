@@ -56,7 +56,7 @@ function AppContainer() {
                     //1 Data completed!
                     if (currentDatabaseState.every(inputItem => inputItem !== '')) {
                       console.log('USER READY')
-                      updateFormData('updateServerDataAtContext', {formComplete: true, isLoading: false} )
+                      updateFormData('updateServerDataAtContext', {...doc.formData, formComplete: true, isLoading: false} )
                     } else {
                       console.log('USER NOT READY', doc.formData)
                       updateFormData('updateServerDataAtContext', {...doc.formData, isLoading: false})

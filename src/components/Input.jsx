@@ -1,9 +1,10 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useFormContext, useUpdateFormContext } from './AppContext'
 import { useLocation, useNavigate } from 'react-router';
 
 function Input({ inputName, color, value, id, inputType }) {
   // Hooks
+  const [inputDisabled, setInputDisabled] = useState(true)
   const formData = useFormContext();
   const updateFormData = useUpdateFormContext();
   const navigate = useNavigate()
@@ -22,6 +23,7 @@ function Input({ inputName, color, value, id, inputType }) {
   if (formValues.some(item => item === '') === false && location.pathname === '/contact' || location.pathname === '/contact/formend') {
     checkFulfillment = false
   }
+  
 
 
     useEffect(() => {
@@ -42,6 +44,11 @@ function Input({ inputName, color, value, id, inputType }) {
             navigate(`/contact`)
         } 
       })
+      if (!formData.isLoading) {
+        setTimeout(() => {
+          setInputDisabled(false)
+        }, 100); // React slowness
+      }
     }, [location, formData.formComplete])
     
 
@@ -62,7 +69,7 @@ function Input({ inputName, color, value, id, inputType }) {
       !check ?
     <div className={color}>
         <div>{inputName}</div>
-        <input onChange={onChange} className={`text-black pl-2`} type={inputType} value={value} placeholder={`Enter ${inputName}`} autoFocus />
+        <input onChange={onChange} className={`text-black pl-2`} type={inputType} value={value} placeholder={`Enter ${inputName}`} autoFocus disabled={inputDisabled} />
     </div> :
     <div>Go to last step please!</div>
     }

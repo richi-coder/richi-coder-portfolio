@@ -20,6 +20,10 @@ function FormEnd() {
       //             navigate(`/contact`)
       //   }
       // }, 5000);
+      if (lastData.some(item => item === '')) {
+        navigate(`/contact`)
+      }
+      console.log(formData, 'TEST')
         
         window.addEventListener('popstate', (e) => {
             navigate(`/contact`)
