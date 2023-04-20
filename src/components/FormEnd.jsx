@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router'
 import { useFormContext, useUpdateFormContext } from './AppContext';
+import "./styles/show.css"
 
 function FormEnd() {
     const navigate = useNavigate();
@@ -9,36 +10,32 @@ function FormEnd() {
     const location = useLocation();
     const formValues = Object.values(formData);
     const lastData = formValues.slice(0);
-    const [check, setCheck] = useState(() => {
-      return formData.formComplete ? false : true
-    });
+    const check = formData.formComplete;
     const currentLocation = formValues.indexOf('')
 
     useEffect(() => {
-      // setCheck(false)
-      // if (formData.formLocation === '/contact/formend') {
-      //   return
-      // }
-      // updateFormData('formLocation', location.pathname)
-        if (check) {
-            setTimeout(() => {
-                navigate(`/contact/input${currentLocation + 1}`)
-            }, 2000);
-        }
+      updateFormData('formLocation', location.pathname)
+      // setTimeout(() => {
+      //   if (!check && formData.formLocation !== '/contact/formend') {
+      //             navigate(`/contact`)
+      //   }
+      // }, 5000);
+        
         window.addEventListener('popstate', (e) => {
             navigate(`/contact`)
           })
-    }, [location])
+          
+    }, [formData.formLocation])
     
   return (
     <>
     {
-    !check ?
-    <div>
+    check ?
+    <div className='show'>
         <div>Thank you very much!</div>
         <a href="https://richicoder.com/">Come back to richicoder.com</a>
     </div> :
-    <div>Please complete the form!</div>
+    <div className='show'>Please complete the form!</div>
     }
     </>
   )

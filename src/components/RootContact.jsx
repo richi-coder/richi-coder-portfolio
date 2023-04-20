@@ -16,11 +16,13 @@ function RootContact({user}) {
 
     useEffect(() => {
       updateFormData('formLocation', location)
-      if (formData.formComplete) {
+      
         setTimeout(() => {
+          if (formData.formComplete) {
           navigate('/contact/formend')
+          } else return
         }, 3000);
-      }
+      
     }, [formData.formComplete])
     
 
@@ -28,15 +30,8 @@ function RootContact({user}) {
     <div className='w-full text-2xl'>
     {
     check ? 
+    <div>Please let me know how to contact you!</div> :
     <>
-    <div className="user-details flex flex-row items-center">
-          <div className='text-green-500 text-5xl mb-2'>Hello {user.displayName}!</div>
-          <img src={user.photoURL} alt={user.displayName} className='rounded-full aspect-square w-[100px]' />
-          </div>
-          <div>Please let me know how to contact you!</div>
-          </>
-     :
-     <>
     <div>You already contacted me</div> 
     <br />
     <div>I hope to talk to you soon!</div> 

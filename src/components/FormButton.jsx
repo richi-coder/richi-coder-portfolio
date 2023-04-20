@@ -13,7 +13,7 @@ function FormButton({direction, user}) {
     const locationSplitted = location.split('');
     const formData = useFormContext();
     const updateFormData = useUpdateFormContext();
-    const lastInput = Object.values(formData).length - 2;
+    const lastInput = 3;
     const isButton = location === '/contact' && direction === 'forward'
     const [buttonEnabled, setButtonEnabled] = useState(false) // Disabled
     let currentInput = locationSplitted[locationSplitted.length - 1]
@@ -30,25 +30,31 @@ function FormButton({direction, user}) {
 
     const inputNavigation = () => { // URLs moving
         if (location === `/contact/input${lastInput}`) {
-            updateFormData('formComplete', true)
+            // updateFormData('formComplete', true)
+            console.log('to Formend', formData.formComplete)
             navigate('/contact/formend')
             return
         }
         if (location === '/contact') {
+            console.log('to Input1')
             navigate(`/contact/input1`)
         }
         else {
         navigate(`/contact/input${Number(currentInput) + 1}`)
         }
+        
     }
     // Backend Update
     const backendUpdate = () => {
-        const {formLocation, formComplete, ...dataForm} = formData
+        const {formLocation, formComplete, isLoading, ...dataForm} = formData
         console.log(dataForm, 'DATA TO SAVE', formData)
         readUserData(user.uid, formData)
             .then(async(userIDToUpdate) => {
                 await updateDoc(doc(db, "jobContacts", userIDToUpdate), {'formData': dataForm})
                 // After updating data in the server, just navigates to next input
+                setTimeout(() => {
+                    updateFormData('isLoading', false)
+                }, 1500);
                 inputNavigation()
             })
     }
@@ -64,7 +70,7 @@ function FormButton({direction, user}) {
                 setButtonEnabled(true)
                 return
             }
-
+            updateFormData('isLoading', true)
             // Backend fulfill
             backendUpdate()
             // return true

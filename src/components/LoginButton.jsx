@@ -1,5 +1,6 @@
 import { GoogleAuthProvider, signInWithPopup, getAuth, GithubAuthProvider, onAuthStateChanged, signInWithRedirect, signOut } from "firebase/auth";
 import { app } from "../scripts/firebase";
+import "./styles/show.css"
 
 
 function LoginButton() {
@@ -51,12 +52,12 @@ function LoginButton() {
     <>
     <button
     onClick={googleLogin}
-    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded show">
         Google Login
     </button>
     <button
     onClick={githubLogin}
-    className="bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+    className="bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded show">
         Github Login
     </button>
     

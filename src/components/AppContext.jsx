@@ -34,7 +34,8 @@ function AppContext({children}) {
     const [inputData, setInputData] = useState({
         ...dataToFront,
         'formLocation': '/contact',
-        'formComplete': false
+        'formComplete': false,
+        'isLoading': true
     })
 
     const app = {
@@ -71,9 +72,13 @@ function AppContext({children}) {
         updateServerDataAtContext (data) {
             setInputData({
                 ...inputData,
-                name: data.name,
-                lastname: data.lastname,
-                venture: data.venture,
+                ...data
+            })
+        },
+        isLoading (value) {
+            setInputData({
+                ...inputData,
+                isLoading: value
             })
         }
     }

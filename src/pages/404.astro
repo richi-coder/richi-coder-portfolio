@@ -1,11 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro"
-
+import "../components/styles/title.css"
 ---
 
 <Layout title="404 - richiCoder">
     <div class='bg-[rgb(10,10,10)] h-screen w-screen text-white flex flex-col items-center justify-center text-2xl'>
         <div class='w-full text-center'>404 PAGE</div>
-        <a href="https://richicoder.com">Go back to richiCoder.com</a>
+        <a href="https://richicoder.com">Go back to</a>
+        <a style="font-family: Orbitron;" class='flex flex-row text-5xl' href="/">
+        <h2 class="richi">richi</h2>
+		<h2 class="text-gradient coder">Coder</h2>
+        </a>
     </div>
 </Layout>

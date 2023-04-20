@@ -28,10 +28,12 @@ function AppContainer() {
     const browserUser = browserUserCheck()
 
     useEffect(() => {
+      // stateLoader
       
       console.log('Checking AUTH')
       onAuthStateChanged(auth, (firebaseUser) => {
         if (firebaseUser) {
+          
           // User is signed in, see docs for a list of available properties
           // https://firebase.google.com/docs/reference/js/firebase.User
           const uid = firebaseUser.uid;
@@ -42,25 +44,33 @@ function AppContainer() {
           // First check if the user is at jobContacts Database
           checkJobContact(browserUser, firebaseUser)
               .then(doc => {
-
+                  
+                  
                   // Checking data at the server
                   if (doc.formData !== false && doc.formData !== null && doc.formData !== undefined) {
                     const currentDatabaseState = Object.values(doc.formData)
 
                     //0 Inputs updated when reloading the page
                     console.log(doc.formData, 'REVISANDO')
-                    if (!formData.formComplete) {
-                      console.log('USER NOT READY', doc.formData)
-                      updateFormData('updateServerDataAtContext', doc.formData)
-                    }
+
                     //1 Data completed!
                     if (currentDatabaseState.every(inputItem => inputItem !== '')) {
                       console.log('USER READY')
-                      updateFormData('formComplete', true )
-                    } 
+                      updateFormData('updateServerDataAtContext', {formComplete: true, isLoading: false} )
+                    } else {
+                      console.log('USER NOT READY', doc.formData)
+                      updateFormData('updateServerDataAtContext', {...doc.formData, isLoading: false})
+                    }
                   } else {
                     console.log('DATA NOT CREATED YET!')
+                    setTimeout(() => {
+                      updateFormData('updateServerDataAtContext', {formComplete: false, isLoading: false})
+                    }, 1000)
                   }
+                  // stateLoader
+                  // setTimeout(() => {
+                  //   updateFormData('isLoading', false)
+                  // }, 1000);
               })
           
           
@@ -69,6 +79,10 @@ function AppContainer() {
           // ...
           setUser(firebaseUser)
           console.log('user Offline!', firebaseUser)
+          // stateLoader
+          setTimeout(() => {
+            updateFormData('isLoading', false)
+          }, 1000);
         }
       
         // localStorage User Identifier
@@ -83,26 +97,30 @@ function AppContainer() {
     }, [formData.formLocation])
     
   return (
+    <>
+    {
+      user ? 
+      <div className="user-details flex flex-row items-center">
+        {
+          formData.formLocation === '/contact' ?
+          <div className='text-green-500 text-5xl mb-2'>Hello {user.displayName}!</div> :
+          null
+        }
+        <img src={user.photoURL} alt={user.displayName} className='rounded-full aspect-square w-[100px]' />
+      </div> :
+      null
+    }
+      
+    {
+    formData.isLoading === true ?
+    <div className='animate-bounce'>CARGANDO</div> :
     <div>
+      
       {
         user ? 
         <BrowserRouter>
           <br />
           
-          
-          {/* <Link to="/contact">
-            <div className="bg-blue-500">Root Link</div>
-          </Link>
-          <Link to="/contact/input1">
-            <div className="bg-red-500">Input-1 Link</div>
-          </Link>
-          <Link to="/contact/input2">
-            <div className="bg-yellow-500">Input-2 Link</div>
-          </Link>
-          <Link to="/contact/input3">
-            <div className="bg-green-500">Input-3 Link</div>
-          </Link>
-          BrowserRouter */}
           <Routes>
             <Route path="/contact" element={<RootContact user={user} />}></Route>
             <Route
@@ -158,8 +176,8 @@ function AppContainer() {
           <LoginButton />
         </div>
         }
-        
-    </div>
+    </div>}
+    </>
   )
 }
 
