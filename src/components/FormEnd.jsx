@@ -16,9 +16,9 @@ function FormEnd() {
     useEffect(() => {
       updateFormData('formLocation', location.pathname)
   
-      // if (lastData.some(item => item === '')) {
-      //   navigate(`/contact`)
-      // }
+      if (lastData.some(item => item === '')) {
+        navigate(`/contact`)
+      }
       console.log(formData, 'TEST')
         
         window.addEventListener('popstate', (e) => {
