@@ -15,14 +15,10 @@ function FormEnd() {
 
     useEffect(() => {
       updateFormData('formLocation', location.pathname)
-      // setTimeout(() => {
-      //   if (!check && formData.formLocation !== '/contact/formend') {
-      //             navigate(`/contact`)
-      //   }
-      // }, 5000);
-      if (lastData.some(item => item === '')) {
-        navigate(`/contact`)
-      }
+  
+      // if (lastData.some(item => item === '')) {
+      //   navigate(`/contact`)
+      // }
       console.log(formData, 'TEST')
         
         window.addEventListener('popstate', (e) => {

@@ -56,21 +56,17 @@ function AppContainer() {
                     //1 Data completed!
                     if (currentDatabaseState.every(inputItem => inputItem !== '')) {
                       console.log('USER READY')
-                      updateFormData('updateServerDataAtContext', {...doc.formData, formComplete: true, isLoading: false} )
+                      updateFormData('updateServerDataAtContext', {...doc.formData, formComplete: true, isLoading: false, inputShow: 'x'} )
                     } else {
                       console.log('USER NOT READY', doc.formData)
-                      updateFormData('updateServerDataAtContext', {...doc.formData, isLoading: false})
+                      updateFormData('updateServerDataAtContext', {...doc.formData, isLoading: false, inputShow: 'x'})
                     }
                   } else {
                     console.log('DATA NOT CREATED YET!')
                     setTimeout(() => {
-                      updateFormData('updateServerDataAtContext', {formComplete: false, isLoading: false})
+                      updateFormData('updateServerDataAtContext', {formComplete: false, isLoading: false, inputShow: 'x'})
                     }, 1000)
                   }
-                  // stateLoader
-                  // setTimeout(() => {
-                  //   updateFormData('isLoading', false)
-                  // }, 1000);
               })
           
           
@@ -132,6 +128,7 @@ function AppContainer() {
                   color="bg-red-500"
                   value={formData.name}
                   inputType='text'
+                  dataType='string'
                 />
               }
             ></Route>
@@ -144,6 +141,7 @@ function AppContainer() {
                   color="bg-yellow-500"
                   value={formData.lastname}
                   inputType='text'
+                  dataType='string'
                 />
               }
             ></Route>
@@ -156,6 +154,7 @@ function AppContainer() {
                   color="bg-blue-500"
                   value={formData.venture}
                   inputType='text'
+                  dataType='string'
                 />
               }
             ></Route>

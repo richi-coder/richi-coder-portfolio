@@ -14,7 +14,7 @@ export const useUpdateFormContext = () => {
 let dataToFront = {
     'name': '',
     'lastname': '',
-    'venture': '',
+    'venture': ''
 };
 
     
@@ -35,7 +35,8 @@ function AppContext({children}) {
         ...dataToFront,
         'formLocation': '/contact',
         'formComplete': false,
-        'isLoading': true
+        'isLoading': true,
+        'inputShow': 'x'
     })
 
     const app = {
@@ -79,6 +80,12 @@ function AppContext({children}) {
             setInputData({
                 ...inputData,
                 isLoading: value
+            })
+        },
+        inputShow (value) {
+            setInputData({
+                ...inputData,
+                inputShow: value
             })
         }
     }

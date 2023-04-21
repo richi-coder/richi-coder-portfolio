@@ -46,15 +46,16 @@ function FormButton({direction, user}) {
     }
     // Backend Update
     const backendUpdate = () => {
-        const {formLocation, formComplete, isLoading, ...dataForm} = formData
+        const {formLocation, formComplete, isLoading, inputShow, ...dataForm} = formData
         console.log(dataForm, 'DATA TO SAVE', formData)
         readUserData(user.uid, formData)
-            .then(async(userIDToUpdate) => {
-                await updateDoc(doc(db, "jobContacts", userIDToUpdate), {'formData': dataForm})
+            .then(async(docIDtoUpdate) => {
+                await updateDoc(doc(db, "jobContacts", docIDtoUpdate), {'formData': dataForm})
                 // After updating data in the server, just navigates to next input
-                setTimeout(() => {
+                // setTimeout(() => {
                     updateFormData('isLoading', false)
-                }, 1500);
+                // }, 1500);
+                
                 inputNavigation()
             })
     }
@@ -70,7 +71,7 @@ function FormButton({direction, user}) {
                 setButtonEnabled(true)
                 return
             }
-            updateFormData('isLoading', true)
+
             // Backend fulfill
             backendUpdate()
             // return true
@@ -94,8 +95,17 @@ function FormButton({direction, user}) {
         }
         // Forward click
         if (direction === 'forward') {
-            // Frontend validation
-            frontendValidation();
+            
+            if (location === '/contact') {
+                updateFormData('inputShow', 'translate-x-[100vw]')
+                    inputNavigation()
+            } else {
+
+                // Frontend validation
+                updateFormData('inputShow', '-translate-x-[100vw]')
+                frontendValidation()
+            }
+            
         }
     }
 
