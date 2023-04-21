@@ -2,45 +2,33 @@
 import DataForm from "./DataForm";
 
 ---
-<div class="w-full z-10 contactFormBlock">
-          <div class="mx-auto max-w-full sm:px-6 pb-20 lg:px-8">
-            <div class="relative isolate overflow-hidden bg-black px-6 pt-16 shadow-2xl sm:rounded-3xl sm:px-16 md:pt-1 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
-              <svg
-                viewBox="0 0 1024 1024"
-                class="absolute top-1/2 left-1/2 -z-10 h-[64rem] w-[64rem] -translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:translate-y-0 lg:-translate-x-1/2"
-                aria-hidden="true"
-              >
-                <circle cx="512" cy="512" r="512" fill="url(#759c1415-0410-454c-8f7c-9a820de03641)" fill-opacity="0.7" />
-                <defs>
-                  <radialGradient id="759c1415-0410-454c-8f7c-9a820de03641">
-                    <stop stop-Color="#7775D6" />
-                    <stop offset="1" stop-Color="blue" />
-                  </radialGradient>
-                </defs>
-              </svg>
-              <div class="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-48 lg:text-left">
-                <h3 style="font-family: Play;" class="text-5xl font-bold tracking-tight text-white sm:text-5xl">
-                  <br />
-                  <em style="font-family: Play;" class='text-blue-900 text-3xl'>APP DESC</em>
-                </h3>
-                <div class='w-fit'>
-                        <a href="http://localhost:3000/contact" target="_blank">TEST LINK</a>
-                        <br />
-                        <p>Contact</p>
-                        <h1 class="p-0 m-0 contactFormLogo">
-                          richi<span class="text-gradient">Coder</span>
-                        </h1>
-                        <DataForm client:only='react' />
+<div class="contactFormBlock flex flex-col items-center justify-center h-full w-full bg-[rgb(20,20,20)]"> 
+            <div class="m-auto relative h-3/4 sm:w-11/12 isolate overflow-hidden px-6 shadow-2xl sm:rounded-3xl sm:px-16 md:pt-1 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0 bg-black">
+                <svg
+                  viewBox="0 0 1024 1024"
+                  class="absolute top-1/2 left-1/2 -z-10 h-[64rem] w-[64rem] -translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:translate-y-0 lg:-translate-x-1/2"
+                  aria-hidden="true"
+                >
+                  <circle cx="512" cy="512" r="512" fill="url(#759c1415-0410-454c-8f7c-9a820de03641)" fill-opacity="0.7" />
+                  <defs>
+                    <radialGradient id="759c1415-0410-454c-8f7c-9a820de03641">
+                      <stop stop-Color="#7775D6" />
+                      <stop offset="1" stop-Color="blue" />
+                    </radialGradient>
+                  </defs>
+                </svg>
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center lg:mx-0 lg:flex-auto lg:text-left h-full flex flex-col items-center justify-center ">
+                    <div class='w-full h-full text-white'>
+                            
+                            <div class='relative w-full h-full bg-black'>
+                              <DataForm client:only='react' />
+                              <div class='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full flex flex-col items-center justify-center'>
+                                  <div>CARGANDO</div>
+                              </div>
+                            </div>
+                    </div>
                 </div>
-                <div class="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
-                 
-                </div>
-              </div>
-              <div class="relative mt-16 h-80 lg:mt-8">
-               
-              </div>
             </div>
-          </div>
 </div>
 
 <style>

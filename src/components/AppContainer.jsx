@@ -93,23 +93,27 @@ function AppContainer() {
     }, [formData.formLocation])
     
   return (
-    <>
-    {
-      user ? 
-      <div className="user-details h-24 w-full">
+    <div className='w-full h-full absolute bg-black text-white z-10 border-4 border-blue-800'>
+        <div className='h-1/3 w-full'>
         {
-          formData.formLocation === '/contact' ?
-          <div className='text-green-500 text-5xl mb-2 float-left'>Hello<br /> {user.displayName}!</div> :
+          user ? 
+          <div className="user-details h-32 w-full">
+            {
+              formData.formLocation === '/contact' ?
+              <div className='text-green-500 text-5xl mb-2 float-left'>Hello<br /> {user.displayName}!</div> :
+              null
+            }
+            <img src={user.photoURL} alt={user.displayName} className='rounded-full aspect-square w-[70px] float-right' />
+          </div> :
           null
         }
-        <img src={user.photoURL} alt={user.displayName} className='rounded-full aspect-square w-[100px] float-right' />
-      </div> :
-      null
-    }
+        </div>
       
     {
     formData.isLoading === true ?
-    <div className='animate-bounce'>CARGANDO</div> :
+    <div className='animate w-full h-full text-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center'>
+      <div>CARGANDO</div>
+    </div> :
     <div>
       
       {
@@ -176,7 +180,7 @@ function AppContainer() {
         </div>
         }
     </div>}
-    </>
+    </div>
   )
 }
 
