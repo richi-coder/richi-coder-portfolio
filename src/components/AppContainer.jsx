@@ -96,10 +96,10 @@ function AppContainer() {
     <>
     {
       user ? 
-      <div className="user-details h-24">
+      <div className="user-details h-24 w-full">
         {
           formData.formLocation === '/contact' ?
-          <div className='text-green-500 text-5xl mb-2 float-left'>Hello {user.displayName}!</div> :
+          <div className='text-green-500 text-5xl mb-2 float-left'>Hello<br /> {user.displayName}!</div> :
           null
         }
         <img src={user.photoURL} alt={user.displayName} className='rounded-full aspect-square w-[100px] float-right' />
