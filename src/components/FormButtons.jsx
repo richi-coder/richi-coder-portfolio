@@ -19,7 +19,7 @@ function FormButtons({user}) {
     <div className='show h-fit text-5xl'>
     {
     checkFulfillment ?
-    <div className='flex flex-row items-center justify-around'>
+    <div className='flex flex-row items-center justify-around w-1/2 mx-auto'>
       <FormButton direction={'backward'} />
       <FormButton direction={'forward'} user={user} />
     </div> :
