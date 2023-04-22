@@ -1,5 +1,6 @@
 import { getAuth, signOut } from 'firebase/auth';
 import React from 'react'
+import './styles/show.css'
 
 function SignOutButton() {
     const auth = getAuth();
@@ -19,11 +20,13 @@ function SignOutButton() {
         }
 
   return (
-    <button
-    onClick={logout}
-    className="bg-orange-700 hover:bg-orange-300 text-white font-bold py-2 px-4 rounded text-2xl">
-        Use another account
-    </button>
+    <div className='show flex-grow flex flex-col items-center justify-center'>
+        <button
+        onClick={logout}
+        className="bg-orange-700 hover:bg-orange-300 text-white font-bold py-2 px-4 rounded text-2xl">
+            Use another account
+        </button>
+    </div>
   )
 }
 

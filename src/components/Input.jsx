@@ -73,7 +73,7 @@ function Input({ inputName, color, value, id, inputType, dataType }) {
     }
     
   return (
-    <>
+    <div className='w-full h-1/3 flex flex-col items-center justify-center'>
     {
       !check ?
     <div className={`${color} transition-transform ease-in-out duration-200 ${inputShow}`}>
@@ -82,7 +82,7 @@ function Input({ inputName, color, value, id, inputType, dataType }) {
     </div> :
     <div>Go to last step please!</div>
     }
-    </>
+    </div>
   )
 }
 

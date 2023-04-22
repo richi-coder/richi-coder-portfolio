@@ -10,6 +10,8 @@ import RootContact from "./RootContact";
 import FormEnd from "./FormEnd";
 import { registerPageLoad } from "../scripts/ipservice";
 import { auth, checkJobContact } from "../scripts/firebase";
+import './styles/show.css'
+import Presentation from "./Presentation";
 
 
 function AppContainer() {
@@ -93,8 +95,8 @@ function AppContainer() {
     }, [formData.formLocation])
     
   return (
-    <div className='w-full h-full absolute bg-black text-white z-10 border-4 border-blue-800'>
-        <div className='h-1/3 w-full'>
+    <div className='w-full h-full relative text-white z-10 bg-black'>
+        <div className='h-1/3 w-full show'>
         {
           user ? 
           <div className="user-details h-32 w-full">
@@ -111,11 +113,10 @@ function AppContainer() {
       
     {
     formData.isLoading === true ?
-    <div className='animate w-full h-full text-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center'>
-      <div>CARGANDO</div>
+    <div className='w-full h-full text-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center z-10 text-white'>
+      <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
     </div> :
-    <div>
-      
+    <div className='h-2/3 flex flex-col'>
       {
         user ? 
         <BrowserRouter>
@@ -174,12 +175,23 @@ function AppContainer() {
           <SignOutButton />
 
         </BrowserRouter> :
-        <div>
-          <div className='text-2xl'>Please select an access method</div>
-          <LoginButton />
-        </div>
+        <Presentation />
         }
-    </div>}
+    </div>
+    }
+    <svg
+                  viewBox="0 0 1024 1024"
+                  className="absolute top-1/2 left-1/2 -z-10 h-[64rem] w-[64rem] -translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:translate-y-0 lg:-translate-x-1/2"
+                  aria-hidden="true"
+                >
+                  <circle cx="512" cy="512" r="512" fill="url(#759c1415-0410-454c-8f7c-9a820de03641)" fillOpacity="0.7" />
+                  <defs>
+                    <radialGradient id="759c1415-0410-454c-8f7c-9a820de03641">
+                      <stop stopColor="#7775D6" />
+                      <stop offset="1" stopColor="blue" />
+                    </radialGradient>
+                  </defs>
+                </svg>
     </div>
   )
 }

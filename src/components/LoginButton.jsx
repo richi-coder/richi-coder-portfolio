@@ -1,6 +1,5 @@
 import { GoogleAuthProvider, signInWithPopup, getAuth, GithubAuthProvider, onAuthStateChanged, signInWithRedirect, signOut } from "firebase/auth";
 import { app } from "../scripts/firebase";
-import "./styles/show.css"
 
 
 function LoginButton() {
@@ -49,19 +48,24 @@ function LoginButton() {
    
 
   return (
-    <>
-    <button
-    onClick={googleLogin}
-    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded show">
-        Google Login
-    </button>
-    <button
-    onClick={githubLogin}
-    className="bg-gray-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded show">
-        Github Login
-    </button>
-    
-    </>
+    <div className='text-2xl md:text-3xl flex-grow lg:flex-grow-0 flex flex-col lg:flex-row items-center justi lg:justify-center lg:gap-[7vw] w-2/3 md:w-full lg:pt-28'>
+        <button
+        onClick={googleLogin}
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 w-52 rounded md:show">
+            Google
+        </button>
+        <button
+        onClick={githubLogin}
+        className="bg-gray-500 hover:bg-blue-700 text-white font-bold py-3 w-52 rounded show">
+            Github
+        </button>
+        <button
+        onClick={githubLogin}
+        disabled
+        className="bg-gray-500 hover:bg-blue-700 text-white font-bold py-3 w-52 rounded show">
+            Microsoft
+        </button>
+    </div>
   )
 }
 
