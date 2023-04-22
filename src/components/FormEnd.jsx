@@ -28,7 +28,7 @@ function FormEnd() {
     }, [formData.formLocation])
     
   return (
-    <>
+    <div className='w-full text-5xl show text-center py-8'>
     {
     check ?
     <div className='show'>
@@ -37,7 +37,7 @@ function FormEnd() {
     </div> :
     <div className='show'>Please complete the form!</div>
     }
-    </>
+    </div>
   )
 }
 

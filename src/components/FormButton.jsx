@@ -119,7 +119,7 @@ function FormButton({direction, user}) {
     {/* <div className='errorMessage'>{errorMessage}</div> */}
     <button
     onClick={navigation}
-    className={isButton ? 'bg-blue-700 px-6 py-3 rounded-lg sm:hover:bg-blue-300 font-bold text-4xl hover:-translate-y-[1rem] transition-all' : ''}
+    className={isButton ? 'bg-blue-700 px-6 py-3 rounded-lg sm:hover:bg-blue-300 font-bold text-4xl hover:-translate-y-[0.5rem] transition-all' : ''}
     disabled={direction === 'backward' ? false : buttonEnabled}
     >
         {isButton ? 'Let\'s go!' : <i className={direction === 'forward' ? 'fa fa-chevron-right' : 'fa fa-chevron-left'}></i>}
