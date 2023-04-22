@@ -78,7 +78,7 @@ function Input({ inputName, color, value, id, inputType, dataType }) {
       !check ?
     <div className={`${color} transition-transform ease-in-out duration-200 ${inputShow}`}>
         <div>{inputName}</div>
-        <input onChange={onChange} className={`text-black pl-2`} type={inputType} value={value} placeholder={`Enter ${inputName}`} autoFocus disabled={inputDisabled} />
+        <input onChange={onChange} className={`text-black pl-2 text-5xl`} type={inputType} value={value} placeholder={`Enter ${inputName}`} autoFocus disabled={inputDisabled} />
     </div> :
     <div>Go to last step please!</div>
     }

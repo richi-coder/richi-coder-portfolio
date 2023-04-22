@@ -28,14 +28,14 @@ function RootContact({user}) {
     
 
   return (
-    <div className='w-full text-2xl show'>
+    <div className='w-full text-2xl show text-center py-8'>
     {
     check ? 
     <div>Please let me know how to contact you!</div> :
     <>
-    <div>You already contacted me</div> 
-    <br />
-    <div>I hope to talk to you soon!</div> 
+      <div>You already contacted me</div> 
+      <br />
+      <div>I hope to talk to you soon!</div> 
     </>
     }
     </div>

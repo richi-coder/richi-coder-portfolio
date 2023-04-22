@@ -23,7 +23,7 @@ function SignOutButton() {
     <div className='show flex-grow flex flex-col items-center justify-center'>
         <button
         onClick={logout}
-        className="bg-orange-700 hover:bg-orange-300 text-white font-bold py-2 px-4 rounded text-2xl">
+        className="bg-purple-700 hover:bg-purple-300 text-white font-bold py-2 px-4 rounded text-2xl hover:-translate-y-[1rem] transition-all">
             Use another account
         </button>
     </div>

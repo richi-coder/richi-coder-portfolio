@@ -16,7 +16,7 @@ function FormButtons({user}) {
   const checkFulfillment = formData.formComplete === true || location === '/contact/formend' ? false : true;
   
   return (
-    <div className='show h-fit'>
+    <div className='show h-fit text-5xl'>
     {
     checkFulfillment ?
     <div className='flex flex-row items-center justify-around'>

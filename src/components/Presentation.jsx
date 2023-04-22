@@ -1,5 +1,6 @@
 import React from 'react'
 import LoginButton from './LoginButton'
+import './styles/title.css'
 
 function Presentation() {
   return (
