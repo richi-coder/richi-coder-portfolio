@@ -22,7 +22,7 @@ function RootContact({user}) {
           if (formData.formComplete) {
           navigate('/contact/formend')
           } else return
-        }, 3000);
+        }, 4000);
         window.addEventListener('popstate', () => {
           window.location.replace('/contact')
         })
