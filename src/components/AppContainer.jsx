@@ -134,7 +134,7 @@ function AppContainer() {
                   message='Your name'
                   id={"name"}
                   inputName="Name"
-                  color="bg-blue-900"
+                  color="bg-gradient-to-r from-indigo-500"
                   value={formData.name}
                   inputType='text'
                   dataType='string'
@@ -148,7 +148,7 @@ function AppContainer() {
                   message='Your last name'
                   id={"lastname"}
                   inputName="Last Name"
-                  color="bg-blue-800"
+                  color="bg-gradient-to-r from-blue-500"
                   value={formData.lastname}
                   inputType='text'
                   dataType='string'
@@ -162,7 +162,7 @@ function AppContainer() {
                   message='The company you work in'
                   id={"company"}
                   inputName="Company"
-                  color="bg-blue-700"
+                  color="bg-gradient-to-r from-purple-500"
                   value={formData.company}
                   inputType='text'
                   dataType='string'

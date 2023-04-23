@@ -77,7 +77,7 @@ function Input({ inputName, color, value, id, inputType, dataType, message }) {
     <div className='w-full h-1/3'>
     {
       !check ?
-    <div className={`${color} transition-transform ease-in-out duration-200 ${inputShow} flex flex-col w-full sm:w-1/2 items-center justify-center mx-auto`}>
+    <div className={`${color} transition-transform ease-in-out duration-200 ${inputShow} flex flex-col w-full sm:w-1/2 items-center justify-center mx-auto rounded-lg`}>
         <div className='pl-2 text-3xl w-full'>{message}</div>
         <input onChange={onChange} className={`text-black pl-2 text-5xl w-full`} type={inputType} value={value} placeholder={`Enter ${inputName}`} autoFocus disabled={inputDisabled} />
     </div> :
