@@ -22,7 +22,7 @@ function SignOutButton() {
         }
 
   return (
-    <div className='flex-grow flex flex-col items-center justify-center'>
+    <div className='show flex-grow flex flex-col items-center justify-center'>
         {
         location === '/contact' || location === '/contact/formend' ?
         <button

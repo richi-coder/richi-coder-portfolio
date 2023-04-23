@@ -30,7 +30,7 @@ function RootContact({user}) {
     
 
   return (
-    <div className='w-full text-2xl text-center py-8'>
+    <div className='w-full text-2xl text-center py-8 show'>
     {
     check ? 
     <div>Please let me know how to contact you!</div> :

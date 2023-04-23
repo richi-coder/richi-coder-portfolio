@@ -98,7 +98,7 @@ function AppContainer() {
         <div className='h-1/3 w-full relative'>
         {
           user ? 
-          <div className="user-details h-full w-full flex flex-col items-center justify-around">
+          <div className="user-details h-full w-full flex flex-col items-center justify-around show">
             <div className='h-3/4 aspect-square relative'>
                 <img src={user.photoURL} alt={user.displayName} className='rounded-full h-5/6 absolute bottom-0 left-1/2 -translate-x-1/2' />
             </div>
@@ -163,7 +163,7 @@ function AppContainer() {
                   id={"company"}
                   inputName="Company"
                   color="bg-blue-700"
-                  value={formData.venture}
+                  value={formData.company}
                   inputType='text'
                   dataType='string'
                 />

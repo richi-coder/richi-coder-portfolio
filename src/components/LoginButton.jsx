@@ -66,18 +66,17 @@ function LoginButton() {
     <div className='text-2xl md:text-3xl flex-grow lg:flex-grow-0 flex flex-col lg:flex-row items-center justify-around lg:justify-center lg:gap-[7vw] w-2/3 md:w-full lg:pt-28'>
         <button
         onClick={googleLogin}
-        className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 w-52 rounded opacity-0 ladder ${ladder1}`}>
+        className={`bg-blue-700 hover:bg-blue-500 transition-all text-white font-bold py-3 w-52 rounded opacity-0 ladder ${ladder1}`}>
             Google
         </button>
         <button
         onClick={githubLogin}
-        className={`bg-gray-500 hover:bg-blue-700 text-white font-bold py-3 w-52 rounded opacity-0 -z-10 ladder ${ladder2}`}>
+        className={`bg-gray-700 hover:bg-gray-500 transition-all text-white font-bold py-3 w-52 rounded opacity-0 ladder ${ladder2}`}>
             Github
         </button>
         <button
-        onClick={githubLogin}
-        disabled
-        className={`bg-gray-500 hover:bg-blue-700 text-white font-bold py-3 w-52 rounded opacity-0 -z-20 ladder ${ladder3}`}>
+        onClick={''}
+        className={`bg-green-500 hover:bg-green-500 transition-all text-white font-bold py-3 w-52 rounded opacity-0 ladder ${ladder3}`}>
             Microsoft
         </button>
     </div>

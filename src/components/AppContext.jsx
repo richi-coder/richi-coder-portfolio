@@ -14,7 +14,7 @@ export const useUpdateFormContext = () => {
 let dataToFront = {
     'name': '',
     'lastname': '',
-    'venture': ''
+    'company': ''
 };
 
     
@@ -52,10 +52,10 @@ function AppContext({children}) {
                 lastname: value
             })
         },
-        venture (value) {
+        company (value) {
             setInputData({
                 ...inputData,
-                venture: value
+                company: value
             })
         },
         formLocation (value) {
