@@ -10,7 +10,6 @@ import RootContact from "./RootContact";
 import FormEnd from "./FormEnd";
 import { registerPageLoad } from "../scripts/ipservice";
 import { auth, checkJobContact } from "../scripts/firebase";
-import './styles/show.css'
 import Presentation from "./Presentation";
 
 
@@ -96,7 +95,7 @@ function AppContainer() {
     
   return (
     <div className='w-full h-full relative text-white z-10 bg-black'>
-        <div className='h-1/3 w-full show relative'>
+        <div className='h-1/3 w-full relative'>
         {
           user ? 
           <div className="user-details h-full w-full flex flex-col items-center justify-around">

@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router'
 import { useFormContext, useUpdateFormContext } from './AppContext';
-import './styles/show.css'
 
 function RootContact({user}) {
     const location = useLocation().pathname;
@@ -31,7 +30,7 @@ function RootContact({user}) {
     
 
   return (
-    <div className='w-full text-2xl show text-center py-8'>
+    <div className='w-full text-2xl text-center py-8'>
     {
     check ? 
     <div>Please let me know how to contact you!</div> :

@@ -6,3 +6,39 @@
     80% {opacity: 0;}
     100% {opacity: 1;}
 }
+
+@media only screen and (min-aspect-ratio: 1 / 1) {
+    :root {
+        --rotation: 450deg;
+        --xAxis: 0;
+        --yAxis: 1;
+    }
+}
+
+@media only screen and (max-aspect-ratio: 1 / 1) {
+    :root {
+        --rotation: 450deg;
+        --xAxis: 1;
+        --yAxis: 0;
+    }
+}
+
+.ladder {
+    transform: perspective(500px);
+}
+.ladderAnim {
+    animation: ladder 1s ease-in-out 1;
+    opacity: 1;
+}
+/* .ladder:nth-child(2) {
+    animation: ladder 2s ease-in-out 1;
+    z-index: -1;
+}
+.ladder:nth-child(3) {
+    animation: ladder 2s ease-in-out 1;
+    z-index: -2;
+} */
+@keyframes ladder {
+    0% {opacity: 0; transform: perspective(500px) rotate3d(var(--xAxis),var(--yAxis),0,var(--rotation))  translate3d(0px,0px,-400px)}
+    40% {opacity: 1;}
+}
