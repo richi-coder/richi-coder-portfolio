@@ -2,9 +2,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useFormContext, useUpdateFormContext } from "./AppContext"
 import Input from "./Input";
 import FormButtons from "./FormButtons";
-import LoginButton from "./LoginButton";
 import { useEffect, useState } from "react";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 import SignOutButton from "./SignOutButton";
 import RootContact from "./RootContact";
 import FormEnd from "./FormEnd";
@@ -92,6 +91,10 @@ function AppContainer() {
 
       
     }, [formData.formLocation])
+
+    const imageLoad = (e) => {
+      console.log(e.target, 'EVENTO');
+    }
     
   return (
     <div className='w-full h-full relative text-white z-10 bg-black'>
@@ -99,8 +102,9 @@ function AppContainer() {
         {
           user ? 
           <div className="user-details h-full w-full flex flex-col items-center justify-around show">
-            <div className='h-3/4 aspect-square relative'>
-                <img src={user.photoURL} alt={user.displayName} className='rounded-full h-5/6 absolute bottom-0 left-1/2 -translate-x-1/2' />
+            <div className='h-3/4 aspect-square relative object-cover rounded-full' >
+                <img onLoad={imageLoad} src={user.potoURL} alt={user.displayName} className='rounded-full h-5/6 absolute bottom-0 left-1/2 -translate-x-1/2' />
+                <img src={'/userProfile.png'} alt={user.displayName} className='rounded-full h-5/6 absolute bottom-0 left-1/2 -translate-x-1/2' />
             </div>
             <div className='h-1/4 flex flex-col justify-center'>
                 {

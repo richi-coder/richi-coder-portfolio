@@ -75,7 +75,8 @@ function LoginButton() {
             Github
         </button>
         <button
-        onClick={''}
+        onClick={githubLogin}
+        disabled
         className={`bg-green-500 hover:bg-green-500 transition-all text-white font-bold py-3 w-52 rounded opacity-0 ladder ${ladder3}`}>
             Microsoft
         </button>
