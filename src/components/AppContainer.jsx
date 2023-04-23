@@ -132,9 +132,10 @@ function AppContainer() {
               path="/contact/input1"
               element={
                 <Input
+                  message='Your name'
                   id={"name"}
                   inputName="Name"
-                  color="bg-red-500"
+                  color="bg-blue-900"
                   value={formData.name}
                   inputType='text'
                   dataType='string'
@@ -145,9 +146,10 @@ function AppContainer() {
               path="/contact/input2"
               element={
                 <Input
+                  message='Your last name'
                   id={"lastname"}
                   inputName="Last Name"
-                  color="bg-yellow-500"
+                  color="bg-blue-800"
                   value={formData.lastname}
                   inputType='text'
                   dataType='string'
@@ -158,9 +160,10 @@ function AppContainer() {
               path="/contact/input3"
               element={
                 <Input
-                  id={"venture"}
-                  inputName="Venture"
-                  color="bg-blue-500"
+                  message='The company you work in'
+                  id={"company"}
+                  inputName="Company"
+                  color="bg-blue-700"
                   value={formData.venture}
                   inputType='text'
                   dataType='string'

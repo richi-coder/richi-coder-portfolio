@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useFormContext, useUpdateFormContext } from './AppContext'
 import { useLocation, useNavigate } from 'react-router';
 
-function Input({ inputName, color, value, id, inputType, dataType }) {
+function Input({ inputName, color, value, id, inputType, dataType, message }) {
   // Hooks
   const [inputDisabled, setInputDisabled] = useState(true)
   const formData = useFormContext();
@@ -60,12 +60,13 @@ function Input({ inputName, color, value, id, inputType, dataType }) {
         // No digits OK
         // if (/\d/.test(value)) return
        
-        // Make sure not to send string numbers STRING CASE
+        // STRING CASE
         if (dataType === 'string') {
-          if (/\d/.test(value) || !/[a-zA-Z]|^$/.test(value)) {
+          // Make sure not to send string numbers nor white spaces nor symbols
+          if (/\d/.test(value) || !/[a-zA-Z]$|^$/.test(value)) {
             return
           } else {
-            console.log('no hay')
+            console.log('no hay numeros en el string')
           }
           
         } 
@@ -73,12 +74,12 @@ function Input({ inputName, color, value, id, inputType, dataType }) {
     }
     
   return (
-    <div className='w-full h-1/3 flex flex-col items-center justify-center'>
+    <div className='w-full h-1/3'>
     {
       !check ?
-    <div className={`${color} transition-transform ease-in-out duration-200 ${inputShow}`}>
-        <div>{inputName}</div>
-        <input onChange={onChange} className={`text-black pl-2 text-5xl`} type={inputType} value={value} placeholder={`Enter ${inputName}`} autoFocus disabled={inputDisabled} />
+    <div className={`${color} transition-transform ease-in-out duration-200 ${inputShow} flex flex-col w-1/2 items-center justify-center mx-auto`}>
+        <div className='pl-2 text-3xl w-full'>{message}</div>
+        <input onChange={onChange} className={`text-black pl-2 text-5xl w-full`} type={inputType} value={value} placeholder={`Enter ${inputName}`} autoFocus disabled={inputDisabled} />
     </div> :
     <div>Go to last step please!</div>
     }
