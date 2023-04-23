@@ -23,6 +23,9 @@ function RootContact({user}) {
           navigate('/contact/formend')
           } else return
         }, 3000);
+        window.addEventListener('popstate', () => {
+          window.location.replace('/contact')
+        })
       
     }, [formData.formComplete])
     
