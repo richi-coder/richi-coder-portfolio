@@ -100,13 +100,13 @@ function AppContainer() {
         {
           user ? 
           <div className="user-details h-full w-full flex flex-col items-center justify-around">
-            <div className='h-3/4 aspect-square'>
-                <img src={user.photoURL} alt={user.displayName} className='rounded-full w-full' />
+            <div className='h-3/4 aspect-square relative'>
+                <img src={user.photoURL} alt={user.displayName} className='rounded-full h-5/6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2' />
             </div>
-            <div className='h-1/4'>
+            <div className='h-1/4 flex flex-col justify-center'>
                 {
                   formData.formLocation === '/contact' ?
-                  <div className='text-green-500 text-md mb-2'>Hello {user.displayName}!</div> :
+                  <div className='text-green-500 text-md'>Hello {user.displayName}!</div> :
                   null
                 }
             </div>
