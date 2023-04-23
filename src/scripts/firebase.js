@@ -76,7 +76,7 @@ const readPageLoadandUpdateJobContact = async(browserUser, firebaseUser) => {
   }
   const jobContactResult = await setDoc(doc(db, "jobContacts", docSnap.data().id), updatedData)
   window.localStorage.removeItem('uSaLsFiAf')
-  console.log('User created at jobContacts')
+  console.log('User created at jobContacts') 
 }
 
 export const readUserData = async(uid, formData) => {
