@@ -30,7 +30,7 @@ function FormButton({ direction, user }) {
       console.log("ENTRAAA PAH");
       setButtonEnabled(false);
     }
-  }, [location, formData[formData.formLocation]]);
+  }, [location, formData[formData.formLocation]]); // possible trouble HERE coming from changing formLocation from name,lastname,company to input1, input2, this affects button disabled required before filling inputs
 
   const inputNavigation = () => {
     // URLs moving

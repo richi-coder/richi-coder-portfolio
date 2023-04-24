@@ -61,6 +61,12 @@ function Input({ inputName, color, value, id, inputType, dataType, message }) {
         }, 100); // React slowness
       }
     }, [location, formData.formComplete])
+
+    const onKey = (e) => {
+        if (e.key === 'Enter') {
+            (document.querySelector('.fa-chevron-right').parentElement).click() // working well, but requires revision
+        }
+    }
     
 
     const onChange = (e) => {
@@ -90,7 +96,7 @@ function Input({ inputName, color, value, id, inputType, dataType, message }) {
       !check ?
     <div className={`${color} transition-transform ease-in-out duration-200 ${inputShow} flex flex-col w-full sm:w-1/2 items-center justify-center mx-auto rounded-lg`}>
         <div className='pl-2 text-3xl w-full'>{message}</div>
-        <input onChange={onChange} className={`text-black pl-2 text-5xl w-full`} type={inputType} value={value} placeholder={`Enter ${inputName}`} autoFocus disabled={inputDisabled} />
+        <input onChange={onChange} onKeyDown={onKey} className={`text-black pl-2 text-5xl w-full`} type={inputType} value={value} placeholder={`Enter ${inputName}`} autoFocus disabled={inputDisabled} />
     </div> :
     <div>Go to last step please!</div>
     }
