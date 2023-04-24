@@ -27,7 +27,7 @@ function LoginButton() {
                             console.log('Signed via Mobile')
                             const user = res.user;
                             alert('Signed via Mobile')
-                            window.location.replace("http://localhost:3000/contact");
+                            window.location.replace("/contact");
                         })
                         .catch(res => {
                             alert(res)
@@ -40,7 +40,7 @@ function LoginButton() {
                             console.log('Signed via Desktop')
                             const user = res.user;
                             console.log(user)
-                            window.location.replace("http://localhost:3000/contact");
+                            window.location.replace("/contact");
                         })
                         .catch(res => {
                             console.log('ERROR:', res)
