@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useFormContext, useUpdateFormContext } from './AppContext'
 import { useLocation, useNavigate } from 'react-router';
 
 function Input({ inputName, color, value, id, inputType, dataType, message }) {
   // Hooks
+  const inputRef = useRef();
   const [inputDisabled, setInputDisabled] = useState(true)
   const formData = useFormContext();
   const inputShow = formData.inputShow;
