@@ -36,7 +36,12 @@ function AppContext({children}) {
         'formLocation': '/contact',
         'formComplete': false,
         'isLoading': true,
-        'inputShow': 'x'
+        'inputShow': 'x',
+        'scheme': {
+            '/contact/input1': 'name',
+            '/contact/input2': 'lastname',
+            '/contact/input3': 'company',
+          }
     })
 
     const app = {

@@ -16,21 +16,22 @@ function FormButton({ direction, user }) {
   const isButton = location === "/contact" && direction === "forward";
   const [buttonEnabled, setButtonEnabled] = useState(false); // Disabled
   let currentInput = locationSplitted[locationSplitted.length - 1];
+  
 
   useEffect(() => {
     if (
       (location !== "/contact" &&
         location !== "/contact/formend" &&
-        formData[formData.formLocation] === "") ||
-      /\s/.test(formData[formData.formLocation])
+        formData[formData.scheme[location]] === "") ||
+      /\s/.test(formData[formData.scheme[location]])
     ) {
-      console.log("BUTTTOOOON");
+      console.log("BUTTTOOOON", location);
       setButtonEnabled(true);
     } else {
       console.log("ENTRAAA PAH");
       setButtonEnabled(false);
     }
-  }, [location, formData[formData.formLocation]]); // possible trouble HERE coming from changing formLocation from name,lastname,company to input1, input2, this affects button disabled required before filling inputs
+  }, [location, formData[formData.scheme[location]]]); // possible trouble HERE coming from changing formLocation from name,lastname,company to input1, input2, this affects button disabled required before filling inputs
 
   const inputNavigation = () => {
     // URLs moving
@@ -49,7 +50,7 @@ function FormButton({ direction, user }) {
   };
   // Backend Update
   const backendUpdate = () => {
-    const { formLocation, formComplete, isLoading, inputShow, ...dataForm } =
+    const { formLocation, formComplete, isLoading, inputShow, scheme, ...dataForm } =
       formData;
     console.log(dataForm, "DATA TO SAVE", formData);
     readUserData(user.uid, formData).then(async (docIDtoUpdate) => {
@@ -57,10 +58,6 @@ function FormButton({ direction, user }) {
         formData: dataForm,
       });
       // After updating data in the server, just navigates to next input
-      // setTimeout(() => {
-      // updateFormData("isLoading", true);
-      // }, 1500);
-
       inputNavigation();
     });
   };
