@@ -16,6 +16,7 @@ function AppContainer() {
     const formData = useFormContext();
     const updateFormData = useUpdateFormContext()
     const [user, setUser] = useState(null);
+    const [userPhotoRandom, setUserPhotoRandom] = useState('block')
 
     const browserUserCheck = () => {
       try {
@@ -73,7 +74,7 @@ function AppContainer() {
         } else {
           // User is signed out
           // ...
-          setUser(firebaseUser)
+          // setUser(firebaseUser)
           console.log('user Offline!', firebaseUser)
           // stateLoader
           setTimeout(() => {
@@ -92,19 +93,18 @@ function AppContainer() {
       
     }, [formData.formLocation])
 
-    const imageLoad = (e) => {
-      console.log(e.target, 'EVENTO');
-    }
+    const imageLoad = (e) => setUserPhotoRandom('hidden')
     
   return (
     <div className='w-full h-full relative text-white z-10 bg-black'>
+        
         <div className='h-1/3 w-full relative'>
         {
           user ? 
           <div className="user-details h-full w-full flex flex-col items-center justify-around show">
             <div className='h-3/4 aspect-square relative object-cover rounded-full' >
-                <img onLoad={imageLoad} src={user.potoURL} alt={user.displayName} className='rounded-full h-5/6 absolute bottom-0 left-1/2 -translate-x-1/2' />
-                <img src={'/userProfile.png'} alt={user.displayName} className='rounded-full h-5/6 absolute bottom-0 left-1/2 -translate-x-1/2' />
+                <img onLoad={imageLoad} src={user.photoURL} alt={user.displayName} className='rounded-full h-5/6 absolute bottom-0 left-1/2 -translate-x-1/2' />
+                <img src={'/userProfile.png'} alt={user.displayName} className={`rounded-full h-5/6 absolute bottom-0 left-1/2 -translate-x-1/2 z-10 ${userPhotoRandom}`} />
             </div>
             <div className='h-1/4 flex flex-col justify-center'>
                 {

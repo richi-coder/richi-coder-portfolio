@@ -2,7 +2,6 @@ import { GoogleAuthProvider, signInWithPopup, getAuth, GithubAuthProvider, onAut
 import { app } from "../scripts/firebase";
 import { useEffect, useState } from "react";
 
-
 function LoginButton() {
     const auth = getAuth(app);
     const [ladder1, setLadder1] = useState('')
