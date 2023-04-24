@@ -4,8 +4,7 @@ import { useLocation, useNavigate } from 'react-router';
 
 function Input({ inputName, color, value, id, inputType, dataType, message }) {
   // Hooks
-  const inputRef = useRef();
-  const [inputDisabled, setInputDisabled] = useState(true)
+  // const [inputDisabled, setInputDisabled] = useState(false)
   const formData = useFormContext();
   const inputShow = formData.inputShow;
   const updateFormData = useUpdateFormContext();
@@ -30,13 +29,13 @@ function Input({ inputName, color, value, id, inputType, dataType, message }) {
 
 
     useEffect(() => {
-      console.log('NAVIGATEEEEEEEE', formData)
+      // if completed, redirects to formEnd
       if (formData.formComplete) {
         console.log('NAVIGATEEEEEEEE', formData)
         navigate('/contact/formend')
       }
-      console.log(inputLocation, lastLocation, 'NUMBEEERR');
-      // CHECKING HERE
+
+      // Input entrance animations based on where the form comes frome
       if (inputLocation === 1 && formData.formLocation === '/contact') updateFormData('updateServerDataAtContext', {'formLocation': location.pathname, 'inputShow': 'translate-x-[100vw] opacity-0'})
       if (location.pathname !== '/contact') {
         if (inputLocation > lastLocation) {
@@ -46,29 +45,32 @@ function Input({ inputName, color, value, id, inputType, dataType, message }) {
           updateFormData('updateServerDataAtContext', {'formLocation': location.pathname, 'inputShow': '-translate-x-[100vw] opacity-0'})
         }
       }
-
+      // if check (if not completed), redirects to last input to fill
       if (check) {
         navigate(`/contact/input${currentLocation + 1}`)
       }
-      window.addEventListener('popstate', (e) => {
-        if (location === '/contact') {
-            navigate(`/contact`)
-        } 
-      })
-      if (!formData.isLoading) {
-        setTimeout(() => {
-          setInputDisabled(false)
-        }, 100); // React slowness
-      }
+      //
+      // window.addEventListener('popstate', (e) => {
+      //       navigate(`/contact`)
+      // })
+      // Dealing with react speed
+      // if (!formData.isLoading) {
+      //   setTimeout(() => {
+      //     setInputDisabled(false)
+      //   }, 100); // React slowness
+      // }
+      // This last part requires putting this at the input disabled={inputDisabled}
     }, [location, formData.formComplete])
 
+
+    // onKey for 'enter' button taking the form to next input page
     const onKey = (e) => {
         if (e.key === 'Enter') {
-            (document.querySelector('.fa-chevron-right').parentElement).click() // working well, but requires revision
+            (document.querySelector('.fa-chevron-right').parentElement).click()
         }
     }
     
-
+    // updating state when input changes, and validations included
     const onChange = (e) => {
         let { value } = e.target; 
       // input onChange validations
@@ -96,7 +98,7 @@ function Input({ inputName, color, value, id, inputType, dataType, message }) {
       !check ?
     <div className={`${color} transition-transform ease-in-out duration-200 ${inputShow} flex flex-col w-full sm:w-1/2 items-center justify-center mx-auto rounded-lg`}>
         <div className='pl-2 text-3xl w-full'>{message}</div>
-        <input onChange={onChange} onKeyDown={onKey} className={`text-black pl-2 text-5xl w-full`} type={inputType} value={value} placeholder={`Enter ${inputName}`} autoFocus disabled={inputDisabled} />
+        <input onChange={onChange} onKeyDown={onKey} className={`text-black pl-2 text-5xl w-full`} type={inputType} value={value} placeholder={`Enter ${inputName}`} autoFocus />
     </div> :
     <div>Go to last step please!</div>
     }
