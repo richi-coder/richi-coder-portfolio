@@ -1,6 +1,5 @@
 import { getAuth, signOut } from 'firebase/auth';
 import React from 'react'
-import './styles/show.css'
 import { useLocation } from 'react-router';
 
 function SignOutButton() {

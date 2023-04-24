@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router'
 import { useFormContext, useUpdateFormContext } from './AppContext';
-import "./styles/show.css"
 
 function FormEnd() {
     const navigate = useNavigate();

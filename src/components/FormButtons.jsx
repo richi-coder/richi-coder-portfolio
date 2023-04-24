@@ -2,7 +2,6 @@ import React from 'react'
 import FormButton from './FormButton'
 import { useLocation } from 'react-router'
 import { useFormContext } from './AppContext';
-import './styles/show.css'
 
 
 function FormButtons({user}) {

@@ -1,7 +1,6 @@
 import { GoogleAuthProvider, signInWithPopup, getAuth, GithubAuthProvider, onAuthStateChanged, signInWithRedirect, signOut } from "firebase/auth";
 import { app } from "../scripts/firebase";
 import { useEffect, useState } from "react";
-import "./styles/show.css"
 
 function LoginButton() {
     const auth = getAuth(app);

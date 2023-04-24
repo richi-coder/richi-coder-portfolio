@@ -10,7 +10,6 @@ import FormEnd from "./FormEnd";
 import { registerPageLoad } from "../scripts/ipservice";
 import { auth, checkJobContact } from "../scripts/firebase";
 import Presentation from "./Presentation";
-import "./styles/show.css"
 
 
 function AppContainer() {
