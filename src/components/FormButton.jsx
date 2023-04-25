@@ -101,7 +101,7 @@ function FormButton({ direction, user }) {
     // Forward click
     if (direction === "forward") {
       if (location === "/contact") {
-        updateFormData("inputShow", "translate-x-[100vw]");
+        updateFormData("inputShow", "opacity-0");
         inputNavigation();
       } else {
         // Frontend validation

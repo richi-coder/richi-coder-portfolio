@@ -32,7 +32,7 @@ function FormEnd() {
     check ?
     <div className='show'>
         <div>Thank you very much!</div>
-        <a href="https://richicoder.com/">Come back to richicoder.com</a>
+        <a href="/">Come back to richicoder.com</a>
     </div> :
     <div className='show'>Please complete the form!</div>
     }

@@ -23,9 +23,9 @@
     }
 }
 
-.ladder {
+/* .ladder {
     transform: perspective(500px);
-}
+} */
 .ladderAnim {
     animation: ladder 1s ease-in-out 1;
     opacity: 1;

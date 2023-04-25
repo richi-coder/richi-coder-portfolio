@@ -36,7 +36,7 @@ function AppContext({children}) {
         'formLocation': '/contact',
         'formComplete': false,
         'isLoading': true,
-        'inputShow': 'x',
+        'inputShow': 'translate-x-[100vw] opacity-0',
         'scheme': {
             '/contact/input1': 'name',
             '/contact/input2': 'lastname',
