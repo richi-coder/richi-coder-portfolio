@@ -25,10 +25,8 @@ function FormButton({ direction, user }) {
         formData[formData.scheme[location]] === "") ||
       /\s/.test(formData[formData.scheme[location]])
     ) {
-      console.log("BUTTTOOOON", location);
       setButtonEnabled(true);
     } else {
-      console.log("ENTRAAA PAH");
       setButtonEnabled(false);
     }
   }, [location, formData[formData.scheme[location]]]); // possible trouble HERE coming from changing formLocation from name,lastname,company to input1, input2, this affects button disabled required before filling inputs
@@ -36,13 +34,10 @@ function FormButton({ direction, user }) {
   const inputNavigation = () => {
     // URLs moving
     if (location === `/contact/input${lastInput}`) {
-      // updateFormData('formComplete', true)
-      console.log("to Formend", formData.formComplete);
       navigate("/contact/formend");
       return;
     }
     if (location === "/contact") {
-      console.log("to InputA");
       navigate(`/contact/inputA`);
     } else {
       navigate(`/contact/input${String.fromCharCode(currentInput.charCodeAt(0) + 1)}`);
@@ -53,7 +48,6 @@ function FormButton({ direction, user }) {
   const backendUpdate = () => {
     const { formLocation, formComplete, isLoading, inputShow, scheme, buttonsLoading, ...dataForm } =
       formData;
-    console.log(dataForm, "DATA TO SAVE", formData);
     readUserData(user.uid, formData).then(async (docIDtoUpdate) => {
       await updateDoc(doc(db, "jobContacts", docIDtoUpdate), {
         formData: dataForm,

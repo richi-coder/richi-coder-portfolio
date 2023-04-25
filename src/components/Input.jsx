@@ -24,7 +24,6 @@ function Input({ inputName, color, value, id, inputType, dataType, message }) {
                 true;
 
     useEffect(() => {
-      console.log(formData, 'at INPUT');
       // if completed, redirects to formEnd
       if (formData.formComplete) {
         navigate('/contact/formend')

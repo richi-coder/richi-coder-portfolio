@@ -34,11 +34,8 @@ function AppContainer() {
       console.log('Checking AUTH')
       onAuthStateChanged(auth, (firebaseUser) => {
         if (firebaseUser) {
-          
-          // User is signed in, see docs for a list of available properties
-          // https://firebase.google.com/docs/reference/js/firebase.User
+          // User is signed in
           const uid = firebaseUser.uid;
-          // console.log('user Online!', firebaseUser.uid)
           setUser(firebaseUser)
           // ... Put user to jobContacts after login
 
@@ -51,15 +48,12 @@ function AppContainer() {
                   if (doc.formData !== false && doc.formData !== null && doc.formData !== undefined) {
                     const currentDatabaseState = Object.values(doc.formData)
 
-                    //0 Inputs updated when reloading the page
-                    console.log(doc.formData, 'REVISANDO')
-
                     //1 Data completed!
                     if (currentDatabaseState.every(inputItem => inputItem !== '')) {
                       console.log('USER READY')
                       updateFormData('updateServerDataAtContext', {...doc.formData, formComplete: true, isLoading: false, inputShow: 'x', 'buttonsLoading': false} )
                     } else {
-                      console.log('USER NOT READY', doc.formData)
+                      console.log('USER NOT READY')
                       updateFormData('updateServerDataAtContext', {...doc.formData, isLoading: false, inputShow: 'x', 'buttonsLoading': false})
                     }
                   } else {
@@ -75,7 +69,7 @@ function AppContainer() {
           // User is signed out
           // ...
           // setUser(firebaseUser)
-          console.log('user Offline!', firebaseUser)
+          console.log('user Offline!')
           // stateLoader
           setTimeout(() => {
             updateFormData('isLoading', false)

@@ -1,6 +1,9 @@
 .show {
     animation: show 1.5s ease-in-out 1;
 }
+.showButton {
+    animation: show .5s ease-in-out 1;
+}
 @keyframes show {
     0% {opacity: 0; transform: translateY(-400%);}
     80% {opacity: 0;}

@@ -38,15 +38,14 @@ export const checkJobContact = async(browserUser, firebaseUser) => {
   firebaseID = browserUser;
   let result;
   if (querySnapshot.docs.length > 0) {
-    console.log("Document data:", querySnapshot.docs[0].data());
+    console.log("Document data:");
     const pageLoadID = querySnapshot.docs[0].data();
     window.localStorage.removeItem('uSaLsFiAf')
     result = pageLoadID
   } else {
     // docSnap.data() will be undefined in this case
-    console.log("No such document!", querySnapshot.docs);
+    console.log("No such document!");
     readPageLoadandUpdateJobContact(browserUser, firebaseUser)
-    console.log(browserUser, firebaseUser, 'reeev')
     result = {'formLocation': false}
     
   }
@@ -54,10 +53,8 @@ export const checkJobContact = async(browserUser, firebaseUser) => {
 }
 
 const readPageLoadandUpdateJobContact = async(browserUser, firebaseUser) => {
-  console.log('PASSING')
   const docRef = doc(db, "pageLoads", browserUser)
   const docSnap = await getDoc(docRef);
-  console.log('docSnappppppp', docSnap)
   
   const updatedData = {
     'firebaseUser': {

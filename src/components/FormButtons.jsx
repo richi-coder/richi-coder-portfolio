@@ -16,7 +16,6 @@ function FormButtons({user}) {
   const inputLocation = baseLocation[baseLocation.length - 1];
   const check = location !== '/contact' && formData.formLocation === '/contact' && inputLocation !== 'A' ?
                 false : true;
-                console.log('REEEEVV QU', formData);
 
   return (
     <>
@@ -24,7 +23,7 @@ function FormButtons({user}) {
       !formData.buttonsLoading ?
             <>
             {check ?
-              <div className='text-5xl transition-all show flex-grow relative'>
+              <div className={`text-5xl transition-all ${location === '/contact' ? 'show' : 'showButton'} flex-grow relative`}>
                 {
                 checkFulfillment ?
                 <div className='flex flex-row items-center gap-7 justify-center sm:justify-around w-1/2 mx-auto absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
