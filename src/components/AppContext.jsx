@@ -38,6 +38,16 @@ function AppContext({children}) {
             '/contact/inputA': 'name',
             '/contact/inputB': 'lastname',
             '/contact/inputC': 'company',
+            '/contact/inputD': 'position',
+            '/contact/inputE': 'companyURL',
+            '/contact/inputF': 'city',
+            '/contact/inputG': 'services',
+            '/contact/inputH': 'role',
+            '/contact/inputI': 'workMode',
+            '/contact/inputJ': 'email',
+            '/contact/inputK': 'telephone',
+            '/contact/inputL': 'contactMethod',
+            '/contact/inputM': 'contactDate',
           }
     })
 
