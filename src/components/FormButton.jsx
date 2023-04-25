@@ -14,7 +14,7 @@ function FormButton({ direction, user }) {
   const updateFormData = useUpdateFormContext();
   const lastInput = 'M';
   const isButton = location === "/contact" && direction === "forward";
-  const [buttonEnabled, setButtonEnabled] = useState(false); // Disabled
+  const [buttonEnabled, setButtonEnabled] = useState(true); // Disabled
   let currentInput = locationSplitted[locationSplitted.length - 1];
   
 
@@ -121,8 +121,8 @@ function FormButton({ direction, user }) {
             onClick={navigation}
             className={
               isButton
-                ? "bg-blue-700 px-6 py-3 rounded-lg sm:hover:bg-blue-300 font-bold  hover:-translate-y-[0.5rem] transition-all ladder"
-                : "sm:hover:scale-110 transition-all"
+                ? "bg-blue-700 px-6 py-3 rounded-lg sm:hover:bg-blue-300 font-bold  transition-all ladder"
+                : `transition-all ${!buttonEnabled && direction === 'forward' ? 'sm:hover:scale-110' : ''} ${direction === 'backward' ? 'sm:hover:scale-110' : ''}`
             }
             disabled={direction === "backward" ? false : buttonEnabled}
           >
