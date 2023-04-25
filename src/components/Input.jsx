@@ -13,8 +13,8 @@ function Input({ inputName, color, value, id, inputType, dataType, message }) {
   // Current input page
   const baseLocation = location.pathname.split('')
   const baseLastLocation = formData.formLocation.split('')
-  const inputLocation = Number(baseLocation[baseLocation.length - 1]);
-  const lastLocation = Number(baseLastLocation[baseLastLocation.length - 1])
+  const inputLocation = baseLocation[baseLocation.length - 1];
+  const lastLocation = baseLastLocation[baseLastLocation.length - 1]
   // When the user tries a url input like 3 without filling 1 and 2 / CHECKING
   const formValues = Object.values(formData);
   const lastData = formValues.slice(0,inputLocation-1);
@@ -36,8 +36,8 @@ function Input({ inputName, color, value, id, inputType, dataType, message }) {
       }
 
       // Input entrance animations based on where the form comes frome
-      if (inputLocation === 1 && formData.formLocation === '/contact') updateFormData('updateServerDataAtContext', {'formLocation': location.pathname, 'inputShow': 'translate-x-[100vw] opacity-0'})
-      if (location.pathname !== '/contact') {
+      if (inputLocation === 'A' && formData.formLocation === '/contact') updateFormData('updateServerDataAtContext', {'formLocation': location.pathname, 'inputShow': 'translate-x-[100vw] opacity-0'})
+      else if (location.pathname !== '/contact') {
         if (inputLocation > lastLocation) {
           updateFormData('updateServerDataAtContext', {'formLocation': location.pathname, 'inputShow': 'translate-x-[100vw] opacity-0'})
         }

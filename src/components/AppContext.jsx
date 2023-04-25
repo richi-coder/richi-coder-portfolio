@@ -14,21 +14,18 @@ export const useUpdateFormContext = () => {
 let dataToFront = {
     'name': '',
     'lastname': '',
-    'company': ''
+    'company': '',
+    'position': '',
+    'companyURL': '',
+    'city': '',
+    'services': '',
+    'role': '',
+    'workMode': '',
+    'email': '',
+    'telephone': '',
+    'contactMethod': '',
+    'contactDate': '',
 };
-
-    
-    // onAuthStateChanged(auth, (firebaseUser) => {
-    //     if(firebaseUser) {
-    //         console.log('logueado')
-    //         // Consult database
-    //     } else {
-    //         console.log('no log')
-    //         // Just return plain object
-    //     }
-    //     console.log('dataTOfront', dataToFront)
-    // })
-
 
 function AppContext({children}) {
     const [inputData, setInputData] = useState({
@@ -38,9 +35,9 @@ function AppContext({children}) {
         'isLoading': true,
         'inputShow': 'translate-x-[100vw] opacity-0',
         'scheme': {
-            '/contact/input1': 'name',
-            '/contact/input2': 'lastname',
-            '/contact/input3': 'company',
+            '/contact/inputA': 'name',
+            '/contact/inputB': 'lastname',
+            '/contact/inputC': 'company',
           }
     })
 
@@ -61,6 +58,66 @@ function AppContext({children}) {
             setInputData({
                 ...inputData,
                 company: value
+            })
+        },
+        position (value) {
+            setInputData({
+                ...inputData,
+                position: value
+            })
+        },
+        companyURL (value) {
+            setInputData({
+                ...inputData,
+                companyURL: value
+            })
+        },
+        city (value) {
+            setInputData({
+                ...inputData,
+                city: value
+            })
+        },
+        services (value) {
+            setInputData({
+                ...inputData,
+                services: value
+            })
+        },
+        role (value) {
+            setInputData({
+                ...inputData,
+                role: value
+            })
+        },
+        workMode (value) {
+            setInputData({
+                ...inputData,
+                workMode: value
+            })
+        },
+        email (value) {
+            setInputData({
+                ...inputData,
+                email: value
+            })
+        },
+        telephone (value) {
+            setInputData({
+                ...inputData,
+                telephone: value
+            })
+        },
+        contactMethod (value) {
+            setInputData({
+                ...inputData,
+                contactMethod: value
+            })
+        },
+        contactDate (value) {
+            setInputData({
+                ...inputData,
+                contactDate: value
             })
         },
         formLocation (value) {

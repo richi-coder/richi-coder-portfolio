@@ -132,7 +132,7 @@ function AppContainer() {
           <Routes>
             <Route path="/contact" element={<RootContact user={user} />}></Route>
             <Route
-              path="/contact/input1"
+              path="/contact/inputA"
               element={
                 <Input
                   message='Your name'
@@ -146,7 +146,7 @@ function AppContainer() {
               }
             ></Route>
             <Route
-              path="/contact/input2"
+              path="/contact/inputB"
               element={
                 <Input
                   message='Your last name'
@@ -160,7 +160,7 @@ function AppContainer() {
               }
             ></Route>
             <Route
-              path="/contact/input3"
+              path="/contact/inputC"
               element={
                 <Input
                   message='The company you work in'
@@ -168,6 +168,146 @@ function AppContainer() {
                   inputName="Company"
                   color="bg-gradient-to-r from-purple-500"
                   value={formData.company}
+                  inputType='text'
+                  dataType='string'
+                />
+              }
+            ></Route>
+            <Route
+              path="/contact/inputD"
+              element={
+                <Input
+                  message={`Your position at ${formData.company}`}
+                  id={"position"}
+                  inputName="Position"
+                  color="bg-gradient-to-r from-indigo-500"
+                  value={formData.position}
+                  inputType='text'
+                  dataType='string'
+                />
+              }
+            ></Route>
+            <Route
+              path="/contact/inputE"
+              element={
+                <Input
+                  message={`${formData.company} website`}
+                  id={"companyURL"}
+                  inputName="Company URL"
+                  color="bg-gradient-to-r from-purple-500"
+                  value={formData.companyURL}
+                  inputType='text'
+                  dataType='string'
+                />
+              }
+            ></Route>
+            <Route
+              path="/contact/inputF"
+              element={
+                <Input
+                  message={`${formData.company} is located in`}
+                  id={"city"}
+                  inputName="City"
+                  color="bg-gradient-to-r from-indigo-500"
+                  value={formData.city}
+                  inputType='text'
+                  dataType='string'
+                />
+              }
+            ></Route>
+            <Route
+              path="/contact/inputG"
+              element={
+                <Input
+                  message={`The services ${formData.company} offers`}
+                  id={"services"}
+                  inputName="Services"
+                  color="bg-gradient-to-r from-indigo-500"
+                  value={formData.services}
+                  inputType='text'
+                  dataType='string'
+                />
+              }
+            ></Route>
+            <Route
+              path="/contact/inputH"
+              element={
+                <Input
+                  message='Which role are you seeking?'
+                  id={"role"}
+                  inputName="Role"
+                  color="bg-gradient-to-r from-blue-500"
+                  value={formData.role}
+                  inputType='text'
+                  dataType='string'
+                />
+              }
+            ></Route>
+            <Route
+              path="/contact/inputI"
+              element={
+                <Input
+                  message='Remote or office work?'
+                  id={"workMode"}
+                  inputName="Mode"
+                  color="bg-gradient-to-r from-purple-500"
+                  value={formData.workMode}
+                  inputType='text'
+                  dataType='string'
+                />
+              }
+            ></Route>
+            <Route
+              path="/contact/inputJ"
+              element={
+                <Input
+                  message={`Your email`}
+                  id={"email"}
+                  inputName="Email"
+                  color="bg-gradient-to-r from-indigo-500"
+                  value={formData.email}
+                  inputType='text'
+                  dataType='string'
+                />
+              }
+            ></Route>
+            <Route
+              path="/contact/inputK"
+              element={
+                <Input
+                  message='Your telephone'
+                  id={"telephone"}
+                  inputName="Telephone"
+                  color="bg-gradient-to-r from-purple-500"
+                  value={formData.telephone}
+                  inputType='text'
+                  dataType='string'
+                />
+              }
+            ></Route>
+            <Route
+              path="/contact/inputL"
+              element={
+                <Input
+                  message='How should I contact you?'
+                  id={"contactMethod"}
+                  inputName="How"
+                  color="bg-gradient-to-r from-indigo-500"
+                  value={formData.contactMethod}
+                  inputType='text'
+                  dataType='string'
+                />
+              }
+            ></Route>
+            <Route
+              path="/contact/inputM"
+              element={
+                <Input
+                  message='When should I contact you?'
+                  id={"contactDate"}
+                  inputName="When"
+                  color="bg-gradient-to-r from-indigo-500"
+                  value={formData.contactDate}
                   inputType='text'
                   dataType='string'
                 />

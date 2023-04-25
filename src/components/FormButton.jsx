@@ -12,7 +12,7 @@ function FormButton({ direction, user }) {
   const locationSplitted = location.split("");
   const formData = useFormContext();
   const updateFormData = useUpdateFormContext();
-  const lastInput = 3;
+  const lastInput = 'M';
   const isButton = location === "/contact" && direction === "forward";
   const [buttonEnabled, setButtonEnabled] = useState(false); // Disabled
   let currentInput = locationSplitted[locationSplitted.length - 1];
@@ -42,10 +42,11 @@ function FormButton({ direction, user }) {
       return;
     }
     if (location === "/contact") {
-      console.log("to Input1");
-      navigate(`/contact/input1`);
+      console.log("to InputA");
+      navigate(`/contact/inputA`);
     } else {
-      navigate(`/contact/input${Number(currentInput) + 1}`);
+      navigate(`/contact/input${String.fromCharCode(currentInput.charCodeAt(0) + 1)}`);
+      
     }
   };
   // Backend Update
@@ -86,7 +87,7 @@ function FormButton({ direction, user }) {
   const navigation = () => {
     // Backward click
     if (direction === "backward") {
-      if (location === "/contact/input1") {
+      if (location === "/contact/inputA") {
         updateFormData("inputShow", "translate-x-[100vw]");
         setTimeout(() => {
           navigate(`/contact`);
@@ -94,7 +95,7 @@ function FormButton({ direction, user }) {
       } else {
         updateFormData("inputShow", "translate-x-[100vw]");
         setTimeout(() => {
-          navigate(`/contact/input${Number(currentInput) - 1}`);
+          navigate(`/contact/input${String.fromCharCode(currentInput.charCodeAt(0) - 1)}`);
         }, 500);
       }
     }
