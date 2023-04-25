@@ -17,10 +17,10 @@ function Input({ inputName, color, value, id, inputType, dataType, message }) {
   const lastLocation = baseLastLocation[baseLastLocation.length - 1]
   // When the user tries a url input like 3 without filling 1 and 2 / CHECKING
   const formValues = Object.values(formData);
-  const lastData = formValues.slice(0,inputLocation-1);
+  const lastData = formValues.slice(0);
   const check = lastData.some(item => item === '');
   // Where to redirect after pretending the last
-  const currentLocation = formValues.indexOf('')
+  const currentLocation = formValues[formValues.indexOf('')]
   // Form fulfillment
   let checkFulfillment = true;
   if (formValues.some(item => item === '') === false && location.pathname === '/contact' || location.pathname === '/contact/formend') {
@@ -46,13 +46,17 @@ function Input({ inputName, color, value, id, inputType, dataType, message }) {
         }
       }
       // if check (if not completed), redirects to last input to fill
-      if (check) {
-        navigate(`/contact/input${currentLocation + 1}`)
-      }
-      //
+      console.log('CHEEEEEECK');
+
+      // if (!checkFulfillment) {
+      //   console.log('CHEEEEEECKYYYY');
+      //   navigate(`/contact/input${currentLocation}`)
+      // }   REQUIRES REVISION, LIKE CHECKING IF DATA BEFORE CURRENT INPUT IS NOT EMPTY FOR REDIRECTING SO
+      
       // window.addEventListener('popstate', (e) => {
       //       navigate(`/contact`)
       // })
+
       // Dealing with react speed
       // if (!formData.isLoading) {
       //   setTimeout(() => {
@@ -95,7 +99,7 @@ function Input({ inputName, color, value, id, inputType, dataType, message }) {
   return (
     <div className='w-full h-1/3'>
     {
-      !check ?
+      checkFulfillment ?
     <div className={`${color} transition-transform ease-in-out duration-200 ${inputShow} flex flex-col w-full sm:w-1/2 items-center justify-center mx-auto rounded-lg`}>
         <div className='pl-2 text-3xl w-full'>{message}</div>
         <input onChange={onChange} onKeyDown={onKey} className={`text-black pl-2 text-5xl w-full`} type={inputType} value={value} placeholder={`Enter ${inputName}`} autoFocus />
