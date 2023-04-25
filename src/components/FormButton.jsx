@@ -115,12 +115,12 @@ function FormButton({ direction, user }) {
     <>
       {location === "/contact" && direction === "backward" ? null : (
         <>
-          {/* <div className='errorMessage'>{errorMessage}</div> */}
+          
           <button
             onClick={navigation}
             className={
               isButton
-                ? "bg-blue-700 px-6 py-3 rounded-lg sm:hover:bg-blue-300 font-bold text-4xl hover:-translate-y-[0.5rem] transition-all ladder"
+                ? "bg-blue-700 px-6 py-3 rounded-lg sm:hover:bg-blue-300 font-bold  hover:-translate-y-[0.5rem] transition-all ladder"
                 : ""
             }
             disabled={direction === "backward" ? false : buttonEnabled}
@@ -128,17 +128,22 @@ function FormButton({ direction, user }) {
             {isButton ? (
               "Let's go!"
             ) : (
-              <i
+              <div className={`flex flex-row items-center gap-5 text-4xl`}>
+                <div className={direction === 'backward' ? 'order-2 -mt-[3%]' : '-mt-[3%]'}>{direction === 'forward' ? 'Next' : 'Back'}</div>
+                <i
                 className={
                   direction === "forward"
                     ? "fa fa-chevron-right"
                     : "fa fa-chevron-left"
                 }
               ></i>
+              </div>
+              
             )}
           </button>
         </>
-      )}
+      )
+    }
     </>
   );
 }
