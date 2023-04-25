@@ -121,7 +121,7 @@ function FormButton({ direction, user }) {
             className={
               isButton
                 ? "bg-blue-700 px-6 py-3 rounded-lg sm:hover:bg-blue-300 font-bold  hover:-translate-y-[0.5rem] transition-all ladder"
-                : ""
+                : "sm:hover:scale-110 transition-all"
             }
             disabled={direction === "backward" ? false : buttonEnabled}
           >
