@@ -28,7 +28,7 @@ function SignOutButton() {
                 logout()
             }, 15000);
         }
-    }, [])
+    }, [formData.formComplete])
     
 
   return (
