@@ -34,6 +34,7 @@ function AppContext({children}) {
         'formComplete': false,
         'isLoading': true,
         'inputShow': 'translate-x-[100vw] opacity-0',
+        'buttonsLoading': false,
         'scheme': {
             '/contact/inputA': 'name',
             '/contact/inputB': 'lastname',
@@ -140,6 +141,12 @@ function AppContext({children}) {
             setInputData({
                 ...inputData,
                 formComplete: value
+            })
+        },
+        buttonsLoading (value) {
+            setInputData({
+                ...inputData,
+                buttonsLoading: value
             })
         },
         updateServerDataAtContext (data) {

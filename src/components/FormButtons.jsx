@@ -5,32 +5,41 @@ import { useFormContext } from './AppContext';
 
 
 function FormButtons({user}) {
+  // Hooks
   const location = useLocation().pathname;
   const formData = useFormContext();
   const formDataArray = Object.values(formData);
+  // Checking if form is completed or if located at formend to hide buttons in there
   const checkFulfillment = formData.formComplete === true || location === '/contact/formend' ? false : true;
+  // Checking if trying to acces a phohibited page
   const baseLocation = location.split('')
   const inputLocation = baseLocation[baseLocation.length - 1];
-  console.log('foooo', formData.formLocation, inputLocation);
   const check = location !== '/contact' && formData.formLocation === '/contact' && inputLocation !== 'A' ?
                 false : true;
-                console.log(check,'VERIF');
+                console.log('REEEEVV QU', formData);
 
   return (
     <>
-    
-    {check ?
-      <div className='text-5xl transition-all show flex-grow relative'>
-        {
-        checkFulfillment ?
-        <div className='flex flex-row items-center gap-7 justify-center sm:justify-around w-1/2 mx-auto absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
-          <FormButton direction={'backward'} />
-          <FormButton direction={'forward'} user={user} />
-        </div> :
-        null
-        }
-    </div> :
-    null
+    {
+      !formData.buttonsLoading ?
+            <>
+            {check ?
+              <div className='text-5xl transition-all show flex-grow relative'>
+                {
+                checkFulfillment ?
+                <div className='flex flex-row items-center gap-7 justify-center sm:justify-around w-1/2 mx-auto absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
+                  <FormButton direction={'backward'} />
+                  <FormButton direction={'forward'} user={user} />
+                </div> :
+                null
+                }
+            </div> :
+            null
+            }
+            </> :
+            <div className='w-full flex flex-col items-center'>
+              <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
+            </div>
     }
     </>
   )

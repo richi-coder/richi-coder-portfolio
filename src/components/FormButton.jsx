@@ -2,7 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useFormContext, useUpdateFormContext } from "./AppContext";
 import { db, readUserData } from "../scripts/firebase";
 import { useEffect, useState } from "react";
-import { doc, setDoc, updateDoc } from "firebase/firestore";
+import { doc, updateDoc } from "firebase/firestore";
 
 function FormButton({ direction, user }) {
   const navigate = useNavigate();
@@ -51,7 +51,7 @@ function FormButton({ direction, user }) {
   };
   // Backend Update
   const backendUpdate = () => {
-    const { formLocation, formComplete, isLoading, inputShow, scheme, ...dataForm } =
+    const { formLocation, formComplete, isLoading, inputShow, scheme, buttonsLoading, ...dataForm } =
       formData;
     console.log(dataForm, "DATA TO SAVE", formData);
     readUserData(user.uid, formData).then(async (docIDtoUpdate) => {
@@ -85,15 +85,17 @@ function FormButton({ direction, user }) {
   };
 
   const navigation = () => {
+    // Buttons Loading
+
     // Backward click
     if (direction === "backward") {
       if (location === "/contact/inputA") {
-        updateFormData("inputShow", "translate-x-[100vw]");
+        updateFormData('updateServerDataAtContext', {"inputShow": "translate-x-[100vw]", "buttonsLoading": false});
         setTimeout(() => {
           navigate(`/contact`);
         }, 500);
       } else {
-        updateFormData("inputShow", "translate-x-[100vw]");
+        updateFormData('updateServerDataAtContext', {"inputShow": "translate-x-[100vw]", "buttonsLoading": true});
         setTimeout(() => {
           navigate(`/contact/input${String.fromCharCode(currentInput.charCodeAt(0) - 1)}`);
         }, 500);
@@ -102,11 +104,11 @@ function FormButton({ direction, user }) {
     // Forward click
     if (direction === "forward") {
       if (location === "/contact") {
-        updateFormData("inputShow", "opacity-0");
+        updateFormData('updateServerDataAtContext', {"inputShow": "opacity-0", 'buttonsLoading': true});
         inputNavigation();
       } else {
         // Frontend validation
-        updateFormData("inputShow", "-translate-x-[100vw]");
+        updateFormData('updateServerDataAtContext', {"inputShow": "-translate-x-[100vw]", 'buttonsLoading': true});
         frontendValidation();
       }
     }

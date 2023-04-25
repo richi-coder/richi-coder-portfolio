@@ -57,15 +57,15 @@ function AppContainer() {
                     //1 Data completed!
                     if (currentDatabaseState.every(inputItem => inputItem !== '')) {
                       console.log('USER READY')
-                      updateFormData('updateServerDataAtContext', {...doc.formData, formComplete: true, isLoading: false, inputShow: 'x'} )
+                      updateFormData('updateServerDataAtContext', {...doc.formData, formComplete: true, isLoading: false, inputShow: 'x', 'buttonsLoading': false} )
                     } else {
                       console.log('USER NOT READY', doc.formData)
-                      updateFormData('updateServerDataAtContext', {...doc.formData, isLoading: false, inputShow: 'x'})
+                      updateFormData('updateServerDataAtContext', {...doc.formData, isLoading: false, inputShow: 'x', 'buttonsLoading': false})
                     }
                   } else {
                     console.log('DATA NOT CREATED YET!')
                     setTimeout(() => {
-                      updateFormData('updateServerDataAtContext', {formComplete: false, isLoading: false, inputShow: 'x'})
+                      updateFormData('updateServerDataAtContext', {formComplete: false, isLoading: false, inputShow: 'x', 'buttonsLoading': false})
                     }, 1000)
                   }
               })

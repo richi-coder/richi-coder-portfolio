@@ -1,5 +1,5 @@
 .show {
-    animation: show 2s ease-in-out 1;
+    animation: show 1.5s ease-in-out 1;
 }
 @keyframes show {
     0% {opacity: 0; transform: translateY(-400%);}
@@ -23,9 +23,6 @@
     }
 }
 
-/* .ladder {
-    transform: perspective(500px);
-} */
 .ladderAnim {
     animation: ladder 1s ease-in-out 1;
     opacity: 1;
