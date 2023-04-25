@@ -17,7 +17,6 @@ function Input({ inputName, color, value, id, inputType, dataType, message }) {
   // When the user tries a url input like 3 without filling 1 and 2 / CHECKING
   const formValues = Object.values(formData);
   const lastData = formValues.slice(0);
-  console.log(formData.formLocation, 'REEEV');
   const check = formData.formLocation === '/contact' && inputLocation !== 'A' ?
                 false :
                 formData[formData.scheme[`/contact/input${String.fromCharCode(inputLocation.charCodeAt(0) - 1)}`]] === '' ?
@@ -27,7 +26,6 @@ function Input({ inputName, color, value, id, inputType, dataType, message }) {
     useEffect(() => {
       // if completed, redirects to formEnd
       if (formData.formComplete) {
-        console.log('NAVIGATEEEEEEEE', formData)
         navigate('/contact/formend')
       }
       // If trying to acces an input page coming from /contact or if last input is empty
@@ -47,17 +45,6 @@ function Input({ inputName, color, value, id, inputType, dataType, message }) {
           updateFormData('updateServerDataAtContext', {'formLocation': location.pathname, 'inputShow': '-translate-x-[100vw] opacity-0'})
         }
       }
-      // if check (if not completed), redirects to last input to fill
-      console.log('CHEEEEEECK');
-
-      // if (!checkFulfillment) {
-      //   console.log('CHEEEEEECKYYYY');
-      //   navigate(`/contact/input${currentLocation}`)
-      // }   REQUIRES REVISION, LIKE CHECKING IF DATA BEFORE CURRENT INPUT IS NOT EMPTY FOR REDIRECTING SO
-      
-      // window.addEventListener('popstate', (e) => {
-      //       navigate(`/contact`)
-      // })
 
       // Dealing with react speed
       // if (!formData.isLoading) {

@@ -1,10 +1,12 @@
 import { getAuth, signOut } from 'firebase/auth';
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useLocation } from 'react-router';
+import { useFormContext } from './AppContext';
 
 function SignOutButton() {
     const auth = getAuth();
     const location = useLocation().pathname;
+    const formData = useFormContext();
 
     const logout = () => {
         signOut(auth)
@@ -19,6 +21,15 @@ function SignOutButton() {
             console.log('Error trying to sign out')
             });
         }
+
+    useEffect(() => {
+        if (formData.formComplete) {
+            setTimeout(() => {
+                logout()
+            }, 15000);
+        }
+    }, [])
+    
 
   return (
     <div className='show flex-grow flex flex-col items-center justify-center'>
