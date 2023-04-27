@@ -8,7 +8,7 @@ function RootContact({user}) {
     const formData = useFormContext();
     const updateFormData = useUpdateFormContext();
     const formDataArray = Object.values(formData);
-    const check = formData.formComplete === true ? false : true;
+    const check = formData.phoneTest === true ? false : true;
 
     window.addEventListener('popstate', (e) => {
         navigate(`/contact`)
@@ -17,11 +17,19 @@ function RootContact({user}) {
     useEffect(() => {
       updateFormData('formLocation', location)
       
+      
+      if (formData.phoneTest) {
         setTimeout(() => {
-          if (formData.formComplete) {
           navigate('/contact/formend')
-          } else return
         }, 4000);
+        return
+      } else if (formData.formComplete) {
+        setTimeout(() => {
+            navigate('/contact/inputN')
+        }, 4000);
+        return
+      } 
+        
         window.addEventListener('popstate', () => {
           navigate('/contact')
         })

@@ -43,19 +43,25 @@ function AppContainer() {
           // First check if the user is at jobContacts Database
           checkJobContact(browserUser, firebaseUser)
               .then(doc => {
+
                   
+                  console.log(firebaseUser);
                   
                   // Checking data at the server
                   if (doc.formData !== false && doc.formData !== null && doc.formData !== undefined) {
                     const currentDatabaseState = Object.values(doc.formData)
 
+                    console.log(firebaseUser.phoneNumber, 'TEEELF');
+                    
+                    let testPhone = firebaseUser.phoneNumber ? true : false;
+
                     //1 Data completed!
                     if (currentDatabaseState.every(inputItem => inputItem !== '')) {
                       console.log('USER READY')
-                      updateFormData('updateServerDataAtContext', {...doc.formData, formComplete: true, isLoading: false, inputShow: 'x', 'buttonsLoading': false} )
+                      updateFormData('updateServerDataAtContext', {...doc.formData, formComplete: true, isLoading: false, inputShow: 'x', 'buttonsLoading': false, 'phoneTest': testPhone} )
                     } else {
                       console.log('USER NOT READY')
-                      updateFormData('updateServerDataAtContext', {...doc.formData, isLoading: false, inputShow: 'x', 'buttonsLoading': false})
+                      updateFormData('updateServerDataAtContext', {...doc.formData, isLoading: false, inputShow: 'x', 'buttonsLoading': false, 'phoneTest': testPhone})
                     }
                   } else {
                     console.log('DATA NOT CREATED YET!')
@@ -275,7 +281,7 @@ function AppContainer() {
                   inputName="Telephone"
                   color="bg-gradient-to-r from-purple-500"
                   value={formData.telephone}
-                  inputType='number'
+                  inputType='string'
                   dataType='number'
                 />
               }
@@ -312,12 +318,12 @@ function AppContainer() {
               path="/contact/inputN"
               element={
                 <Input
-                  message={`Enter sms code sent to`}
+                  message={`Enter code sent to`}
                   id={"phoneTest"}
-                  inputName="SMS Code"
+                  inputName="Code"
                   color="bg-gradient-to-r from-purple-500"
                   value={'nuuull'}
-                  inputType='number'
+                  inputType='text'
                   dataType='number'
                 />
               }

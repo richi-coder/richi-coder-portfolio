@@ -36,7 +36,7 @@ function AppContext({children}) {
         'isLoading': true,
         'inputShow': 'translate-x-[100vw] opacity-0',
         'buttonsLoading': false,
-        'phoneTest': '',
+        'phoneTest': false,
         'scheme': {
             '/contact/inputA': 'name',
             '/contact/inputB': 'lastname',

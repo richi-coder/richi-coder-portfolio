@@ -15,12 +15,13 @@ function FormEnd() {
     useEffect(() => {
       updateFormData('formLocation', location.pathname)
   
-      if (lastData.some(item => item === '')) {
-        setTimeout(() => {
-          navigate(`/contact`)
-        }, 3000);
-        return
-      }
+      // if (lastData.some(item => item === '')) {
+      //   setTimeout(() => {
+      //     navigate(`/contact`)
+      //   }, 3000);
+      //   return
+      // }
+      // DIFFERENT IF CHECKING PHONENUMBER AT USER
         
         window.addEventListener('popstate', (e) => {
             navigate(`/contact`)

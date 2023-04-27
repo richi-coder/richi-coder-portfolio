@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { useFormContext } from './AppContext'
 import { RecaptchaVerifier, getAuth, linkWithPhoneNumber } from 'firebase/auth';
 import { auth } from '../scripts/firebase';
+import { useNavigate } from 'react-router';
 
 function PhoneTest({inputProps}) {
+  const navigate = useNavigate();
   const { inputName, color, value, id, inputType, dataType, message } = inputProps;
   const formData = useFormContext()
   // useState like at Context
@@ -45,43 +47,26 @@ function PhoneTest({inputProps}) {
 
   }, [])
 
-  function onKeyDown(e) {
-    // console.log('CODE', code);
-    // if (e.key === 'Enter') {
-    //   confirmationResult.confirm(code).then((result) => {
-    //     // User signed in successfully.
-    //     const user = result.user;
-    //     console.log(user, 'OK link');
-    //     // ...
-    //   }).catch((error) => {
-    //     // User couldn't sign in (bad verification code?)
-    //     // ...
-    //     console.log(error, 'FAIL link');
-    //   });
-    // }
-  }
   
   function onChange(e) {
-    console.log('confirm', phoneTestState.confirmationResult);
-    updatePhoneTestState({'code': e.target.value})
+        // updatePhoneTestState({'code': e.target.value})
+        if (e.target.value.length === 6) {
+          console.log('TRYING AUTH', phoneTestState.confirmationResult);
+          phoneTestState.confirmationResult.confirm(e.target.value)
+                .then((result) => {
+                  // User signed in successfully.
+                  const user = result.user;
+                  console.log('LINKKKKKK', user);
+                  navigate('/contact/formend')
+                  return
+                  // ...
+                }).catch((error) => {
+                  // User couldn't sign in (bad verification code?)
+                  // ...
+                  console.log('ERROOR  LINKKKKKK', error);
+                });
+        }
   }
-
-  function onKeyDown(e) {
-    if (e.key === 'Enter') {
-      console.log('TRABAJANDO', phoneTestState.confirmationResult);
-      phoneTestState.confirmationResult.confirm(phoneTestState.code).then((result) => {
-        // User signed in successfully.
-        const user = result.user;
-        console.log('LINKKKKKK', user);
-        // ...
-      }).catch((error) => {
-        // User couldn't sign in (bad verification code?)
-        // ...
-        console.log('ERROOR  LINKKKKKK', error);
-      });
-    }
-  }
-
 
   function link() {
     appVerifier = window.recaptchaVerifier
@@ -90,7 +75,7 @@ function PhoneTest({inputProps}) {
 
           
           // here goes linkWithPhoneNumber
-          linkWithPhoneNumber(auth.currentUser, '+584147197706', appVerifier)
+          linkWithPhoneNumber(auth.currentUser, formData.telephone, appVerifier)
                 .then((confirmationResult) => {
                   // SMS sent. Prompt user to type the code from the message, then sign the
                   // user in with confirmationResult.confirm(code).
@@ -102,7 +87,14 @@ function PhoneTest({inputProps}) {
                   console.log(Object.values(error), 'ERRORRRCITO');
                   // Error; SMS not sent
                   // ...
-                  if (Object.values(error)[0] === "auth/too-many-requests") updatePhoneTestState({'recaptchaMessage': `You have made too many requests!`, 'loading': false, 'buttonMessage': 'Try later!', 'buttonDisabled': true})
+                  if (Object.values(error)[0] === "auth/too-many-requests") {
+                    updatePhoneTestState({'recaptchaMessage': `You have made too many requests!`, 'loading': false, 'buttonMessage': 'Try later!', 'buttonDisabled': true})
+                    return
+                  }
+                  if (Object.values(error)[0] === 'auth/quota-exceeded') {
+                    updatePhoneTestState({'recaptchaMessage': `Only 50 SMS!`, 'loading': false, 'buttonMessage': 'Quota exceeded!', 'buttonDisabled': true})
+                  }
+                  
                   
                   appVerifier.render().then(function(widgetId) {
                     grecaptcha.reset(widgetId);
@@ -119,9 +111,11 @@ function PhoneTest({inputProps}) {
       </> 
       {
         phoneTestState.enterCode ?
-      <div className='absolute top-0 left-1/2 -translate-x-1/2 show w-[150%] py-6 flex flex-col items-center gap-5 bg-blue-600 rounded-xl'>
-        <div className='pl-2 text-3xl text-center w-full'>{message} <br />{formData.telephone} </div>
-        <input onChange={onChange} onKeyDown={onKeyDown} className={`text-black pl-2 text-5xl w-1/2`} type={inputType} value={phoneTestState.code} placeholder={`Enter ${inputName}`} autoFocus />
+      <div className='absolute top-0 left-1/2 -translate-x-1/2 show w-[150%] py-10 flex flex-col items-center gap-10 bg-blue-600 rounded-xl'>
+        <div className='pl-2 text-3xl text-center w-full animate-pulse'>{message} <br />{formData.telephone} </div>
+        <div className='flex flex-col items-center w-fit bg-white h-full rounded'>
+            <input onChange={onChange} autoFocus className={`text-black text-center text-[2rem] w-[12rem] h-2/3 bg-transparent m-0 p-0 border-none outline-none`} type={inputType} placeholder={`Enter ${inputName}`} />
+        </div>
       </div> :
       null
       } 
