@@ -25,6 +25,7 @@ let dataToFront = {
     'telephone': '',
     'contactMethod': '',
     'contactDate': '',
+    // phoneVerified: false
 };
 
 function AppContext({children}) {
@@ -35,6 +36,7 @@ function AppContext({children}) {
         'isLoading': true,
         'inputShow': 'translate-x-[100vw] opacity-0',
         'buttonsLoading': false,
+        'phoneTest': '',
         'scheme': {
             '/contact/inputA': 'name',
             '/contact/inputB': 'lastname',
@@ -49,6 +51,7 @@ function AppContext({children}) {
             '/contact/inputK': 'telephone',
             '/contact/inputL': 'contactMethod',
             '/contact/inputM': 'contactDate',
+            '/contact/inputN': 'phoneTest',
           }
     })
 

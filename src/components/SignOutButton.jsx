@@ -23,11 +23,11 @@ function SignOutButton() {
         }
 
     useEffect(() => {
-        if (formData.formComplete) {
-            setTimeout(() => {
-                logout()
-            }, 15000);
-        }
+        // if (formData.formComplete) {
+        //     setTimeout(() => {
+        //         logout()
+        //     }, 15000);
+        // }
     }, [formData.formComplete])
     
 

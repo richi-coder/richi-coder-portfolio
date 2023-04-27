@@ -10,6 +10,7 @@ import FormEnd from "./FormEnd";
 import { registerPageLoad } from "../scripts/ipservice";
 import { auth, checkJobContact } from "../scripts/firebase";
 import Presentation from "./Presentation";
+import PhoneTest from "./PhoneTest";
 
 
 function AppContainer() {
@@ -274,8 +275,8 @@ function AppContainer() {
                   inputName="Telephone"
                   color="bg-gradient-to-r from-purple-500"
                   value={formData.telephone}
-                  inputType='text'
-                  dataType='string'
+                  inputType='number'
+                  dataType='number'
                 />
               }
             ></Route>
@@ -304,6 +305,20 @@ function AppContainer() {
                   value={formData.contactDate}
                   inputType='text'
                   dataType='string'
+                />
+              }
+            ></Route>
+            <Route
+              path="/contact/inputN"
+              element={
+                <Input
+                  message={`Enter sms code sent to`}
+                  id={"phoneTest"}
+                  inputName="SMS Code"
+                  color="bg-gradient-to-r from-purple-500"
+                  value={'nuuull'}
+                  inputType='number'
+                  dataType='number'
                 />
               }
             ></Route>

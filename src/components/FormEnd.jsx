@@ -16,7 +16,10 @@ function FormEnd() {
       updateFormData('formLocation', location.pathname)
   
       if (lastData.some(item => item === '')) {
-        navigate(`/contact`)
+        setTimeout(() => {
+          navigate(`/contact`)
+        }, 3000);
+        return
       }
         
         window.addEventListener('popstate', (e) => {

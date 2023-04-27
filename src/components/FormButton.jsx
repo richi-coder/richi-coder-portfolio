@@ -12,7 +12,7 @@ function FormButton({ direction, user }) {
   const locationSplitted = location.split("");
   const formData = useFormContext();
   const updateFormData = useUpdateFormContext();
-  const lastInput = 'M';
+  const lastInput = 'N';
   const isButton = location === "/contact" && direction === "forward";
   const [buttonEnabled, setButtonEnabled] = useState(true); // Disabled
   let currentInput = locationSplitted[locationSplitted.length - 1];
@@ -46,7 +46,7 @@ function FormButton({ direction, user }) {
   };
   // Backend Update
   const backendUpdate = () => {
-    const { formLocation, formComplete, isLoading, inputShow, scheme, buttonsLoading, ...dataForm } =
+    const { formLocation, formComplete, isLoading, inputShow, scheme, buttonsLoading, phoneTest, ...dataForm } =
       formData;
     readUserData(user.uid, formData).then(async (docIDtoUpdate) => {
       await updateDoc(doc(db, "jobContacts", docIDtoUpdate), {
