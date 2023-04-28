@@ -2,6 +2,7 @@ import { getAuth, signOut } from 'firebase/auth';
 import React, { useEffect } from 'react'
 import { useLocation } from 'react-router';
 import { useFormContext } from './AppContext';
+import { userAnotherAccount } from '../scripts/firebase';
 
 function SignOutButton() {
     const auth = getAuth();
@@ -9,17 +10,7 @@ function SignOutButton() {
     const formData = useFormContext();
 
     const logout = () => {
-        signOut(auth)
-            .then(() => {
-            // Sign-out successful.
-            console.log('Signed out')
-            window.localStorage.removeItem('uSaLsFiAf')
-            window.location.replace('/contact')
-            })
-            .catch((error) => {
-                // An error happened.
-            console.log('Error trying to sign out')
-            });
+        userAnotherAccount()
         }
 
     useEffect(() => {

@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
+import { getAuth, signOut } from "firebase/auth";
 import { addDoc, collection, doc, getDoc, getDocs, getFirestore, query, setDoc, updateDoc, where } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -55,6 +55,7 @@ export const checkJobContact = async(browserUser, firebaseUser) => {
 const readPageLoadandUpdateJobContact = async(browserUser, firebaseUser) => {
   const docRef = doc(db, "pageLoads", browserUser)
   const docSnap = await getDoc(docRef);
+  console.log(docSnap.data(), 'ver');
   
   const updatedData = {
     'firebaseUser': {
@@ -70,6 +71,21 @@ const readPageLoadandUpdateJobContact = async(browserUser, firebaseUser) => {
       registrationTime: Date()
     },
     ...docSnap.data(),
+    'formData': {
+            'name': '',
+            'lastname': '',
+            'company': '',
+            'position': '',
+            'companyURL': '',
+            'city': '',
+            'services': '',
+            'role': '',
+            'workMode': '',
+            'email': '',
+            'telephone': '',
+            'contactMethod': '',
+            'contactDate': '',
+            }
   }
   const jobContactResult = await setDoc(doc(db, "jobContacts", docSnap.data().id), updatedData)
   window.localStorage.removeItem('uSaLsFiAf')
@@ -89,4 +105,20 @@ export const checkFormCompleted = async (docID) => {
   const docRef = doc(db, "jobContacts", docID)
   const docSnap = await getDoc(docRef);
   return docSnap.data()
+}
+
+
+
+// SIGN OUT
+
+export const userAnotherAccount = () => {
+  signOut(auth)
+  .then(() => {
+  // Sign-out successful.
+  window.localStorage.removeItem('uSaLsFiAf')
+  window.location.replace('/contact')
+  })
+  .catch((error) => {
+      // An error happened.
+  });
 }

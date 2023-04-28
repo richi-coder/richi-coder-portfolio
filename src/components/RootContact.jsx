@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router'
 import { useFormContext, useUpdateFormContext } from './AppContext';
 
@@ -9,6 +9,7 @@ function RootContact({user}) {
     const updateFormData = useUpdateFormContext();
     const formDataArray = Object.values(formData);
     const check = formData.phoneTest === true ? false : true;
+    const [rootMessage, setRootMessage] = useState('Please let me know how to contact you!');
 
     window.addEventListener('popstate', (e) => {
         navigate(`/contact`)
@@ -21,9 +22,10 @@ function RootContact({user}) {
       if (formData.phoneTest) {
         setTimeout(() => {
           navigate('/contact/formend')
-        }, 4000);
+        }, 7000);
         return
       } else if (formData.formComplete) {
+        setRootMessage('Please verify your phone number! Redirecting!')
         setTimeout(() => {
             navigate('/contact/inputN')
         }, 4000);
@@ -41,12 +43,12 @@ function RootContact({user}) {
     <div className='w-full text-2xl text-center py-8 show'>
     {
     check ? 
-    <div>Please let me know how to contact you!</div> :
-    <>
-      <div>You already contacted me</div> 
-      <br />
-      <div>I hope to talk to you soon!</div> 
-    </>
+    <div>{rootMessage}</div> :
+        <>
+        <div>You already contacted me</div> 
+        <br />
+        <div>I hope to talk to you soon!</div> 
+        </> 
     }
     </div>
   )
