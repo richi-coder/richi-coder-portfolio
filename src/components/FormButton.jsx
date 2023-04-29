@@ -79,7 +79,7 @@ function FormButton({ direction, user }) {
         } 
       } 
       // Position validations
-      if (inputLocation === 'position')  {
+      if (inputLocation === 'position' || inputLocation === 'city')  {
         // From 1 names up to 5 words
         if (!(/^[a-zA-Z]{5,}$/.test(currentInputValue) || /^[a-zA-Z]{2,}\s[a-zA-Z]{2,}$/.test(currentInputValue) || /^[a-zA-Z]{2,}\s[a-zA-Z]{2,}\s[a-zA-Z]{2,}$/.test(currentInputValue) || /^[a-zA-Z]{2,}\s[a-zA-Z]{2,}\s[a-zA-Z]{2,}\s[a-zA-Z]{2,}$/.test(currentInputValue) || /^[a-zA-Z]{2,}\s[a-zA-Z]{2,}\s[a-zA-Z]{2,}\s[a-zA-Z]{2,}\s[a-zA-Z]{2,}$/.test(currentInputValue))){
           return null           
@@ -99,6 +99,13 @@ function FormButton({ direction, user }) {
               return null
             } 
       } 
+      // Telephone validations
+      if (inputTypes[inputLocation] === 'tel')  {
+        console.log('TELEPHONE ENTRANCE');
+        if (!/^[+]([\d]{2}|[\d]{1})[\d]{10}$/.test(currentInputValue)){
+          return null
+        } 
+  } 
       
       
 
@@ -150,7 +157,7 @@ function FormButton({ direction, user }) {
         const frontendValidationResult = frontendValidation();
         if (frontendValidationResult === null) {
           setTimeout(() => {
-            updateFormData('updateServerDataAtContext', {"inputShow": '', 'buttonsLoading': false, 'inputErrorMessage': `Invalid ${formData.scheme[location] === 'companyURL' ? 'website URL' : formData.scheme[location]}`});
+            updateFormData('updateServerDataAtContext', {"inputShow": '', 'buttonsLoading': false, 'inputErrorMessage': `Invalid ${formData.scheme[location] === 'companyURL' ? 'website URL' : formData.scheme[location] === 'telephone' ?  'number. Please use this format: +001234567890' : formData.scheme[location]}`});
           }, 1000);
         }
       }

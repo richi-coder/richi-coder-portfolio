@@ -98,8 +98,9 @@ function Input({ inputName, color, value, id, inputType, dataType, message }) {
               location.pathname !== '/contact/inputJ' ?
               <>
                 <label htmlFor={id} className='pl-2 text-3xl w-full mb-1'>{message}</label>
-                <input id={id} onChange={onChange} onKeyDown={onKey} className={`text-black ${id === 'telephone' ? 'pl-[5.5rem]' : 'pl-2'} py-1 text-4xl w-full`} type={inputType} value={value} placeholder={`Enter ${inputName}`} autoFocus />
-                {
+                <input id={id} onChange={onChange} onKeyDown={onKey} className={`text-black ${id === 'telephone' ? 'pl-2' : 'pl-2'} py-1 text-4xl w-full`} type={inputType} value={value} placeholder={`Enter ${inputName}`} autoFocus />
+                {/* input pl-[5.5rem] for select present */}
+                {/* {
                   id === 'telephone' ?
                   <select className='absolute bottom-0 left-0 bg-blue-700 cursor-pointer py-1 text-3xl text-white rounded w-[5rem]' type='text'>
                     <option value="A">+56</option>
@@ -107,8 +108,8 @@ function Input({ inputName, color, value, id, inputType, dataType, message }) {
                     <option value="C">+58</option>
                   </select> :
                   null
-                }
-                <div className='absolute bottom-0 left-1/2 translate-y-[110%] -translate-x-1/2 text-red-500 text-xl animate-pulse'>{formData.inputErrorMessage}</div>
+                } */}
+                <div className='w-full text-center absolute bottom-0 left-1/2 translate-y-[110%] -translate-x-1/2 text-red-500 text-xl animate-pulse'>{formData.inputErrorMessage}</div>
               </> :
               <PhoneTest inputProps={{ inputName, color, value, id, inputType, dataType, message }} />
             }

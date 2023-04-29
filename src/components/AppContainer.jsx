@@ -222,7 +222,7 @@ function AppContainer() {
               path="/contact/inputG"
               element={
                 <Input
-                  message='Your telephone'
+                  message='Your telephone (with prefix)'
                   id={"telephone"}
                   inputName="a valid phone number"
                   color="bg-gradient-to-r from-indigo-500"
