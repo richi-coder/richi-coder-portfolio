@@ -19,7 +19,7 @@ function Input({ inputName, color, value, id, inputType, dataType, message }) {
   // When the user tries a url input like 3 without filling 1 and 2 / CHECKING
   const formValues = Object.values(formData);
   const lastData = formValues.slice(0);
-  const check = formData.formLocation === '/contact' && inputLocation !== 'A' && inputLocation !== 'N' ?
+  const check = formData.formLocation === '/contact' && inputLocation !== 'A' && inputLocation !== 'J' ?
                 false :
                 formData[formData.scheme[`/contact/input${String.fromCharCode(inputLocation.charCodeAt(0) - 1)}`]] === '' ?
                 false :
@@ -30,8 +30,8 @@ function Input({ inputName, color, value, id, inputType, dataType, message }) {
       if (formData.phoneTest) {
         navigate('/contact/formend')
         return
-      } else if (formData.formComplete && inputLocation !== 'N') {
-        navigate('/contact/inputN')
+      } else if (formData.formComplete && inputLocation !== 'J') {
+        navigate('/contact/inputJ')
         return
       }
       
@@ -66,7 +66,7 @@ function Input({ inputName, color, value, id, inputType, dataType, message }) {
     // onKey for 'enter' button taking the form to next input page
     const onKey = (e) => {
         if (e.key === 'Enter') {
-            (document.querySelector('.fa-chevron-right').parentElement).click()
+            (document.querySelector('.fa-chevron-right')?.parentElement).click()
         }
     }
     
@@ -80,16 +80,13 @@ function Input({ inputName, color, value, id, inputType, dataType, message }) {
         // if (/\d/.test(value)) return
        
         // STRING CASE
-        if (dataType === 'string') {
-          // Make sure not to send string numbers nor white spaces nor symbols
-          if (/\d/.test(value) || !/[a-zA-Z]$|^$/.test(value)) {
-            return
-          } else {
-            console.log('no hay numeros en el string')
-          }
-          
+        if (dataType === 'string' && id === 'name' || id === 'position' || id === 'city') {
+            // Make sure not to send string numbers nor white spaces nor symbols
+            if (/\d/.test(value) || !(/[a-zA-Z\s{1}]$|^$/.test(value)) || /^\s+|\s{2,}/.test(value)) {
+              return
+            } 
         } 
-        updateFormData(id, value)
+        updateFormData('updateServerDataAtContext', {[id]: value, 'inputErrorMessage': ''}) // Updating state and setting error message to ''
     }
     
   return (
@@ -98,10 +95,16 @@ function Input({ inputName, color, value, id, inputType, dataType, message }) {
       check ?
         <div className={`${color} transition-transform ease-in-out duration-200 ${inputShow} flex flex-col w-full sm:w-1/2 items-center justify-end mx-auto rounded-lg h-3/4 relative`}>
             { 
-              location.pathname !== '/contact/inputN' ?
+              location.pathname !== '/contact/inputJ' ?
               <>
-                <div className='pl-2 text-3xl w-full'>{message}</div>
-                <input onChange={onChange} onKeyDown={onKey} className={`text-black pl-2 text-5xl w-full`} type={inputType} value={value} placeholder={`Enter ${inputName}`} autoFocus />
+                <label htmlFor={id} className='pl-2 text-3xl w-full mb-1'>{message}</label>
+                <input id={id} onChange={onChange} onKeyDown={onKey} className={`text-black ${id === 'telephone' ? 'pl-[5.5rem]' : 'pl-2'} py-1 text-4xl w-full`} type={inputType} value={value} placeholder={`Enter ${inputName}`} autoFocus />
+                {
+                  id === 'telephone' ?
+                  <select className='absolute bottom-0 left-0 bg-green-500 py-1 text-4xl w-[5rem]' type='text'>TL</select> :
+                  null
+                }
+                <div className='absolute bottom-0 left-1/2 translate-y-[110%] -translate-x-1/2 text-red-500 text-xl animate-pulse'>{formData.inputErrorMessage}</div>
               </> :
               <PhoneTest inputProps={{ inputName, color, value, id, inputType, dataType, message }} />
             }

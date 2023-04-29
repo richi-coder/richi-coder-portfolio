@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { useFormContext, useUpdateFormContext } from "./AppContext";
+import { inputTypes, useFormContext, useUpdateFormContext } from "./AppContext";
 import { db, readUserData } from "../scripts/firebase";
 import { useEffect, useState } from "react";
 import { doc, updateDoc } from "firebase/firestore";
@@ -12,7 +12,7 @@ function FormButton({ direction, user }) {
   const locationSplitted = location.split("");
   const formData = useFormContext();
   const updateFormData = useUpdateFormContext();
-  const lastInput = 'N';
+  const lastInput = 'J';
   const isButton = location === "/contact" && direction === "forward";
   const [buttonEnabled, setButtonEnabled] = useState(true); // Disabled
   let currentInput = locationSplitted[locationSplitted.length - 1];
@@ -22,8 +22,8 @@ function FormButton({ direction, user }) {
     if (
       (location !== "/contact" &&
         location !== "/contact/formend" &&
-        formData[formData.scheme[location]] === "") ||
-      /\s/.test(formData[formData.scheme[location]])
+        formData[formData.scheme[location]] === "")
+        // || /\s/.test(formData[formData.scheme[location]])
     ) {
       setButtonEnabled(true);
     } else {
@@ -46,7 +46,7 @@ function FormButton({ direction, user }) {
   };
   // Backend Update
   const backendUpdate = () => {
-    const { formLocation, formComplete, isLoading, inputShow, scheme, buttonsLoading, phoneTest, ...dataForm } =
+    const { formLocation, formComplete, isLoading, inputShow, scheme, buttonsLoading, phoneTest, inputErrorMessage, ...dataForm } =
       formData;
     readUserData(user.uid, formData).then(async (docIDtoUpdate) => {
       await updateDoc(doc(db, "jobContacts", docIDtoUpdate), {
@@ -58,16 +58,60 @@ function FormButton({ direction, user }) {
   };
 
   const frontendValidation = () => {
+    // Frontend validations when clicking next button
+    const inputLocation = formData.scheme[location];
+    const currentInputValue = formData[formData.scheme[location]];
+    
     if (location !== "/contact/formend") {
+
+      // Name validations
+      if (inputLocation === 'name')  {
+            // From 2 names up to 5 names
+            if (!(/^[a-zA-Z]{3,}\s[a-zA-Z]{3,}$/.test(currentInputValue) || /^[a-zA-Z]{3,}\s[a-zA-Z]{3,}\s[a-zA-Z]{3,}$/.test(currentInputValue) || /^[a-zA-Z]{3,}\s[a-zA-Z]{3,}\s[a-zA-Z]{3,}\s[a-zA-Z]{3,}$/.test(currentInputValue) || /^[a-zA-Z]{3,}\s[a-zA-Z]{3,}\s[a-zA-Z]{3,}\s[a-zA-Z]{3,}\s[a-zA-Z]{3,}$/.test(currentInputValue))){
+              return null           
+            } 
+      } 
+      // Company validations
+      if (inputLocation === 'company')  {
+        // From 1 word up to 5 words
+        if (!(/^[\w]{3,}$/.test(currentInputValue) || /^[\w]{3,}\s[\w]{3,}$/.test(currentInputValue) || /^[\w]{3,}\s[\w]{3,}\s[\w]{3,}$/.test(currentInputValue) || /^[\w]{3,}\s[\w]{3,}\s[\w]{3,}\s[\w]{3,}$/.test(currentInputValue) || /^[\w]{3,}\s[\w]{3,}\s[\w]{3,}\s[\w]{3,}\s[\w]{3,}$/.test(currentInputValue))) {
+          return null           
+        } 
+      } 
+      // Position validations
+      if (inputLocation === 'position')  {
+        // From 1 names up to 5 words
+        if (!(/^[a-zA-Z]{5,}$/.test(currentInputValue) || /^[a-zA-Z]{2,}\s[a-zA-Z]{2,}$/.test(currentInputValue) || /^[a-zA-Z]{2,}\s[a-zA-Z]{2,}\s[a-zA-Z]{2,}$/.test(currentInputValue) || /^[a-zA-Z]{2,}\s[a-zA-Z]{2,}\s[a-zA-Z]{2,}\s[a-zA-Z]{2,}$/.test(currentInputValue) || /^[a-zA-Z]{2,}\s[a-zA-Z]{2,}\s[a-zA-Z]{2,}\s[a-zA-Z]{2,}\s[a-zA-Z]{2,}$/.test(currentInputValue))){
+          return null           
+        } 
+      } 
+      // URL validations
+      if (inputTypes[inputLocation] === 'url')  {
+            console.log('URL ENTRANCE');
+            if (!/^[a-z\d.\-]{5,}\.[a-z]+$/.test(currentInputValue)){
+              return null
+            } 
+      } 
+      // Email validations
+      if (inputTypes[inputLocation] === 'email')  {
+            console.log('EMAIL ENTRANCE');
+            if (!/^[\w\D]{2,}@[a-z\d]+\.[a-z]+$/.test(currentInputValue)){
+              return null
+            } 
+      } 
+      
+      
+
+      // if (/\d/.test(value) || !/[a-zA-Z]$|^$/.test(value))
       // Form validation at frontend
-      if (formData[formData.formLocation] === "") {
-        setButtonEnabled(true);
-        return;
-      }
-      if (/\s/.test(formData[formData.formLocation])) {
-        setButtonEnabled(true);
-        return;
-      }
+      // if (formData[formData.formLocation] === "") {
+      //   setButtonEnabled(true);
+      //   return;
+      // }
+      // if (/\s/.test(formData[formData.formLocation])) {
+      //   setButtonEnabled(true);
+      //   return;
+      // }
 
       // Backend fulfill
       backendUpdate();
@@ -103,7 +147,12 @@ function FormButton({ direction, user }) {
       } else {
         // Frontend validation
         updateFormData('updateServerDataAtContext', {"inputShow": "-translate-x-[100vw]", 'buttonsLoading': true});
-        frontendValidation();
+        const frontendValidationResult = frontendValidation();
+        if (frontendValidationResult === null) {
+          setTimeout(() => {
+            updateFormData('updateServerDataAtContext', {"inputShow": '', 'buttonsLoading': false, 'inputErrorMessage': `Invalid ${formData.scheme[location] === 'companyURL' ? 'website URL' : formData.scheme[location]}`});
+          }, 1000);
+        }
       }
     }
   };

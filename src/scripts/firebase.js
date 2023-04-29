@@ -2,6 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, signOut } from "firebase/auth";
 import { addDoc, collection, doc, getDoc, getDocs, getFirestore, query, setDoc, updateDoc, where } from "firebase/firestore";
+import { dataToFront } from "../components/AppContext";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -71,21 +72,7 @@ const readPageLoadandUpdateJobContact = async(browserUser, firebaseUser) => {
       registrationTime: Date()
     },
     ...docSnap.data(),
-    'formData': {
-            'name': '',
-            'lastname': '',
-            'company': '',
-            'position': '',
-            'companyURL': '',
-            'city': '',
-            'services': '',
-            'role': '',
-            'workMode': '',
-            'email': '',
-            'telephone': '',
-            'contactMethod': '',
-            'contactDate': '',
-            }
+    'formData': dataToFront
   }
   const jobContactResult = await setDoc(doc(db, "jobContacts", docSnap.data().id), updatedData)
   window.localStorage.removeItem('uSaLsFiAf')

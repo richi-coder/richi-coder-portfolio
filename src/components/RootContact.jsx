@@ -27,7 +27,7 @@ function RootContact({user}) {
       } else if (formData.formComplete) {
         setRootMessage('Please verify your phone number! Redirecting!')
         setTimeout(() => {
-            navigate('/contact/inputN')
+            navigate('/contact/inputJ')
         }, 4000);
         return
       } 

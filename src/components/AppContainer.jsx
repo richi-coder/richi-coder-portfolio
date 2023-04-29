@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useFormContext, useUpdateFormContext } from "./AppContext"
+import { inputTypes, useFormContext, useUpdateFormContext } from "./AppContext"
 import Input from "./Input";
 import FormButtons from "./FormButtons";
 import { useEffect, useState } from "react";
@@ -30,8 +30,10 @@ function AppContainer() {
     const browserUser = browserUserCheck()
 
     useEffect(() => {
-      // stateLoader
       
+      // Checking email linking
+      
+
       console.log('Checking AUTH')
       onAuthStateChanged(auth, (firebaseUser) => {
         if (firebaseUser) {
@@ -136,12 +138,12 @@ function AppContainer() {
               path="/contact/inputA"
               element={
                 <Input
-                  message='Your name'
+                  message='Your full name'
                   id={"name"}
-                  inputName="Name"
+                  inputName="full name"
                   color="bg-gradient-to-r from-indigo-500"
                   value={formData.name}
-                  inputType='text'
+                  inputType={inputTypes.name}
                   dataType='string'
                 />
               }
@@ -150,12 +152,12 @@ function AppContainer() {
               path="/contact/inputB"
               element={
                 <Input
-                  message='Your last name'
-                  id={"lastname"}
-                  inputName="Last Name"
+                  message='The company you work in'
+                  id={"company"}
+                  inputName="company"
                   color="bg-gradient-to-r from-blue-500"
-                  value={formData.lastname}
-                  inputType='text'
+                  value={formData.company}
+                  inputType={inputTypes.company}
                   dataType='string'
                 />
               }
@@ -164,12 +166,12 @@ function AppContainer() {
               path="/contact/inputC"
               element={
                 <Input
-                  message='The company you work in'
-                  id={"company"}
-                  inputName="Company"
+                  message={`Your position at ${formData.company}`}
+                  id={"position"}
+                  inputName="your position"
                   color="bg-gradient-to-r from-purple-500"
-                  value={formData.company}
-                  inputType='text'
+                  value={formData.position}
+                  inputType={inputTypes.position}
                   dataType='string'
                 />
               }
@@ -178,12 +180,12 @@ function AppContainer() {
               path="/contact/inputD"
               element={
                 <Input
-                  message={`Your position at ${formData.company}`}
-                  id={"position"}
-                  inputName="Position"
+                  message={`${formData.company} website`}
+                  id={"companyURL"}
+                  inputName="the company URL"
                   color="bg-gradient-to-r from-indigo-500"
-                  value={formData.position}
-                  inputType='text'
+                  value={formData.companyURL}
+                  inputType={inputTypes.companyURL}
                   dataType='string'
                 />
               }
@@ -192,12 +194,12 @@ function AppContainer() {
               path="/contact/inputE"
               element={
                 <Input
-                  message={`${formData.company} website`}
-                  id={"companyURL"}
-                  inputName="Company URL"
+                  message={`${formData.company} is located in`}
+                  id={"city"}
+                  inputName="a city"
                   color="bg-gradient-to-r from-purple-500"
-                  value={formData.companyURL}
-                  inputType='text'
+                  value={formData.city}
+                  inputType={inputTypes.city}
                   dataType='string'
                 />
               }
@@ -206,12 +208,12 @@ function AppContainer() {
               path="/contact/inputF"
               element={
                 <Input
-                  message={`${formData.company} is located in`}
-                  id={"city"}
-                  inputName="City"
+                  message={`Your email at ${formData.company}`}
+                  id={"email"}
+                  inputName={`email@${formData.company}.com`}
                   color="bg-gradient-to-r from-indigo-500"
-                  value={formData.city}
-                  inputType='text'
+                  value={formData.email}
+                  inputType={inputTypes.email}
                   dataType='string'
                 />
               }
@@ -220,13 +222,13 @@ function AppContainer() {
               path="/contact/inputG"
               element={
                 <Input
-                  message={`The services ${formData.company} offers`}
-                  id={"services"}
-                  inputName="Services"
+                  message='Your telephone'
+                  id={"telephone"}
+                  inputName="a valid phone number"
                   color="bg-gradient-to-r from-indigo-500"
-                  value={formData.services}
-                  inputType='text'
-                  dataType='string'
+                  value={formData.telephone}
+                  inputType={inputTypes.telephone}
+                  dataType='number'
                 />
               }
             ></Route>
@@ -234,12 +236,12 @@ function AppContainer() {
               path="/contact/inputH"
               element={
                 <Input
-                  message='Which role are you seeking?'
-                  id={"role"}
-                  inputName="Role"
+                  message='How should I contact you?'
+                  id={"contactMethod"}
+                  inputName="How"
                   color="bg-gradient-to-r from-blue-500"
-                  value={formData.role}
-                  inputType='text'
+                  value={formData.contactMethod}
+                  inputType={inputTypes.contactMethod}
                   dataType='string'
                 />
               }
@@ -248,12 +250,12 @@ function AppContainer() {
               path="/contact/inputI"
               element={
                 <Input
-                  message='Remote or office work?'
-                  id={"workMode"}
-                  inputName="Mode"
+                  message='When should I contact you?'
+                  id={"contactDate"}
+                  inputName="When"
                   color="bg-gradient-to-r from-purple-500"
-                  value={formData.workMode}
-                  inputType='text'
+                  value={formData.contactDate}
+                  inputType={inputTypes.contactDate}
                   dataType='string'
                 />
               }
@@ -262,17 +264,17 @@ function AppContainer() {
               path="/contact/inputJ"
               element={
                 <Input
-                  message={`Your email`}
-                  id={"email"}
-                  inputName="Email"
+                  message={`Enter code sent to`}
+                  id={"phoneTest"}
+                  inputName="Code"
                   color="bg-gradient-to-r from-indigo-500"
-                  value={formData.email}
-                  inputType='text'
-                  dataType='string'
+                  value={'nuuull'}
+                  inputType={inputTypes.phoneCode}
+                  dataType='number'
                 />
               }
             ></Route>
-            <Route
+            {/* <Route
               path="/contact/inputK"
               element={
                 <Input
@@ -327,7 +329,7 @@ function AppContainer() {
                   dataType='number'
                 />
               }
-            ></Route>
+            ></Route> */}
             <Route
               path="/contact/formend"
               element={
