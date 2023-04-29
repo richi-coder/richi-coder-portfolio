@@ -101,7 +101,11 @@ function Input({ inputName, color, value, id, inputType, dataType, message }) {
                 <input id={id} onChange={onChange} onKeyDown={onKey} className={`text-black ${id === 'telephone' ? 'pl-[5.5rem]' : 'pl-2'} py-1 text-4xl w-full`} type={inputType} value={value} placeholder={`Enter ${inputName}`} autoFocus />
                 {
                   id === 'telephone' ?
-                  <select className='absolute bottom-0 left-0 bg-green-500 py-1 text-4xl w-[5rem]' type='text'>TL</select> :
+                  <select className='absolute bottom-0 left-0 bg-blue-700 cursor-pointer py-1 text-3xl text-white rounded w-[5rem]' type='text'>
+                    <option value="A">+56</option>
+                    <option value="B">+57</option>
+                    <option value="C">+58</option>
+                  </select> :
                   null
                 }
                 <div className='absolute bottom-0 left-1/2 translate-y-[110%] -translate-x-1/2 text-red-500 text-xl animate-pulse'>{formData.inputErrorMessage}</div>
