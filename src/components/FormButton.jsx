@@ -168,7 +168,9 @@ function FormButton({ direction, user }) {
     <>
       {location === "/contact" && direction === "backward" ? null : (
         <>
-          
+          {
+            location === '/contact/inputJ' && direction === 'forward' ?
+            null :
           <button
             onClick={navigation}
             className={
@@ -194,6 +196,7 @@ function FormButton({ direction, user }) {
               
             )}
           </button>
+          }
         </>
       )
     }

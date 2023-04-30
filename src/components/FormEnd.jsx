@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router'
 import { useFormContext, useUpdateFormContext } from './AppContext';
-import { getAuth, sendSignInLinkToEmail } from 'firebase/auth';
+import { getAuth, onAuthStateChanged, sendSignInLinkToEmail } from 'firebase/auth';
+import { auth } from '../scripts/firebase';
 
 function FormEnd() {
     const linkRef = useRef()
@@ -11,13 +12,9 @@ function FormEnd() {
     const location = useLocation();
     const formValues = Object.values(formData);
     const lastData = formValues.slice(0);
-    const check = formData.formComplete;
+    const check = formData.phoneTest;
     const currentLocation = formValues.indexOf('')
-    const [link, setLink] = useState({
-      href: '',
-      download: '',
-      target: ''
-    })
+   
 
     useEffect(() => {
       // testing email verif
@@ -55,9 +52,16 @@ function FormEnd() {
       //   });
 
       // ****************----
-
+      // Redirects to /contact in case phone is not verified
       updateFormData('formLocation', location.pathname)
-  
+      onAuthStateChanged(auth, (firebaseUser) => {
+        if (firebaseUser.phoneNumber === null) {
+          
+          setTimeout(() => {
+            navigate(`/contact`)
+          }, 3000);
+        }
+      })
       // if (lastData.some(item => item === '')) {
       //   setTimeout(() => {
       //     navigate(`/contact`)
@@ -74,18 +78,18 @@ function FormEnd() {
 
     // testing download
     function downloadResume() {
-      const downloadURL = 'https://richicoder.com/richicoder_logo.png'
+      const downloadURL = 'https://avatars.githubusercontent.com/u/113008174?v=4'
       fetch(downloadURL, { method: 'get', mode: 'no-cors', referrerPolicy: 'no-referrer' })
         .then(res => res.blob())
         .then(res => {
           const aElement = document.createElement('a');
-          aElement.setAttribute('download', 'richicoderLogo.png');
-          const href = window.URL.createObjectURL(res);
+          aElement.setAttribute('download', 'richi.png');
+          const href = URL.createObjectURL(res);
           aElement.href = href;
-          aElement.setAttribute('href', href);
+          // aElement.setAttribute('href', href);
           aElement.setAttribute('target', '_blank');
           aElement.click();
-          window.URL.revokeObjectURL(href);
+          URL.revokeObjectURL(href);
         });
     }
     

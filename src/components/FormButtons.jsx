@@ -10,7 +10,7 @@ function FormButtons({user}) {
   const formData = useFormContext();
   const formDataArray = Object.values(formData);
   // Checking if form is completed or if located at formend to hide buttons in there
-  const checkFulfillment = formData.formComplete === true || location === '/contact/formend' ? false : true;
+  const checkFulfillment = formData.phoneTest || location === '/contact/formend' ? false : true;
   // Checking if trying to acces a phohibited page
   const baseLocation = location.split('')
   const inputLocation = baseLocation[baseLocation.length - 1];

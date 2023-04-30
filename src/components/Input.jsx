@@ -30,10 +30,11 @@ function Input({ inputName, color, value, id, inputType, dataType, message }) {
       if (formData.phoneTest) {
         navigate('/contact/formend')
         return
-      } else if (formData.formComplete && inputLocation !== 'J') {
-        navigate('/contact/inputJ')
-        return
-      }
+      } 
+      // else if (formData.formComplete && inputLocation !== 'J') {
+      //   navigate('/contact/inputJ')
+      //   return
+      // }
       
       // If trying to acces an input page coming from /contact or if last input is empty
       if (!check) {
