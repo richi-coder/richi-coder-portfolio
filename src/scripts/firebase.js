@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth, signOut } from "firebase/auth";
+import { getDownloadURL, getStorage, ref } from 'firebase/storage'
 import { addDoc, collection, doc, getDoc, getDocs, getFirestore, query, setDoc, updateDoc, where } from "firebase/firestore";
 import { dataToFront } from "../components/AppContext";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -20,7 +21,8 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 
 export const db = getFirestore(app);
-export const auth = getAuth(app)
+export const auth = getAuth(app);
+export const storage = getStorage();
 
 let firebaseID;
 
@@ -108,4 +110,14 @@ export const userAnotherAccount = () => {
   .catch((error) => {
       // An error happened.
   });
+}
+
+
+// Read download URL
+
+export const readResumeDownloadURl = async() => {
+  const resumeRef = ref(storage, 'richishopfigmamobile-Rgpib2lfG-transformed 1.png')
+  const url = await getDownloadURL(resumeRef)
+        
+  return url
 }

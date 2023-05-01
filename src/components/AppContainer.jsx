@@ -8,7 +8,7 @@ import SignOutButton from "./SignOutButton";
 import RootContact from "./RootContact";
 import FormEnd from "./FormEnd";
 import { registerPageLoad } from "../scripts/ipservice";
-import { auth, checkJobContact } from "../scripts/firebase";
+import { auth, checkJobContact, readResumeDownloadURl } from "../scripts/firebase";
 import Presentation from "./Presentation";
 import PhoneTest from "./PhoneTest";
 
@@ -76,6 +76,7 @@ function AppContainer() {
           
           
         } else {
+          
           // User is signed out
           // ...
           // setUser(firebaseUser)
@@ -85,7 +86,7 @@ function AppContainer() {
             updateFormData('isLoading', false)
           }, 1000);
         }
-      
+        
         // localStorage User Identifier
       if (!browserUser && !firebaseUser) {
         // Fetch IP API
