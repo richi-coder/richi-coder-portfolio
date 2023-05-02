@@ -13,14 +13,14 @@ function FormButton({ direction, user }) {
   const formData = useFormContext();
   const updateFormData = useUpdateFormContext();
   const lastInput = 'J';
-  const isButton = location === "/contact" && direction === "forward";
+  const isButton = location === "/contact/" && direction === "forward";
   const [buttonEnabled, setButtonEnabled] = useState(true); // Disabled
   let currentInput = locationSplitted[locationSplitted.length - 1];
   
 
   useEffect(() => {
     if (
-      (location !== "/contact" &&
+      (location !== "/contact/" &&
         location !== "/contact/formend" &&
         formData[formData.scheme[location]] === "")
         // || /\s/.test(formData[formData.scheme[location]])
@@ -37,7 +37,7 @@ function FormButton({ direction, user }) {
       navigate("/contact/formend");
       return;
     }
-    if (location === "/contact") {
+    if (location === "/contact/") {
       navigate(`/contact/inputA`);
     } else {
       navigate(`/contact/input${String.fromCharCode(currentInput.charCodeAt(0) + 1)}`);
@@ -124,7 +124,7 @@ function FormButton({ direction, user }) {
       backendUpdate();
       // return true
     }
-    if (location === "/contact") {
+    if (location === "/contact/") {
       inputNavigation();
     }
   };
@@ -137,7 +137,7 @@ function FormButton({ direction, user }) {
       if (location === "/contact/inputA") {
         updateFormData('updateServerDataAtContext', {"inputShow": "translate-x-[100vw]", "buttonsLoading": false});
         setTimeout(() => {
-          navigate(`/contact`);
+          navigate(`/contact/`);
         }, 500);
       } else {
         updateFormData('updateServerDataAtContext', {"inputShow": "translate-x-[100vw]", "buttonsLoading": true});
@@ -148,7 +148,7 @@ function FormButton({ direction, user }) {
     }
     // Forward click
     if (direction === "forward") {
-      if (location === "/contact") {
+      if (location === "/contact/") {
         updateFormData('updateServerDataAtContext', {"inputShow": "opacity-0", 'buttonsLoading': true});
         inputNavigation();
       } else {
@@ -166,7 +166,7 @@ function FormButton({ direction, user }) {
 
   return (
     <>
-      {location === "/contact" && direction === "backward" ? null : (
+      {location === "/contact/" && direction === "backward" ? null : (
         <>
           {
             location === '/contact/inputJ' && direction === 'forward' ?

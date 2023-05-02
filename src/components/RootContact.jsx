@@ -12,7 +12,7 @@ function RootContact({user}) {
     const [rootMessage, setRootMessage] = useState('Please let me know how to contact you!');
 
     window.addEventListener('popstate', (e) => {
-        navigate(`/contact`)
+        navigate(`/contact/`)
       })
 
     useEffect(() => {
@@ -33,7 +33,7 @@ function RootContact({user}) {
       } 
         
         window.addEventListener('popstate', () => {
-          navigate('/contact')
+          navigate('/contact/')
         })
       
     }, [formData.formComplete])

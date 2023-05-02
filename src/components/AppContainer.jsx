@@ -106,7 +106,7 @@ function AppContainer() {
             </div>
             <div className='h-1/4 flex flex-col justify-center'>
                 {
-                  formData.formLocation === '/contact' ?
+                  formData.formLocation === '/contact/' ?
                   <div className='text-green-500 text-md'>Hello {user.displayName}!</div> :
                   null
                 }
@@ -128,7 +128,7 @@ function AppContainer() {
           <br />
           
           <Routes>
-            <Route path="/contact" element={<RootContact user={user} />}></Route>
+            <Route path="/contact/" element={<RootContact user={user} />}></Route>
             <Route
               path="/contact/inputA"
               element={

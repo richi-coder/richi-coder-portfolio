@@ -30,7 +30,7 @@ function LoginButton() {
                             const user = res.user;
                             alert('Signed via Mobile')
                             updateFormData('isLoading', true)
-                            window.location.replace("/contact");
+                            window.location.replace("/contact/");
                         })
                         .catch(res => {
                             alert(res)
@@ -42,7 +42,7 @@ function LoginButton() {
                             console.log('Signed via Desktop')
                             const user = res.user;
                             updateFormData('isLoading', true)
-                            window.location.replace("/contact");
+                            window.location.replace("/contact/");
                         })
                         .catch(res => {
                             console.log('ERROR:', res)

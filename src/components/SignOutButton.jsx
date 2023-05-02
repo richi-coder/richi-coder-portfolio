@@ -28,7 +28,7 @@ function SignOutButton() {
   return (
     <div className='show flex-grow flex flex-col items-center justify-center'>
         {
-        location === '/contact' || location === '/contact/formend' ?
+        location === '/contact/' || location === '/contact/formend' ?
         <button
         onClick={logout}
         className="bg-purple-700  text-white font-bold py-2 px-4 rounded text-2xl transition-all ladder">

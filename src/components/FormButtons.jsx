@@ -13,9 +13,10 @@ function FormButtons({user}) {
   const checkFulfillment = formData.phoneTest || location === '/contact/formend' ? false : true;
   // Checking if trying to acces a phohibited page
   const baseLocation = location.split('')
-  const inputLocation = baseLocation[baseLocation.length - 1];
-  const check = location !== '/contact' && formData.formLocation === '/contact' && inputLocation !== 'A' ?
+  const inputLocation = baseLocation[baseLocation.length - 2];
+  const check = location !== '/contact/' && formData.formLocation === '/contact/' && inputLocation !== 'A' ?
                 false : true;
+                console.log(location, 'locooocation');
 
   return (
     <>
@@ -23,7 +24,7 @@ function FormButtons({user}) {
       !formData.buttonsLoading ?
             <>
             {check ?
-              <div className={`text-5xl transition-all ${location === '/contact' ? 'show' : 'showButton'} flex-grow relative`}>
+              <div className={`text-5xl transition-all ${location === '/contact/' ? 'show' : 'showButton'} flex-grow relative`}>
                 {
                 checkFulfillment ?
                 <div className='flex flex-row items-center gap-7 justify-center sm:justify-around w-1/2 mx-auto absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>

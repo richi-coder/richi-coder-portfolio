@@ -167,7 +167,7 @@ function PhoneTest({inputProps}) {
               </div> :
               <div className={`absolute top-0 left-1/2 -translate-x-1/2 -translate-y-2 show w-[120%] py-10 flex flex-col items-center gap-10  rounded-xl bg-blue-800`}>
                   <div className='text-xl w-full mb-1 text-center'>Invalid telephone. Go modify it!</div>
-                  <button onClick={() => navigate('/contact')} className='px-4 py-2 rounded-md hover:bg-blue-600 bg-[#00407c] text-white text-2xl'>MODIFY TEL!</button>
+                  <button onClick={() => navigate('/contact/')} className='px-4 py-2 rounded-md hover:bg-blue-600 bg-[#00407c] text-white text-2xl'>MODIFY TEL!</button>
               </div>
         }
       </>

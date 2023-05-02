@@ -42,7 +42,7 @@ export let dataToFront = {
 function AppContext({children}) {
     const [inputData, setInputData] = useState({
         ...dataToFront,
-        'formLocation': '/contact',
+        'formLocation': '/contact/',
         'formComplete': false,
         'isLoading': true,
         'inputShow': 'translate-x-[100vw] opacity-0',

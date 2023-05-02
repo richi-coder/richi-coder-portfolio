@@ -19,7 +19,7 @@ function Input({ inputName, color, value, id, inputType, dataType, message }) {
   // When the user tries a url input like 3 without filling 1 and 2 / CHECKING
   const formValues = Object.values(formData);
   const lastData = formValues.slice(0);
-  const check = formData.formLocation === '/contact' && inputLocation !== 'A' && inputLocation !== 'J' ?
+  const check = formData.formLocation === '/contact/' && inputLocation !== 'A' && inputLocation !== 'J' ?
                 false :
                 formData[formData.scheme[`/contact/input${String.fromCharCode(inputLocation.charCodeAt(0) - 1)}`]] === '' ?
                 false :
@@ -39,13 +39,13 @@ function Input({ inputName, color, value, id, inputType, dataType, message }) {
       // If trying to acces an input page coming from /contact or if last input is empty
       if (!check) {
         setTimeout(() => {
-          navigate('/contact')
+          navigate('/contact/')
         }, 3000);
         return
       }
       // Input entrance animations based on where the form comes frome
-      if (inputLocation === 'A' && formData.formLocation === '/contact') updateFormData('updateServerDataAtContext', {'formLocation': location.pathname, 'inputShow': 'translate-x-[100vw] opacity-0'})
-      else if (location.pathname !== '/contact') {
+      if (inputLocation === 'A' && formData.formLocation === '/contact/') updateFormData('updateServerDataAtContext', {'formLocation': location.pathname, 'inputShow': 'translate-x-[100vw] opacity-0'})
+      else if (location.pathname !== '/contact/') {
         if (inputLocation > lastLocation) {
           updateFormData('updateServerDataAtContext', {'formLocation': location.pathname, 'inputShow': 'translate-x-[100vw] opacity-0'})
         }
