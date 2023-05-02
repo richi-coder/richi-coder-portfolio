@@ -13,7 +13,6 @@ function FormEnd() {
   const location = useLocation();
   const formValues = Object.values(formData);
   const lastData = formValues.slice(0);
-  const check = formData.phoneTest;
   const currentLocation = formValues.indexOf("");
   const [formendLoading, setFormendLoading] = useState(true)
 
@@ -57,7 +56,9 @@ function FormEnd() {
     updateFormData("formLocation", location.pathname);
 
     onAuthStateChanged(auth, (firebaseUser) => {
-        setFormendLoading(false)
+        setTimeout(() => {
+          setFormendLoading(false)
+        }, 2000);
         if (firebaseUser.phoneNumber === null) {
           setTimeout(() => {
             navigate(`/contact`);
@@ -99,7 +100,7 @@ function FormEnd() {
                                   <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
         </div> :
         <div className="w-full text-5xl show text-center py-2">
-          {check ? (
+          {formData.phoneTest ? (
             <div className="show flex flex-col items-center justify-center gap-5">
               <div>Thank you very much!</div>
               <button

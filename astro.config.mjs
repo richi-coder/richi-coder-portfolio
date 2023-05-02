@@ -8,6 +8,20 @@ export default defineConfig({
   // server: {
   //   host: true
   // },
+  vite: {
+    build: {
+      rollupOptions: {
+        output: {
+          entryFileNames: 'entry.[hash].js',
+          chunkFileNames: 'chunks/chunk.[hash].js',
+          assetFileNames: 'assets/asset.[hash][extname]',
+        },
+      },
+    },
+  },
+  build: {
+    assets: 'astro' // astro instead of _astro, because the last produces erros deploying to github
+  },
   integrations: [tailwind(), react()],
   // vite: {
   //   ssr: {
