@@ -61,13 +61,13 @@ function FormEnd() {
         }, 2000);
         if (firebaseUser.phoneNumber === null) {
           setTimeout(() => {
-            navigate(`/contact`);
+            navigate(`/contact/`);
           }, 3000);
         }
       });
 
     window.addEventListener("popstate", (e) => {
-      navigate(`/contact`);
+      navigate(`/contact/`);
     });
   }, [formData.formLocation]);
 
