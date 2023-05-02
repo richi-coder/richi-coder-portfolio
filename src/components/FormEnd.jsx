@@ -55,10 +55,8 @@ function FormEnd() {
     // ****************----
     // Redirects to /contact in case phone is not verified
     updateFormData("formLocation", location.pathname);
-    
-    setTimeout(() => {
 
-      onAuthStateChanged(auth, (firebaseUser) => {
+    onAuthStateChanged(auth, (firebaseUser) => {
         setFormendLoading(false)
         if (firebaseUser.phoneNumber === null) {
           setTimeout(() => {
@@ -66,9 +64,6 @@ function FormEnd() {
           }, 3000);
         }
       });
-      
-    }, 2000);
-    
 
     window.addEventListener("popstate", (e) => {
       navigate(`/contact`);
