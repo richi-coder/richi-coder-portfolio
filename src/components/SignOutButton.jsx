@@ -1,17 +1,19 @@
 import { getAuth, signOut } from 'firebase/auth';
 import React, { useEffect } from 'react'
 import { useLocation } from 'react-router';
-import { useFormContext } from './AppContext';
+import { useFormContext, useUpdateFormContext } from './AppContext';
 import { userAnotherAccount } from '../scripts/firebase';
 
 function SignOutButton() {
     const auth = getAuth();
     const location = useLocation().pathname;
     const formData = useFormContext();
+    const updateFormData = useUpdateFormContext();
 
     const logout = () => {
+        // updateFormData('updateServerDataAtContext', {'isLoading': true, 'signOutButtonClicked': true})
         userAnotherAccount()
-        }
+    }
 
     useEffect(() => {
         // if (formData.formComplete) {
@@ -19,6 +21,7 @@ function SignOutButton() {
         //         logout()
         //     }, 15000);
         // }
+        console.log('DOING NOTHING');
     }, [formData.formComplete])
     
 

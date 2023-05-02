@@ -46,7 +46,7 @@ function FormButton({ direction, user }) {
   };
   // Backend Update
   const backendUpdate = () => {
-    const { formLocation, formComplete, isLoading, inputShow, scheme, buttonsLoading, phoneTest, inputErrorMessage, ...dataForm } =
+    const { formLocation, formComplete, isLoading, inputShow, scheme, buttonsLoading, phoneTest, inputErrorMessage, signOutButtonClicked, ...dataForm } =
       formData;
     readUserData(user.uid, formData).then(async (docIDtoUpdate) => {
       await updateDoc(doc(db, "jobContacts", docIDtoUpdate), {

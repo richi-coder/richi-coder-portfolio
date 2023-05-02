@@ -46,25 +46,17 @@ function AppContainer() {
           checkJobContact(browserUser, firebaseUser)
               .then(doc => {
 
-                  
-                  console.log(firebaseUser);
-                  
                   // Checking data at the server
                   if (doc.formData !== false && doc.formData !== null && doc.formData !== undefined) {
                     const currentDatabaseState = Object.values(doc.formData)
-                    console.log(currentDatabaseState, 'test', firebaseUser);
-
-                    console.log(firebaseUser.phoneNumber, 'TEEELF');
-                    
-                    let testPhone = firebaseUser.phoneNumber ? true : false;
 
                     //1 Data completed!
                     if (currentDatabaseState.every(inputItem => inputItem !== '') && firebaseUser.phoneNumber !== null) {
                       console.log('USER READY')
-                      updateFormData('updateServerDataAtContext', {...doc.formData, formComplete: true, isLoading: false, inputShow: 'x', 'buttonsLoading': false, 'phoneTest': testPhone} )
+                      updateFormData('updateServerDataAtContext', {...doc.formData, formComplete: true, isLoading: false, inputShow: 'x', 'buttonsLoading': false, 'phoneTest': true} )
                     } else {
                       console.log('USER NOT READY')
-                      updateFormData('updateServerDataAtContext', {...doc.formData, isLoading: false, inputShow: 'x', 'buttonsLoading': false, 'phoneTest': testPhone})
+                      updateFormData('updateServerDataAtContext', {...doc.formData, isLoading: false, inputShow: 'x', 'buttonsLoading': false, 'phoneTest': false})
                     }
                   } else {
                     console.log('DATA NOT CREATED YET!')
@@ -81,10 +73,11 @@ function AppContainer() {
           // ...
           // setUser(firebaseUser)
           console.log('user Offline!')
-          // stateLoader
-          setTimeout(() => {
-            updateFormData('isLoading', false)
-          }, 1000);
+          // stateLoader 
+            setTimeout(() => {
+              updateFormData('isLoading', false)
+            }, 500);
+          
         }
         
         // localStorage User Identifier

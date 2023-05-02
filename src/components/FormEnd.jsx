@@ -15,6 +15,7 @@ function FormEnd() {
   const lastData = formValues.slice(0);
   const check = formData.phoneTest;
   const currentLocation = formValues.indexOf("");
+  const [formendLoading, setFormendLoading] = useState(true)
 
   useEffect(() => {
     // testing email verif
@@ -54,20 +55,20 @@ function FormEnd() {
     // ****************----
     // Redirects to /contact in case phone is not verified
     updateFormData("formLocation", location.pathname);
-    onAuthStateChanged(auth, (firebaseUser) => {
-      if (firebaseUser.phoneNumber === null) {
-        setTimeout(() => {
-          navigate(`/contact`);
-        }, 3000);
-      }
-    });
-    // if (lastData.some(item => item === '')) {
-    //   setTimeout(() => {
-    //     navigate(`/contact`)
-    //   }, 3000);
-    //   return
-    // }
-    // DIFFERENT IF CHECKING PHONENUMBER AT USER
+    
+    setTimeout(() => {
+
+      onAuthStateChanged(auth, (firebaseUser) => {
+        setFormendLoading(false)
+        if (firebaseUser.phoneNumber === null) {
+          setTimeout(() => {
+            navigate(`/contact`);
+          }, 3000);
+        }
+      });
+      
+    }, 2000);
+    
 
     window.addEventListener("popstate", (e) => {
       navigate(`/contact`);
@@ -76,9 +77,6 @@ function FormEnd() {
 
   // testing download
   function downloadResume() {
-    
-
-
     readResumeDownloadURl()
       .then((url) => {
         console.log("Succesful");
@@ -93,28 +91,36 @@ function FormEnd() {
             aElement.click();
             URL.revokeObjectURL(href);
           })
-          .catch(error => alert('Download failed...!'))
+          .catch((error) => alert("Download failed...!"));
       })
       .catch((error) => console.log("ERROR", error));
   }
 
   return (
-    <div className="w-full text-5xl show text-center py-2">
-      {check ? (
-        <div className="show flex flex-col items-center justify-center gap-5">
-          <div>Thank you very much!</div>
-          <button
-            className="px-6 py-3 bg-blue-500 transition-all ladder rounded-lg"
-            onClick={downloadResume}
-          >
-            DOWNLOAD RESUME
-          </button>
-          {/* <a href="/">Come back to richicoder.com</a> */}
+    <>
+      {
+        formendLoading ?
+        <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full flex flex-col items-center justify-center'>
+                                  <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
+        </div> :
+        <div className="w-full text-5xl show text-center py-2">
+          {check ? (
+            <div className="show flex flex-col items-center justify-center gap-5">
+              <div>Thank you very much!</div>
+              <button
+                className="px-6 py-3 bg-blue-500 transition-all ladder rounded-lg"
+                onClick={downloadResume}
+              >
+                DOWNLOAD RESUME
+              </button>
+              {/* <a href="/">Come back to richicoder.com</a> */}
+            </div>
+          ) : (
+            <div className="show">Please complete the form!</div>
+          )}
         </div>
-      ) : (
-        <div className="show">Please complete the form!</div>
-      )}
-    </div>
+      }
+    </>
   );
 }
 

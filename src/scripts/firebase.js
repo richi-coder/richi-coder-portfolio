@@ -109,6 +109,7 @@ export const userAnotherAccount = () => {
   })
   .catch((error) => {
       // An error happened.
+      console.log('Error while signin out...');
   });
 }
 

@@ -1,9 +1,11 @@
 import { GoogleAuthProvider, signInWithPopup, getAuth, GithubAuthProvider, onAuthStateChanged, signInWithRedirect, signOut } from "firebase/auth";
 import { app } from "../scripts/firebase";
 import { useEffect, useState } from "react";
+import { useUpdateFormContext } from "./AppContext";
 
 function LoginButton() {
     const auth = getAuth(app);
+    const updateFormData = useUpdateFormContext();
     const [ladder1, setLadder1] = useState('')
     const [ladder2, setLadder2] = useState('')
     const [ladder3, setLadder3] = useState('')
@@ -27,6 +29,7 @@ function LoginButton() {
                             console.log('Signed via Mobile')
                             const user = res.user;
                             alert('Signed via Mobile')
+                            updateFormData('isLoading', true)
                             window.location.replace("/contact");
                         })
                         .catch(res => {
@@ -34,11 +37,11 @@ function LoginButton() {
                         })
                         
             } else {
-    
                     signInWithPopup(auth, provider)
                         .then(res => {
                             console.log('Signed via Desktop')
                             const user = res.user;
+                            updateFormData('isLoading', true)
                             window.location.replace("/contact");
                         })
                         .catch(res => {

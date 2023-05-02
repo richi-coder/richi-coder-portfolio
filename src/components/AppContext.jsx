@@ -49,6 +49,7 @@ function AppContext({children}) {
         'buttonsLoading': false,
         'phoneTest': false,
         'inputErrorMessage': '',
+        'signOutButtonClicked': false,
         'scheme': {
             '/contact/inputA': 'name',
             '/contact/inputB': 'company',
