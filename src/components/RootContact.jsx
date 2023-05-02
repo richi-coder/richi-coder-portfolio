@@ -17,7 +17,11 @@ function RootContact({user}) {
 
     useEffect(() => {
       updateFormData('formLocation', location)
-      
+
+      // Slash corrector
+      if (location === '/contact') {
+        navigate('/contact/')
+      }
       
       if (formData.phoneTest) {
         setTimeout(() => {

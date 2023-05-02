@@ -30,7 +30,8 @@ function LoginButton() {
                             const user = res.user;
                             alert('Signed via Mobile')
                             updateFormData('isLoading', true)
-                            window.location.replace("/contact/");
+                            // window.location.replace("/contact/");
+                            window.localStorage.setItem('credential', 'auth')
                         })
                         .catch(res => {
                             alert(res)
