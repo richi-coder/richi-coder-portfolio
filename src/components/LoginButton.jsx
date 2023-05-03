@@ -23,7 +23,7 @@ function LoginButton() {
     
 
     const signIn = (provider) => {
-        if (isMobile) {
+        if (false) {
                     signInWithRedirect(auth, provider)
                         .then(res => {
                             console.log('Signed via Mobile')

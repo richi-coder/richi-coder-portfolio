@@ -58,12 +58,12 @@ function FormEnd() {
     onAuthStateChanged(auth, (firebaseUser) => {
         setTimeout(() => {
           setFormendLoading(false)
+          if (firebaseUser.phoneNumber === null) {
+            setTimeout(() => {
+              navigate(`/contact/`);
+            }, 3000);
+          }
         }, 2000);
-        if (firebaseUser.phoneNumber === null) {
-          setTimeout(() => {
-            navigate(`/contact/`);
-          }, 3000);
-        }
       });
 
     window.addEventListener("popstate", (e) => {
