@@ -30,6 +30,62 @@ function AppContainer() {
     const browserUser = browserUserCheck()
 
 
+    function checkingFirebaseUser() {
+      console.log('Checking AUTH')
+      onAuthStateChanged(auth, (firebaseUser) => {
+
+      if (firebaseUser) {
+        // User is signed in
+        const uid = firebaseUser.uid;
+        setUser(firebaseUser)
+        // ... Put user to jobContacts after login
+
+        // First check if the user is at jobContacts Database
+        checkJobContact(browserUser, firebaseUser)
+            .then(doc => {
+
+                // Checking data at the server
+                if (doc.formData !== false && doc.formData !== null && doc.formData !== undefined) {
+                  const currentDatabaseState = Object.values(doc.formData)
+
+                  //1 Data completed!
+                  if (currentDatabaseState.every(inputItem => inputItem !== '') && firebaseUser.phoneNumber !== null) {
+                    console.log('USER READY')
+                    updateFormData('updateServerDataAtContext', {...doc.formData, formComplete: true, isLoading: false, inputShow: 'x', 'buttonsLoading': false, 'phoneTest': true} )
+                  } else {
+                    console.log('USER NOT READY')
+                    updateFormData('updateServerDataAtContext', {...doc.formData, isLoading: false, inputShow: 'x', 'buttonsLoading': false, 'phoneTest': false})
+                  }
+                } else {
+                  console.log('DATA NOT CREATED YET!')
+                  setTimeout(() => {
+                    updateFormData('updateServerDataAtContext', {formComplete: false, isLoading: false, inputShow: 'x', 'buttonsLoading': false})
+                  }, 1000)
+                }
+            })
+        
+        
+      } else {
+        
+        // User is signed out
+        // ...
+        // setUser(firebaseUser)
+        console.log('user Offline!')
+        // stateLoader 
+          setTimeout(() => {
+            updateFormData('isLoading', false)
+          }, 500);
+        
+      }
+      // localStorage User Identifier
+    if (!browserUser && !firebaseUser) {
+      // Fetch IP API
+      registerPageLoad()
+    }
+  });  
+    }
+
+
     useEffect(() => {
       // Check redirect result ar firebase
 
@@ -38,67 +94,10 @@ function AppContainer() {
                 .then(res => {
                   console.log(res, 'Redirect Then Ok!')
                   // **********************
-
-                  console.log('Checking AUTH')
-                  onAuthStateChanged(auth, (firebaseUser) => {
-                    if (firebaseUser) {
-                      // User is signed in
-                      const uid = firebaseUser.uid;
-                      setUser(firebaseUser)
-                      // ... Put user to jobContacts after login
-            
-                      // First check if the user is at jobContacts Database
-                      checkJobContact(browserUser, firebaseUser)
-                          .then(doc => {
-            
-                              // Checking data at the server
-                              if (doc.formData !== false && doc.formData !== null && doc.formData !== undefined) {
-                                const currentDatabaseState = Object.values(doc.formData)
-            
-                                //1 Data completed!
-                                if (currentDatabaseState.every(inputItem => inputItem !== '') && firebaseUser.phoneNumber !== null) {
-                                  console.log('USER READY')
-                                  updateFormData('updateServerDataAtContext', {...doc.formData, formComplete: true, isLoading: false, inputShow: 'x', 'buttonsLoading': false, 'phoneTest': true} )
-                                } else {
-                                  console.log('USER NOT READY')
-                                  updateFormData('updateServerDataAtContext', {...doc.formData, isLoading: false, inputShow: 'x', 'buttonsLoading': false, 'phoneTest': false})
-                                }
-                              } else {
-                                console.log('DATA NOT CREATED YET!')
-                                setTimeout(() => {
-                                  updateFormData('updateServerDataAtContext', {formComplete: false, isLoading: false, inputShow: 'x', 'buttonsLoading': false})
-                                }, 1000)
-                              }
-                          })
-                      
-                      
-                    } else {
-                      
-                      // User is signed out
-                      // ...
-                      // setUser(firebaseUser)
-                      console.log('user Offline!')
-                      // stateLoader 
-                        setTimeout(() => {
-                          updateFormData('isLoading', false)
-                        }, 500);
-                      
-                    }
-                    
-                    // localStorage User Identifier
-                  if (!browserUser && !firebaseUser) {
-                    // Fetch IP API
-                    registerPageLoad()
-                  }
-                    
-                  });    
+                  checkingFirebaseUser()
                   // **********************
-
-              })
-                .catch(error => console.log(error, 'rreeeesssError'))
-      
-      
-
+                })
+                .catch(error => alert(error, 'rreeeesssError'))
       
     }, [formData.formLocation])
 

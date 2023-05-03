@@ -18,7 +18,7 @@ let techLogo = document.querySelector('.tech');
 let barLogo = document.querySelector('.bar');
 let viewNavbar = document.querySelector('.view-navbar');
 let scrollDown = document.querySelector('.scrolldown');
-if (page === 'indx') {
+if (page === 'index') {
   body.classList.add('body-animation')
 } else {
   body.classList.add('body-another-page')
