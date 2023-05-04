@@ -104,6 +104,7 @@ function AppContainer() {
     const imageLoad = (e) => setUserPhotoRandom('hidden')
     
   return (
+    <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full z-10'>
     <div className='w-full h-full relative top-0 left-0 text-white z-10 bg-black flex flex-col items-center  border-pink-500 border-8'>
         
         <div className='h-1/3 w-full relative'>
@@ -364,6 +365,7 @@ function AppContainer() {
                     </radialGradient>
                   </defs>
                 </svg>
+    </div>
     </div>
   )
 }
