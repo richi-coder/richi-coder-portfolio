@@ -135,12 +135,12 @@ function FormButton({ direction, user }) {
     // Backward click
     if (direction === "backward") {
       if (location === "/contact/inputA") {
-        updateFormData('updateServerDataAtContext', {"inputShow": "translate-x-[100vw]", "buttonsLoading": false});
+        updateFormData('updateServerDataAtContext', {"inputShow": "translate-x-[150vw]", "buttonsLoading": false});
         setTimeout(() => {
           navigate(`/contact/`);
         }, 500);
       } else {
-        updateFormData('updateServerDataAtContext', {"inputShow": "translate-x-[100vw]", "buttonsLoading": true});
+        updateFormData('updateServerDataAtContext', {"inputShow": "translate-x-[150vw]", "buttonsLoading": true});
         setTimeout(() => {
           navigate(`/contact/input${String.fromCharCode(currentInput.charCodeAt(0) - 1)}`);
         }, 500);
@@ -153,7 +153,7 @@ function FormButton({ direction, user }) {
         inputNavigation();
       } else {
         // Frontend validation
-        updateFormData('updateServerDataAtContext', {"inputShow": "-translate-x-[100vw]", 'buttonsLoading': true});
+        updateFormData('updateServerDataAtContext', {"inputShow": "-translate-x-[150vw]", 'buttonsLoading': true});
         const frontendValidationResult = frontendValidation();
         if (frontendValidationResult === null) {
           setTimeout(() => {
