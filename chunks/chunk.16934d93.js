@@ -13,7 +13,7 @@ const $$Layout = createComponent(async ($$result, $$props, $$slots) => {
   return renderTemplate`<html lang="en">
   <head>
     <!-- Google Tag Manager -->
-    ${title === "index" ? renderTemplate(_a || (_a = __template(["<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':\n    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],\n    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=\n    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);\n    })(window,document,'script','dataLayer','GTM-KDD5R8Q');<\/script>"]))) : null}
+    ${title === "index" && "production" === "production" ? renderTemplate(_a || (_a = __template(["<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':\n    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],\n    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=\n    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);\n    })(window,document,'script','dataLayer','GTM-KDD5R8Q');<\/script>"]))) : null}
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,7 +43,7 @@ const $$Layout = createComponent(async ($$result, $$props, $$slots) => {
   ${renderHead($$result)}</head>
   <body>
     <!-- Google Tag Manager (noscript) -->
-  ${title === "index" ? renderTemplate`<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KDD5R8Q" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>` : null}
+  ${title === "index" && "production" === "production" ? renderTemplate`<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KDD5R8Q" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>` : null}
     <!-- End Google Tag Manager (noscript): -->
     ${renderSlot($$result, $$slots["default"])}
   </body></html>`;
