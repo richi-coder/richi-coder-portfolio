@@ -27,7 +27,7 @@ function FormButtons({user}) {
               <div className={`text-5xl transition-all ${location === '/contact/' ? 'show' : 'showButton'} flex-grow relative`}>
                 {
                 checkFulfillment ?
-                <div className='flex flex-row items-center gap-7 justify-center sm:justify-around w-full sm:w-1/2 mx-auto absolute top-1/2 left-1/2 -translate-x-1/2 translate-y-10 sm:-translate-y-1/2'>
+                <div className='flex flex-row items-center gap-7 justify-center sm:justify-around w-full sm:w-1/2 mx-auto absolute top-1/2 left-1/2 -translate-x-1/2 translate-y-10 sm:-translate-y-0'>
                   <FormButton direction={'backward'} />
                   <FormButton direction={'forward'} user={user} />
                 </div> :
