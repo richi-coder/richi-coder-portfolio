@@ -157,7 +157,7 @@ function FormButton({ direction, user }) {
         const frontendValidationResult = frontendValidation();
         if (frontendValidationResult === null) {
           setTimeout(() => {
-            updateFormData('updateServerDataAtContext', {"inputShow": '', 'buttonsLoading': false, 'inputErrorMessage': `Invalid ${formData.scheme[location] === 'companyURL' ? 'website URL' : formData.scheme[location] === 'telephone' ?  'number. Please use this format: +001234567890' : formData.scheme[location]}`});
+            updateFormData('updateServerDataAtContext', {"inputShow": '-translate-x-1/2', 'buttonsLoading': false, 'inputErrorMessage': `Invalid ${formData.scheme[location] === 'companyURL' ? 'website URL' : formData.scheme[location] === 'telephone' ?  'number. Please use this format: +001234567890' : formData.scheme[location]}`});
           }, 1000);
         }
       }

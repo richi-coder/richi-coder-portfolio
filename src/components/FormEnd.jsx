@@ -99,12 +99,12 @@ function FormEnd() {
         <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full flex flex-col items-center justify-center'>
                                   <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
         </div> :
-        <div className="w-full text-5xl show text-center py-2">
+        <div className="w-full text-5xl show text-center py-2 px-4">
           {formData.phoneTest ? (
-            <div className="show flex flex-col items-center justify-center gap-5">
+            <div className="show flex flex-col items-center justify-center gap-16 md:gap-10">
               <div>Thank you very much!</div>
               <button
-                className="px-6 py-3 bg-blue-500 transition-all ladder rounded-lg"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl px-6 py-3 bg-blue-500 transition-all ladder rounded-lg"
                 onClick={downloadResume}
               >
                 DOWNLOAD RESUME

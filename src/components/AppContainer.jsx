@@ -51,15 +51,15 @@ function AppContainer() {
                   //1 Data completed!
                   if (currentDatabaseState.every(inputItem => inputItem !== '') && firebaseUser.phoneNumber !== null) {
                     console.log('USER READY')
-                    updateFormData('updateServerDataAtContext', {...doc.formData, formComplete: true, isLoading: false, inputShow: 'x', 'buttonsLoading': false, 'phoneTest': true} )
+                    updateFormData('updateServerDataAtContext', {...doc.formData, formComplete: true, isLoading: false, inputShow: '-translate-x-1/2', 'buttonsLoading': false, 'phoneTest': true} )
                   } else {
                     console.log('USER NOT READY')
-                    updateFormData('updateServerDataAtContext', {...doc.formData, isLoading: false, inputShow: 'x', 'buttonsLoading': false, 'phoneTest': false})
+                    updateFormData('updateServerDataAtContext', {...doc.formData, isLoading: false, inputShow: '-translate-x-1/2', 'buttonsLoading': false, 'phoneTest': false})
                   }
                 } else {
                   console.log('DATA NOT CREATED YET!')
                   setTimeout(() => {
-                    updateFormData('updateServerDataAtContext', {formComplete: false, isLoading: false, inputShow: 'x', 'buttonsLoading': false})
+                    updateFormData('updateServerDataAtContext', {formComplete: false, isLoading: false, inputShow: '-translate-x-1/2', 'buttonsLoading': false})
                   }, 1000)
                 }
             })
@@ -104,8 +104,8 @@ function AppContainer() {
     const imageLoad = (e) => setUserPhotoRandom('hidden')
     
   return (
-    <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full z-10'>
-    <div className='w-full h-full relative top-0 left-0 text-white z-10 bg-black flex flex-col items-center  border-pink-500 border-8'>
+    
+    <div className='w-full h-full relative top-0 left-0 text-white z-10 bg-black flex flex-col items-center overflow-clip'>
         
         <div className='h-1/3 w-full relative'>
         {
@@ -365,7 +365,6 @@ function AppContainer() {
                     </radialGradient>
                   </defs>
                 </svg>
-    </div>
     </div>
   )
 }
