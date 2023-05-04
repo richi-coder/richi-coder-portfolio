@@ -10,7 +10,7 @@ function Presentation() {
                 richi<span className="text-gradient">Coder</span>
                 </h1>
           </div>
-          <div className='text-2xl show'>Please select an access method</div>
+          <div className='text-2xl show w-2/3 sm:w-fit text-center'>Please select an access method</div>
           <LoginButton />
     </div>
   )
