@@ -104,7 +104,7 @@ function AppContainer() {
     const imageLoad = (e) => setUserPhotoRandom('hidden')
     
   return (
-    <div className='w-full h-full relative top-0 left-0 text-white z-10 bg-black flex flex-col items-center'>
+    <div className='w-full h-full relative top-0 left-0 text-white z-10 bg-black flex flex-col items-center  border-pink-500 border-8'>
         
         <div className='h-1/3 w-full relative'>
         {

@@ -117,7 +117,7 @@ function Input({ inputName, color, value, id, inputType, dataType, message }) {
             
         </div> :
         <div className='flex flex-col w-full h-3/4 items-center justify-center'>
-            <div className='text-4xl'>
+            <div className='text-4xl text-center'>
               Please complete the form step by step!
             </div>
         </div>
