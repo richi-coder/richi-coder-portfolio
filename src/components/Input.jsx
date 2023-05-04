@@ -91,10 +91,10 @@ function Input({ inputName, color, value, id, inputType, dataType, message }) {
     }
     
   return (
-    <div className='w-full h-1/3 flex flex-col justify-end sm:justify-center'>
+    <div className='w-full h-1/3 relative'>
     {
       check ?
-        <div className={`${color} transition-transform ease-in-out duration-200 ${inputShow} flex flex-col w-11/12 sm:w-1/2 items-center justify-end mx-auto rounded-lg h-fit relative`}>
+        <div className={`${color} transition-transform ease-in-out duration-200 ${inputShow} flex flex-col w-11/12 sm:w-1/2 items-center justify-end mx-auto rounded-lg h-fit absolute top-full sm:top-1/2 left-1/2 -translate-x-1/2 -translate-y-full sm:-translate-y-1/2`}>
             { 
               location.pathname !== '/contact/inputJ' ?
               <>
