@@ -23,13 +23,14 @@ function LoginButton() {
     
 
     const signIn = (provider) => {
+        updateFormData('isLoading', true)
         if (false) {
                     signInWithRedirect(auth, provider)
                         .then(res => {
                             console.log('Signed via Mobile')
                             const user = res.user;
                             alert('Signed via Mobile')
-                            updateFormData('isLoading', true)
+                            
                             // window.location.replace("/contact/");
                             window.localStorage.setItem('credential', 'auth')
                         })
@@ -42,11 +43,12 @@ function LoginButton() {
                         .then(res => {
                             console.log('Signed via Desktop')
                             const user = res.user;
-                            updateFormData('isLoading', true)
+                            
                             window.location.replace("/contact/");
                         })
                         .catch(res => {
                             console.log('ERROR:', res)
+                            updateFormData('isLoading', false)
                         })
     
             }

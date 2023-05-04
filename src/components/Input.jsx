@@ -44,13 +44,13 @@ function Input({ inputName, color, value, id, inputType, dataType, message }) {
         return
       }
       // Input entrance animations based on where the form comes frome
-      if (inputLocation === 'A' && formData.formLocation === '/contact/') updateFormData('updateServerDataAtContext', {'formLocation': location.pathname, 'inputShow': 'translate-x-[100vw] opacity-0'})
+      if (inputLocation === 'A' && formData.formLocation === '/contact/') updateFormData('updateServerDataAtContext', {'formLocation': location.pathname, 'inputShow': 'translate-x-[150vw] opacity-0'})
       else if (location.pathname !== '/contact/') {
         if (inputLocation > lastLocation) {
-          updateFormData('updateServerDataAtContext', {'formLocation': location.pathname, 'inputShow': 'translate-x-[100vw] opacity-0'})
+          updateFormData('updateServerDataAtContext', {'formLocation': location.pathname, 'inputShow': 'translate-x-[150vw] opacity-0'})
         }
         if (lastLocation > inputLocation) {
-          updateFormData('updateServerDataAtContext', {'formLocation': location.pathname, 'inputShow': '-translate-x-[100vw] opacity-0'})
+          updateFormData('updateServerDataAtContext', {'formLocation': location.pathname, 'inputShow': '-translate-x-[150vw] opacity-0'})
         }
       }
 
@@ -91,14 +91,14 @@ function Input({ inputName, color, value, id, inputType, dataType, message }) {
     }
     
   return (
-    <div className='w-full h-1/3'>
+    <div className='w-full h-1/3 flex flex-col justify-end sm:justify-center'>
     {
       check ?
-        <div className={`${color} transition-transform ease-in-out duration-200 ${inputShow} flex flex-col w-full sm:w-1/2 items-center justify-end mx-auto rounded-lg h-3/4 relative`}>
+        <div className={`${color} transition-transform ease-in-out duration-200 ${inputShow} flex flex-col w-11/12 sm:w-1/2 items-center justify-end mx-auto rounded-lg h-fit relative`}>
             { 
               location.pathname !== '/contact/inputJ' ?
               <>
-                <label htmlFor={id} className='pl-2 text-3xl w-full mb-1'>{message}</label>
+                <label htmlFor={id} className='pl-2 py-1 text-3xl w-full mb-1'>{message}</label>
                 <input id={id} onChange={onChange} onKeyDown={onKey} className={`text-black ${id === 'telephone' ? 'pl-2' : 'pl-2'} py-1 text-4xl w-full`} type={inputType} value={value} placeholder={`Enter ${inputName}`} autoFocus />
                 {/* input pl-[5.5rem] for select present */}
                 {/* {

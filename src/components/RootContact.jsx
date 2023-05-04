@@ -44,10 +44,10 @@ function RootContact({user}) {
     
 
   return (
-    <div className='w-full text-2xl text-center py-8 show'>
+    <div className='w-full text-2xl text-center px-[10vw] sm:px-0 py-8 show'>
     {
-    check ? 
-    <div>{rootMessage}</div> :
+        check ? 
+        <div>{rootMessage}</div> :
         <>
         <div>You already contacted me</div> 
         <br />

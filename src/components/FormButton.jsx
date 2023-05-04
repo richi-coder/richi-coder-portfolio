@@ -175,7 +175,7 @@ function FormButton({ direction, user }) {
             onClick={navigation}
             className={
               isButton
-                ? "bg-blue-700 px-6 py-3 rounded-lg sm:hover:bg-blue-300 font-bold  transition-all ladder"
+                ? "bg-blue-700 px-6 py-3 rounded-lg sm:hover:bg-blue-300 font-bold transition-all ladder"
                 : `transition-all ${!buttonEnabled && direction === 'forward' ? 'sm:hover:scale-110' : ''} ${direction === 'backward' ? 'sm:hover:scale-110' : ''}`
             }
             disabled={direction === "backward" ? false : buttonEnabled}
