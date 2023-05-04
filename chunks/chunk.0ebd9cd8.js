@@ -713,7 +713,7 @@ const $$ContactComponent = createComponent(async ($$result, $$props, $$slots) =>
   const Astro2 = $$result.createAstro($$Astro$2, $$props, $$slots);
   Astro2.self = $$ContactComponent;
   return renderTemplate`${maybeRenderHead($$result)}<div class="contactFormBlock flex flex-col items-center justify-center h-full w-full bg-transparent font-[Play] astro-Q3TV6ZGN"> 
-            <div class="m-auto relative h-full sm:h-3/4 w-full sm:w-11/12 isolate overflow-hidden shadow-2xl sm:rounded-3xl sm:px-16 md:pt-1 flex lg:gap-x-20 lg:px-24 lg:pt-0 bg-black astro-Q3TV6ZGN">
+            <div class="m-auto relative h-full sm:h-3/4 w-full sm:w-11/12 isolate overflow-hidden shadow-2xl sm:rounded-3xl sm:px-16 md:pt-1 flex lg:gap-x-20 lg:px-24 lg:pt-0 bg-black border-red-500 border-4 astro-Q3TV6ZGN">
                 <svg viewBox="0 0 1024 1024" class="absolute top-1/2 -z-10 h-[64rem] w-[64rem] [mask-image:radial-gradient(closest-side,white,transparent)] left-1/2 ml-0 translate-y-0 -translate-x-1/2 astro-Q3TV6ZGN" aria-hidden="true">
                   <circle cx="512" cy="512" r="512" fill="url(#759c1415-0410-454c-8f7c-9a820de03641)" fill-opacity="0.7" class="astro-Q3TV6ZGN"></circle>
                   <defs class="astro-Q3TV6ZGN">
