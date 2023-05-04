@@ -104,7 +104,7 @@ function AppContainer() {
     const imageLoad = (e) => setUserPhotoRandom('hidden')
     
   return (
-    <div className='w-full h-full relative text-white z-10 bg-black'>
+    <div className='w-full h-full relative top-0 left-0 text-white z-10 bg-black flex flex-col items-center'>
         
         <div className='h-1/3 w-full relative'>
         {
@@ -131,7 +131,7 @@ function AppContainer() {
     <div className='w-full h-full text-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center justify-center z-10 text-white'>
       <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
     </div> :
-    <div className='h-2/3 flex flex-col'>
+    <div className='h-2/3 flex flex-col items-center w-full'>
       {
         user ? 
         <BrowserRouter>
