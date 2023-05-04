@@ -723,17 +723,12 @@ const $$ContactComponent = createComponent(async ($$result, $$props, $$slots) =>
                     </radialGradient>
                   </defs>
                 </svg>
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full text-center lg:mx-0 lg:flex-auto lg:text-left flex flex-col items-center justify-center astro-Q3TV6ZGN">
-                    <div class="w-full h-full text-white astro-Q3TV6ZGN">
-                            
-                            <div class="top-0 left-0 relative w-full h-full flex flex-col items-center astro-Q3TV6ZGN">
-                              ${renderComponent($$result, "DataForm", null, { "client:only": "react", "client:component-hydration": "only", "class": "astro-Q3TV6ZGN", "client:component-path": "/home/richicoderlinux/Desktop/richi-portfolio/src/components/DataForm", "client:component-export": "default" })}
-                              <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full flex flex-col items-center justify-center astro-Q3TV6ZGN">
-                                  <div class="lds-ring astro-Q3TV6ZGN"><div class="astro-Q3TV6ZGN"></div><div class="astro-Q3TV6ZGN"></div><div class="astro-Q3TV6ZGN"></div><div class="astro-Q3TV6ZGN"></div></div>
-                              </div>
-                            </div>
-                    </div>
-                </div>
+                <div class="top-0 left-0 relative w-full h-full flex flex-col items-center astro-Q3TV6ZGN">
+                  ${renderComponent($$result, "DataForm", null, { "client:only": "react", "client:component-hydration": "only", "class": "astro-Q3TV6ZGN", "client:component-path": "/home/richicoderlinux/Desktop/richi-portfolio/src/components/DataForm", "client:component-export": "default" })}
+                  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full flex flex-col items-center justify-center astro-Q3TV6ZGN">
+                      <div class="lds-ring astro-Q3TV6ZGN"><div class="astro-Q3TV6ZGN"></div><div class="astro-Q3TV6ZGN"></div><div class="astro-Q3TV6ZGN"></div><div class="astro-Q3TV6ZGN"></div></div>
+                  </div>
+                </div>        
             </div>
 </div>`;
 }, "/home/richicoderlinux/Desktop/richi-portfolio/src/components/ContactComponent.astro");
