@@ -700,7 +700,7 @@ const $$Index = createComponent(async ($$result, $$props, $$slots) => {
 }, "/home/richicoderlinux/Desktop/richi-portfolio/src/pages/index.astro");
 
 const $$file$2 = "/home/richicoderlinux/Desktop/richi-portfolio/src/pages/index.astro";
-const $$url$2 = "/richi-coder-portfolio";
+const $$url$2 = "";
 
 const _page0 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
@@ -747,7 +747,7 @@ const $$ = createComponent(async ($$result, $$props, $$slots) => {
 }, "/home/richicoderlinux/Desktop/richi-portfolio/src/pages/contact/[...route].astro");
 
 const $$file$1 = "/home/richicoderlinux/Desktop/richi-portfolio/src/pages/contact/[...route].astro";
-const $$url$1 = "/richi-coder-portfolio/contact/[...route]";
+const $$url$1 = "/contact/[...route]";
 
 const _page1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
@@ -772,7 +772,7 @@ const $$404 = createComponent(async ($$result, $$props, $$slots) => {
 }, "/home/richicoderlinux/Desktop/richi-portfolio/src/pages/404.astro");
 
 const $$file = "/home/richicoderlinux/Desktop/richi-portfolio/src/pages/404.astro";
-const $$url = "/richi-coder-portfolio/404";
+const $$url = "/404";
 
 const _page2 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
