@@ -148,10 +148,10 @@ const $$Project = createComponent(async ($$result, $$props, $$slots) => {
               </div>
               <div class="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
                 <a${addAttribute(demoURL, "href")} target="_blank" class="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white hover:translate-y-2 transition-all">
-                  View DEMO
+                  View DEMO!
                 </a>
                 <a${addAttribute(githubURL, "href")} target="_blank" class="text-sm font-semibold leading-6 text-white">
-                  Learn more <span aria-hidden="true">→</span>
+                  Check repo <span aria-hidden="true">→</span>
                 </a>
               </div>
             </div>
@@ -673,12 +673,14 @@ const $$Index = createComponent(async ($$result, $$props, $$slots) => {
     githubURL: "https://github.com/richi-coder/richi-coder-portfolio"
   };
   const calculatorProps = {
-    id: "CALCULATOR",
+    id: "RICHI-CALC",
     number: "03",
     app: "Web App",
     description: "Single Page App - React",
-    mobileImage: "4pics_1word_mobile.png",
-    desktopImage: "4pics_1word_desktop.png"
+    mobileImage: "richiCalcMobile_Final.png",
+    desktopImage: "richiCalcDesktop_Final.png",
+    demoURL: "https://richi-coder.github.io/React-Calculator/",
+    githubURL: "https://github.com/richi-coder/React-Calculator/tree/freecodecamp"
   };
   return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "index", "class": "astro-J7PV25F6" }, { "default": ($$result2) => renderTemplate`${maybeRenderHead($$result2)}<main class="main astro-J7PV25F6">
 		${renderComponent($$result2, "Header", $$Header, { "class": "astro-J7PV25F6" })}
