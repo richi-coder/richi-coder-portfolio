@@ -5,7 +5,7 @@ var __freeze = Object.freeze;
 var __defProp = Object.defineProperty;
 var __template = (cooked, raw) => __freeze(__defProp(cooked, "raw", { value: __freeze(raw || cooked.slice()) }));
 var _a;
-const $$Astro$n = createAstro("https://richi-coder.github.io");
+const $$Astro$n = createAstro("https://richicoder.com/");
 const $$Layout = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$n, $$props, $$slots);
   Astro2.self = $$Layout;
@@ -50,14 +50,14 @@ const $$Layout = createComponent(async ($$result, $$props, $$slots) => {
   </body></html>`;
 }, "/home/richicoderlinux/Desktop/richi-portfolio/src/layouts/Layout.astro");
 
-const $$Astro$m = createAstro("https://richi-coder.github.io");
+const $$Astro$m = createAstro("https://richicoder.com/");
 const $$Precomponent = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$m, $$props, $$slots);
   Astro2.self = $$Precomponent;
   return renderTemplate`${maybeRenderHead($$result)}<div class="precomponent absolute bottom-0 left-0 w-full z-10"></div>`;
 }, "/home/richicoderlinux/Desktop/richi-portfolio/src/components/Precomponent.astro");
 
-const $$Astro$l = createAstro("https://richi-coder.github.io");
+const $$Astro$l = createAstro("https://richicoder.com/");
 const $$ScrollDown = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$l, $$props, $$slots);
   Astro2.self = $$ScrollDown;
@@ -67,7 +67,7 @@ const $$ScrollDown = createComponent(async ($$result, $$props, $$slots) => {
 </div>`;
 }, "/home/richicoderlinux/Desktop/richi-portfolio/src/components/ScrollDown.astro");
 
-const $$Astro$k = createAstro("https://richi-coder.github.io");
+const $$Astro$k = createAstro("https://richicoder.com/");
 const $$FirstView = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$k, $$props, $$slots);
   Astro2.self = $$FirstView;
@@ -94,7 +94,7 @@ const $$FirstView = createComponent(async ($$result, $$props, $$slots) => {
 </div>`;
 }, "/home/richicoderlinux/Desktop/richi-portfolio/src/components/FirstView.astro");
 
-const $$Astro$j = createAstro("https://richi-coder.github.io");
+const $$Astro$j = createAstro("https://richicoder.com/");
 const $$Number = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$j, $$props, $$slots);
   Astro2.self = $$Number;
@@ -104,7 +104,7 @@ const $$Number = createComponent(async ($$result, $$props, $$slots) => {
 </div>`;
 }, "/home/richicoderlinux/Desktop/richi-portfolio/src/components/Number.astro");
 
-const $$Astro$i = createAstro("https://richi-coder.github.io");
+const $$Astro$i = createAstro("https://richicoder.com/");
 const $$BlurLayer = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$i, $$props, $$slots);
   Astro2.self = $$BlurLayer;
@@ -112,7 +112,7 @@ const $$BlurLayer = createComponent(async ($$result, $$props, $$slots) => {
   return renderTemplate`${maybeRenderHead($$result)}<div${addAttribute(`l-${id}`, "id")} class="blur-layer absolute top-0 left-0 w-full h-full astro-5BW5DS3N"></div>`;
 }, "/home/richicoderlinux/Desktop/richi-portfolio/src/components/BlurLayer.astro");
 
-const $$Astro$h = createAstro("https://richi-coder.github.io");
+const $$Astro$h = createAstro("https://richicoder.com/");
 const $$Project = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$h, $$props, $$slots);
   Astro2.self = $$Project;
@@ -165,7 +165,7 @@ const $$Project = createComponent(async ($$result, $$props, $$slots) => {
 </div>`;
 }, "/home/richicoderlinux/Desktop/richi-portfolio/src/components/Project.astro");
 
-const $$Astro$g = createAstro("https://richi-coder.github.io");
+const $$Astro$g = createAstro("https://richicoder.com/");
 const $$Video = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$g, $$props, $$slots);
   Astro2.self = $$Video;
@@ -177,7 +177,7 @@ const $$Video = createComponent(async ($$result, $$props, $$slots) => {
 </div>`;
 }, "/home/richicoderlinux/Desktop/richi-portfolio/src/components/Video.astro");
 
-const $$Astro$f = createAstro("https://richi-coder.github.io");
+const $$Astro$f = createAstro("https://richicoder.com/");
 const $$Title = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$f, $$props, $$slots);
   Astro2.self = $$Title;
@@ -191,7 +191,7 @@ const $$Title = createComponent(async ($$result, $$props, $$slots) => {
     </div>`;
 }, "/home/richicoderlinux/Desktop/richi-portfolio/src/components/Title.astro");
 
-const $$Astro$e = createAstro("https://richi-coder.github.io");
+const $$Astro$e = createAstro("https://richicoder.com/");
 const $$Portfolio = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$e, $$props, $$slots);
   Astro2.self = $$Portfolio;
@@ -200,7 +200,7 @@ const $$Portfolio = createComponent(async ($$result, $$props, $$slots) => {
 </div>`;
 }, "/home/richicoderlinux/Desktop/richi-portfolio/src/components/Portfolio.astro");
 
-const $$Astro$d = createAstro("https://richi-coder.github.io");
+const $$Astro$d = createAstro("https://richicoder.com/");
 const $$Shortbio = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$d, $$props, $$slots);
   Astro2.self = $$Shortbio;
@@ -213,7 +213,7 @@ const $$Shortbio = createComponent(async ($$result, $$props, $$slots) => {
 </div>`;
 }, "/home/richicoderlinux/Desktop/richi-portfolio/src/components/Shortbio.astro");
 
-const $$Astro$c = createAstro("https://richi-coder.github.io");
+const $$Astro$c = createAstro("https://richicoder.com/");
 const $$SkillsTitle = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$c, $$props, $$slots);
   Astro2.self = $$SkillsTitle;
@@ -399,7 +399,7 @@ const $$SkillsTitle = createComponent(async ($$result, $$props, $$slots) => {
 </div>`;
 }, "/home/richicoderlinux/Desktop/richi-portfolio/src/components/SkillsTitle.astro");
 
-const $$Astro$b = createAstro("https://richi-coder.github.io");
+const $$Astro$b = createAstro("https://richicoder.com/");
 const $$Photo = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$b, $$props, $$slots);
   Astro2.self = $$Photo;
@@ -415,7 +415,7 @@ const $$Photo = createComponent(async ($$result, $$props, $$slots) => {
 </div>`;
 }, "/home/richicoderlinux/Desktop/richi-portfolio/src/components/Photo.astro");
 
-const $$Astro$a = createAstro("https://richi-coder.github.io");
+const $$Astro$a = createAstro("https://richicoder.com/");
 const $$Talk = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$a, $$props, $$slots);
   Astro2.self = $$Talk;
@@ -429,7 +429,7 @@ const $$Talk = createComponent(async ($$result, $$props, $$slots) => {
 </div>`;
 }, "/home/richicoderlinux/Desktop/richi-portfolio/src/components/Talk.astro");
 
-const $$Astro$9 = createAstro("https://richi-coder.github.io");
+const $$Astro$9 = createAstro("https://richicoder.com/");
 const $$Socials = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$9, $$props, $$slots);
   Astro2.self = $$Socials;
@@ -443,7 +443,7 @@ const $$Socials = createComponent(async ($$result, $$props, $$slots) => {
 </div>`;
 }, "/home/richicoderlinux/Desktop/richi-portfolio/src/components/Socials.astro");
 
-const $$Astro$8 = createAstro("https://richi-coder.github.io");
+const $$Astro$8 = createAstro("https://richicoder.com/");
 const $$Contact = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$8, $$props, $$slots);
   Astro2.self = $$Contact;
@@ -491,7 +491,7 @@ const $$Contact = createComponent(async ($$result, $$props, $$slots) => {
 </div>`;
 }, "/home/richicoderlinux/Desktop/richi-portfolio/src/components/Contact.astro");
 
-const $$Astro$7 = createAstro("https://richi-coder.github.io");
+const $$Astro$7 = createAstro("https://richicoder.com/");
 const $$Header = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$7, $$props, $$slots);
   Astro2.self = $$Header;
@@ -614,7 +614,7 @@ const $$Header = createComponent(async ($$result, $$props, $$slots) => {
 </nav>`;
 }, "/home/richicoderlinux/Desktop/richi-portfolio/src/components/Header.astro");
 
-const $$Astro$6 = createAstro("https://richi-coder.github.io");
+const $$Astro$6 = createAstro("https://richicoder.com/");
 const $$Bio = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$6, $$props, $$slots);
   Astro2.self = $$Bio;
@@ -622,7 +622,7 @@ const $$Bio = createComponent(async ($$result, $$props, $$slots) => {
   return renderTemplate`${maybeRenderHead($$result)}<p${addAttribute(bioId, "id")}${addAttribute(`bio absolute text-white w-full mx-auto ${fontSize} sm:text-7xl lg:text-7xl text-center`, "class")}>${bioDescription}</p>`;
 }, "/home/richicoderlinux/Desktop/richi-portfolio/src/components/Bio.astro");
 
-const $$Astro$5 = createAstro("https://richi-coder.github.io");
+const $$Astro$5 = createAstro("https://richicoder.com/");
 const $$BioComponent = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$5, $$props, $$slots);
   Astro2.self = $$BioComponent;
@@ -633,7 +633,7 @@ const $$BioComponent = createComponent(async ($$result, $$props, $$slots) => {
 </div>`;
 }, "/home/richicoderlinux/Desktop/richi-portfolio/src/components/BioComponent.astro");
 
-const $$Astro$4 = createAstro("https://richi-coder.github.io");
+const $$Astro$4 = createAstro("https://richicoder.com/");
 const $$Bios = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$4, $$props, $$slots);
   Astro2.self = $$Bios;
@@ -648,7 +648,7 @@ const $$Bios = createComponent(async ($$result, $$props, $$slots) => {
 </div>`;
 }, "/home/richicoderlinux/Desktop/richi-portfolio/src/components/Bios.astro");
 
-const $$Astro$3 = createAstro("https://richi-coder.github.io");
+const $$Astro$3 = createAstro("https://richicoder.com/");
 const $$Index = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$3, $$props, $$slots);
   Astro2.self = $$Index;
@@ -709,7 +709,7 @@ const _page0 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   url: $$url$2
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const $$Astro$2 = createAstro("https://richi-coder.github.io");
+const $$Astro$2 = createAstro("https://richicoder.com/");
 const $$ContactComponent = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$2, $$props, $$slots);
   Astro2.self = $$ContactComponent;
@@ -734,7 +734,7 @@ const $$ContactComponent = createComponent(async ($$result, $$props, $$slots) =>
 </div>`;
 }, "/home/richicoderlinux/Desktop/richi-portfolio/src/components/ContactComponent.astro");
 
-const $$Astro$1 = createAstro("https://richi-coder.github.io");
+const $$Astro$1 = createAstro("https://richicoder.com/");
 function getStaticPaths() {
   return [{ params: { route: void 0 } }, { params: { route: "inputA" } }, { params: { route: "inputB" } }, { params: { route: "inputC" } }, { params: { route: "inputD" } }, { params: { route: "inputE" } }, { params: { route: "inputF" } }, { params: { route: "inputG" } }, { params: { route: "inputH" } }, { params: { route: "inputI" } }, { params: { route: "inputJ" } }, { params: { route: "formend" } }];
 }
@@ -757,7 +757,7 @@ const _page1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   url: $$url$1
 }, Symbol.toStringTag, { value: 'Module' }));
 
-const $$Astro = createAstro("https://richi-coder.github.io");
+const $$Astro = createAstro("https://richicoder.com/");
 const $$404 = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
   Astro2.self = $$404;
