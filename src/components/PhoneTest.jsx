@@ -30,15 +30,6 @@ function PhoneTest({inputProps}) {
     })
   }
   
-  useEffect(() => {
-
-    console.log('USSSSSSEEEFEFFECT');
-
-    
-
-  }, [])
-
-  
   function onChange(e) {
         // Close input to max 6 chars
         if (e.target.value.length > 6) {
@@ -49,7 +40,7 @@ function PhoneTest({inputProps}) {
         updatePhoneTestState({'codeColor': 'bg-blue-700'})
         // Once value.length equals 6 verifies code
         if (e.target.value.length === 6) {
-          console.log('TRYING AUTH', phoneTestState.confirmationResult);
+          // console.log('TRYING AUTH', phoneTestState.confirmationResult);
           updatePhoneTestState({'codeInputDisabled': true, 'inputCodeColor': 'text-gray-300'})
           phoneTestState.confirmationResult.confirm(e.target.value)
                 .then((result) => {
@@ -58,14 +49,14 @@ function PhoneTest({inputProps}) {
                   updatePhoneTestState({'codeColor': 'bg-green-600', 'inputCodeColor': 'text-gray-300', 'codeInputDisabled': true})
                   setTimeout(() => {
                     navigate('/contact/formend')
-                  }, 1000);
+                  }, 1500);
                   return
                   // ...
                 }).catch((error) => {
                   // User couldn't sign in (bad verification code?)
                   // ...
                   
-                  console.log('TEST ERROR ARRAY', Object.values(error));
+                  // console.log('TEST ERROR ARRAY', Object.values(error));
                   if (Object.values(error)[0] === 'auth/code-expired') {
                     updatePhoneTestState({'codeColor': 'bg-red-900', 'inputCodeColor': 'text-black'})
                     window.location.replace('/contact/inputJ')
@@ -90,30 +81,30 @@ function PhoneTest({inputProps}) {
       'callback': (response) => {
         // reCAPTCHA solved, allow signInWithPhoneNumber.
         // ...
-        console.log('SUCCEEDED', response);
+        // console.log('SUCCEEDED', response);
         
       },
       'expired-callback': () => {
         // Response expired. Ask user to solve reCAPTCHA again.
-        console.log('FAILED');
+        // console.log('FAILED');
       }
       }, auth);
 
     appVerifier = window.recaptchaVerifier
       updatePhoneTestState({'recaptchaMessage': 'Sending code to your phone!', 'loading': true, 'buttonDisabled': true})
-        console.log('linking ...');
+        // console.log('linking ...');
 
           // here goes linkWithPhoneNumber
           linkWithPhoneNumber(auth.currentUser, formData.telephone, appVerifier)
                 .then((confirmationResult) => {
                   // SMS sent. Prompt user to type the code from the message, then sign the
                   // user in with confirmationResult.confirm(code).
-                  console.log('MESSAGE SENT!', confirmationResult);
+                  // console.log('MESSAGE SENT!', confirmationResult);
                   updatePhoneTestState({'enterCode': true, 'recaptchaMessage': 'Code sent!', 'confirmationResult': confirmationResult, 'buttonMessage': 'Waiting code!'})
                   // window.confirmationResult = confirmationResult;
                   // ...
                 }).catch((error) => {
-                  console.log(Object.values(error), 'ERRORRRCITO');
+                  // console.log(Object.values(error), 'ERRORRRCITO');
                   // Error; SMS not sent
                   // ...
                   if (Object.values(error)[0] === "auth/too-many-requests") {
@@ -158,8 +149,8 @@ function PhoneTest({inputProps}) {
       <>
         {
           phoneTestState.recaptchaResult !== 'auth/invalid-phone-number' ?
-              <div className={`absolute top-0 left-1/2 -translate-x-1/2 show w-[150%] py-10 flex flex-col items-center gap-10 rounded-xl ${phoneTestState.codeColor} z-10`}>
-              <div className='pl-2 text-3xl text-center w-full animate-pulse'>{message} <br />{formData.telephone} </div>
+              <div className={`absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 sm:-translate-y-1/3 show w-[150%] py-10 sm:py-4 flex flex-col items-center gap-10 rounded-xl ${phoneTestState.codeColor} z-50`}>
+              <div className='pl-2 text-3xl text-center w-full animate-pulse'>{message} <br /><div className='mx-auto text-center w-full'>{formData.telephone}</div> </div>
                 <div className='flex flex-col items-center w-fit bg-white h-full rounded relative'>
                     <div className='text-xl w-full mb-1 text-center text-white absolute top-0 left-1/2 -translate-y-full -translate-x-1/2'>{phoneTestState.codeColor === 'bg-red-700' ? 'Incorrect code!' : phoneTestState.codeColor === 'bg-green-600' ? 'Succeeded!' : phoneTestState.codeColor === 'bg-red-900' ? 'Code expired!' : phoneTestState.codeColor === 'bg-red-600' ? 'Unavailable number...' : 'Enter the code!'}</div>
                     <input onChange={onChange} autoFocus className={`text-center text-[2rem] w-[12rem] h-2/3 bg-transparent m-0 p-0 border-none outline-none ${phoneTestState.inputCodeColor}`} type={inputType} placeholder={`Enter ${inputName}`} disabled={phoneTestState.codeInputDisabled} />

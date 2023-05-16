@@ -87,21 +87,18 @@ function FormButton({ direction, user }) {
       } 
       // URL validations
       if (inputTypes[inputLocation] === 'url')  {
-            console.log('URL ENTRANCE');
             if (!/^[a-z\d.\-]{5,}\.[a-z]+$/.test(currentInputValue)){
               return null
             } 
       } 
       // Email validations
       if (inputTypes[inputLocation] === 'email')  {
-            console.log('EMAIL ENTRANCE');
             if (!/^[\w\D]{2,}@[a-z\d]+\.[a-z]+$/.test(currentInputValue)){
               return null
             } 
       } 
       // Telephone validations
       if (inputTypes[inputLocation] === 'tel')  {
-        console.log('TELEPHONE ENTRANCE');
         if (!/^[+]([\d]{2}|[\d]{1})[\d]{10}$/.test(currentInputValue)){
           return null
         } 

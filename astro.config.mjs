@@ -20,7 +20,7 @@ export default defineConfig({
     },
   },
   build: {
-    assets: 'astro' // astro instead of _astro, because the last produces erros deploying to github
+    assets: 'astro'
   },
   integrations: [tailwind(), react()],
   // vite: {
@@ -28,6 +28,5 @@ export default defineConfig({
   //     external: ['svgo']
   //   }
   // },
-  site: 'https://richi-coder.github.io'
-  // base: '/richi-coder-portfolio',
+  site: 'https://richicoder.com/',
 });

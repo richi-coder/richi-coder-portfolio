@@ -41,13 +41,13 @@ export const checkJobContact = async(browserUser, firebaseUser) => {
   firebaseID = browserUser;
   let result;
   if (querySnapshot.docs.length > 0) {
-    console.log("Document data:");
+    // console.log("Document data:");
     const pageLoadID = querySnapshot.docs[0].data();
     window.localStorage.removeItem('uSaLsFiAf')
     result = pageLoadID
   } else {
     // docSnap.data() will be undefined in this case
-    console.log("No such document!");
+    // console.log("No such document!");
     readPageLoadandUpdateJobContact(browserUser, firebaseUser)
     result = {'formLocation': false}
     
@@ -58,7 +58,7 @@ export const checkJobContact = async(browserUser, firebaseUser) => {
 const readPageLoadandUpdateJobContact = async(browserUser, firebaseUser) => {
   const docRef = doc(db, "pageLoads", browserUser)
   const docSnap = await getDoc(docRef);
-  console.log(docSnap.data(), 'ver');
+  // console.log(docSnap.data(), 'ver');
   
   const updatedData = {
     'firebaseUser': {
@@ -78,7 +78,7 @@ const readPageLoadandUpdateJobContact = async(browserUser, firebaseUser) => {
   }
   const jobContactResult = await setDoc(doc(db, "jobContacts", docSnap.data().id), updatedData)
   window.localStorage.removeItem('uSaLsFiAf')
-  console.log('User created at jobContacts') 
+  // console.log('User created at jobContacts') 
 }
 
 export const readUserData = async(uid, formData) => {
@@ -109,7 +109,7 @@ export const userAnotherAccount = () => {
   })
   .catch((error) => {
       // An error happened.
-      console.log('Error while signin out...');
+      // console.log('Error while signin out...');
   });
 }
 
@@ -117,7 +117,7 @@ export const userAnotherAccount = () => {
 // Read download URL
 
 export const readResumeDownloadURl = async() => {
-  const resumeRef = ref(storage, 'richishopfigmamobile-Rgpib2lfG-transformed 1.png')
+  const resumeRef = ref(storage, 'richiCoderResume.pdf')
   const url = await getDownloadURL(resumeRef)
         
   return url

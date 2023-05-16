@@ -31,7 +31,7 @@ function AppContainer() {
 
 
     function checkingFirebaseUser() {
-      console.log('Checking AUTH')
+      // console.log('Checking AUTH')
       onAuthStateChanged(auth, (firebaseUser) => {
 
       if (firebaseUser) {
@@ -50,14 +50,14 @@ function AppContainer() {
 
                   //1 Data completed!
                   if (currentDatabaseState.every(inputItem => inputItem !== '') && firebaseUser.phoneNumber !== null) {
-                    console.log('USER READY')
+                    // console.log('USER READY')
                     updateFormData('updateServerDataAtContext', {...doc.formData, formComplete: true, isLoading: false, inputShow: '-translate-x-1/2', 'buttonsLoading': false, 'phoneTest': true} )
                   } else {
-                    console.log('USER NOT READY')
+                    // console.log('USER NOT READY')
                     updateFormData('updateServerDataAtContext', {...doc.formData, isLoading: false, inputShow: '-translate-x-1/2', 'buttonsLoading': false, 'phoneTest': false})
                   }
                 } else {
-                  console.log('DATA NOT CREATED YET!')
+                  // console.log('DATA NOT CREATED YET!')
                   setTimeout(() => {
                     updateFormData('updateServerDataAtContext', {formComplete: false, isLoading: false, inputShow: '-translate-x-1/2', 'buttonsLoading': false})
                   }, 1000)
@@ -70,7 +70,7 @@ function AppContainer() {
         // User is signed out
         // ...
         // setUser(firebaseUser)
-        console.log('user Offline!')
+        // console.log('user Offline!')
         // stateLoader 
           setTimeout(() => {
             updateFormData('isLoading', false)
@@ -92,7 +92,7 @@ function AppContainer() {
       
       getRedirectResult(auth)
                 .then(res => {
-                  console.log(res, 'Redirect Then Ok!')
+                  // console.log(res, 'Redirect Then Ok!')
                   // **********************
                   checkingFirebaseUser()
                   // **********************

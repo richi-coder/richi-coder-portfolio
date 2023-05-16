@@ -16,7 +16,6 @@ function FormButtons({user}) {
   const inputLocation = baseLocation[baseLocation.length - 2];
   const check = location !== '/contact/' && formData.formLocation === '/contact/' && inputLocation !== 'A' ?
                 false : true;
-                console.log(location, 'locooocation');
 
   return (
     <>

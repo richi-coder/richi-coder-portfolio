@@ -11,24 +11,23 @@ function SignOutButton() {
     const updateFormData = useUpdateFormContext();
 
     const logout = () => {
-        // updateFormData('updateServerDataAtContext', {'isLoading': true, 'signOutButtonClicked': true})
+        updateFormData('isLoading', true)
         userAnotherAccount()
     }
 
     useEffect(() => {
-        // if (formData.formComplete) {
-        //     setTimeout(() => {
-        //         logout()
-        //     }, 15000);
-        // }
-        console.log('DOING NOTHING');
+        if (formData.formComplete) {
+            setTimeout(() => {
+                logout()
+            }, 60000);
+        }
     }, [formData.formComplete])
     
 
   return (
     <div className='show flex-grow flex flex-col items-center justify-center px-4'>
         {
-        location === '/contact/' || location === '/contact/formend' ?
+        location === '/contact/' || location === '/contact/formend' || location === '/contact' || location === '/contact/formend/'  ?
         <button
         onClick={logout}
         className="bg-purple-700  text-white font-bold py-2 px-4 rounded text-2xl transition-all ladder">

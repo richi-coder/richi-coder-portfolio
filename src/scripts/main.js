@@ -540,7 +540,7 @@ let sceneSocials = new ScrollMagic.Scene({
 // 3 Add classes to hide elements (case using JS)
 window.addEventListener("DOMContentLoaded", () => {
   // Video: injecting a class to make it not visible
-  console.log('DOM loaded...')
+  // console.log('DOM loaded...')
   const video = document.getElementById("video");
   video.classList.add("videoNotShown");
   // Projects: injecting a class to make them not visible
