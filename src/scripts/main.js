@@ -71,6 +71,7 @@ let talkRight;
 let contactYpercent;
 let socialOffset;
 let socialDuration;
+let startTabletPosition;
 
 if (isMobile) {
   if (page === 'index') mobileScrolling();
@@ -82,6 +83,7 @@ if (isMobile) {
   contactYpercent = -10
   socialOffset = 0
   socialDuration = 180
+  startTabletPosition = 20
 } else {
   if (page === 'index') desktopScrolling();
   numberOffset = -200;
@@ -92,6 +94,7 @@ if (isMobile) {
   contactYpercent = -80
   socialOffset = 250
   socialDuration = 360
+  startTabletPosition = 50
 }
 
 // Hamburguer Menu
@@ -216,6 +219,22 @@ let sceneRichiBio = new ScrollMagic.Scene({
       // .addIndicators({name: "richiBio"})
       .addTo(controller)
 
+    // tabletAnimation
+
+let tweenRichiTablet = new TimelineMax()
+    .add([
+      TweenMax.fromTo("#richi-tablet", {xPercent: -250, yPercent: startTabletPosition, rotate: 15, scale: 2 , ease: Power0.easeNone}, {xPercent: 150, yPercent: -30, rotate: -30, scale: 0.1, ease: Power0.easeNone})
+    ]) 
+
+let sceneRichiTablet = new ScrollMagic.Scene({
+  triggerElement: "#richi-tablet",
+  triggerHook: 1,
+  duration: '200%',
+})
+      .setTween(tweenRichiTablet)
+      // .addIndicators({name: "richiTablet"}) 
+      .addTo(controller)
+
     // richiProjects animation
 let tweenRichiprojects = new TimelineMax()
     .add([
@@ -226,7 +245,7 @@ let sceneRichiprojects = new ScrollMagic.Scene({
   triggerElement: "#projects-title",
   triggerHook: 1,
   duration: '20%',
-  offset: 150
+  offset: 400
 })
       .setTween(tweenRichiprojects)
       // .addIndicators({name: "richiProjects"})
@@ -583,6 +602,7 @@ const fixedNav = document.querySelector(".view-navbar");
     sceneMybio12.refresh()
     sceneMybio14.refresh()
     sceneLayer.refresh()
+    sceneRichiTablet.refresh()
     sceneMybioOff.refresh()
     sceneNumber1.refresh()
     sceneNumber2.refresh()
