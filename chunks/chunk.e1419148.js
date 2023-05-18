@@ -83,7 +83,7 @@ const $$FirstView = createComponent(async ($$result, $$props, $$slots) => {
 			<div class="es5 astro-PW252TJ7">Responsive Design</div>
 			<div class="astro-PW252TJ7">Single Page Apps</div>
 			<div class="astro-PW252TJ7">Progressive Web Apps</div>
-			<div class="astro-PW252TJ7">Static Site Generation</div>
+			<div class="astro-PW252TJ7">Multi Page Apps</div>
 			<div class="astro-PW252TJ7">API communications	</div>
 		</div>
 	</div>
@@ -467,11 +467,11 @@ const $$Contact = createComponent(async ($$result, $$props, $$slots) => {
     </svg>
   </div>
   <!-- <button style='font-family: Play;' class='contact absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white text-lg sm:text-7xl border-red-500 px-20 py-10' tabindex="-1">CONTACT</button> -->
-  <svg viewBox="0 0 1024 1024" class="absolute bottom-0 left-1/2 -z-10 h-[64rem] w-[64rem] -translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:translate-y-2/3 lg:-translate-x-1/2" aria-hidden="true">
+  <svg viewBox="0 0 1024 1024" class="absolute bottom-0  -z-10 h-[64rem] w-[64rem]  [mask-image:radial-gradient(closest-side,white,transparent)]  left-1/2 translate-y-2/3 -translate-x-1/2" aria-hidden="true">
     <circle cx="512" cy="512" r="512" fill="url(#759c1415-0410-454c-8f7c-9a820de03641)" fill-opacity="0.6"></circle>
     <defs>
       <radialGradient id="759c1415-0410-454c-8f7c-9a820de03641">
-        <stop stop-Color="#7775D6"></stop>
+        <stop stop-Color="#777"></stop>
         <stop offset="1" stop-Color="blue"></stop>
       </radialGradient>
     </defs>
@@ -534,7 +534,7 @@ const $$Header = createComponent(async ($$result, $$props, $$slots) => {
         </div>
       </div>
       <div class="absolute inset-y-0 right-0 flex items-center pr-0 sm:static sm:inset-auto sm:ml-6 sm:pr-0 -mr-3 astro-3EF6KSR2">
-        <div id="nav-logo2" class="w-fit h-screen sm:flex flex-col items-start sticky top-0 left-0 justify-center m-0 hidden cursor-pointer astro-3EF6KSR2">
+        <div id="nav-logo2" class="w-fit h-full sm:flex flex-col items-start sticky top-0 left-0 justify-center m-0 hidden cursor-pointer astro-3EF6KSR2">
           <div style="font-family: Orbitron;" class="nav-logo p-0 m-0 text-left opacity-0 astro-3EF6KSR2">
             <h2 class="text-center p-0 m-0 astro-3EF6KSR2">
               richi<span class="text-gradient astro-3EF6KSR2">Coder</span>
@@ -640,8 +640,8 @@ const $$Bios = createComponent(async ($$result, $$props, $$slots) => {
   return renderTemplate`${maybeRenderHead($$result)}<div style="font-family: Play;" class="w-full h-[220vh] sm:h-[300vh] flex flex-col items-center justify-center relative pt-40 gap-16">
     ${renderComponent($$result, "BioComponent", $$BioComponent, { "ids": ["bio1", "bio2"], "titles": ["Frontend", "Developer"], "fontSize": "text-5xl" })}
     ${renderComponent($$result, "BioComponent", $$BioComponent, { "ids": ["bio3", "bio4"], "titles": ["Self-driven", "Career"], "fontSize": "text-5xl" })}
-    ${renderComponent($$result, "BioComponent", $$BioComponent, { "ids": ["bio5", "bio6"], "titles": ["React JS", "Focused"], "fontSize": "text-5xl" })}
-    ${renderComponent($$result, "BioComponent", $$BioComponent, { "ids": ["bio7", "bio8"], "titles": ["Born in", "Venezuela"], "fontSize": "text-5xl" })}
+    ${renderComponent($$result, "BioComponent", $$BioComponent, { "ids": ["bio5", "bio6"], "titles": ["React / Next", "Focus"], "fontSize": "text-5xl" })}
+    ${renderComponent($$result, "BioComponent", $$BioComponent, { "ids": ["bio7", "bio8"], "titles": ["Developing in", "Linux"], "fontSize": "text-5xl" })}
     ${renderComponent($$result, "BioComponent", $$BioComponent, { "ids": ["bio9", "bio10"], "titles": ["28 years", "Old"], "fontSize": "text-5xl" })}
     ${renderComponent($$result, "BioComponent", $$BioComponent, { "ids": ["bio11", "bio12"], "titles": ["Mechanical", "Engineer"], "fontSize": "text-5xl" })}
     ${renderComponent($$result, "BioComponent", $$BioComponent, { "ids": ["bio13", "bio14"], "titles": ["Spanish, Portuguese", "English"], "fontSize": "text-4xl" })}
@@ -691,7 +691,7 @@ const $$Index = createComponent(async ($$result, $$props, $$slots) => {
 				${renderComponent($$result3, "Title", $$Title, { "id": "shortbio-title", "title": "Bio", "preTitle": "richi", "titleClass": "absolute top-2/3 sm:top-3/4 text-6xl sm:text-9xl", "class": "astro-J7PV25F6" })}
 			</div>${renderComponent($$result3, "Bios", $$Bios, { "class": "astro-J7PV25F6" })}` })}
 		
-		${renderComponent($$result2, "Portfolio", $$Portfolio, { "class": "astro-J7PV25F6" }, { "default": ($$result3) => renderTemplate`<div id="projects-title-container" class="w-full h-[25vh] relative astro-J7PV25F6">
+		${renderComponent($$result2, "Portfolio", $$Portfolio, { "class": "astro-J7PV25F6" }, { "default": ($$result3) => renderTemplate`<img id="richi-tablet" src="/richicoder_tablet.png"${addAttribute(700, "width")}${addAttribute(700, "height")} alt="" class="mx-auto absolute top-0 left-1/2 -translate-x-1/2 -translate-y-2/3  z-50  astro-J7PV25F6"><div id="projects-title-container" class="w-full h-[25vh] relative astro-J7PV25F6">
 			${renderComponent($$result3, "Title", $$Title, { "id": "projects-title", "title": "Projects", "preTitle": "richi", "titleClass": "absolute top-3/4 sm:top-1/2 text-6xl sm:text-9xl", "class": "astro-J7PV25F6" })}
 			</div>${renderComponent($$result3, "Project", $$Project, { "projectDetails": gameProps, "class": "astro-J7PV25F6" })}${renderComponent($$result3, "Project", $$Project, { "projectDetails": ecommerceProps, "class": "astro-J7PV25F6" })}${renderComponent($$result3, "Project", $$Project, { "projectDetails": calculatorProps, "class": "astro-J7PV25F6" })}` })}
 		${renderComponent($$result2, "Shortbio", $$Shortbio, { "id": "shortbio2", "ownClass": "h-[500vh]", "class": "astro-J7PV25F6" })}
