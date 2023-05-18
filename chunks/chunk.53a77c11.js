@@ -1,16 +1,16 @@
 /* empty css                */import { c as createAstro, a as createComponent, r as renderTemplate, b as renderSlot, d as renderHead, m as maybeRenderHead, e as renderComponent, f as addAttribute } from './chunk.ee365309.js';
 import 'html-escaper';
 /* empty css                *//* empty css                *//* empty css                */
-var __freeze = Object.freeze;
-var __defProp = Object.defineProperty;
-var __template = (cooked, raw) => __freeze(__defProp(cooked, "raw", { value: __freeze(raw || cooked.slice()) }));
-var _a, _b;
+var __freeze$1 = Object.freeze;
+var __defProp$1 = Object.defineProperty;
+var __template$1 = (cooked, raw) => __freeze$1(__defProp$1(cooked, "raw", { value: __freeze$1(raw || cooked.slice()) }));
+var _a$1, _b;
 const $$Astro$n = createAstro("https://richicoder.com/");
 const $$Layout = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$n, $$props, $$slots);
   Astro2.self = $$Layout;
   const { title } = Astro2.props;
-  return renderTemplate(_b || (_b = __template(['<html lang="en">\n  <head>\n    <!-- Google Tag Manager -->\n    ', '\n    <!-- End Google Tag Manager -->\n    <meta charset="UTF-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <meta name="description" content="richiCoder, React Developer based in Tachira, Venezuela. Languages: Spanish, English, Portuguese.">\n    <meta name="keywords" content="richiCoder, react-developer, portfolio, frontend developer, web developer, javascript, html5, css3, es6, react js, react, bootstrap, tailwindcss, sass, jquery, markdown, restful apis, git, github, next.js, astro, react/redux, react-bootstrap, npm, terminal">\n    <meta name="author" content="richiCoder">\n    <link rel="icon" type="image/x-icon" href="/richiFavicon.ico">\n    <title>', '</title>\n    <!-- Fonts preloading -->\n    <link rel="preconnect" href="https://fonts.googleapis.com">\n    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="preload" as="style" type="font/woff" crossorigin>\n    <link rel="preconnect" href="https://fonts.googleapis.com">\n    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n    <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="preload" as="style" type="font/woff" crossorigin>\n    <!-- Image preload -->\n    ', `
+  return renderTemplate(_b || (_b = __template$1(['<html lang="en">\n  <head>\n    <!-- Google Tag Manager -->\n    ', '\n    <!-- End Google Tag Manager -->\n    <meta charset="UTF-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <meta name="description" content="richiCoder, React Developer based in Tachira, Venezuela. Languages: Spanish, English, Portuguese.">\n    <meta name="keywords" content="richiCoder, react-developer, portfolio, frontend developer, web developer, javascript, html5, css3, es6, react js, react, bootstrap, tailwindcss, sass, jquery, markdown, restful apis, git, github, next.js, astro, react/redux, react-bootstrap, npm, terminal">\n    <meta name="author" content="richiCoder">\n    <link rel="icon" type="image/x-icon" href="/richiFavicon.ico">\n    <title>', '</title>\n    <!-- Fonts preloading -->\n    <link rel="preconnect" href="https://fonts.googleapis.com">\n    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="preload" as="style" type="font/woff" crossorigin>\n    <link rel="preconnect" href="https://fonts.googleapis.com">\n    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n    <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="preload" as="style" type="font/woff" crossorigin>\n    <!-- Image preload -->\n    ', `
     <!-- Scripts -->
     
     
@@ -19,7 +19,7 @@ const $$Layout = createComponent(async ($$result, $$props, $$slots) => {
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="stylesheet">
     <!-- Devicon -->
-    `, '\n    <!-- FontAwesome -->\n    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> \n  ', "</head>\n  <body>\n    <!-- Google Tag Manager (noscript) -->\n  ", "\n    <!-- End Google Tag Manager (noscript): -->\n    ", "\n  </body></html>"])), title === "index" && "production" === "production" ? renderTemplate(_a || (_a = __template(["<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':\n    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],\n    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=\n    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);\n    })(window,document,'script','dataLayer','GTM-KDD5R8Q');<\/script>"]))) : null, title === "index" ? "richiCoder | React Developer | Frontend" : title, title === "index" ? renderTemplate`<link rel="preload" href="richicoder.png" as="image">` : null, title === "index" ? renderTemplate`<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" media="print" onload="this.media='all'">` : null, renderHead($$result), title === "index" && "production" === "production" ? renderTemplate`<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KDD5R8Q" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>` : null, renderSlot($$result, $$slots["default"]));
+    `, '\n    <!-- FontAwesome -->\n    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> \n  ', "</head>\n  <body>\n    <!-- Google Tag Manager (noscript) -->\n  ", "\n    <!-- End Google Tag Manager (noscript): -->\n    ", "\n  </body></html>"])), title === "index" && "production" === "production" ? renderTemplate(_a$1 || (_a$1 = __template$1(["<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':\n    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],\n    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=\n    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);\n    })(window,document,'script','dataLayer','GTM-KDD5R8Q');<\/script>"]))) : null, title === "index" ? "richiCoder | React Developer | Frontend" : title, title === "index" ? renderTemplate`<link rel="preload" href="richicoder.png" as="image">` : null, title === "index" ? renderTemplate`<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" media="print" onload="this.media='all'">` : null, renderHead($$result), title === "index" && "production" === "production" ? renderTemplate`<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KDD5R8Q" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>` : null, renderSlot($$result, $$slots["default"]));
 }, "/home/richicoderlinux/Desktop/richi-portfolio/src/layouts/Layout.astro");
 
 const $$Astro$m = createAstro("https://richicoder.com/");
@@ -685,20 +685,6 @@ const _page0 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   url: $$url$2
 }, Symbol.toStringTag, { value: 'Module' }));
 
-// // const origin = 'https://richicoder.com' || 'http://localhost:3000/' ? false : true
-// console.log(document.referrer, 'reeef ');
-// const origin = document.referrer === 'https://richicoder.com' || document.referrer === 'http://localhost:3000/' ? true : false 
-// console.log(origin, );
-
-// if (!origin) {
-//     console.log(origin, 'entro');
-//     window.location.replace('https://richicoder.com')
-// }
-
-const _page1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
-  __proto__: null
-}, Symbol.toStringTag, { value: 'Module' }));
-
 const $$Astro$2 = createAstro("https://richicoder.com/");
 const $$ContactComponent = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$2, $$props, $$slots);
@@ -724,6 +710,10 @@ const $$ContactComponent = createComponent(async ($$result, $$props, $$slots) =>
 </div>`;
 }, "/home/richicoderlinux/Desktop/richi-portfolio/src/components/ContactComponent.astro");
 
+var __freeze = Object.freeze;
+var __defProp = Object.defineProperty;
+var __template = (cooked, raw) => __freeze(__defProp(cooked, "raw", { value: __freeze(raw || cooked.slice()) }));
+var _a;
 const $$Astro$1 = createAstro("https://richicoder.com/");
 function getStaticPaths() {
   return [{ params: { route: void 0 } }, { params: { route: "inputA" } }, { params: { route: "inputB" } }, { params: { route: "inputC" } }, { params: { route: "inputD" } }, { params: { route: "inputE" } }, { params: { route: "inputF" } }, { params: { route: "inputG" } }, { params: { route: "inputH" } }, { params: { route: "inputI" } }, { params: { route: "inputJ" } }, { params: { route: "formend" } }];
@@ -731,15 +721,13 @@ function getStaticPaths() {
 const $$ = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$1, $$props, $$slots);
   Astro2.self = $$;
-  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "Contact | richiCoder", "class": "astro-LH3U3SJD" }, { "default": ($$result2) => renderTemplate`${maybeRenderHead($$result2)}<div class="h-screen w-screen bg-[rgb(12,12,12)] overflow-clip astro-LH3U3SJD">
-            ${renderComponent($$result2, "ContactComponent", $$ContactComponent, { "class": "astro-LH3U3SJD" })}
-        </div>` })}`;
+  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "Contact | richiCoder", "class": "astro-LH3U3SJD" }, { "default": ($$result2) => renderTemplate(_a || (_a = __template(["", '<div class="h-screen w-screen bg-[rgb(12,12,12)] overflow-clip astro-LH3U3SJD">\n            ', "\n        </div><script defer>\n            const origin = document.referrer === 'https://richicoder.com' || document.referrer === 'http://localhost:3000/' ? true : false \n            if (!origin) window.location.replace('https://richicoder.com')\n        <\/script>"])), maybeRenderHead($$result2), renderComponent($$result2, "ContactComponent", $$ContactComponent, { "class": "astro-LH3U3SJD" })) })}`;
 }, "/home/richicoderlinux/Desktop/richi-portfolio/src/pages/contact/[...route].astro");
 
 const $$file$1 = "/home/richicoderlinux/Desktop/richi-portfolio/src/pages/contact/[...route].astro";
 const $$url$1 = "/contact/[...route]";
 
-const _page2 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const _page1 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
   default: $$,
   file: $$file$1,
@@ -764,11 +752,11 @@ const $$404 = createComponent(async ($$result, $$props, $$slots) => {
 const $$file = "/home/richicoderlinux/Desktop/richi-portfolio/src/pages/404.astro";
 const $$url = "/404";
 
-const _page3 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+const _page2 = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
   default: $$404,
   file: $$file,
   url: $$url
 }, Symbol.toStringTag, { value: 'Module' }));
 
-export { _page0 as _, _page1 as a, _page2 as b, _page3 as c };
+export { _page0 as _, _page1 as a, _page2 as b };
