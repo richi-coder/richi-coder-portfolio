@@ -1,0 +1,11 @@
+#codewars {
+    background-image: url('https://api.iconify.design/simple-icons/codewars.svg?color=%230a0a0a&flip=horizontal%2Cvertical') no-repeat center center / contain;
+    width: 200px;
+    height: 200px;
+}
+.fa {
+    transition: all 0.15s ease-in-out;
+}
+.fa:hover {
+    transform: scale(1.2);
+}

@@ -23,12 +23,12 @@ if (page === 'index') {
 } else {
   body.classList.add('body-another-page')
 }
-richiLogo.classList.add('richi-animation')
-coderLogo.classList.add('coder-animation')
-techLogo.classList.add('tech-animation')
-barLogo.classList.add('bar-animation')
-viewNavbar.classList.add('view-navbar-animation')
-scrollDown.classList.add('scrolldown-animation')
+richiLogo.classList.add('richi-animation');
+coderLogo.classList.add('coder-animation');
+techLogo.classList.add('tech-animation');
+barLogo.classList.add('bar-animation');
+viewNavbar.classList.add('view-navbar-animation');
+scrollDown.classList.add('scrolldown-animation');
 
 // PAGE SECTIONS
 

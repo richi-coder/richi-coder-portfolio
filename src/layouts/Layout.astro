@@ -2,9 +2,7 @@
 export interface Props {
   title: string;
 }
-
 const { title } = Astro.props;
-
 ---
 
 <!DOCTYPE html>
@@ -26,7 +24,7 @@ const { title } = Astro.props;
     <meta name="description" content="richiCoder, React Developer based in Tachira, Venezuela. Languages: Spanish, English, Portuguese.">
     <meta name="keywords" content="richiCoder, react-developer, portfolio, frontend developer, web developer, javascript, html5, css3, es6, react js, react, bootstrap, tailwindcss, sass, jquery, markdown, restful apis, git, github, next.js, astro, react/redux, react-bootstrap, npm, terminal">
     <meta name="author" content="richiCoder">
-    <link rel="icon" type="image/x-icon" href="richiFavicon.ico" />
+    <link rel="icon" type="image/x-icon" href="/richiFavicon.ico" />
     <title>{title === 'index' ? 'richiCoder | React Developer | Frontend' : title}</title>
     <!-- Fonts preloading -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -46,6 +44,7 @@ const { title } = Astro.props;
     <!-- Scripts -->
     <script src="../scripts/scrollFunction.js"></script>
     <script src="../scripts/main.js"></script>
+    <!-- {title === 'Contact | richiCoder' ? <script src='../scripts/contact.js'></script> : null} -->
     <!-- Normal font load -->
     <link
       href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap"
