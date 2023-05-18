@@ -1904,4 +1904,4 @@ var server_default = {
   renderToStaticMarkup
 };
 
-export { createComponent as a, renderHead as b, createAstro as c, renderSlot as d, renderComponent as e, addAttribute as f, maybeRenderHead as m, renderTemplate as r, server_default as s };
+export { createComponent as a, renderSlot as b, createAstro as c, renderHead as d, renderComponent as e, addAttribute as f, maybeRenderHead as m, renderTemplate as r, server_default as s };
