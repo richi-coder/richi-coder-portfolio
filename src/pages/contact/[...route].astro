@@ -14,7 +14,12 @@ import "./title.css"
         <div class='h-screen w-screen bg-[rgb(12,12,12)] overflow-clip'>
             <ContactComponent />
         </div>
-        <script src='./contact.js'></script>
+        <script defer>
+            const origin = document.referrer === 'https://richicoder.com' || document.referrer === 'https://richicoder.com/' || document.referrer === 'richicoder.com' || document.referrer === 'http://localhost:3000/' ? true : false 
+            if (!origin) {
+                window.location.replace('https://richicoder.com')
+            }
+        </script>
 </Layout>
 
 <style>
