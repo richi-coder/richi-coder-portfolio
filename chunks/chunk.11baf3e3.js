@@ -10,7 +10,15 @@ const $$Layout = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$n, $$props, $$slots);
   Astro2.self = $$Layout;
   const { title } = Astro2.props;
-  return renderTemplate(_b || (_b = __template$1(['<html lang="en">\n  <head>\n    <!-- Google Tag Manager -->\n    ', '\n    <!-- End Google Tag Manager -->\n    <meta charset="UTF-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <meta name="description" content="richiCoder, React Developer based in Tachira, Venezuela. Languages: Spanish, English, Portuguese.">\n    <meta name="keywords" content="richiCoder, react-developer, portfolio, frontend developer, web developer, javascript, html5, css3, es6, react js, react, bootstrap, tailwindcss, sass, jquery, markdown, restful apis, git, github, next.js, astro, react/redux, react-bootstrap, npm, terminal">\n    <meta name="author" content="richiCoder">\n    <link rel="icon" type="image/x-icon" href="/richiFavicon.ico">\n    <title>', '</title>\n    <!-- Fonts preloading -->\n    <link rel="preconnect" href="https://fonts.googleapis.com">\n    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="preload" as="style" type="font/woff" crossorigin>\n    <link rel="preconnect" href="https://fonts.googleapis.com">\n    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n    <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="preload" as="style" type="font/woff" crossorigin>\n    <!-- Image preload -->\n    ', `
+  return renderTemplate(_b || (_b = __template$1(['<html lang="en">\n  <head>\n    <!-- Google Tag Manager -->\n    ', `
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="richiCoder, Frontend Developer. Spanish, English, Portuguese. Let's build the client!">
+    <meta name="keywords" content="richiCoder, react-developer, portfolio, frontend developer, web developer, javascript, html5, css3, es6, react js, react, bootstrap, tailwindcss, sass, jquery, markdown, restful apis, git, github, next.js, astro, react/redux, react-bootstrap, npm, terminal">
+    <meta name="author" content="richiCoder">
+    <link rel="icon" type="image/x-icon" href="/richiFavicon.ico">
+    <title>`, '</title>\n    <!-- Fonts preloading -->\n    <link rel="preconnect" href="https://fonts.googleapis.com">\n    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="preload" as="style" type="font/woff" crossorigin>\n    <link rel="preconnect" href="https://fonts.googleapis.com">\n    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n    <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="preload" as="style" type="font/woff" crossorigin>\n    <!-- Image preload -->\n    ', `
     <!-- Scripts -->
     
     
