@@ -628,7 +628,7 @@ const $$Index = createComponent(async ($$result, $$props, $$slots) => {
   Astro2.self = $$Index;
   const gameProps = {
     id: "4PICS-1WORD",
-    number: "01",
+    number: "03",
     app: "Web Game",
     description: "Multi Page App / React - Redux - Astro",
     mobileImage: "4pics_1word_mobile.png",
@@ -648,13 +648,23 @@ const $$Index = createComponent(async ($$result, $$props, $$slots) => {
   };
   const calculatorProps = {
     id: "RICHI-CALC",
-    number: "03",
+    number: "01",
     app: "Web App",
-    description: "Single Page App - React",
+    description: "Single Page App / React",
     mobileImage: "richiCalcMobile_Final.png",
     desktopImage: "richiCalcDesktop_Final.png",
     demoURL: "https://richi-coder.github.io/React-Calculator/",
     githubURL: "https://github.com/richi-coder/React-Calculator/tree/freecodecamp"
+  };
+  const streamingProps = {
+    id: "RICHI-TRAILERS",
+    number: "04",
+    app: "Trailer Streaming App",
+    description: "Multi Page App / Next JS - React",
+    mobileImage: "richiTrailers_mobile.png",
+    desktopImage: "richiTrailers_desktop.png",
+    demoURL: "https://github.com/richi-coder/richiMovies",
+    githubURL: "https://github.com/richi-coder/richiMovies"
   };
   return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "index", "class": "astro-J7PV25F6" }, { "default": ($$result2) => renderTemplate`${maybeRenderHead($$result2)}<main class="main astro-J7PV25F6">
 		${renderComponent($$result2, "Header", $$Header, { "class": "astro-J7PV25F6" })}
@@ -667,7 +677,7 @@ const $$Index = createComponent(async ($$result, $$props, $$slots) => {
 		
 		${renderComponent($$result2, "Portfolio", $$Portfolio, { "class": "astro-J7PV25F6" }, { "default": ($$result3) => renderTemplate`<img id="richi-tablet" src="/richicoder_tablet.png"${addAttribute(700, "width")}${addAttribute(700, "height")} alt="" class="mx-auto absolute top-0 left-1/2 -translate-x-1/2 -translate-y-2/3 z-50 astro-J7PV25F6" loading="lazy"><div id="projects-title-container" class="w-full h-[25vh] relative astro-J7PV25F6">
 			${renderComponent($$result3, "Title", $$Title, { "id": "projects-title", "title": "Projects", "preTitle": "richi", "titleClass": "absolute top-3/4 sm:top-1/2 text-6xl sm:text-9xl", "class": "astro-J7PV25F6" })}
-			</div>${renderComponent($$result3, "Project", $$Project, { "projectDetails": gameProps, "class": "astro-J7PV25F6" })}${renderComponent($$result3, "Project", $$Project, { "projectDetails": ecommerceProps, "class": "astro-J7PV25F6" })}${renderComponent($$result3, "Project", $$Project, { "projectDetails": calculatorProps, "class": "astro-J7PV25F6" })}` })}
+			</div>${renderComponent($$result3, "Project", $$Project, { "projectDetails": calculatorProps, "class": "astro-J7PV25F6" })}${renderComponent($$result3, "Project", $$Project, { "projectDetails": ecommerceProps, "class": "astro-J7PV25F6" })}${renderComponent($$result3, "Project", $$Project, { "projectDetails": gameProps, "class": "astro-J7PV25F6" })}${renderComponent($$result3, "Project", $$Project, { "projectDetails": streamingProps, "class": "astro-J7PV25F6" })}` })}
 		${renderComponent($$result2, "Shortbio", $$Shortbio, { "id": "shortbio2", "ownClass": "h-[500vh]", "class": "astro-J7PV25F6" })}
 		<!-- <SkillsTitle /> -->
 		${renderComponent($$result2, "Video", $$Video, { "id": "video", "class": "astro-J7PV25F6" })} 
