@@ -108,8 +108,7 @@ export const userAnotherAccount = () => {
   window.location.replace('/contact')
   })
   .catch((error) => {
-      // An error happened.
-      // console.log('Error while signin out...');
+      console.log('Error while signin out...');
   });
 }
 

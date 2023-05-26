@@ -43,7 +43,6 @@ function LoginButton() {
                         .then(res => {
                             console.log('Signed via Desktop')
                             const user = res.user;
-                            
                             window.location.replace("/contact/");
                         })
                         .catch(res => {

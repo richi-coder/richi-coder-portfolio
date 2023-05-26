@@ -14,7 +14,7 @@ import Bios from '../components/Bios.astro';
 
 const gameProps = {
 	id: "4PICS-1WORD",
-	number: "01",
+	number: "03",
 	app: "Web Game",
 	description: "Multi Page App / React - Redux - Astro",
 	mobileImage: "4pics_1word_mobile.png",
@@ -34,13 +34,23 @@ const ecommerceProps = {
 }
 const calculatorProps = {
 	id: "RICHI-CALC",
-	number: "03",
+	number: "01",
 	app: "Web App",
-	description: "Single Page App - React",
+	description: "Single Page App / React",
 	mobileImage: "richiCalcMobile_Final.png",
 	desktopImage: "richiCalcDesktop_Final.png",
 	demoURL: "https://richi-coder.github.io/React-Calculator/",
 	githubURL: "https://github.com/richi-coder/React-Calculator/tree/freecodecamp",
+}
+const streamingProps = {
+	id: "RICHI-TRAILERS",
+	number: "04",
+	app: "Trailer Streaming App",
+	description: "Multi Page App / Next JS - React",
+	mobileImage: "richiTrailers_mobile.png",
+	desktopImage: "richiTrailers_desktop.png",
+	demoURL: "https://github.com/richi-coder/richiMovies",
+	githubURL: "https://github.com/richi-coder/richiMovies",
 }
 ---
 
@@ -63,11 +73,10 @@ const calculatorProps = {
 			<Title id="projects-title" title="Projects" preTitle='richi' titleClass='absolute top-3/4 sm:top-1/2 text-6xl sm:text-9xl' />
 			</div>
 			<!-- <ProjectDetails /> -->
-			<Project projectDetails={gameProps} />
-			<!-- <Title client:load /> -->
-			<Project projectDetails={ecommerceProps} />
 			<Project projectDetails={calculatorProps} />
-			
+			<Project projectDetails={ecommerceProps} />
+			<Project projectDetails={gameProps} />
+			<Project projectDetails={streamingProps} />	
 		</Portfolio>
 		<Shortbio id='shortbio2' ownClass='h-[500vh]' />
 		<!-- <SkillsTitle /> -->
