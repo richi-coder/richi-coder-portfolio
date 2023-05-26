@@ -397,6 +397,21 @@ let sceneNumber3 = new ScrollMagic.Scene({
     // .addIndicators({name: "Number 03"})
     .addTo(controller)
 
+let tweenNumber4 = new TimelineMax ()
+    .add([
+      TweenMax.fromTo("#n-04", 15, {autoAlpha: 0, yPercent: numberYpercentStart, ease: Power0.easeNone}, {autoAlpha: 1, yPercent: numberYpercent, ease: Power0.easeNone},0)
+    ])
+
+let sceneNumber4 = new ScrollMagic.Scene({
+  triggerElement: "#n-04",
+  duration: '100%',
+  triggerHook: 0,
+  offset: numberOffset
+})
+    .setTween(tweenNumber4)
+    // .addIndicators({name: "Number 03"})
+    .addTo(controller)
+
     // SkillsTitle Prereveal scene          
 let tweenSkillsPrereveal = new TimelineMax ()
     .add([
@@ -607,6 +622,7 @@ const fixedNav = document.querySelector(".view-navbar");
     sceneNumber1.refresh()
     sceneNumber2.refresh()
     sceneNumber3.refresh()
+    sceneNumber4.refresh()
     sceneSkillsPrereveal.refresh()
     sceneSkillsReveal.refresh()
     sceneSkillSlider.refresh()
