@@ -671,7 +671,7 @@ const $$Index = createComponent(async ($$result, $$props, $$slots) => {
     description: "Multi Page App / Next JS - React",
     mobileImage: "richiTrailers_mobile.png",
     desktopImage: "richiTrailers_desktop.png",
-    demoURL: "https://github.com/richi-coder/richiMovies",
+    demoURL: "https://richi-trailers.vercel.app/",
     githubURL: "https://github.com/richi-coder/richiMovies"
   };
   return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "index", "class": "astro-J7PV25F6" }, { "default": ($$result2) => renderTemplate`${maybeRenderHead($$result2)}<main class="main astro-J7PV25F6">
