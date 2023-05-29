@@ -81,33 +81,33 @@ let contactYpercent;
 let socialOffset;
 let socialDuration;
 let startTabletPosition;
+let bioStartPosition;
 
 if (isMobile) {
-if (page === 'index') mobileScrolling();
-numberOffset = -500;
-numberYpercentStart = 0;
-numberYpercent = 80;
-skillsFixedDuration = '400%';
-talkRight = 400
-contactYpercent = -10
-socialOffset = 0
-socialDuration = 180
-startTabletPosition = 20
-} else {
-if (page === 'index') desktopScrolling();
-numberOffset = -200;
-numberYpercentStart = -20;
-numberYpercent = 50;
-skillsFixedDuration = '100%' //0.01%
-talkRight = 800
-contactYpercent = -80
-socialOffset = 250
-socialDuration = 360
-startTabletPosition = 50
+  if (page === 'index') mobileScrolling();
+  numberOffset = -500;
+  numberYpercentStart = 0;
+  numberYpercent = 80;
+  skillsFixedDuration = '400%';
+  talkRight = 400
+  contactYpercent = -10
+  socialOffset = 0
+  socialDuration = 180
+  startTabletPosition = 20
+  bioStartPosition = 50
+  } else {
+  if (page === 'index') desktopScrolling();
+  numberOffset = -200;
+  numberYpercentStart = -20;
+  numberYpercent = 50;
+  skillsFixedDuration = '100%' //0.01%
+  talkRight = 800
+  contactYpercent = -80
+  socialOffset = 250
+  socialDuration = 360
+  startTabletPosition = 50
+  bioStartPosition = 0
 }
-
-
-
 
 // Hamburguer Menu
 hamburguerButton.addEventListener('click', () => {
@@ -149,8 +149,6 @@ mobileSkillsLink.classList.remove('-translate-y-96')
 mobileContactLink.classList.remove('-translate-y-96')
 }
 })
-
-
 
 // 2 Parallax Effect with scrollMagic
 let controller = new ScrollMagic.Controller();
@@ -304,7 +302,7 @@ offset: 180
 })
 .setTween(new TimelineMax()
 .add([
-TweenMax.fromTo(number, {autoAlpha: 0, yPercent: 0, ease: Power0.easeNone}, {autoAlpha: 1, yPercent: 100, ease: Power0.easeNone })
+TweenMax.fromTo(number, {autoAlpha: 0, yPercent: bioStartPosition, ease: Power0.easeNone}, {autoAlpha: 1, yPercent: 100, ease: Power0.easeNone })
 ]))
 // .addIndicators({name: `scene ${number}`})
 .addTo(controller)
