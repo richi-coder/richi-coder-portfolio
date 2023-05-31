@@ -105,8 +105,12 @@ if (isMobile) {
   contactYpercent = -80
   socialOffset = 250
   socialDuration = 360
-  startTabletPosition = 50
   bioStartPosition = 0
+    if (window.innerWidth > 850 ) {
+      startTabletPosition = 50
+    } else { 
+      startTabletPosition = 10
+    }
 }
 
 // Hamburguer Menu
