@@ -19,7 +19,7 @@ document.fonts.ready
 
 function wholeScripts() {
   // Adding class for firstView animation
-  let page = document.title === 'richiCoder | React Developer | Frontend' ? 'index' : document.title;
+  let page = document.title === 'richiCoder | Frontend Developer | Building client apps' ? 'index' : document.title;
   let body = document.querySelector('body');
   let richiLogo = document.querySelector('.richi');
   let coderLogo = document.querySelector('.coder');
@@ -106,7 +106,7 @@ if (isMobile) {
   socialOffset = 250
   socialDuration = 360
   bioStartPosition = 0
-    if (window.innerWidth > 850 ) {
+    if (window.innerWidth > 850) {
       startTabletPosition = 50
     } else { 
       startTabletPosition = 10
