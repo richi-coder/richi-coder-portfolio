@@ -17,6 +17,9 @@ const $$Layout = createComponent(async ($$result, $$props, $$slots) => {
     <meta name="description" content="richiCoder, Frontend Developer. Spanish, English, Portuguese. Let's build the client! Javascript, Typescript, SASS, TailwindCSS, Bootstrap, Astro, React.js, Redux, Next.js.">
     <meta name="keywords" content="richiCoder, react developer, portfolio, frontend developer, web developer, javascript, html5, css3, es6, react js, react, bootstrap, tailwindcss, sass, jquery, markdown, restful apis, git, github, next.js, astro, react/redux, react-bootstrap, npm, terminal">
     <meta name="author" content="richiCoder">
+    <meta property="og:title" content="richiCoder | Frontend Developer">
+        <meta property="og:description" content="Building client apps">
+        <meta property="og:image" content="https://richicoder.com/richicoder_logo.png">
     <link rel="icon" type="image/x-icon" href="/richiFavicon.ico">
     `, "\n    <title>", '</title>\n    <!-- Fonts preloading -->\n    <link rel="preconnect" href="https://fonts.googleapis.com">\n    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="preload" as="style" type="font/woff" crossorigin>\n    <link rel="preconnect" href="https://fonts.googleapis.com">\n    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n    <link href="https://fonts.googleapis.com/css2?family=Play&display=swap" rel="preload" as="style" type="font/woff" crossorigin>\n    <!-- Image preload -->\n    ', `
     <!-- Scripts -->
