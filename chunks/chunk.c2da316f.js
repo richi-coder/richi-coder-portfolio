@@ -5,9 +5,9 @@ var __freeze$1 = Object.freeze;
 var __defProp$1 = Object.defineProperty;
 var __template$1 = (cooked, raw) => __freeze$1(__defProp$1(cooked, "raw", { value: __freeze$1(raw || cooked.slice()) }));
 var _a$1, _b;
-const $$Astro$n = createAstro("https://richicoder.com/");
+const $$Astro$m = createAstro("https://richicoder.com/");
 const $$Layout = createComponent(async ($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$n, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$m, $$props, $$slots);
   Astro2.self = $$Layout;
   const { title } = Astro2.props;
   return renderTemplate(_b || (_b = __template$1(['<html lang="en">\n  <head>\n    <!-- Google Tag Manager -->\n    ', `
@@ -33,16 +33,16 @@ const $$Layout = createComponent(async ($$result, $$props, $$slots) => {
     `, '\n    <!-- FontAwesome -->\n    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> \n  ', "</head>\n  <body>\n    <!-- Google Tag Manager (noscript) -->\n  ", "\n    <!-- End Google Tag Manager (noscript): -->\n    ", "\n  </body></html>"])), title === "index" && "production" === "production" ? renderTemplate(_a$1 || (_a$1 = __template$1(["<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':\n    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],\n    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=\n    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);\n    })(window,document,'script','dataLayer','GTM-KDD5R8Q');<\/script>"]))) : null, title === "index" ? renderTemplate`<link rel="canonical" href="https://richicoder.com/">` : null, title === "index" ? "richiCoder | Frontend Developer | Building client apps" : title, title === "index" ? renderTemplate`<link rel="preload" href="richicoder.png" as="image">` : null, title === "index" ? renderTemplate`<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" media="print" onload="this.media='all'">` : null, renderHead($$result), title === "index" && "production" === "production" ? renderTemplate`<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KDD5R8Q" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>` : null, renderSlot($$result, $$slots["default"]));
 }, "/home/richicoderlinux/Desktop/richi-portfolio/src/layouts/Layout.astro");
 
-const $$Astro$m = createAstro("https://richicoder.com/");
+const $$Astro$l = createAstro("https://richicoder.com/");
 const $$Precomponent = createComponent(async ($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$m, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$l, $$props, $$slots);
   Astro2.self = $$Precomponent;
   return renderTemplate`${maybeRenderHead($$result)}<div class="precomponent absolute bottom-0 left-0 w-full z-10"></div>`;
 }, "/home/richicoderlinux/Desktop/richi-portfolio/src/components/Precomponent.astro");
 
-const $$Astro$l = createAstro("https://richicoder.com/");
+const $$Astro$k = createAstro("https://richicoder.com/");
 const $$ScrollDown = createComponent(async ($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$l, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$k, $$props, $$slots);
   Astro2.self = $$ScrollDown;
   return renderTemplate`${maybeRenderHead($$result)}<div class="scrolldown absolute bottom-0 left-0 w-full h-[10vh] flex flex-row items-center justify-between z-50 text-white pb-20 astro-M25UVNAH">
     <div class="scrollsign astro-M25UVNAH">- scroll down</div>
@@ -50,9 +50,9 @@ const $$ScrollDown = createComponent(async ($$result, $$props, $$slots) => {
 </div>`;
 }, "/home/richicoderlinux/Desktop/richi-portfolio/src/components/ScrollDown.astro");
 
-const $$Astro$k = createAstro("https://richicoder.com/");
+const $$Astro$j = createAstro("https://richicoder.com/");
 const $$FirstView = createComponent(async ($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$k, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$j, $$props, $$slots);
   Astro2.self = $$FirstView;
   return renderTemplate`${maybeRenderHead($$result)}<div class="firstView w-full h-screen relative top-0 left-0 z-10 overflow-hidden astro-PW252TJ7">
 	<div class="logoContainer flex flex-col items-center w-full h-full absolute top-0 left-0 astro-PW252TJ7">
@@ -77,9 +77,9 @@ const $$FirstView = createComponent(async ($$result, $$props, $$slots) => {
 </div>`;
 }, "/home/richicoderlinux/Desktop/richi-portfolio/src/components/FirstView.astro");
 
-const $$Astro$j = createAstro("https://richicoder.com/");
+const $$Astro$i = createAstro("https://richicoder.com/");
 const $$Number = createComponent(async ($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$j, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$i, $$props, $$slots);
   Astro2.self = $$Number;
   const { number } = Astro2.props;
   return renderTemplate`${maybeRenderHead($$result)}<div${addAttribute(`n-${number}`, "id")} class="number absolute mx-auto w-full sm:w-full left-0 flex flex-row justify-end p-0 pr-10">
@@ -87,17 +87,17 @@ const $$Number = createComponent(async ($$result, $$props, $$slots) => {
 </div>`;
 }, "/home/richicoderlinux/Desktop/richi-portfolio/src/components/Number.astro");
 
-const $$Astro$i = createAstro("https://richicoder.com/");
+const $$Astro$h = createAstro("https://richicoder.com/");
 const $$BlurLayer = createComponent(async ($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$i, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$h, $$props, $$slots);
   Astro2.self = $$BlurLayer;
   const { id } = Astro2.props;
   return renderTemplate`${maybeRenderHead($$result)}<div${addAttribute(`l-${id}`, "id")} class="blur-layer absolute top-0 left-0 w-full h-full astro-5BW5DS3N"></div>`;
 }, "/home/richicoderlinux/Desktop/richi-portfolio/src/components/BlurLayer.astro");
 
-const $$Astro$h = createAstro("https://richicoder.com/");
+const $$Astro$g = createAstro("https://richicoder.com/");
 const $$Project = createComponent(async ($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$h, $$props, $$slots);
+  const Astro2 = $$result.createAstro($$Astro$g, $$props, $$slots);
   Astro2.self = $$Project;
   const { projectDetails } = Astro2.props;
   const { id, number, app, description, mobileImage, desktopImage, demoURL, githubURL } = projectDetails;
@@ -147,18 +147,6 @@ const $$Project = createComponent(async ($$result, $$props, $$slots) => {
       </div>
 </div>`;
 }, "/home/richicoderlinux/Desktop/richi-portfolio/src/components/Project.astro");
-
-const $$Astro$g = createAstro("https://richicoder.com/");
-const $$Video = createComponent(async ($$result, $$props, $$slots) => {
-  const Astro2 = $$result.createAstro($$Astro$g, $$props, $$slots);
-  Astro2.self = $$Video;
-  const { id } = Astro2.props;
-  return renderTemplate`${maybeRenderHead($$result)}<div class="videoContainer relative w-full sm:w-full mx-auto z-10 h-[70vh] flex flex-col items-center justify-center -mt-1">
-  <!-- <div class="absolute top-0 left-0 -translate-y-full preVideo w-screen h-1/3"></div> -->
-  <div${addAttribute(id, "id")} class="w-full sm:w-2/3 aspect-video bg-pink-50"></div>
-  <!-- <Precomponent /> -->
-</div>`;
-}, "/home/richicoderlinux/Desktop/richi-portfolio/src/components/Video.astro");
 
 const $$Astro$f = createAstro("https://richicoder.com/");
 const $$Title = createComponent(async ($$result, $$props, $$slots) => {
@@ -390,7 +378,7 @@ const $$Photo = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$b, $$props, $$slots);
   Astro2.self = $$Photo;
   return renderTemplate`${maybeRenderHead($$result)}<div id="photo" class="photo text-white fixed z-50">
-    <div class="absolute top-0 left-0 h-screen w-full z-0 myphoto"><img src="richicoder.png" alt="richicoder_profile_photo" class="absolute top-0 left-0 h-screen w-full object-cover object-right"></div>
+    <div class="absolute top-0 left-0 h-screen w-full z-0 myphoto"><img id="richi-photo" src="richicoder.png" alt="richicoder_profile_photo" class="absolute top-0 left-0 h-screen w-full object-cover"></div>
     ${renderComponent($$result, "SkillsTitle", $$SkillsTitle, {})} 
     <div class="photolayer "></div>
     
@@ -696,7 +684,7 @@ const $$Index = createComponent(async ($$result, $$props, $$slots) => {
 			</div>${renderComponent($$result3, "Project", $$Project, { "projectDetails": calculatorProps, "class": "astro-J7PV25F6" })}${renderComponent($$result3, "Project", $$Project, { "projectDetails": ecommerceProps, "class": "astro-J7PV25F6" })}${renderComponent($$result3, "Project", $$Project, { "projectDetails": gameProps, "class": "astro-J7PV25F6" })}${renderComponent($$result3, "Project", $$Project, { "projectDetails": streamingProps, "class": "astro-J7PV25F6" })}` })}
 		${renderComponent($$result2, "Shortbio", $$Shortbio, { "id": "shortbio2", "ownClass": "h-[500vh]", "class": "astro-J7PV25F6" })}
 		<!-- <SkillsTitle /> -->
-		${renderComponent($$result2, "Video", $$Video, { "id": "video", "class": "astro-J7PV25F6" })} 
+		<!-- <Video id="video" />  -->
 		${renderComponent($$result2, "Contact", $$Contact, { "class": "astro-J7PV25F6" })}
 	</main>` })}`;
 }, "/home/richicoderlinux/Desktop/richi-portfolio/src/pages/index.astro");
