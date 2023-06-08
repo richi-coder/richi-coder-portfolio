@@ -494,7 +494,7 @@ TweenMax.fromTo(".orange", {yPercent: 0}, {yPercent: -30, ease: Power0.easeNone}
 ])
 
 let sceneVideo = new ScrollMagic.Scene({
-triggerElement: ".videoContainer",
+triggerElement: ".contactContainer",
 duration: '150%',
 triggerHook: 1,
 })
