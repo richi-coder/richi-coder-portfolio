@@ -718,7 +718,7 @@ scrollFunction('RICHI-CALC', "notShown", "showUp")
 scrollFunction('RICHI-SHOP', "notShown", "showUp")
 scrollFunction('4PICS-1WORD', "notShown", "showUp")
 scrollFunction('RICHI-TRAILERS', "notShown", "showUp")
-scrollFunction("video", "videoNotShown", "showVideo")
+// scrollFunction("video", "videoNotShown", "showVideo")
 // scrollFunction("projects-title", "titleNotShown", "showTitle")
 } 
 
