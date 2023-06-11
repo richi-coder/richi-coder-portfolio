@@ -316,26 +316,26 @@ const $$SkillsTitle = createComponent(async ($$result, $$props, $$slots) => {
     </section>
     <section class="panel orange astro-2AV6QKG4">
       ${renderComponent($$result, "Title", $$Title, { "id": "others-title", "title": "Tools", "preTitle": "other", "class": "astro-2AV6QKG4" })}
-      <div class="other-tools container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 text-4xl sm:text-3xl md:text-5xl m-auto gap-1 sm:gap-7 md:gap-y-32 lg:gap-y-6 md:pt-20 lg:pt-12 astro-2AV6QKG4">
+      <div class="other-tools container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 text-4xl sm:text-3xl md:text-5xl m-auto gap-1 sm:gap-7 md:gap-y-32 lg:gap-y-6 pt-5 md:pt-20 lg:pt-12 astro-2AV6QKG4">
         <div class="flex flex-row md:flex-col items-center justify-start pl-[12vw] sm:pl-0 gap-7 sm:gap-3 sm:justify-center astro-2AV6QKG4">
 
-          <div class="astro-2AV6QKG4">REST APIs</div>
+          <div class="-ml-2 sm:ml-0 astro-2AV6QKG4">REST APIs</div>
         </div>
         <div class="flex flex-row md:flex-col items-center justify-start pl-[12vw] sm:pl-0 gap-7 sm:gap-3 sm:justify-center astro-2AV6QKG4">
 
-          <div class="astro-2AV6QKG4">AJAX</div>
+          <div class="-ml-2 sm:ml-0 astro-2AV6QKG4">AJAX</div>
         </div>
         <div class="flex flex-row md:flex-col items-center justify-start pl-[12vw] sm:pl-0 gap-7 sm:gap-3 sm:justify-center astro-2AV6QKG4">
         
-        <div class="astro-2AV6QKG4">Chart JS</div>
+          <div class="-ml-2 sm:ml-0 astro-2AV6QKG4">Chart JS</div>
         </div>
         <div class="flex flex-row md:flex-col items-center justify-start pl-[12vw] sm:pl-0 gap-7 sm:gap-3 sm:justify-center astro-2AV6QKG4">
           
-          <div class="astro-2AV6QKG4">jQuery</div>
+          <div class="-ml-2 sm:ml-0 astro-2AV6QKG4">jQuery</div>
         </div>
         <div class="flex flex-row md:flex-col items-center justify-start pl-[12vw] sm:pl-0 gap-7 sm:gap-3 sm:justify-center astro-2AV6QKG4">
 
-          <div class="astro-2AV6QKG4">Firebase</div>
+          <div class="-ml-2 sm:ml-0 astro-2AV6QKG4">Firebase</div>
         </div>
         <div class="flex flex-row md:flex-col items-center justify-start pl-[12vw] sm:pl-0 gap-7 sm:gap-3 sm:justify-center astro-2AV6QKG4">
           
@@ -351,15 +351,11 @@ const $$SkillsTitle = createComponent(async ($$result, $$props, $$slots) => {
         </div>
         <div class="flex flex-row md:flex-col items-center justify-start pl-[12vw] sm:pl-0 gap-7 sm:gap-3 sm:justify-center astro-2AV6QKG4">
           
-          <div class="-ml-2 sm:ml-0 astro-2AV6QKG4">Miro</div>
+          <div class="-ml-2 sm:ml-0 astro-2AV6QKG4">Three.js</div>
         </div>
         <div class="flex flex-row md:flex-col items-center justify-start pl-[12vw] sm:pl-0 gap-7 sm:gap-3 sm:justify-center astro-2AV6QKG4">
           
           <div class="-ml-2 sm:ml-0 astro-2AV6QKG4">Figma</div>
-        </div>
-        <div class="flex flex-row md:flex-col items-center justify-start pl-[12vw] sm:pl-0 gap-7 sm:gap-3 sm:justify-center astro-2AV6QKG4">
-          
-          <div class="-ml-2 sm:ml-0 astro-2AV6QKG4">Prettier</div>
         </div>
         <div class="flex flex-row md:flex-col items-center justify-start pl-[12vw] sm:pl-0 gap-7 sm:gap-3 sm:justify-center astro-2AV6QKG4">
           
@@ -628,9 +624,19 @@ const $$Astro$3 = createAstro("https://richicoder.com/");
 const $$Index = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$3, $$props, $$slots);
   Astro2.self = $$Index;
+  const Gallery3d = {
+    id: "3D-GALLERY",
+    number: "01",
+    app: "Facundo Meire's requirement",
+    description: "Single Page App / React - Router - Three.js",
+    mobileImage: "3dGallery_mobile.png",
+    desktopImage: "3dGallery_desktop.png",
+    demoURL: "https://richi-coder.github.io/3dGallery/",
+    githubURL: "https://github.com/richi-coder/3dGallery"
+  };
   const gameProps = {
     id: "4PICS-1WORD",
-    number: "03",
+    number: "04",
     app: "Web Game",
     description: "Multi Page App / React - Redux - Astro",
     mobileImage: "4pics_1word_mobile.png",
@@ -640,7 +646,7 @@ const $$Index = createComponent(async ($$result, $$props, $$slots) => {
   };
   const ecommerceProps = {
     id: "RICHI-SHOP",
-    number: "02",
+    number: "03",
     app: "Ecommerce Site",
     description: "Single Page App / React - Router - PWA",
     mobileImage: "richi_shop_mobile.png",
@@ -650,7 +656,7 @@ const $$Index = createComponent(async ($$result, $$props, $$slots) => {
   };
   const calculatorProps = {
     id: "RICHI-CALC",
-    number: "01",
+    number: "02",
     app: "Web App",
     description: "Single Page App / React",
     mobileImage: "richiCalcMobile_Final.png",
@@ -660,7 +666,7 @@ const $$Index = createComponent(async ($$result, $$props, $$slots) => {
   };
   const streamingProps = {
     id: "RICHI-TRAILERS",
-    number: "04",
+    number: "05",
     app: "Trailer Streaming App",
     description: "Multi Page App / Next JS - React",
     mobileImage: "richiTrailers_mobile.png",
@@ -679,7 +685,7 @@ const $$Index = createComponent(async ($$result, $$props, $$slots) => {
 		
 		${renderComponent($$result2, "Portfolio", $$Portfolio, { "class": "astro-J7PV25F6" }, { "default": ($$result3) => renderTemplate`<img id="richi-tablet" src="/richicoder_tablet.png"${addAttribute(700, "width")}${addAttribute(700, "height")} alt="" class="mx-auto absolute top-0 left-1/2 -translate-x-1/2 -translate-y-2/3 z-50 astro-J7PV25F6" loading="lazy"><div id="projects-title-container" class="w-full h-[25vh] relative astro-J7PV25F6">
 			${renderComponent($$result3, "Title", $$Title, { "id": "projects-title", "title": "Projects", "preTitle": "richi", "titleClass": "absolute top-3/4 sm:top-1/2 text-6xl sm:text-9xl", "class": "astro-J7PV25F6" })}
-			</div>${renderComponent($$result3, "Project", $$Project, { "projectDetails": calculatorProps, "class": "astro-J7PV25F6" })}${renderComponent($$result3, "Project", $$Project, { "projectDetails": ecommerceProps, "class": "astro-J7PV25F6" })}${renderComponent($$result3, "Project", $$Project, { "projectDetails": gameProps, "class": "astro-J7PV25F6" })}${renderComponent($$result3, "Project", $$Project, { "projectDetails": streamingProps, "class": "astro-J7PV25F6" })}` })}
+			</div>${renderComponent($$result3, "Project", $$Project, { "projectDetails": Gallery3d, "class": "astro-J7PV25F6" })}${renderComponent($$result3, "Project", $$Project, { "projectDetails": calculatorProps, "class": "astro-J7PV25F6" })}${renderComponent($$result3, "Project", $$Project, { "projectDetails": ecommerceProps, "class": "astro-J7PV25F6" })}${renderComponent($$result3, "Project", $$Project, { "projectDetails": gameProps, "class": "astro-J7PV25F6" })}${renderComponent($$result3, "Project", $$Project, { "projectDetails": streamingProps, "class": "astro-J7PV25F6" })}` })}
 		${renderComponent($$result2, "Shortbio", $$Shortbio, { "id": "shortbio2", "ownClass": "h-[500vh]", "class": "astro-J7PV25F6" })}
 		<!-- <SkillsTitle /> -->
 		<!-- <Video id="video" />  -->
