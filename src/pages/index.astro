@@ -11,10 +11,21 @@ import Contact from '../components/Contact.astro';
 import Header from '../components/Header.astro';
 import Bios from '../components/Bios.astro';
 
+const Gallery3d = {
+	id: "3D-GALLERY",
+	number: "01",
+	app: "3d Web",
+	description: "Single Page App / React - Router - Three.js",
+	mobileImage: "4pics_1word_mobile.png",
+	desktopImage: "4pics_1word_desktop.png",
+	demoURL: "https://richi-coder.github.io/3dGallery/",
+	githubURL: "https://github.com/richi-coder/3dGallery"
+}
+
 
 const gameProps = {
 	id: "4PICS-1WORD",
-	number: "03",
+	number: "04",
 	app: "Web Game",
 	description: "Multi Page App / React - Redux - Astro",
 	mobileImage: "4pics_1word_mobile.png",
@@ -24,7 +35,7 @@ const gameProps = {
 }
 const ecommerceProps = {
 	id: "RICHI-SHOP",
-	number: "02",
+	number: "03",
 	app: "Ecommerce Site",
 	description: "Single Page App / React - Router - PWA",
 	mobileImage: "richi_shop_mobile.png",
@@ -34,7 +45,7 @@ const ecommerceProps = {
 }
 const calculatorProps = {
 	id: "RICHI-CALC",
-	number: "01",
+	number: "02",
 	app: "Web App",
 	description: "Single Page App / React",
 	mobileImage: "richiCalcMobile_Final.png",
@@ -44,7 +55,7 @@ const calculatorProps = {
 }
 const streamingProps = {
 	id: "RICHI-TRAILERS",
-	number: "04",
+	number: "05",
 	app: "Trailer Streaming App",
 	description: "Multi Page App / Next JS - React",
 	mobileImage: "richiTrailers_mobile.png",
@@ -73,10 +84,11 @@ const streamingProps = {
 			<Title id="projects-title" title="Projects" preTitle='richi' titleClass='absolute top-3/4 sm:top-1/2 text-6xl sm:text-9xl' />
 			</div>
 			<!-- <ProjectDetails /> -->
+			<Project projectDetails={Gallery3d} />
 			<Project projectDetails={calculatorProps} />
 			<Project projectDetails={ecommerceProps} />
 			<Project projectDetails={gameProps} />
-			<Project projectDetails={streamingProps} />	
+			<Project projectDetails={streamingProps} />
 		</Portfolio>
 		<Shortbio id='shortbio2' ownClass='h-[500vh]' />
 		<!-- <SkillsTitle /> -->

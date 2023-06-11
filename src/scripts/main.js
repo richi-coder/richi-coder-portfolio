@@ -415,6 +415,21 @@ offset: numberOffset
 // .addIndicators({name: "Number 03"})
 .addTo(controller)
 
+let tweenNumber5 = new TimelineMax ()
+.add([
+TweenMax.fromTo("#n-05", 15, {autoAlpha: 0, yPercent: numberYpercentStart, ease: Power0.easeNone}, {autoAlpha: 1, yPercent: numberYpercent, ease: Power0.easeNone},0)
+])
+
+let sceneNumber5 = new ScrollMagic.Scene({
+triggerElement: "#n-05",
+duration: '100%',
+triggerHook: 0,
+offset: numberOffset
+})
+.setTween(tweenNumber5)
+// .addIndicators({name: "Number 03"})
+.addTo(controller) 
+
 // SkillsTitle Prereveal scene          
 let tweenSkillsPrereveal = new TimelineMax ()
 .add([
@@ -630,6 +645,7 @@ sceneNumber1.refresh()
 sceneNumber2.refresh()
 sceneNumber3.refresh()
 sceneNumber4.refresh()
+sceneNumber5.refresh()
 sceneSkillsPrereveal.refresh()
 sceneSkillsReveal.refresh()
 sceneSkillSlider.refresh()
