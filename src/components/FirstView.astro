@@ -1,354 +1,462 @@
 ---
-import Precomponent from '../components/Precomponent.astro';
-import ScrollDown from '../components/ScrollDown.astro';
+import Precomponent from "../components/Precomponent.astro";
+import ScrollDown from "../components/ScrollDown.astro";
 ---
 
-
-<div class="firstView w-full h-screen relative top-0 left-0 z-10 overflow-hidden">
-	<div class="logoContainer flex flex-col items-center w-full h-full absolute top-0 left-0">
-	<div class="layer"></div>
-    <div class="logo ">
-		<h2 class="richi">richi</h2>
-		<h2 class="text-gradient coder">Coder</h2>
-		<div class='bar ml-5 h-full w-1'></div>
-		<div class="tech text-white">
-			<!-- <div class="layer bg-black"></div> -->
-			<div class="es5">Responsive Design</div>
-			<div>Single Page Apps</div>
-			<div>Progressive Web Apps</div>
-			<div>Multi Page Apps</div>
-			<div>API communications	</div>
-		</div>
-	</div>
-	<div class="layer"></div>
-	</div>
-	<Precomponent />
-	<ScrollDown />
+<div
+  class="firstView w-full h-screen relative top-0 left-0 z-10 overflow-hidden"
+>
+  <div
+    class="logoContainer flex flex-col items-center w-full h-full absolute top-0 left-0"
+  >
+    <div class="layer"></div>
+    <div class="logo">
+      <h2 class="richi">richi</h2>
+      <h2 class="text-gradient coder">Coder</h2>
+      <div class="bar ml-5 h-full w-1"></div>
+      <div class="tech text-white">
+        <!-- <div class="layer bg-black"></div> -->
+        <div class="es5">Responsive Design</div>
+        <div>Single Page Apps</div>
+        <div>Progressive Web Apps</div>
+        <div>Multi Page Apps</div>
+        <div>API communications</div>
+      </div>
+    </div>
+    <div class="layer"></div>
+  </div>
+  <Precomponent />
+  <ScrollDown />
+  <span class="firstLayer absolute w-full h-full z-[100]"></span>
 </div>
 
-
-
-
 <style>
+  :root {
+    --factor: 0.8125;
+    --techwidth: 95%;
+    --richiwidth: 0.85rem;
+    --coderwidth: 1.3rem;
+    --layerPercentage: 95%;
+  }
+  .logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    height: 1rem;
+  }
+  .firstView {
+    background-color: rgb(10, 10, 10);
+  }
+  .firstLayer {
+    -webkit-animation: color-change-3x 4s linear infinite alternate both;
+    animation: color-change-3x 4s linear infinite alternate both;
+    transition: all 1.5s ease-in-out;
+  }
 
-	:root {
-		--factor: 0.8125;
-		--techwidth: 95%;
-		--richiwidth: 0.85rem;
-		--coderwidth: 1.3rem;
-		--layerPercentage: 95%;
-	}
-	.logo {
-		display: flex;
-		flex-direction: row;
-		align-items: center;
-		justify-content: center;
-		margin: 0;
-		padding: 0;
-		position: relative;
-		height: 1rem;
-	}
-	.firstView {
-		background-color: rgb(10,10,10);
-	}
-	.richi {
-		font-size: 1.5rem; 
-		font-weight: 800;
-		margin: 0;
-		padding: 0;
-		color: white;
-        font-family: 'Orbitron', system-ui;
-		transform: translate(0,-70vh);
-		white-space: nowrap;
-		overflow: hidden;
-		text-align: end;
-		width: calc(var(--richiwidth)*4); 
-		z-index: 9999;
-	}
-	.richi-animation {
-		animation: richi 12s linear 1;
-		transform: translate(0,0);
-	}
-	.coder {
-		font-size: 1.5rem;
-		font-weight: 500;
-		margin: 0;
-		padding: 0;
-		font-family: 'Orbitron', system-ui;
-		transform: translate(0,-70vh);
-		white-space: nowrap;
-		overflow: hidden;
-		text-align:start;
-	    width: calc(var(--coderwidth)*4); 
-		z-index: 9999;
-	}
-	.coder-animation {
-		animation: coder 12s linear 1;
-		transform: translate(0,0);
-	}
-	@keyframes richi {
-		0% { width: var(--richiwidth); transform: translate(0,-70vh ); opacity: 0;}
-		15% { transform: translate(0,-70vh ); }
-		16.25% { transform: translate(0,0); opacity: 1;}
-		16.875% { transform: translate(0,-5vh);}
-		17.5% { transform: translate(0,0);}
-		98% { width: calc(var(--richiwidth))}
-		100% { width: calc(var(--richiwidth)*4);}
-	}
-	@keyframes coder {
-		0% { width: var(--coderwidth); transform: translate(0,-70vh); opacity: 0;}
-		20% { transform: translate(0,-70vh ); }
-		21.25% { transform: translate(0,0); opacity: 1 }
-		21.875% { transform: translate(0,-7vh);}
-		22.5% { transform: translate(0,0);}
-		94% { width: var(--coderwidth)}
-		96% { width: calc(var(--coderwidth)*4);}
-		100% { width: calc(var(--coderwidth)*4);}
-	}
+  @-webkit-keyframes color-change-3x {
+    0% {
+      background: #00407c;
+    }
+    50% {
+      background: rgb(124, 58, 237);
+    }
+    100% {
+      background: black;
+    }
+  }
+  @keyframes color-change-3x {
+    0% {
+      background: #00407c;
+    }
+    50% {
+      background: rgb(124, 58, 237);
+    }
+    100% {
+      background: black;
+    }
+  }
 
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
+  .richi {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: "Orbitron", system-ui;
+    transform: translate(0, -70vh);
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: end;
+    width: calc(var(--richiwidth) * 4);
+    z-index: 9999;
+  }
+  .richi-animation {
+    animation: richi 12s linear 1;
+    transform: translate(0, 0);
+  }
+  .coder {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+    font-family: "Orbitron", system-ui;
+    transform: translate(0, -70vh);
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: start;
+    width: calc(var(--coderwidth) * 4);
+    z-index: 9999;
+  }
+  .coder-animation {
+    animation: coder 12s linear 1;
+    transform: translate(0, 0);
+  }
+  @keyframes richi {
+    0% {
+      width: var(--richiwidth);
+      transform: translate(0, -70vh);
+      opacity: 0;
+    }
+    15% {
+      transform: translate(0, -70vh);
+    }
+    16.25% {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+    16.875% {
+      transform: translate(0, -5vh);
+    }
+    17.5% {
+      transform: translate(0, 0);
+    }
+    98% {
+      width: calc(var(--richiwidth));
+    }
+    100% {
+      width: calc(var(--richiwidth) * 4);
+    }
+  }
+  @keyframes coder {
+    0% {
+      width: var(--coderwidth);
+      transform: translate(0, -70vh);
+      opacity: 0;
+    }
+    20% {
+      transform: translate(0, -70vh);
+    }
+    21.25% {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
+    21.875% {
+      transform: translate(0, -7vh);
+    }
+    22.5% {
+      transform: translate(0, 0);
+    }
+    94% {
+      width: var(--coderwidth);
+    }
+    96% {
+      width: calc(var(--coderwidth) * 4);
+    }
+    100% {
+      width: calc(var(--coderwidth) * 4);
+    }
+  }
 
-	.tech {
-		display: flex;
-		flex-direction: column;
-		align-self: start;
-		background-color: transparent;
-		position: relative;
-		top: 1.6rem;
-		left: 0; 
-		
-		padding: 0;
-		margin: 0;
-		padding-left: 5px;
-		z-index: 5;
-		white-space: nowrap;
-		overflow: hidden;
-		width: 0;
-		opacity: 0; 
-	}
-	.tech-animation {
-		animation: tech 8s ease-in-out 3s 1;
-	}
-	@keyframes tech {
-		0% {opacity: 0; width: 0 }
-		5% {opacity: 1 ; width: var(--techwidth);}
-		15% {transform: translate(0,-20%);}
-		20% {transform: translate(0,-20%);}
-		35% {transform: translate(0,-40%);}
-		40% {transform: translate(0,-40%);}
-		55% {transform: translate(0,-60%);}
-		60% {transform: translate(0,-60%);}
-		75% {transform: translate(0,-80%);}
-		80% {transform: translate(0,-80%);}
-		95% {transform: translate(0,-100%); width: var(--techwidth)}
-		100% {transform: translate(0,-100%); opacity: 1; width: 0; }
-	}
-	.tech > div {
-		font-size: 1.5rem;
-		font-family: 'Play', 'system-ui';
-		margin: 0;
-		padding: 0;
-	}
-	.layer {
-		width: 100vw;
-		flex-grow: 1;
-		z-index: 30;
-		position: relative;
-		margin: 0;
-	}
-	.layer:first-child {
-		background: linear-gradient(180deg, rgb(10,10,10) var(--layerPercentage), transparent 100%);
-		/* animation: firstLayer 1s ease-in-out 1; */
-	}
-	/* @keyframes firstLayer {
+  .text-gradient {
+    background-image: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 400%;
+    background-position: 0%;
+  }
+
+  .tech {
+    display: flex;
+    flex-direction: column;
+    align-self: start;
+    background-color: transparent;
+    position: relative;
+    top: 1.6rem;
+    left: 0;
+
+    padding: 0;
+    margin: 0;
+    padding-left: 5px;
+    z-index: 5;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    opacity: 0;
+  }
+  .tech-animation {
+    animation: tech 8s ease-in-out 3s 1;
+  }
+  @keyframes tech {
+    0% {
+      opacity: 0;
+      width: 0;
+    }
+    5% {
+      opacity: 1;
+      width: var(--techwidth);
+    }
+    15% {
+      transform: translate(0, -20%);
+    }
+    20% {
+      transform: translate(0, -20%);
+    }
+    35% {
+      transform: translate(0, -40%);
+    }
+    40% {
+      transform: translate(0, -40%);
+    }
+    55% {
+      transform: translate(0, -60%);
+    }
+    60% {
+      transform: translate(0, -60%);
+    }
+    75% {
+      transform: translate(0, -80%);
+    }
+    80% {
+      transform: translate(0, -80%);
+    }
+    95% {
+      transform: translate(0, -100%);
+      width: var(--techwidth);
+    }
+    100% {
+      transform: translate(0, -100%);
+      opacity: 1;
+      width: 0;
+    }
+  }
+  .tech > div {
+    font-size: 1.5rem;
+    font-family: "Play", "system-ui";
+    margin: 0;
+    padding: 0;
+  }
+  .layer {
+    width: 100vw;
+    flex-grow: 1;
+    z-index: 30;
+    position: relative;
+    margin: 0;
+  }
+  .layer:first-child {
+    background: linear-gradient(
+      180deg,
+      rgb(10, 10, 10) var(--layerPercentage),
+      transparent 100%
+    );
+    /* animation: firstLayer 1s ease-in-out 1; */
+  }
+  /* @keyframes firstLayer {
 		0% {opacity: 0;}
 		100% {opacity: 0;}
 	} */
-	.layer:last-child {
-		background: linear-gradient(0deg, rgb(10,10,10) var(--layerPercentage), transparent 100%);
-	}
-	.bar {
-		border: 1px solid white;
-		opacity: 0;
-		width: 0;
-		margin-left: 5px;
-	}
-	.bar-animation {
-		animation: bar 8s ease-in 3s 1;
-	}
-	@keyframes bar {
-		5% {opacity: 0;}
-		15% {opacity: 1;}
-		98% {opacity: 1;} 
-		100% {opacity: 0;}
-	}
-	
-	/* Media queries */
+  .layer:last-child {
+    background: linear-gradient(
+      0deg,
+      rgb(10, 10, 10) var(--layerPercentage),
+      transparent 100%
+    );
+  }
+  .bar {
+    border: 1px solid white;
+    opacity: 0;
+    width: 0;
+    margin-left: 5px;
+  }
+  .bar-animation {
+    animation: bar 8s ease-in 3s 1;
+  }
+  @keyframes bar {
+    5% {
+      opacity: 0;
+    }
+    15% {
+      opacity: 1;
+    }
+    98% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
 
-	@media only screen and (min-width: 1300px) {
-		:root {
-			--richiwidth: 4.6rem;
-			--coderwidth: 7rem;
-		}
-        .richi {
-            font-size: calc(var(--factor)*10rem);
-        } 
-		.coder {
-			font-size: calc(var(--factor)*10rem);
-		}
-		.logo {
-			height: calc(var(--factor)*11rem);
-		}
-		.tech {
-			top: calc(var(--factor)*12rem);
-			padding-left: 30px;
-		}
-		.tech > div {
-			font-size: calc(var(--factor)*8rem);
-		}
-		.bar {
-		border: 5px solid white;
-		margin-left: 30px;
-		}
-	} 
-	@media only screen and (min-width: 1090px) and (max-width: 1300px) {
-		:root {
-			--richiwidth: 4rem;
-			--coderwidth: 6rem;
-		}
-        .richi {
-            font-size: calc(0.7*10rem);
-        } 
-		.coder {
-			font-size: calc(0.7*10rem);
-		}
-		.logo {
-			height: calc(0.7*11rem);
-		}
-		.tech {
-			top: calc(0.7*12rem);
-			padding-left: 15px;
-		}
-		.tech > div {
-			font-size: calc(0.7*8rem);
-		}
-		.bar {
-		border: 3px solid white;
-		margin-left: 15px;
-		}
-	} 
-	@media only screen and (min-width: 775px) and (max-width: 1090px) {
-		:root {
-			--richiwidth: 2.8rem;
-			--coderwidth: 4.3rem;
-		}
-        .richi {
-            font-size: 5rem;
-        } 
-		.coder {
-			font-size: 5rem;
-		}
-		.logo {
-			height: 5rem;
-		}
-		.tech {
-			top: 5.7rem;
-			padding-left: 10px;
-		}
-		.tech > div {
-			font-size: calc(4rem);
-		}
-		.bar {
-			border: 2px solid white;
-			margin-left: 10px;
-		}
-	} 
-	@media only screen and (min-width: 540px) and (max-width: 775px) {
-		:root {
-			--richiwidth: 1.83rem;
-			--coderwidth: 2.8rem;
-		}
-        .richi {
-            font-size: calc(var(--factor)*4rem);
-        } 
-		.coder {
-			font-size: calc(var(--factor)*4rem);
-		}
-		.logo {
-			height: calc(var(--factor)*3.5rem);
-		}
-		.tech {
-			top: calc(var(--factor)*4.2rem);
-			padding-left: 10px;
-		}
-		.tech > div {
-			font-size: calc(var(--factor)*3.2rem);
-		}
-		.bar {
-			border: 2px solid white;
-			margin-left: 10px;
-		}
-	} 
-	@media only screen and (min-width: 410px) and (max-width: 540px) {
-		:root {
-			--richiwidth: 1.37rem;
-			--coderwidth: 2.1rem;
-			--layerPercentage: 95%;
-		}
-        .richi {
-            font-size: calc(var(--factor)*3rem);
-        } 
-		.coder {
-			font-size: calc(var(--factor)*3rem);
-		}
-		.logo {
-			height: calc(var(--factor)*2rem);
-		}
-		.tech {
-			top: calc(var(--factor)*2.8rem);
-			padding-left: 10px;
-		}
-		.tech > div {
-			font-size: calc(var(--factor)*2.4rem);
-		}
-		.bar {
-			border: 1px solid white;
-			margin-left: 10px;
-		}
-	} 
-	@media only screen and (min-width: 330px) and (max-width: 410px) {
-		:root {
-			--richiwidth: 1.13rem;
-			--coderwidth: 1.7rem;
-			--layerPercentage: 97%;
-		}
-        .richi {
-            font-size: calc(var(--factor)*2.49rem);
-        } 
-		.coder {
-			font-size: calc(var(--factor)*2.49rem);
-		}
-		.logo {
-			height: calc(var(--factor)*2.3rem);
-		}
-		.tech {
-			top: calc(var(--factor)*2.7rem);
-			padding-left: 10px;
-		}
-		.tech > div {
-			font-size: calc(var(--factor)*1.99rem);
-		}
-		.bar {
-			border: 0.7px solid white;
-			margin-left: 10px;
-		}
-	} 
-	
+  /* Media queries */
+
+  @media only screen and (min-width: 1300px) {
+    :root {
+      --richiwidth: 4.6rem;
+      --coderwidth: 7rem;
+    }
+    .richi {
+      font-size: calc(var(--factor) * 10rem);
+    }
+    .coder {
+      font-size: calc(var(--factor) * 10rem);
+    }
+    .logo {
+      height: calc(var(--factor) * 11rem);
+    }
+    .tech {
+      top: calc(var(--factor) * 12rem);
+      padding-left: 30px;
+    }
+    .tech > div {
+      font-size: calc(var(--factor) * 8rem);
+    }
+    .bar {
+      border: 5px solid white;
+      margin-left: 30px;
+    }
+  }
+  @media only screen and (min-width: 1090px) and (max-width: 1300px) {
+    :root {
+      --richiwidth: 4rem;
+      --coderwidth: 6rem;
+    }
+    .richi {
+      font-size: calc(0.7 * 10rem);
+    }
+    .coder {
+      font-size: calc(0.7 * 10rem);
+    }
+    .logo {
+      height: calc(0.7 * 11rem);
+    }
+    .tech {
+      top: calc(0.7 * 12rem);
+      padding-left: 15px;
+    }
+    .tech > div {
+      font-size: calc(0.7 * 8rem);
+    }
+    .bar {
+      border: 3px solid white;
+      margin-left: 15px;
+    }
+  }
+  @media only screen and (min-width: 775px) and (max-width: 1090px) {
+    :root {
+      --richiwidth: 2.8rem;
+      --coderwidth: 4.3rem;
+    }
+    .richi {
+      font-size: 5rem;
+    }
+    .coder {
+      font-size: 5rem;
+    }
+    .logo {
+      height: 5rem;
+    }
+    .tech {
+      top: 5.7rem;
+      padding-left: 10px;
+    }
+    .tech > div {
+      font-size: calc(4rem);
+    }
+    .bar {
+      border: 2px solid white;
+      margin-left: 10px;
+    }
+  }
+  @media only screen and (min-width: 540px) and (max-width: 775px) {
+    :root {
+      --richiwidth: 1.83rem;
+      --coderwidth: 2.8rem;
+    }
+    .richi {
+      font-size: calc(var(--factor) * 4rem);
+    }
+    .coder {
+      font-size: calc(var(--factor) * 4rem);
+    }
+    .logo {
+      height: calc(var(--factor) * 3.5rem);
+    }
+    .tech {
+      top: calc(var(--factor) * 4.2rem);
+      padding-left: 10px;
+    }
+    .tech > div {
+      font-size: calc(var(--factor) * 3.2rem);
+    }
+    .bar {
+      border: 2px solid white;
+      margin-left: 10px;
+    }
+  }
+  @media only screen and (min-width: 410px) and (max-width: 540px) {
+    :root {
+      --richiwidth: 1.37rem;
+      --coderwidth: 2.1rem;
+      --layerPercentage: 95%;
+    }
+    .richi {
+      font-size: calc(var(--factor) * 3rem);
+    }
+    .coder {
+      font-size: calc(var(--factor) * 3rem);
+    }
+    .logo {
+      height: calc(var(--factor) * 2rem);
+    }
+    .tech {
+      top: calc(var(--factor) * 2.8rem);
+      padding-left: 10px;
+    }
+    .tech > div {
+      font-size: calc(var(--factor) * 2.4rem);
+    }
+    .bar {
+      border: 1px solid white;
+      margin-left: 10px;
+    }
+  }
+  @media only screen and (min-width: 330px) and (max-width: 410px) {
+    :root {
+      --richiwidth: 1.13rem;
+      --coderwidth: 1.7rem;
+      --layerPercentage: 97%;
+    }
+    .richi {
+      font-size: calc(var(--factor) * 2.49rem);
+    }
+    .coder {
+      font-size: calc(var(--factor) * 2.49rem);
+    }
+    .logo {
+      height: calc(var(--factor) * 2.3rem);
+    }
+    .tech {
+      top: calc(var(--factor) * 2.7rem);
+      padding-left: 10px;
+    }
+    .tech > div {
+      font-size: calc(var(--factor) * 1.99rem);
+    }
+    .bar {
+      border: 0.7px solid white;
+      margin-left: 10px;
+    }
+  }
 </style>
-

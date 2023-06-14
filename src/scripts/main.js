@@ -8,13 +8,24 @@ ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
 ScrollMagicPluginIndicator(ScrollMagic);
 
 // Font loading ERROR 
+let firstLayer = document.querySelector('.firstLayer');
+
 document.fonts.onloadingerror = () => {
   console.log("Font loading error");
 };
 
 // Font loaded Listener
 document.fonts.ready
-        .then(wholeScripts)
+        .then(() => {
+          firstLayer.style.opacity = 0
+          setTimeout(() => {
+            firstLayer.style.animation = 'none';
+            firstLayer.style.background = 'black'
+            firstLayer.style.zIndex = -999999; 
+            firstLayer.style.display = 'none'; 
+            wholeScripts()
+          }, 2000); 
+        })
         .catch(wholeScripts)
 
 function wholeScripts() {
@@ -616,6 +627,7 @@ const fixedPhoto = document.querySelector(".photo");
 const fixedNav = document.querySelector(".view-navbar");
 scrollbar.addListener((status) => {
 const offset = status.offset;
+firstLayer.style.top = offset.y + 'px'
 fixedPhoto.style.top = offset.y + 'px';
 fixedPhoto.style.left = offset.x + 'px';
 fixedNav.style.top = offset.y + 'px';
