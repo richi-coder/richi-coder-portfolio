@@ -55,25 +55,26 @@ const $$FirstView = createComponent(async ($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$j, $$props, $$slots);
   Astro2.self = $$FirstView;
   return renderTemplate`${maybeRenderHead($$result)}<div class="firstView w-full h-screen relative top-0 left-0 z-10 overflow-hidden astro-PW252TJ7">
-	<div class="logoContainer flex flex-col items-center w-full h-full absolute top-0 left-0 astro-PW252TJ7">
-	<div class="layer astro-PW252TJ7"></div>
-    <div class="logo  astro-PW252TJ7">
-		<h2 class="richi astro-PW252TJ7">richi</h2>
-		<h2 class="text-gradient coder astro-PW252TJ7">Coder</h2>
-		<div class="bar ml-5 h-full w-1 astro-PW252TJ7"></div>
-		<div class="tech text-white astro-PW252TJ7">
-			<!-- <div class="layer bg-black"></div> -->
-			<div class="es5 astro-PW252TJ7">Responsive Design</div>
-			<div class="astro-PW252TJ7">Single Page Apps</div>
-			<div class="astro-PW252TJ7">Progressive Web Apps</div>
-			<div class="astro-PW252TJ7">Multi Page Apps</div>
-			<div class="astro-PW252TJ7">API communications	</div>
-		</div>
-	</div>
-	<div class="layer astro-PW252TJ7"></div>
-	</div>
-	${renderComponent($$result, "Precomponent", $$Precomponent, { "class": "astro-PW252TJ7" })}
-	${renderComponent($$result, "ScrollDown", $$ScrollDown, { "class": "astro-PW252TJ7" })}
+  <div class="logoContainer flex flex-col items-center w-full h-full absolute top-0 left-0 astro-PW252TJ7">
+    <div class="layer astro-PW252TJ7"></div>
+    <div class="logo astro-PW252TJ7">
+      <h2 class="richi astro-PW252TJ7">richi</h2>
+      <h2 class="text-gradient coder astro-PW252TJ7">Coder</h2>
+      <div class="bar ml-5 h-full w-1 astro-PW252TJ7"></div>
+      <div class="tech text-white astro-PW252TJ7">
+        <!-- <div class="layer bg-black"></div> -->
+        <div class="es5 astro-PW252TJ7">Responsive Design</div>
+        <div class="astro-PW252TJ7">Single Page Apps</div>
+        <div class="astro-PW252TJ7">Progressive Web Apps</div>
+        <div class="astro-PW252TJ7">Multi Page Apps</div>
+        <div class="astro-PW252TJ7">API communications</div>
+      </div>
+    </div>
+    <div class="layer astro-PW252TJ7"></div>
+  </div>
+  ${renderComponent($$result, "Precomponent", $$Precomponent, { "class": "astro-PW252TJ7" })}
+  ${renderComponent($$result, "ScrollDown", $$ScrollDown, { "class": "astro-PW252TJ7" })}
+  <span class="firstLayer absolute w-full h-full z-[100] astro-PW252TJ7"></span>
 </div>`;
 }, "/home/richicoderlinux/Desktop/richi-portfolio/src/components/FirstView.astro");
 
