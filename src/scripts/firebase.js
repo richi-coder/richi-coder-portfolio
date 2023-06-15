@@ -42,10 +42,13 @@ export const checkJobContact = async(browserUser, firebaseUser) => {
   let result;
   if (querySnapshot.docs.length > 0) {
     // console.log("Document data:");
+
+    console.log('positive');
     const pageLoadID = querySnapshot.docs[0].data();
     window.localStorage.removeItem('uSaLsFiAf')
     result = pageLoadID
   } else {
+    console.log('negative');
     // docSnap.data() will be undefined in this case
     // console.log("No such document!");
     readPageLoadandUpdateJobContact(browserUser, firebaseUser)
@@ -56,9 +59,10 @@ export const checkJobContact = async(browserUser, firebaseUser) => {
 }
 
 const readPageLoadandUpdateJobContact = async(browserUser, firebaseUser) => {
+  console.log('entro');
   const docRef = doc(db, "pageLoads", browserUser)
   const docSnap = await getDoc(docRef);
-  // console.log(docSnap.data(), 'ver');
+  console.log(docSnap.data(), 'ver');
   
   const updatedData = {
     'firebaseUser': {
@@ -76,6 +80,7 @@ const readPageLoadandUpdateJobContact = async(browserUser, firebaseUser) => {
     ...docSnap.data(),
     'formData': dataToFront
   }
+  console.log(docSnap.data().id, updatedData);
   const jobContactResult = await setDoc(doc(db, "jobContacts", docSnap.data().id), updatedData)
   window.localStorage.removeItem('uSaLsFiAf')
   // console.log('User created at jobContacts') 
@@ -89,8 +94,6 @@ export const readUserData = async(uid, formData) => {
 }
 
 export const checkFormCompleted = async (docID) => {
-  // const q = query(collection(db, "jobContacts"), where('firebaseUser.uid', '==', firebaseUser.uid));
-  // const querySnapshot = await getDocs(q);
   const docRef = doc(db, "jobContacts", docID)
   const docSnap = await getDoc(docRef);
   return docSnap.data()

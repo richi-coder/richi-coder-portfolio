@@ -15,6 +15,6 @@ const ipservice = async () => {
             navigatorLanguage: navigator.language,
         },
     }
-    console.log('working', jsonData)
+    // console.log('working', jsonData)
     pageLoad(jsonData)
 }
