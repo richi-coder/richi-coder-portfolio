@@ -6,15 +6,13 @@ import { auth, readResumeDownloadURl, storage } from "../scripts/firebase";
 import { getDownloadURL, ref } from "firebase/storage";
 
 function FormEnd() {
-  const linkRef = useRef();
   const navigate = useNavigate();
   const formData = useFormContext();
   const updateFormData = useUpdateFormContext();
   const location = useLocation();
   const formValues = Object.values(formData);
-  const lastData = formValues.slice(0);
-  const currentLocation = formValues.indexOf("");
   const [formendLoading, setFormendLoading] = useState(true)
+  const [buttonState, setButtonState] = useState(null)
 
   useEffect(() => {
     // Redirects to /contact in case phone is not verified
@@ -38,9 +36,10 @@ function FormEnd() {
 
   // testing download
   function downloadResume() {
+    setButtonState(false)
     readResumeDownloadURl()
       .then((url) => {
-        console.log("Succesful");
+        // console.log("Succesful");
         fetch(url, { method: "GET", referrerPolicy: "no-referrer" })
           .then((res) => res.blob())
           .then((res) => {
@@ -51,6 +50,7 @@ function FormEnd() {
             aElement.setAttribute("target", "_blank");
             aElement.click();
             URL.revokeObjectURL(href);
+            setButtonState(true)
           })
           .catch((error) => alert("Download failed...!"));
       })
@@ -69,10 +69,11 @@ function FormEnd() {
             <div className="show flex flex-col items-center justify-center gap-16 md:gap-10">
               <div>Thank you very much!</div>
               <button
+                disabled={buttonState != null ? true : false}
                 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl px-6 py-3 bg-blue-500 transition-all ladder rounded-lg"
                 onClick={downloadResume}
               >
-                DOWNLOAD RESUME
+                {buttonState === null ? 'DOWNLOAD RESUME' : buttonState === false ? 'Preparing download!' : 'Downloading!'}
               </button>
               {/* <a href="/">Come back to richicoder.com</a> */}
             </div>
