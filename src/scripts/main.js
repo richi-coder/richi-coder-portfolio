@@ -19,12 +19,13 @@ document.fonts.ready
         .then(() => {
           firstLayer.style.opacity = 0
           setTimeout(() => {
+            wholeScripts()
+          }, 1000); 
+          setTimeout(() => {
             firstLayer.style.animation = 'none';
-            firstLayer.style.background = 'black'
             firstLayer.style.zIndex = -999999; 
             firstLayer.style.display = 'none'; 
-            wholeScripts()
-          }, 2000); 
+          }, 2000);
         })
         .catch(wholeScripts)
 
