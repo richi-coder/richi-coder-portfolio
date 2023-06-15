@@ -62,7 +62,6 @@ const $$FirstView = createComponent(async ($$result, $$props, $$slots) => {
       <h2 class="text-gradient coder astro-PW252TJ7">Coder</h2>
       <div class="bar ml-5 h-full w-1 astro-PW252TJ7"></div>
       <div class="tech text-white astro-PW252TJ7">
-        <!-- <div class="layer bg-black"></div> -->
         <div class="es5 astro-PW252TJ7">Responsive Design</div>
         <div class="astro-PW252TJ7">Single Page Apps</div>
         <div class="astro-PW252TJ7">Progressive Web Apps</div>
@@ -179,8 +178,6 @@ const $$Shortbio = createComponent(async ($$result, $$props, $$slots) => {
   const { id, ownClass } = Astro2.props;
   return renderTemplate`${maybeRenderHead($$result)}<div${addAttribute(id, "id")}${addAttribute(`shortbio w-screen ${ownClass}`, "class")}>
     ${renderComponent($$result, "Precomponent", $$Precomponent, {})}
-    <!-- <div class="absolute top-0 left-0 -translate-y-1/2 prebio w-screen h-2/3 -mb-10"></div> -->
-    <!-- <Title id="shortbio-title" title="Bio" /> -->
     ${renderSlot($$result, $$slots["default"])}
 </div>`;
 }, "/home/richicoderlinux/Desktop/richi-portfolio/src/components/Shortbio.astro");
@@ -378,7 +375,6 @@ const $$Photo = createComponent(async ($$result, $$props, $$slots) => {
     <div class="photolayer "></div>
     
     <div class="titleContainer absolute top-16 left-0 w-fit h-fit z-40">
-        <!-- <Title id="shortbio-title" title="Bio" preTitle='richi' /> -->
     </div>
 
 </div>`;
@@ -394,7 +390,6 @@ const $$Talk = createComponent(async ($$result, $$props, $$slots) => {
     <a target="_blank" href="/contact/" class="talk relative transition-transform duration-300 px-8 py-4 -ml-6 bg-gradient-to-tr from-[#7C3AED] from-60% to-[#00407c] active:bg-purple-500 rounded-lg right-[400px] sm:right-[800px] ladder">
         CONTACT
     </a>
-    <!-- Update contact LINK when DONE -->
 </div>`;
 }, "/home/richicoderlinux/Desktop/richi-portfolio/src/components/Talk.astro");
 
@@ -483,7 +478,6 @@ const $$Header = createComponent(async ($$result, $$props, $$slots) => {
         </div>
         <div class="hidden sm:ml-3 sm:block sm:w-2/3 md:w-1/2 lg:w-1/3 lg:ml-5 astro-3EF6KSR2">
           <ul class="flex flex-row items-center justify-start h-full w-full sm:gap-4 astro-3EF6KSR2">
-            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
             <li class="relative py-2 px-3 w-1/4 h-full astro-3EF6KSR2">
             <a id="biolink" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white m-0 p-0 rounded-md text-sm font-medium sm:hover:cursor-pointer sm:hover:scale-[1.7] sm:transition-all active:text-blue-800 astro-3EF6KSR2" aria-current="page">bio</a>
             </li>
@@ -538,21 +532,7 @@ const $$Header = createComponent(async ($$result, $$props, $$slots) => {
 
         <!-- Profile dropdown -->
         <div class="relative ml-3 astro-3EF6KSR2">
-          <!--
-			  Dropdown menu, show/hide based on menu state.
   
-			  Entering: "transition ease-out duration-100"
-				From: "transform opacity-0 scale-95"
-				To: "transform opacity-100 scale-100"
-			  Leaving: "transition ease-in duration-75"
-				From: "transform opacity-100 scale-100"
-				To: "transform opacity-0 scale-95"
-			-->
-          <!-- <div class="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
-			  <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
-			  <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a>
-			  <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Sign out</a>
-			</div> -->
         </div>
       </div>
     </div>
