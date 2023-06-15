@@ -614,7 +614,7 @@ const $$Bios = createComponent(async ($$result, $$props, $$slots) => {
     ${renderComponent($$result, "BioComponent", $$BioComponent, { "ids": ["bio1", "bio2"], "titles": ["Frontend", "Developer"], "fontSize": "text-5xl" })}
     ${renderComponent($$result, "BioComponent", $$BioComponent, { "ids": ["bio3", "bio4"], "titles": ["Self-driven", "Career"], "fontSize": "text-5xl" })}
     ${renderComponent($$result, "BioComponent", $$BioComponent, { "ids": ["bio5", "bio6"], "titles": ["React / Next", "Focus"], "fontSize": "text-5xl" })}
-    ${renderComponent($$result, "BioComponent", $$BioComponent, { "ids": ["bio7", "bio8"], "titles": ["Developing in", "Linux"], "fontSize": "text-5xl" })}
+    ${renderComponent($$result, "BioComponent", $$BioComponent, { "ids": ["bio7", "bio8"], "titles": ["", "Coding"], "fontSize": "text-5xl" })}
     ${renderComponent($$result, "BioComponent", $$BioComponent, { "ids": ["bio9", "bio10"], "titles": ["28 years", "Old"], "fontSize": "text-5xl" })}
     ${renderComponent($$result, "BioComponent", $$BioComponent, { "ids": ["bio11", "bio12"], "titles": ["Mechanical", "Engineer"], "fontSize": "text-5xl" })}
     ${renderComponent($$result, "BioComponent", $$BioComponent, { "ids": ["bio13", "bio14"], "titles": ["Spanish, Portuguese", "English"], "fontSize": "text-4xl" })}
