@@ -38,8 +38,12 @@ function wholeScripts() {
   let barLogo = document.querySelector('.bar');
   let viewNavbar = document.querySelector('.view-navbar');
   let scrollDown = document.querySelector('.scrolldown'); 
+  let bio7 = document.querySelector('#bio7');
+  let timeCoding = (new Date() - new Date(2022, 0, 28))/1000;
+  let daysCoding = Math.floor(timeCoding/(3600*24))
   if (page === 'index') {
     body.classList.add('body-animation')
+    bio7.innerHTML = `${daysCoding} days`; 
   } else {
     body.classList.add('body-another-page')
   }
