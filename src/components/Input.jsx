@@ -31,10 +31,6 @@ function Input({ inputName, color, value, id, inputType, dataType, message }) {
         navigate('/contact/formend')
         return
       } 
-      // else if (formData.formComplete && inputLocation !== 'J') {
-      //   navigate('/contact/inputJ')
-      //   return
-      // }
       
       // If trying to acces an input page coming from /contact or if last input is empty
       if (!check) {
@@ -54,13 +50,6 @@ function Input({ inputName, color, value, id, inputType, dataType, message }) {
         }
       }
 
-      // Dealing with react speed
-      // if (!formData.isLoading) {
-      //   setTimeout(() => {
-      //     setInputDisabled(false)
-      //   }, 100); // React slowness
-      // }
-      // This last part requires putting this at the input disabled={inputDisabled}
     }, [location, formData.formComplete])
 
 
@@ -74,12 +63,7 @@ function Input({ inputName, color, value, id, inputType, dataType, message }) {
     // updating state when input changes, and validations included
     const onChange = (e) => {
         let { value } = e.target; 
-      // input onChange validations
-        // No spaces OK
-        // if (/\s/.test(value)) return
-        // No digits OK
-        // if (/\d/.test(value)) return
-       
+     
         // STRING CASE
         if (dataType === 'string' && id === 'name' || id === 'position' || id === 'city') {
             // Make sure not to send string numbers nor white spaces nor symbols
@@ -100,16 +84,6 @@ function Input({ inputName, color, value, id, inputType, dataType, message }) {
               <>
                 <label htmlFor={id} className='pl-2 py-1 text-3xl w-full mb-1'>{message}</label>
                 <input id={id} onChange={onChange} onKeyDown={onKey} className={`text-black ${id === 'telephone' ? 'pl-2' : 'pl-2'} py-1 text-4xl w-full`} type={inputType} value={value} placeholder={`Enter ${inputName}`} autoFocus />
-                {/* input pl-[5.5rem] for select present */}
-                {/* {
-                  id === 'telephone' ?
-                  <select className='absolute bottom-0 left-0 bg-blue-700 cursor-pointer py-1 text-3xl text-white rounded w-[5rem]' type='text'>
-                    <option value="A">+56</option>
-                    <option value="B">+57</option>
-                    <option value="C">+58</option>
-                  </select> :
-                  null
-                } */}
                 <div className='w-full text-center absolute bottom-0 left-1/2 translate-y-[110%] -translate-x-1/2 text-red-500 text-xl animate-pulse'>{formData.inputErrorMessage}</div>
               </> :
               <PhoneTest inputProps={{ inputName, color, value, id, inputType, dataType, message }} />

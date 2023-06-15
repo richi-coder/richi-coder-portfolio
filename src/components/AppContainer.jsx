@@ -3,14 +3,13 @@ import { inputTypes, useFormContext, useUpdateFormContext } from "./AppContext"
 import Input from "./Input";
 import FormButtons from "./FormButtons";
 import { useEffect, useState } from "react";
-import { GoogleAuthProvider, getRedirectResult, onAuthStateChanged } from "firebase/auth";
+import { getRedirectResult, onAuthStateChanged } from "firebase/auth";
 import SignOutButton from "./SignOutButton";
 import RootContact from "./RootContact";
 import FormEnd from "./FormEnd";
 import { registerPageLoad } from "../scripts/ipservice";
-import { auth, checkJobContact, readResumeDownloadURl } from "../scripts/firebase";
+import { auth, checkJobContact } from "../scripts/firebase";
 import Presentation from "./Presentation";
-import PhoneTest from "./PhoneTest";
 
 
 function AppContainer() {
@@ -68,9 +67,8 @@ function AppContainer() {
       } else {
         
         // User is signed out
-        // ...
-        // setUser(firebaseUser)
         // console.log('user Offline!')
+
         // stateLoader 
           setTimeout(() => {
             updateFormData('isLoading', false)
@@ -92,10 +90,7 @@ function AppContainer() {
       
       getRedirectResult(auth)
                 .then(res => {
-                  // console.log(res, 'Redirect Then Ok!')
-                  // **********************
                   checkingFirebaseUser()
-                  // **********************
                 })
                 .catch(error => alert(error, 'rreeeesssError'))
       
@@ -280,62 +275,6 @@ function AppContainer() {
                 />
               }
             ></Route>
-            {/* <Route
-              path="/contact/inputK"
-              element={
-                <Input
-                  message='Your telephone'
-                  id={"telephone"}
-                  inputName="Telephone"
-                  color="bg-gradient-to-r from-purple-500"
-                  value={formData.telephone}
-                  inputType='string'
-                  dataType='number'
-                />
-              }
-            ></Route>
-            <Route
-              path="/contact/inputL"
-              element={
-                <Input
-                  message='How should I contact you?'
-                  id={"contactMethod"}
-                  inputName="How"
-                  color="bg-gradient-to-r from-indigo-500"
-                  value={formData.contactMethod}
-                  inputType='text'
-                  dataType='string'
-                />
-              }
-            ></Route>
-            <Route
-              path="/contact/inputM"
-              element={
-                <Input
-                  message='When should I contact you?'
-                  id={"contactDate"}
-                  inputName="When"
-                  color="bg-gradient-to-r from-indigo-500"
-                  value={formData.contactDate}
-                  inputType='text'
-                  dataType='string'
-                />
-              }
-            ></Route>
-            <Route
-              path="/contact/inputN"
-              element={
-                <Input
-                  message={`Enter code sent to`}
-                  id={"phoneTest"}
-                  inputName="Code"
-                  color="bg-gradient-to-r from-purple-500"
-                  value={'nuuull'}
-                  inputType='text'
-                  dataType='number'
-                />
-              }
-            ></Route> */}
             <Route
               path="/contact/formend"
               element={

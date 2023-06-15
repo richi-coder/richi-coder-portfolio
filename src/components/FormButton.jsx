@@ -8,7 +8,6 @@ function FormButton({ direction, user }) {
   const navigate = useNavigate();
   const location = useLocation().pathname;
   const splittedLocation = location.split("");
-  const currentLocation = splittedLocation[splittedLocation.length - 1];
   const locationSplitted = location.split("");
   const formData = useFormContext();
   const updateFormData = useUpdateFormContext();
@@ -23,7 +22,6 @@ function FormButton({ direction, user }) {
       (location !== "/contact/" &&
         location !== "/contact/formend" &&
         formData[formData.scheme[location]] === "")
-        // || /\s/.test(formData[formData.scheme[location]])
     ) {
       setButtonEnabled(true);
     } else {
@@ -104,19 +102,6 @@ function FormButton({ direction, user }) {
         } 
   } 
       
-      
-
-      // if (/\d/.test(value) || !/[a-zA-Z]$|^$/.test(value))
-      // Form validation at frontend
-      // if (formData[formData.formLocation] === "") {
-      //   setButtonEnabled(true);
-      //   return;
-      // }
-      // if (/\s/.test(formData[formData.formLocation])) {
-      //   setButtonEnabled(true);
-      //   return;
-      // }
-
       // Backend fulfill
       backendUpdate();
       // return true

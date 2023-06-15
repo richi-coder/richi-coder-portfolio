@@ -126,10 +126,6 @@ function PhoneTest({inputProps}) {
                     window.location.replace('/contact/inputJ')
                   }
                   
-                  // if (Object.values(error)[0] === 'auth/code-expired') {
-                  //   updatePhoneTestState({'recaptchaMessage': `Code expired`, 'loading': false, 'buttonMessage': 'Try again!', 'recaptchaResult': Object.values(error)[0], 'codeColor': 'bg-red-900'})
-                  //   window.location.replace('/contact/inputJ')
-                  // }
                   appVerifier.render().then(function(widgetId) {
                     grecaptcha.reset(widgetId);
                   });
