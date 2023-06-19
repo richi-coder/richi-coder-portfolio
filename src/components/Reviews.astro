@@ -21,22 +21,23 @@ const tweetReviews = [
 
 {
     tweetReviews.length > 0 ?
-    <>
-    <div class='w-full h-52 relative bg-[rgb(10,10,10)] overflow-clip'>
-        <div class='w-fit flex flex-row flex-nowrap gap-x-10 absolute top-0 left-0 moveTweets1'>
+    <div id='reviews' class='relative w-full z-[60] -mt-96'>
+    <div class='relative w-full h-32 md:h-44 bg-gradient-to-t  from-[rgb(10,10,10)] to-transparent z-10 -mb-1'></div>
+    <div class='w-full h-52 relative bg-[rgb(10,10,10)] overflow-clip -mt-1'>
+        <div class='w-fit flex flex-row flex-nowrap gap-x-10 absolute top-2 left-0 moveTweets1'>
             {
                 tweetReviews.map((tweet, index) => <Review tweetCard={tweetReviews[index]} client:only='react' />)
             }
         </div>
     </div>
-    <div class='w-full h-52 relative bg-[rgb(10,10,10)] overflow-clip'>
-        <div class='w-fit flex flex-row flex-nowrap gap-x-10 absolute top-0 left-0 moveTweets2'>
+    <div class='w-full h-52 relative bg-[rgb(10,10,10)] overflow-clip -mt-1'>
+        <div class='w-fit flex flex-row flex-nowrap gap-x-10 absolute top-2 left-0 moveTweets2'>
             {
                 tweetReviews.map((tweet, index) => <Review tweetCard={tweetReviews[index]} client:only='react' />)
             }
         </div>
     </div>
-    </> :
+    </div> :
     null
 }
 

@@ -7,7 +7,7 @@ function Review({ tweetCard }) {
             <a href={tweetCard.tweetLink} target='_blank' className="rounded-lg text-white text-sm bg-slate-800 w-80 h-36 py-5 px-5 flex flex-col items-start gap-y-4">
                 <div id='top-card' className='w-full flex flex-row items-center justify-between'>
                     <img
-                        // loading='lazy'
+                        loading='lazy'
                         src={tweetCard.imageLink}
                         alt={`${tweetCard.name}-twiter`}
                         className='rounded-full text-xs h-full' />

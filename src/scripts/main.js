@@ -525,12 +525,42 @@ TweenMax.fromTo(".orange", {yPercent: 0}, {yPercent: -30, ease: Power0.easeNone}
 ])
 
 let sceneVideo = new ScrollMagic.Scene({
-triggerElement: ".contactContainer",
+triggerElement: "#reviews",
 duration: '150%',
 triggerHook: 1,
 })
 .setTween(tweenVideo)
 // .addIndicators({name: "Video OFF"})
+.addTo(controller)
+
+// Reviews Start Scene        
+let tweenReviews = new TimelineMax ()
+.add([
+TweenMax.fromTo("#reviews", {filter: 'blur(5px)', ease: Power0.easeNone}, {filter: 'blur(0px)', ease: Power0.easeNone})
+])
+
+let sceneReviews = new ScrollMagic.Scene({
+triggerElement: "#reviews",
+duration: '50%',
+triggerHook: 1,
+})
+.setTween(tweenReviews)
+// .addIndicators({name: "Video OFF"})
+.addTo(controller)
+
+// Reviews End Scene        
+let tweenReviewsEnd = new TimelineMax ()
+.add([
+TweenMax.fromTo("#reviews", {yPercent: 0, ease: Power0.easeNone}, {yPercent: 20, ease: Power0.easeNone})
+])
+
+let sceneReviewsEnd = new ScrollMagic.Scene({
+triggerElement: "#reviews",
+duration: '50%',
+triggerHook: 0.5 ,
+})
+// .setTween(tweenReviewsEnd)
+.addIndicators({name: "Reviews end"})
 .addTo(controller)
 
 // Contact scene          
@@ -667,6 +697,8 @@ sceneSkillsPrereveal.refresh()
 sceneSkillsReveal.refresh()
 sceneSkillSlider.refresh()
 sceneVideo.refresh()
+sceneReviews.refresh()
+sceneReviewsEnd.refresh()
 sceneContact.refresh()
 sceneMap.refresh()
 sceneBlockContact.refresh()
