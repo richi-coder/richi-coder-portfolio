@@ -56,7 +56,6 @@ function wholeScripts() {
     scrollDown.classList.add('scrolldown-animation');
 
   // PAGE SECTIONS
-
 let firstView = document.querySelector('.firstView');
 let bioSection = document.querySelector('#bio-title-container');
 let portfolioSection = document.querySelector('#portfolioContainer');
@@ -65,7 +64,6 @@ let contactSection = document.querySelector('.contactContainer');
 
 
 // LINKS
-
 let hamburguerButton = document.querySelector('#hamburguer-button'); // Hamburguer mobile button
 let closeButton = document.querySelector('#close-button'); // Close mobile button
 let mobileMenu = document.querySelector('#mobile-menu'); // Mobile menu
@@ -634,8 +632,6 @@ offset: socialOffset
 .setTween(tweenSocials)
 // .addIndicators({name: 'socialsss'})
 .addTo(controller)
-
-
 
 // 3 Add classes to hide elements (case using JS)
 window.addEventListener("DOMContentLoaded", () => {
