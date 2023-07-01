@@ -190,16 +190,18 @@ import "./styles/typing.css";
     </div>
     <!-- Mobile menu, show/hide based on menu state. -->
     <div class="block sm:hidden w-full" id="mobile-menu">
-		<div class='flex flex-col gap-[7vh] px-2 pt-[10vh] pb-3 text-7xl w-full'>
+		<div class='flex flex-col gap-[7vh] px-[5vw] pt-[10vh] pb-3 text-5xl w-full'>
 		<!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
 	
-			<a id='mobile-bio-link' class="text-gray-100 px-1 font-medium mobile-link transition duration-300 -translate-y-96  active:text-blue-800">bio</a>
+			<a id='mobile-bio-link' class="text-gray-100 px-1 font-medium mobile-link transition duration-200 -translate-y-96  active:text-blue-800">bio</a>
 	
-			<a id='mobile-portfolio-link' class="text-gray-100 px-1 font-medium mobile-link transition duration-500 -translate-y-96 active:text-blue-800">projects</a>
+			<a id='mobile-portfolio-link' class="text-gray-100 px-1 font-medium mobile-link transition duration-300 -translate-y-96 active:text-blue-800">projects</a>
 
-			<a id='mobile-skills-link' class="text-gray-100 px-1 font-medium mobile-link transition duration-700 -translate-y-96 active:text-blue-800">skills</a>
+			<a id='mobile-skills-link' class="text-gray-100 px-1 font-medium mobile-link transition duration-500 -translate-y-96 active:text-blue-800">skills</a>
 
-			<a id='mobile-contact-link' class="text-gray-100 px-1 font-medium mobile-link transition duration-1000 -translate-y-96 active:text-blue-800">contact</a>
+			<a id='mobile-contact-link' class="text-gray-100 px-1 font-medium mobile-link transition duration-700 -translate-y-96 active:text-blue-800">contact</a>
+
+      <a id='mobile-resume-link' href={'/resume'} class="text-gray-100 px-1 font-medium mobile-link transition duration-1000 -translate-y-96 active:text-blue-800">resume</a>
       
 		</div>
     <img src="richicoder_logo.png" alt="richicoder_logo" class='w-screen aspect-[4/1] object-cover absolute bottom-0 left-0' loading='lazy'>

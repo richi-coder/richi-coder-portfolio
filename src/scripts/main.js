@@ -78,6 +78,7 @@ let mobileBioLink = document.querySelector('#mobile-bio-link');  // Mobio link t
 let mobilePortfolioLink = document.querySelector('#mobile-portfolio-link');  // Mobio link to portfolio
 let mobileSkillsLink = document.querySelector('#mobile-skills-link');  // Mobio link to skills
 let mobileContactLink = document.querySelector('#mobile-contact-link');  // Mobio link to contact
+let mobileResumeLink = document.querySelector('#mobile-resume-link');  // Mobio link to resume
 let socials = document.querySelectorAll('.fa')
 Array.from(socials).forEach(social => {
 social.addEventListener('mouseover', () => {if(!social.classList.contains('fa-bounce')) social.classList.add('fa-bounce')})
@@ -137,6 +138,7 @@ mobileBioLink.classList.remove('-translate-y-96')
 mobilePortfolioLink.classList.remove('-translate-y-96')
 mobileSkillsLink.classList.remove('-translate-y-96')
 mobileContactLink.classList.remove('-translate-y-96')
+mobileResumeLink.classList.remove('-translate-y-96')
 } else {
 mobileMenu.classList.add('-translate-y-full')
 mobileMenu.classList.add('scale-50')
@@ -145,6 +147,7 @@ mobileBioLink.classList.add('-translate-y-96')
 mobilePortfolioLink.classList.add('-translate-y-96')
 mobileSkillsLink.classList.add('-translate-y-96')
 mobileContactLink.classList.add('-translate-y-96')
+mobileResumeLink.classList.add('-translate-y-96')
 }
 })
 
@@ -157,6 +160,7 @@ mobileBioLink.classList.add('-translate-y-96')
 mobilePortfolioLink.classList.add('-translate-y-96')
 mobileSkillsLink.classList.add('-translate-y-96')
 mobileContactLink.classList.add('-translate-y-96')
+mobileResumeLink.classList.add('-translate-y-96')
 } else {
 mobileMenu.classList.remove('-translate-y-full')
 mobileMenu.classList.remove('scale-50')
@@ -165,6 +169,7 @@ mobileBioLink.classList.remove('-translate-y-96')
 mobilePortfolioLink.classList.remove('-translate-y-96')
 mobileSkillsLink.classList.remove('-translate-y-96')
 mobileContactLink.classList.remove('-translate-y-96')
+mobileResumeLink.classList.remove('-translate-y-96')
 }
 })
 
