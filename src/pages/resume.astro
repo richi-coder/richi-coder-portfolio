@@ -3,6 +3,9 @@ import Layout from "../layouts/Layout.astro";
 import DownloadResumeButton from '../components/DownloadResumeButton'
 import "../components/styles/photo.css"
 import "../components/styles/title.css";
+import '../components/styles/presentationForm.css'
+import EmailCopied from "../components/EmailCopied.astro";
+import EmailButton from "../components/EmailButton.jsx";
 ---
 
 <Layout title="Resume | richiCoder">
@@ -10,9 +13,10 @@ import "../components/styles/title.css";
         <div class='fixed top-0 left-0 h-screen w-full myphoto blur-md'><img id="richi-photo" src="richicoder.png" alt="richicoder_profile_photo" class='absolute top-0 left-0 h-screen w-full object-cover'></div>
         <span class='fixed top-0 left-0 h-screen w-full bg-white opacity-40'></span>
         <DownloadResumeButton background={'bg-gradient-to-tr from-[#7C3AED] from-60% to-[#00407c] active:bg-purple-500'} client:only='react' />
-        <h1 class='z-10 text-3xl'>richicoder@gmail.com</h1>
+        <EmailButton classStyle={'z-10 text-3xl'} client:only='react' />
         <a href={'/'} class="text-center text-xl sm:text-3xl p-0 m-0 z-10 fixed bottom-5 text-white left-1/2 -translate-x-1/2 select-none" style="font-family: Orbitron, monospace;">
             richi<span class="text-gradient">Coder</span>
         </a>
+        <EmailCopied />
     </main> 
 </Layout>
