@@ -114,7 +114,7 @@ export const userAnotherAccount = () => {
 // Read download URL
 
 export const readResumeDownloadURl = async() => {
-  const resumeRef = ref(storage, 'richiCoderResume.pdf')
+  const resumeRef = ref(storage, 'richiCoderResume_Official.pdf')
   const url = await getDownloadURL(resumeRef)
         
   return url

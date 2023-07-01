@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
 import { useFormContext, useUpdateFormContext } from "./AppContext";
 import { onAuthStateChanged } from "firebase/auth";
-import { auth, readResumeDownloadURl, storage } from "../scripts/firebase";
-import { getDownloadURL, ref } from "firebase/storage";
+import { auth } from "../scripts/firebase";
+import DownloadResumeButton from "./DownloadResumeButton";
 
 function FormEnd() {
   const navigate = useNavigate();
@@ -12,7 +12,6 @@ function FormEnd() {
   const location = useLocation();
   const formValues = Object.values(formData);
   const [formendLoading, setFormendLoading] = useState(true)
-  const [buttonState, setButtonState] = useState(null)
 
   useEffect(() => {
     // Redirects to /contact in case phone is not verified
@@ -34,29 +33,6 @@ function FormEnd() {
     });
   }, [formData.formLocation]);
 
-  // testing download
-  function downloadResume() {
-    setButtonState(false)
-    readResumeDownloadURl()
-      .then((url) => {
-        // console.log("Succesful");
-        fetch(url, { method: "GET", referrerPolicy: "no-referrer" })
-          .then((res) => res.blob())
-          .then((res) => {
-            const aElement = document.createElement("a");
-            aElement.setAttribute("download", "richiCoderResume.pdf");
-            const href = URL.createObjectURL(res);
-            aElement.href = href;
-            aElement.setAttribute("target", "_blank");
-            aElement.click();
-            URL.revokeObjectURL(href);
-            setButtonState(true)
-          })
-          .catch((error) => alert("Download failed...!"));
-      })
-      .catch((error) => console.log("ERROR", error));
-  }
-
   return (
     <>
       {
@@ -68,13 +44,7 @@ function FormEnd() {
           {formData.phoneTest ? (
             <div className="show flex flex-col items-center justify-center gap-16 md:gap-10">
               <div>Thank you very much!</div>
-              <button
-                disabled={buttonState != null ? true : false}
-                className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl px-6 py-3 bg-blue-500 transition-all ladder rounded-lg"
-                onClick={downloadResume}
-              >
-                {buttonState === null ? 'DOWNLOAD RESUME' : buttonState === false ? 'Preparing download!' : 'Downloading!'}
-              </button>
+              <DownloadResumeButton background={'bg-blue-500'} />
               {/* <a href="/">Come back to richicoder.com</a> */}
             </div>
           ) : (

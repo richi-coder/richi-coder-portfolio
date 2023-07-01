@@ -1,0 +1,17 @@
+---
+import Layout from "../layouts/Layout.astro";
+import DownloadResumeButton from '../components/DownloadResumeButton'
+import "../components/styles/photo.css"
+import "../components/styles/title.css";
+---
+
+<Layout title="Resume | richiCoder">
+    <main class="bg-[rgb(10,10,10)] h-screen w-screen flex flex-col items-center justify-center">
+        <div class='fixed top-0 left-0 h-screen w-full myphoto blur-md'><img id="richi-photo" src="richicoder.png" alt="richicoder_profile_photo" class='absolute top-0 left-0 h-screen w-full object-cover'></div>
+        <span class='fixed top-0 left-0 h-screen w-full bg-white opacity-40'></span>
+        <DownloadResumeButton background={'bg-gradient-to-tr from-[#7C3AED] from-60% to-[#00407c] active:bg-purple-500'} client:only='react' />
+        <h1 class="text-center text-3xl p-0 m-0 z-10 fixed bottom-5 text-white left-1/2 -translate-x-1/2" style="font-family: Orbitron, monospace;">
+            richi<span class="text-gradient">Coder</span>
+        </h1>
+    </main> 
+</Layout>
