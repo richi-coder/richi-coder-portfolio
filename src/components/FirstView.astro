@@ -52,28 +52,24 @@ import ScrollDown from "../components/ScrollDown.astro";
   }
   .firstLayer {
     -webkit-animation: color-change-3x 4s linear infinite alternate both;
-    animation: color-change-3x 4s linear infinite alternate both;
+    animation: color-change-3x 1s linear infinite alternate both;
     transition: all 1.5s ease-in-out;
   }
 
   @-webkit-keyframes color-change-3x {
     0% {
-      background: #00407c;
+      background: rgb(40,40,40);
     }
-    50% {
-      background: rgb(124, 58, 237);
-    }
+   
     100% {
       background: black;
     }
   }
   @keyframes color-change-3x {
     0% {
-      background: #00407c;
+      background: rgb(40,40,40);
     }
-    50% {
-      background: rgb(124, 58, 237);
-    }
+  
     100% {
       background: black;
     }
@@ -94,7 +90,7 @@ import ScrollDown from "../components/ScrollDown.astro";
     z-index: 9999;
   }
   .richi-animation {
-    animation: richi 12s linear 1;
+    animation: richi 8.5s linear 1;
     transform: translate(0, 0);
   }
   .coder {
@@ -111,7 +107,7 @@ import ScrollDown from "../components/ScrollDown.astro";
     z-index: 9999;
   }
   .coder-animation {
-    animation: coder 12s linear 1;
+    animation: coder 8.5s linear 1;
     transform: translate(0, 0);
   }
   @keyframes richi {
@@ -120,20 +116,20 @@ import ScrollDown from "../components/ScrollDown.astro";
       transform: translate(0, -70vh);
       opacity: 0;
     }
-    15% {
+    1% {
       transform: translate(0, -70vh);
     }
-    16.25% {
+    2.25% {
       transform: translate(0, 0);
       opacity: 1;
     }
-    16.875% {
+    2.875% {
       transform: translate(0, -5vh);
     }
-    17.5% {
+    3.5% {
       transform: translate(0, 0);
     }
-    98% {
+    97% {
       width: calc(var(--richiwidth));
     }
     100% {
@@ -146,20 +142,20 @@ import ScrollDown from "../components/ScrollDown.astro";
       transform: translate(0, -70vh);
       opacity: 0;
     }
-    20% {
+    6% {
       transform: translate(0, -70vh);
     }
-    21.25% {
+    7.25% {
       transform: translate(0, 0);
       opacity: 1;
     }
-    21.875% {
+    7.875% {
       transform: translate(0, -7vh);
     }
-    22.5% {
+    8.5% {
       transform: translate(0, 0);
     }
-    94% {
+    92% {
       width: var(--coderwidth);
     }
     96% {
@@ -197,7 +193,7 @@ import ScrollDown from "../components/ScrollDown.astro";
     opacity: 0;
   }
   .tech-animation {
-    animation: tech 8s ease-in-out 3s 1;
+    animation: tech 7s ease-in-out 1s 1;
   }
   @keyframes tech {
     0% {
@@ -281,7 +277,7 @@ import ScrollDown from "../components/ScrollDown.astro";
     margin-left: 5px;
   }
   .bar-animation {
-    animation: bar 8s ease-in 3s 1;
+    animation: bar 7s ease-in 1s 1;
   }
   @keyframes bar {
     5% {

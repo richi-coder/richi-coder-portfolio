@@ -13,7 +13,21 @@ let firstLayer = document.querySelector('.firstLayer');
 document.fonts.onloadingerror = () => {
   console.log("Font loading error");
 };
-
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    const link = document.createElement('link');
+    link.href = 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css';
+    link.media = 'print';
+    link.onload = 'this.media="all"'
+    const head = document.head; 
+    console.log(head);
+    head.appendChild(link)
+    let iFrame = document.querySelector('.hey')
+    console.log(iFrame.classList );
+    iFrame.classList.add('devicon-npm-original-wordmark text-5xl sm:text-7xl')
+    console.log(iFrame);
+  }
+})
 // Font loaded Listener
 document.fonts.ready
         .then(() => {
