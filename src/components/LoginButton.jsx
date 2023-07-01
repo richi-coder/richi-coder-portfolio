@@ -66,7 +66,7 @@ function LoginButton() {
    
 
   return (
-    <div className='text-2xl md:text-3xl flex-grow lg:flex-grow-0 flex flex-col lg:flex-row items-center justify-around lg:justify-center lg:gap-[7vw] w-2/3 md:w-full lg:pt-28'>
+    <div className='text-2xl md:text-3xl flex-grow lg:flex-grow-0 flex flex-col lg:flex-row items-center justify-around lg:justify-center lg:gap-[7vw] w-2/3 md:w-full lg:pt-28 select-none'>
         <button
         onClick={googleLogin}
         className={`bg-blue-700 hover:bg-blue-500 transition-all text-white font-bold py-3 w-52 rounded opacity-0 ladder ${ladder1} jump`}>
