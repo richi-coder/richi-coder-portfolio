@@ -122,8 +122,18 @@ if (isMobile) {
   contactYpercent = -10
   socialOffset = 0
   socialDuration = 180
-  startTabletPosition = 20
   bioStartPosition = 50
+    if (window.innerWidth > 650) {
+      startTabletPosition = 5;
+    } else if (window.innerWidth <= 650 && window.innerWidth > 500) {
+      startTabletPosition = 70;
+    } else if (window.innerWidth <= 500 && window.innerWidth > 400) {
+      startTabletPosition = 20;
+    } else if (window.innerWidth <= 400 && window.innerWidth > 300) {
+      startTabletPosition = 30;
+    } else {
+      startTabletPosition = 40;
+    }
   } else {
   if (page === 'index') desktopScrolling();
   numberOffset = -200;
@@ -135,10 +145,18 @@ if (isMobile) {
   socialOffset = 250
   socialDuration = 360
   bioStartPosition = 0
-    if (window.innerWidth > 850) {
-      startTabletPosition = 50
-    } else { 
-      startTabletPosition = 10
+    if (window.innerWidth >= 1250) {
+      startTabletPosition = 45;
+    } else if (window.innerWidth >= 1000 && window.innerWidth < 1250) {
+      startTabletPosition = 80;
+    } else if (window.innerWidth > 900 && window.innerWidth < 1000) {
+      startTabletPosition = -40;
+    } else if (window.innerWidth > 770 && window.innerWidth <= 900) {
+      startTabletPosition = -20;
+    } else if (window.innerHeight <= 770 && window.innerWidth > 650) { 
+      startTabletPosition = 0;
+    } else {
+      startTabletPosition = 0;
     }
 }
 
