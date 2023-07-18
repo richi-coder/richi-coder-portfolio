@@ -8,12 +8,13 @@ export default function MyVideo() {
     width: 1000,
     height: (1000 * 8.5) / 16,
     playerVars: {
-      autoplay: 1,
+      autoplay: 0,
     },
   })
 
   const onPlayerReady = (e) => {
-    e.target.play();
+    // e.target.play();
+    console.log('to play');
   };
 
   useEffect(() => {

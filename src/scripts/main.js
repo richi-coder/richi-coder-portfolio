@@ -108,6 +108,7 @@ let skillsFixedDuration = '';
 let talkRight;
 let contactYpercent;
 let socialOffset;
+let talkDuration;
 let socialDuration;
 let startTabletPosition;
 let bioStartPosition;
@@ -141,9 +142,10 @@ if (isMobile) {
   numberYpercent = 50;
   skillsFixedDuration = '100%' //0.01%
   talkRight = 800
-  contactYpercent = -80
-  socialOffset = 250
-  socialDuration = 360
+  contactYpercent = -25
+  socialOffset = 100
+  talkDuration = '70%'
+  socialDuration = '70%'
   bioStartPosition = 0
     if (window.innerWidth >= 1250) {
       startTabletPosition = 45;
@@ -260,7 +262,7 @@ duration: '10%',
 // richiBio animation
 let tweenRichibio = new TimelineMax()
 .add([
-TweenMax.fromTo("#shortbio-title", {autoAlpha: 0, yPercent: 50, scale: 3, ease: Power0.easeNone}, {autoAlpha: 1, yPercent: 0, scale: 1, ease: Power0.easeNone})
+TweenMax.fromTo("#shortbio-title", {autoAlpha: 0, yPercent: 50, filter: 'blur(3px)', ease: Power0.easeNone}, {autoAlpha: 1, yPercent: 0, filter: 'blur(0px)', ease: Power0.easeNone})
 ])
 
 let sceneRichiBio = new ScrollMagic.Scene({
@@ -292,14 +294,14 @@ duration: '200%',
 // richiProjects animation
 let tweenRichiprojects = new TimelineMax()
 .add([
-TweenMax.fromTo("#projects-title", {autoAlpha: 0, yPercent: 50, scale: 3, ease: Power0.easeNone}, {autoAlpha: 1, yPercent: 0, scale: 1, ease: Power0.easeNone})
+TweenMax.fromTo("#projects-title", {autoAlpha: 0, yPercent: 50, filter: 'blur(3px)', ease: Power0.easeNone}, {autoAlpha: 1, yPercent: 0, filter: 'blur(0px)', ease: Power0.easeNone})
 ])
 
 let sceneRichiprojects = new ScrollMagic.Scene({
 triggerElement: "#projects-title",
 triggerHook: 1,
 duration: '20%',
-offset: 400
+offset: 100
 })
 .setTween(tweenRichiprojects)
 // .addIndicators({name: "richiProjects"})
@@ -556,19 +558,19 @@ offset: '100%'
 // Video scene          
 let tweenVideo = new TimelineMax ()
 .add([
-TweenMax.fromTo(".orange", {yPercent: 0}, {yPercent: -30, ease: Power0.easeNone})
+TweenMax.fromTo(".orange", {yPercent: 0, authoAlpha: 1}, {yPercent: -30, autoAlpha: 0, ease: Power0.easeNone})
 ])
 
 let sceneVideo = new ScrollMagic.Scene({
 triggerElement: "#video",
-duration: '150%',
+duration: '50%',
 triggerHook: 1,
 })
 .setTween(tweenVideo)
 // .addIndicators({name: "Video OFF"})
 .addTo(controller)
 
-// Reviews Start Scene        
+// Video Start Scene        
 let tweenReviews = new TimelineMax ()
 .add([
 TweenMax.fromTo("#video", {filter: 'blur(5px)', ease: Power0.easeNone}, {filter: 'blur(0px)', ease: Power0.easeNone})
@@ -583,50 +585,53 @@ triggerHook: 1,
 // .addIndicators({name: "Video OFF"})
 .addTo(controller)
 
-// Reviews End Scene        
-let tweenReviewsEnd = new TimelineMax ()
-.add([
-TweenMax.fromTo("#reviews", {yPercent: 0, ease: Power0.easeNone}, {yPercent: 20, ease: Power0.easeNone})
-])
-
-let sceneReviewsEnd = new ScrollMagic.Scene({
-triggerElement: "#reviews",
-duration: '50%',
-triggerHook: 0.5 ,
-})
-// .setTween(tweenReviewsEnd)
-.addIndicators({name: "Reviews end"})
-.addTo(controller)
 
 // Contact scene          
 let tweenContact = new TimelineMax ()
 .add([
-TweenMax.fromTo("#contact-title", {yPercent: 110, filter: 'blur(3px)', ease: Power0.easeNone}, {yPercent: 0, filter: 'blur(0px)', ease: Power0.easeNone}),
+TweenMax.fromTo("#contact-title", {yPercent: 50, autoAlpha: 0, filter: 'blur(3px)', ease: Power0.easeNone}, {yPercent: 0, autoAlpha: 1, filter: 'blur(0px)', ease: Power0.easeNone}, 1),
+TweenMax.fromTo("#video", {autoAlpha: 1, filter: 'blur(0px)', ease: Power0.easeNone}, {autoAlpha: 0, filter: 'blur(5px)', ease: Power0.easeNone}, 0.5),
 ])
 
 let sceneContact = new ScrollMagic.Scene({
 triggerElement: "#contact-title",
-duration: '50%',
+duration: '40%',
 triggerHook: 1,
+offset: 100
 })
 .setTween(tweenContact)
 // .addIndicators({name: "Contact"})
 .addTo(controller)
 
-// Map scene          
-let tweenMap = new TimelineMax ()
+// Reviews End Scene        
+let tweenReviewsEnd = new TimelineMax ()
 .add([
-TweenMax.fromTo("#reviews", {yPercent: -20, filter: 'blur(3px)', ease: Power0.easeNone}, {yPercent: 15, filter: 'blur(0px)', ease: Power0.easeNone}),
+TweenMax.fromTo("#reviews", {yPercent: 25, opacity: 0, filter: 'blur(3px)', ease: Power0.easeNone}, {yPercent: 0, opacity: 1, filter: 'blur(0px)', ease: Power0.easeNone})
 ])
 
-let sceneMap = new ScrollMagic.Scene({
+let sceneReviewsEnd = new ScrollMagic.Scene({
 triggerElement: "#reviews",
-duration: '100%',
-triggerHook: 1,
+duration: '50%',
+triggerHook: 0.8,
 })
-.setTween(tweenMap)
-// .addIndicators({name: "worldMap"})
+.setTween(tweenReviewsEnd)
+// .addIndicators({name: "Reviews end"})
 .addTo(controller)
+
+// // Map scene          
+// let tweenMap = new TimelineMax ()
+// .add([
+// TweenMax.fromTo("#reviews", {yPercent: -20, filter: 'blur(3px)', ease: Power0.easeNone}, {yPercent: 15, filter: 'blur(0px)', ease: Power0.easeNone}),
+// ])
+
+// let sceneMap = new ScrollMagic.Scene({
+// triggerElement: "#reviews",
+// duration: '100%',
+// triggerHook: 1,
+// })
+// .setTween(tweenMap)
+// // .addIndicators({name: "worldMap"})
+// .addTo(controller)
 
 // Map scene          
 let tweenBlockContact = new TimelineMax ()
@@ -636,9 +641,8 @@ TweenMax.fromTo("#contact-block", {yPercent: contactYpercent, ease: Power0.easeN
 
 let sceneBlockContact = new ScrollMagic.Scene({
 triggerElement: "#contact-block",
-duration: '105%',
+duration: '50%',
 triggerHook: 1,
-offset: -200
 })
 .setTween(tweenBlockContact)
 // .addIndicators({name: "contactBLOCK"})
@@ -649,9 +653,9 @@ let tweenTalk = TweenMax.staggerFromTo('.talk', 3, {right: talkRight}, {right: 0
 
 let sceneTalk = new ScrollMagic.Scene({
 triggerElement: '.talk',
-duration: 360,
-triggerHook: 0.9,
-offset: 170
+duration: talkDuration,
+triggerHook: 1,
+offset: 100
 })
 .setTween(tweenTalk)
 // .addIndicators({name: 'TALK'})
@@ -731,10 +735,10 @@ sceneSkillsPrereveal.refresh()
 sceneSkillsReveal.refresh()
 sceneSkillSlider.refresh()
 sceneVideo.refresh()
-sceneReviews.refresh()
+// sceneReviews.refresh()
 sceneReviewsEnd.refresh()
 sceneContact.refresh()
-sceneMap.refresh()
+// sceneMap.refresh()
 sceneBlockContact.refresh()
 sceneTalk.refresh()
 sceneSocials.refresh()

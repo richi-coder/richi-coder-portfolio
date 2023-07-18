@@ -32,7 +32,7 @@ export default function VideoContainer() {
   return (
     <div
       id="video"
-      className="videoContainer relative w-full sm:w-full mx-auto z-10 h-[70vh] flex flex-col items-center justify-center -mt-1"
+      className="videoContainer relative w-full sm:w-full mx-auto z-10 h-[70vh] flex flex-col items-center justify-center -mt-1 bg-[rgb(10,10,10)]"
     >
       {
         loadVideo ? (
