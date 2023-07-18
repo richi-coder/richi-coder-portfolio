@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import FirstView from '../components/FirstView.astro';
 import Project from '../components/Project.astro';
-import Video from '../components/Video.astro';
+import Video from '../components/Video/VideoContainer.jsx';
 import Title from '../components/Title.astro';
 import Portfolio from '../components/Portfolio.astro';
 import Shortbio from '../components/Shortbio.astro';
@@ -11,6 +11,7 @@ import Contact from '../components/Contact.astro';
 import Header from '../components/Header.astro';
 import Bios from '../components/Bios.astro';
 import Reviews from '../components/Reviews.astro';
+import VideoContainer from '../components/Video/VideoContainer.jsx';
 
 const Gallery3d = {
 	id: "3D-GALLERY",
@@ -92,7 +93,8 @@ const streamingProps = {
 		<Shortbio id='shortbio2' ownClass='h-[500vh]' />
 		<!-- <SkillsTitle /> -->
 		<!-- <Video id="video" />  -->
-		<Reviews />
+		<VideoContainer client:only="react" />
+		<!-- <Reviews /> -->
 		<Contact  />
 	</main>
 </Layout>

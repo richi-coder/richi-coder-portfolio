@@ -23,6 +23,7 @@
     "react-dom": "^18.2.0",
     "react-router": "^6.10.0",
     "react-router-dom": "^6.10.0",
+    "react-youtube": "^10.1.0",
     "scrollmagic": "^2.0.8",
     "scrollmagic-plugins": "^1.0.8",
     "smooth-scrollbar": "^8.8.1",

@@ -560,7 +560,7 @@ TweenMax.fromTo(".orange", {yPercent: 0}, {yPercent: -30, ease: Power0.easeNone}
 ])
 
 let sceneVideo = new ScrollMagic.Scene({
-triggerElement: "#reviews",
+triggerElement: "#video",
 duration: '150%',
 triggerHook: 1,
 })
@@ -571,11 +571,11 @@ triggerHook: 1,
 // Reviews Start Scene        
 let tweenReviews = new TimelineMax ()
 .add([
-TweenMax.fromTo("#reviews", {filter: 'blur(5px)', ease: Power0.easeNone}, {filter: 'blur(0px)', ease: Power0.easeNone})
+TweenMax.fromTo("#video", {filter: 'blur(5px)', ease: Power0.easeNone}, {filter: 'blur(0px)', ease: Power0.easeNone})
 ])
 
 let sceneReviews = new ScrollMagic.Scene({
-triggerElement: "#reviews",
+triggerElement: "#video",
 duration: '50%',
 triggerHook: 1,
 })
@@ -616,11 +616,11 @@ triggerHook: 1,
 // Map scene          
 let tweenMap = new TimelineMax ()
 .add([
-TweenMax.fromTo("#worldmap", {yPercent: -20, filter: 'blur(3px)', ease: Power0.easeNone}, {yPercent: 15, filter: 'blur(0px)', ease: Power0.easeNone}),
+TweenMax.fromTo("#reviews", {yPercent: -20, filter: 'blur(3px)', ease: Power0.easeNone}, {yPercent: 15, filter: 'blur(0px)', ease: Power0.easeNone}),
 ])
 
 let sceneMap = new ScrollMagic.Scene({
-triggerElement: "#worldmap",
+triggerElement: "#reviews",
 duration: '100%',
 triggerHook: 1,
 })
@@ -674,8 +674,8 @@ offset: socialOffset
 window.addEventListener("DOMContentLoaded", () => {
 // Video: injecting a class to make it not visible
 // console.log('DOM loaded...')
-const video = document.getElementById("video");
-video.classList.add("videoNotShown");
+// const video = document.getElementById("video");
+// video.classList.add("videoNotShown");
 // Projects: injecting a class to make them not visible
 const projects = Array.from(document.querySelectorAll(".project-component"));
 projects.forEach(project => {
@@ -684,12 +684,13 @@ project.classList.add("notShown")
 })
 
 
-
 // 4 new scrollbar listener, instead of window.addEventListener
 function desktopScrolling() {
 let scrollbar = Scrollbar.init(document.body, {
 renderByPixels: true
 });
+// Exposing scrollbar 
+window.scrollbar = scrollbar;
 // Force fixing:
 const fixedPhoto = document.querySelector(".photo");
 const fixedNav = document.querySelector(".view-navbar");
