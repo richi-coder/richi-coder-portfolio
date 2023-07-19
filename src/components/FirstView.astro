@@ -1,6 +1,7 @@
 ---
 import Precomponent from "../components/Precomponent.astro";
 import ScrollDown from "../components/ScrollDown.astro";
+import FirstLayer from "./FirstLayer.astro";
 ---
 
 <div
@@ -26,7 +27,7 @@ import ScrollDown from "../components/ScrollDown.astro";
   </div>
   <Precomponent />
   <ScrollDown />
-  <span class="firstLayer absolute w-full h-full z-[100]"></span>
+  <FirstLayer />
 </div>
 
 <style>
@@ -50,7 +51,7 @@ import ScrollDown from "../components/ScrollDown.astro";
   .firstView {
     background-color: rgb(10, 10, 10);
   }
-  .firstLayer {
+  /* .firstLayer {
     -webkit-animation: color-change-3x 4s linear infinite alternate both;
     animation: color-change-3x 1s linear infinite alternate both;
     transition: all 1.5s ease-in-out;
@@ -73,7 +74,7 @@ import ScrollDown from "../components/ScrollDown.astro";
     100% {
       background: black;
     }
-  }
+  } */
 
   .richi {
     font-size: 1.5rem;
