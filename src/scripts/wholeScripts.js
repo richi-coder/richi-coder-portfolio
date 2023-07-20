@@ -1,30 +1,31 @@
-import { scrollBar, isMobile, domSections, domElements, domLinks } from './main.js'
-import { sceneLogo } from "./firstView/sceneLogo";
-import { sceneNavlogo } from "./firstView/sceneNavlogo";
-import { sceneBio } from "./richiBio/sceneBio";
-import { scenePhoto } from "./richiBio/scenePhoto";
-import { sceneRichiBio } from "./richiBio/sceneRichiBio";
-import { sceneRichiTablet } from "./richiBio/sceneRichiTablet";
-import { oddScene } from "./richiBio/oddScene";
-import { evenScene } from "./richiBio/evenScene";
-import { sceneLayer } from "./richiBio/sceneLayer";
-import { sceneMybioOff } from "./richiBio/sceneMybioOff";
-import { sceneRichiProjects } from "./richiProjects/sceneRichiProjects";
-import { sceneProject } from "./richiProjects/sceneProject";
-import { firstAnimations } from "./firstAnimations";
-import { sceneSkillsPrereveal } from "./richiSkills/sceneSkillsPrereveal";
-import { sceneSkillsReveal } from "./richiSkills/sceneSkillsReveal";
-import { sceneSkillSlider } from "./richiSkills/sceneSkillSlider";
-import { sceneForVideo } from "./richiContact/sceneVideo";
-import { sceneForContact } from "./richiContact/sceneContact";
-import { sceneForReviews } from "./richiContact/sceneReviews";
-import { sceneContactBlock } from "./richiContact/sceneBlockContact";
-import { sceneForTalk } from "./richiContact/sceneTalk";
-import { sceneForSocials } from "./richiContact/sceneSocials";
-import { linkClickAnimations } from "./linkClickAnimations";
-import { myAnimationScroll } from "./scrollingType/myAnimationScroll";
-import { mobileScrolling } from "./scrollingType/mobileScrolling";
-import { desktopScrolling } from './scrollingType/desktopScrolling.js';
+import { isMobile, domElements } from './main.js'
+import { sceneLogo } from "./scrollAnimations/firstView/sceneLogo.js";
+import { sceneNavlogo } from "./scrollAnimations/firstView/sceneNavlogo.js";
+import { sceneBio } from "./scrollAnimations/richiBio/sceneBio.js";
+import { scenePhoto } from "./scrollAnimations/richiBio/scenePhoto.js";
+import { sceneRichiBio } from "./scrollAnimations/richiBio/sceneRichiBio.js";
+import { sceneRichiTablet } from "./scrollAnimations/richiBio/sceneRichiTablet.js";
+import { oddScene } from "./scrollAnimations/richiBio/oddScene.js";
+import { evenScene } from "./scrollAnimations/richiBio/evenScene.js";
+import { sceneLayer } from "./scrollAnimations/richiBio/sceneLayer.js";
+import { sceneMybioOff } from "./scrollAnimations/richiBio/sceneMybioOff.js";
+import { sceneRichiProjects } from "./scrollAnimations/richiProjects/sceneRichiProjects.js";
+import { sceneProjectNumber } from "./scrollAnimations/richiProjects/sceneProjectNumber.js";
+import { firstAnimations } from "./animations/firstAnimations.js";
+import { sceneSkillsPrereveal } from "./scrollAnimations/richiSkills/sceneSkillsPrereveal.js";
+import { sceneSkillsReveal } from "./scrollAnimations/richiSkills/sceneSkillsReveal.js";
+import { sceneSkillSlider } from "./scrollAnimations/richiSkills/sceneSkillSlider.js";
+import { sceneForVideo } from "./scrollAnimations/richiContact/sceneVideo.js";
+import { sceneForContact } from "./scrollAnimations/richiContact/sceneContact.js";
+import { sceneForReviews } from "./scrollAnimations/richiContact/sceneReviews.js";
+import { sceneContactBlock } from "./scrollAnimations/richiContact/sceneBlockContact.js";
+import { sceneForTalk } from "./scrollAnimations/richiContact/sceneTalk.js";
+import { sceneForSocials } from "./scrollAnimations/richiContact/sceneSocials.js";
+import { linkClickAnimations } from "./animations/linkClickAnimations.js";
+import { mobileScrolling } from "./scrollAnimations/scrollingType/mobileScrolling.js";
+import { desktopScrolling } from './scrollAnimations/scrollingType/desktopScrolling.js';
+import { sceneProjectEntrance } from './scrollAnimations/richiProjects/sceneProjectEntrance.js';
+import { sceneProjectExit } from './scrollAnimations/richiProjects/sceneProjectExit.js';
 
 
 export function wholeScripts(scrollMagicLib) {
@@ -44,21 +45,22 @@ export function wholeScripts(scrollMagicLib) {
  // 3. UX FOR LINKS
   linkClickAnimations()
 
+
  // 4. SCROLLMAGIC  *************** //
  
+  // firstView
+
   sceneLogo(scrollMagicLib)
 
   sceneNavlogo(scrollMagicLib)
+
+  // richiBio
 
   sceneBio(scrollMagicLib)
 
   scenePhoto(scrollMagicLib)
 
   sceneRichiBio(scrollMagicLib)
-
-  sceneRichiTablet(scrollMagicLib)
-
-  sceneRichiProjects(scrollMagicLib)
 
   oddScene(scrollMagicLib, '#bio1')
   oddScene(scrollMagicLib, '#bio3')
@@ -80,15 +82,36 @@ export function wholeScripts(scrollMagicLib) {
 
   sceneMybioOff(scrollMagicLib)
 
-  sceneProject(scrollMagicLib, '#n-01')
-  sceneProject(scrollMagicLib, '#n-02')
-  sceneProject(scrollMagicLib, '#n-03')
-  sceneProject(scrollMagicLib, '#n-04')
-  sceneProject(scrollMagicLib, '#n-05')
+  // richiProjects
+  sceneRichiTablet(scrollMagicLib)
+
+  sceneRichiProjects(scrollMagicLib)
+
+  sceneProjectNumber(scrollMagicLib, '#n-01')
+  sceneProjectNumber(scrollMagicLib, '#n-02')
+  sceneProjectNumber(scrollMagicLib, '#n-03')
+  sceneProjectNumber(scrollMagicLib, '#n-04')
+  sceneProjectNumber(scrollMagicLib, '#n-05')
+
+  // sceneProject(scrollMagicLib, '#3D-GALLERY')
+  sceneProjectEntrance(scrollMagicLib, '#gallery')
+  sceneProjectExit(scrollMagicLib, '#gallery-container')
+  sceneProjectEntrance(scrollMagicLib, '#richi-calc')
+  sceneProjectExit(scrollMagicLib, '#richi-calc-container')
+  sceneProjectEntrance(scrollMagicLib, '#richi-shop')
+  sceneProjectExit(scrollMagicLib, '#richi-shop-container')
+  sceneProjectEntrance(scrollMagicLib, '#pics-game')
+  sceneProjectExit(scrollMagicLib, '#pics-game-container')
+  sceneProjectEntrance(scrollMagicLib, '#richi-trailers')
+  sceneProjectExit(scrollMagicLib, '#richi-trailers-container')
+
+  // richiSkills
 
   sceneSkillsPrereveal(scrollMagicLib)
   sceneSkillsReveal(scrollMagicLib)
   sceneSkillSlider(scrollMagicLib)
+
+  // richiContact
 
   sceneForVideo(scrollMagicLib)
   sceneForContact(scrollMagicLib)

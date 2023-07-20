@@ -2,7 +2,7 @@ import { controller, scrollMagic } from "../../scripts/main";
 
 export function videoTrigger() {
     const sceneVideoTrigger = new scrollMagic.Scene({
-        triggerElement: '#RICHI-TRAILERS',
+        triggerElement: '#richi-trailers',
         duration: '50%'
     })
             .addTo(controller)

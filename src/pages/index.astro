@@ -2,7 +2,6 @@
 import Layout from '../layouts/Layout.astro';
 import FirstView from '../components/FirstView.astro';
 import Project from '../components/Project.astro';
-import Video from '../components/Video/VideoContainer.jsx';
 import Title from '../components/Title.astro';
 import Portfolio from '../components/Portfolio.astro';
 import Shortbio from '../components/Shortbio.astro';
@@ -10,12 +9,11 @@ import Photo from '../components/Photo.astro';
 import Contact from '../components/Contact.astro';
 import Header from '../components/Header.astro';
 import Bios from '../components/Bios.astro';
-import Reviews from '../components/Reviews.astro';
 import VideoContainer from '../components/Video/VideoContainer.jsx';
-import Precomponent from '../components/Precomponent.astro';
 
 const Gallery3d = {
-	id: "3D-GALLERY",
+	id: 'gallery',
+	title: "3D-GALLERY", 
 	number: "01",
 	app: "Facundo Meire's requirement",
 	description: "Single Page App / React - Router - Three.js",
@@ -25,7 +23,8 @@ const Gallery3d = {
 	githubURL: "https://github.com/richi-coder/3dGallery"
 }
 const gameProps = {
-	id: "4PICS-1WORD",
+	id: 'pics-game',
+	title: "4PICS-1WORD",
 	number: "04",
 	app: "Web Game",
 	description: "Multi Page App / React - Redux - Astro",
@@ -35,7 +34,8 @@ const gameProps = {
 	githubURL: "https://github.com/richi-coder/4pics-1word-richi-coder"
 }
 const ecommerceProps = {
-	id: "RICHI-SHOP",
+	id: 'richi-shop',
+	title: "RICHI-SHOP",
 	number: "03",
 	app: "Ecommerce Site",
 	description: "Single Page App / React - Router - PWA",
@@ -45,7 +45,8 @@ const ecommerceProps = {
 	githubURL: "https://github.com/richi-coder/richi-coder-portfolio"
 }
 const calculatorProps = {
-	id: "RICHI-CALC",
+	id: 'richi-calc',
+	title: "RICHI-CALC",
 	number: "02",
 	app: "Web App",
 	description: "Single Page App / React",
@@ -55,7 +56,8 @@ const calculatorProps = {
 	githubURL: "https://github.com/richi-coder/React-Calculator/tree/freecodecamp",
 }
 const streamingProps = {
-	id: "RICHI-TRAILERS",
+	id: 'richi-trailers',  
+	title: "RICHI-TRAILERS",
 	number: "05",
 	app: "Trailer Streaming App",
 	description: "Multi Page App / Next JS - React",

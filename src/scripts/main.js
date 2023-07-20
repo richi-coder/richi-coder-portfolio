@@ -4,10 +4,10 @@ import { TweenMax, TimelineMax, Power0, Back } from "gsap";
 import { ScrollMagicPluginGsap } from "scrollmagic-plugins";
 import { ScrollMagicPluginIndicator } from "scrollmagic-plugins";
 import { wholeScripts } from './wholeScripts';
-import { initializeValues } from './initializeValues';
-import { initializeDomElements } from './initializeDomElements';
-import { initializeDomSections } from './initializeDomSections';
-import { initializeDomLinks } from './initializeDomLinks';
+import { initializeValues } from './initialization/initializeValues';
+import { initializeDomElements } from './initialization/initializeDomElements';
+import { initializeDomSections } from './initialization/initializeDomSections';
+import { initializeDomLinks } from './initialization/initializeDomLinks';
 ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
 ScrollMagicPluginIndicator(ScrollMagic);
 
@@ -55,4 +55,4 @@ document.fonts.ready
     }, 1000);
 
   })
-  .catch(wholeScripts)
+  .catch(wholeScripts) 
