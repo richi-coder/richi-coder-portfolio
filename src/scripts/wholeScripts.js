@@ -14,7 +14,14 @@ import { sceneRichiProjects } from "./richiProjects/sceneRichiProjects";
 import { sceneProject } from "./richiProjects/sceneProject";
 import { firstAnimations } from "./firstAnimations";
 import { sceneSkillsPrereveal } from "./richiSkills/sceneSkillsPrereveal";
-import { sceneSkillsReveal } from "./richiSkills/sceneSkillsReveal copy";
+import { sceneSkillsReveal } from "./richiSkills/sceneSkillsReveal";
+import { sceneSkillSlider } from "./richiSkills/sceneSkillSlider";
+import { sceneForVideo } from "./richiContact/sceneVideo";
+import { sceneForContact } from "./richiContact/sceneContact";
+import { sceneForReviews } from "./richiContact/sceneReviews";
+import { sceneContactBlock } from "./richiContact/sceneBlockContact";
+import { sceneForTalk } from "./richiContact/sceneTalk";
+import { sceneForSocials } from "./richiContact/sceneSocials";
 
 
 export function wholeScripts(scrollMagicLib, firstLayer) {
@@ -146,133 +153,21 @@ export function wholeScripts(scrollMagicLib, firstLayer) {
 
   sceneSkillsPrereveal(scrollMagicLib)
   sceneSkillsReveal(scrollMagicLib)
+  sceneSkillSlider(scrollMagicLib)
 
-  // skillSlider         
-  let tweenSkillSlider = new TimelineMax()
-    .to("#slideContainer", 0.5, { z: -100 })		// move back in 3D space
-    .to("#slideContainer", 1, { x: "-20%" })	// move in to first panel
-    .fromTo("#responsive-title", { filter: 'blur(10px)', xPercent: 100 }, { filter: 'blur(0px)', xPercent: 0 })
-    .fromTo(".responsive-tools", { filter: 'blur(10px)', xPercent: 150 }, { filter: 'blur(0px)', xPercent: 0 })
-    .to("#slideContainer", 0.5, { z: 0 })				// move back to origin in 3D space
-    // animate to third panel
-    .to("#slideContainer", 0.5, { z: -100, delay: 1 })
-    .to("#slideContainer", 1, { x: "-40%" })
-    .fromTo("#spa-title", { filter: 'blur(10px)', xPercent: 100 }, { filter: 'blur(0px)', xPercent: 0 })
-    .fromTo(".spa-tools", { filter: 'blur(10px)', xPercent: 150 }, { filter: 'blur(0px)', xPercent: 0 })
-    .to("#slideContainer", 0.5, { z: 0 })
-    // animate to forth panel
-    .to("#slideContainer", 0.5, { z: -100, delay: 1 })
-    .to("#slideContainer", 1, { x: "-60%" })
-    .fromTo("#projectInit-title", { filter: 'blur(10px)', xPercent: 100 }, { filter: 'blur(0px)', xPercent: 0 })
-    .fromTo(".init-tools", { filter: 'blur(10px)', xPercent: 150 }, { filter: 'blur(0px)', xPercent: 0 })
-    .to("#slideContainer", 0.5, { z: 0 })
-    // animate to fifth panel
-    .to("#slideContainer", 0.5, { z: -100, delay: 1 })
-    .to("#slideContainer", 1, { x: "-80%" })
-    .fromTo("#others-title", { filter: 'blur(10px)', xPercent: 100 }, { filter: 'blur(0px)', xPercent: 0 })
-    .fromTo(".other-tools", { filter: 'blur(10px)', xPercent: 150 }, { filter: 'blur(0px)', xPercent: 0 })
-    .to("#slideContainer", 0.5, { z: 0 });
+  sceneForVideo(scrollMagicLib)
+  sceneForContact(scrollMagicLib)
+  sceneForReviews(scrollMagicLib)
+  sceneContactBlock(scrollMagicLib)
+  sceneForTalk(scrollMagicLib)
+  sceneForSocials(scrollMagicLib)
 
-  let sceneSkillSlider = new ScrollMagic.Scene({
-    triggerElement: "#shortbio2",
-    duration: '300%',
-    triggerHook: 0,
-    offset: '100%'
-  })
 
-    .setTween(tweenSkillSlider)
-    // .addIndicators({name: "skillSlider"})
-    .addTo(controller)
 
-  // Video Start Scene        
-  let tweenVideo = new TimelineMax()
-  .add([
-    TweenMax.fromTo("#video", { filter: 'blur(5px)', autoAlpha: 0, ease: Power0.easeNone }, { filter: 'blur(0px)', autoAlpha: 1, ease: Power0.easeNone }),
-    TweenMax.fromTo("#videoFallback", { filter: 'blur(5px)', autoAlpha: 0, ease: Power0.easeNone }, { filter: 'blur(0px)', autoAlpha: 1, ease: Power0.easeNone }),
-    TweenMax.fromTo(".orange", { yPercent: 0, autoAlpha: 1, ease: Power0.easeNone }, { yPercent: -30, autoAlpha: 1, ease: Power0.easeNone })
-  ])
 
-let sceneVideo = new ScrollMagic.Scene({
-  triggerElement: "#video",
-  duration: '40%',
-  triggerHook: videoShow,
-})
-  .setTween(tweenVideo)
-  // .addIndicators({name: "Video SHOW"})
-  .addTo(controller)
 
-  // Contact scene          
-  let tweenContact = new TimelineMax()
-    .add([
-      TweenMax.fromTo("#contact-title", { yPercent: 50, autoAlpha: 0, filter: 'blur(3px)', ease: Power0.easeNone }, { yPercent: 0, autoAlpha: 1, filter: 'blur(0px)', ease: Power0.easeNone }, 1),
-      TweenMax.fromTo("#video", { autoAlpha: 1, filter: 'blur(0px)', ease: Power0.easeNone }, { autoAlpha: 0, filter: 'blur(5px)', ease: Power0.easeNone }, 0.5),
-    ])
 
-  let sceneContact = new ScrollMagic.Scene({
-    triggerElement: "#contact-title",
-    duration: '40%',
-    triggerHook: contactTitleShow,
-    offset: 100
-  })
-    .setTween(tweenContact)
-    .addIndicators({name: "Contact Title / Video OFF"})
-    .addTo(controller)
 
-  // Reviews End Scene        
-  let tweenReviewsEnd = new TimelineMax()
-    .add([
-      TweenMax.fromTo("#reviews", { yPercent: 25, autoAlpha: 0, filter: 'blur(3px)', ease: Power0.easeNone }, { yPercent: 0, autoAlpha: 1, filter: 'blur(0px)', ease: Power0.easeNone })
-    ])
-
-  let sceneReviewsEnd = new ScrollMagic.Scene({
-    triggerElement: "#reviews",
-    duration: '50%',
-    triggerHook: 0.8,
-  })
-    .setTween(tweenReviewsEnd)
-    // .addIndicators({name: "Reviews end"})
-    .addTo(controller)
-
-  // Map scene          
-  let tweenBlockContact = new TimelineMax()
-    .add([
-      TweenMax.fromTo("#contact-block", { yPercent: contactYpercent, ease: Power0.easeNone }, { yPercent: 0, ease: Power0.easeNone }),
-    ])
-
-  let sceneBlockContact = new ScrollMagic.Scene({
-    triggerElement: "#contact-block",
-    duration: '50%',
-    triggerHook: 1,
-  })
-    .setTween(tweenBlockContact)
-    // .addIndicators({name: "contactBLOCK"})
-    .addTo(controller)
-
-  // Talk scene
-  let tweenTalk = TweenMax.staggerFromTo('.talk', 3, { right: talkRight }, { right: 0, ease: Back.easeOut }, 0.3)
-
-  let sceneTalk = new ScrollMagic.Scene({
-    triggerElement: '.talk',
-    duration: talkDuration,
-    triggerHook: 1,
-    offset: 100
-  })
-    .setTween(tweenTalk)
-    // .addIndicators({name: 'TALK'})
-    .addTo(controller)
-
-  // Socials scene
-  let tweenSocials = TweenMax.staggerFromTo('.fa', 3, { left: 700 }, { left: 0, ease: Back.easeOut }, 0.15)
-
-  let sceneSocials = new ScrollMagic.Scene({
-    triggerElement: '#socials',
-    duration: socialDuration,
-    triggerHook: 0.9,
-    offset: socialOffset
-  })
-    .setTween(tweenSocials)
-    // .addIndicators({name: 'socialsss'})
-    .addTo(controller)
 
   // 3 Add classes to hide elements (case using JS)
   window.addEventListener("DOMContentLoaded", () => {
@@ -299,52 +194,37 @@ let sceneVideo = new ScrollMagic.Scene({
       fixedPhoto.style.top = offset.y + 'px';
       fixedPhoto.style.left = offset.x + 'px';
       fixedNav.style.top = offset.y + 'px';
-      // sceneMybioOff.refresh()
-      // sceneNumber1.refresh()
-      // sceneNumber2.refresh()
-      // sceneNumber3.refresh()
-      // sceneNumber4.refresh()
-      // sceneNumber5.refresh()
-      // sceneSkillsPrereveal.refresh()
-      // sceneSkillsReveal.refresh()
-      sceneSkillSlider.refresh()
-      sceneVideo.refresh()
-      sceneReviewsEnd.refresh()
-      sceneContact.refresh()
-      sceneBlockContact.refresh()
-      sceneTalk.refresh()
-      sceneSocials.refresh()
       myAnimationScroll();
     });
 
     // Link scrolling DESKTOP
 
     navLogoLink2.addEventListener('click', () => {
-      scrollbar.scrollIntoView(firstView) // Desktop
+      scrollBar.scrollIntoView(firstView) // Desktop
     })
 
     navLink.addEventListener('click', () => {
       if (!isMobile) {
-        scrollbar.scrollIntoView(firstView) // Desktop
+        scrollBar.scrollIntoView(firstView) // Desktop
       }
     })
 
     bioLink.addEventListener('click', () => {
-      scrollbar.scrollIntoView(bioSection, {
+      scrollBar.scrollIntoView(bioSection, {
         alignToTop: true,
         offsetTop: -250
       })
     })
     projectsLink.addEventListener('click', () => {
-      scrollbar.scrollIntoView(portfolioSection, {
+      scrollBar.scrollIntoView(portfolioSection, {
         offsetTop: 150
       })
     })
     skillsLink.addEventListener('click', () => {
-      scrollbar.scrollIntoView(skillsSection)
+      scrollBar.scrollIntoView(skillsSection)
     })
     contactLink.addEventListener('click', () => {
-      scrollbar.scrollIntoView(contactSection, {
+      scrollBar.scrollIntoView(contactSection, {
         alignToTop: false
       })
     })
