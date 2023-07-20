@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useFormContext } from './AppContext'
 import { RecaptchaVerifier, linkWithPhoneNumber } from 'firebase/auth';
-import { auth, userAnotherAccount } from '../scripts/firebase';
+import { auth, userAnotherAccount } from '../scripts/services/firebase';
 import { useNavigate } from 'react-router';
 
 function PhoneTest({inputProps}) {

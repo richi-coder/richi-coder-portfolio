@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
 import { useFormContext, useUpdateFormContext } from "./AppContext";
 import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "../scripts/firebase";
+import { auth } from "../scripts/services/firebase";
 import DownloadResumeButton from "./DownloadResumeButton";
 
 function FormEnd() {

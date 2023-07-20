@@ -1,52 +1,30 @@
 import { scrollFunction } from "./scrollFunction";
-import { scrollBar, controller, isMobile } from './main.js'
+import { scrollBar, controller, isMobile, initSections, domElements, initValues } from './main.js'
 import { sceneLogo } from "./firstView/sceneLogo";
 import { sceneNavlogo } from "./firstView/sceneNavlogo";
 import { sceneBio } from "./richiBio/sceneBio";
 import { scenePhoto } from "./richiBio/scenePhoto";
+import { sceneRichiBio } from "./richiBio/sceneRichiBio";
+import { sceneRichiTablet } from "./richiBio/sceneRichiTablet";
+import { oddScene } from "./richiBio/oddScene";
+import { evenScene } from "./richiBio/evenScene";
+import { sceneLayer } from "./richiBio/sceneLayer";
+import { sceneMybioOff } from "./richiBio/sceneMybioOff";
+import { sceneRichiProjects } from "./richiProjects/sceneRichiProjects";
+import { sceneProject } from "./richiProjects/sceneProject";
+import { firstAnimations } from "./firstAnimations";
+import { sceneSkillsPrereveal } from "./richiSkills/sceneSkillsPrereveal";
+import { sceneSkillsReveal } from "./richiSkills/sceneSkillsReveal copy";
 
 
 export function wholeScripts(scrollMagicLib, firstLayer) {
   const { ScrollMagic, TimelineMax, TweenMax, Power0, Back } = scrollMagicLib;
+  const { page } = domElements;
+  const { firstView, bioSection, portfolioSection, skillsSection, contactSection } = initSections
+  const { videoShow, contactTitleShow, contactYpercent, talkRight, talkDuration, socialDuration, socialOffset,  } = initValues
   
-  setTimeout(() => {
-    firstLayer.style.animation = 'none';
-    firstLayer.style.zIndex = -999999;
-    firstLayer.style.display = 'none';
-  }, 2000);
-  // Adding class for firstView animation
-  let page = document.title === 'richiCoder | Frontend Developer | Building client apps' ? 'index' : document.title;
-  let body = document.querySelector('body');
-  let richiLogo = document.querySelector('.richi');
-  let coderLogo = document.querySelector('.coder');
-  let techLogo = document.querySelector('.tech');
-  let barLogo = document.querySelector('.bar');
-  let viewNavbar = document.querySelector('.view-navbar');
-  let scrollDown = document.querySelector('.scrolldown');
-  let bio7 = document.querySelector('#bio7');
-  let timeCoding = (new Date() - new Date(2022, 0, 28)) / 1000;
-  let daysCoding = Math.floor(timeCoding / (3600 * 24))
-  if (page === 'index') {
-    body.classList.add('body-animation')
-    bio7.innerHTML = `${daysCoding} days`;
-  } else {
-    body.classList.add('body-another-page')
-  }
-  richiLogo.classList.add('richi-animation');
-  coderLogo.classList.add('coder-animation');
-  techLogo.classList.add('tech-animation');
-  barLogo.classList.add('bar-animation');
-  viewNavbar.classList.add('view-navbar-animation');
-  scrollDown.classList.add('scrolldown-animation');
-
-  // PAGE SECTIONS
-  let firstView = document.querySelector('.firstView');
-  let bioSection = document.querySelector('#bio-title-container');
-  let portfolioSection = document.querySelector('#portfolioContainer');
-  let skillsSection = document.querySelector('#shortbio2');
-  let contactSection = document.querySelector('.contactContainer');
-  
-
+ 
+  firstAnimations(firstLayer)
 
   // LINKS
   let hamburguerButton = document.querySelector('#hamburguer-button'); // Hamburguer mobile button
@@ -69,74 +47,6 @@ export function wholeScripts(scrollMagicLib, firstLayer) {
     social.addEventListener('mouseover', () => { if (!social.classList.contains('fa-bounce')) social.classList.add('fa-bounce') })
   }
   )
-
-  // isMobile?
-  let numberOffset = 0;
-  let numberYpercent = 0;
-  let numberYpercentStart = 0;
-  let skillsFixedDuration = '';
-  let talkRight;
-  let contactYpercent;
-  let socialOffset;
-  let talkDuration;
-  let socialDuration;
-  let startTabletPosition;
-  let bioStartPosition;
-  let videoShow;
-  let contactTitleShow;
-  if (isMobile) {
-    if (page === 'index') mobileScrolling();
-    numberOffset = -500;
-    numberYpercentStart = 0;
-    numberYpercent = 80;
-    skillsFixedDuration = '400%';
-    talkRight = 400
-    contactYpercent = -10
-    talkDuration = '50%'
-    socialOffset = 0
-    socialDuration = 180
-    bioStartPosition = 50
-    if (window.innerWidth > 650) {
-      startTabletPosition = 5;
-    } else if (window.innerWidth <= 650 && window.innerWidth > 500) {
-      startTabletPosition = 70;
-    } else if (window.innerWidth <= 500 && window.innerWidth > 400) {
-      startTabletPosition = 20;
-    } else if (window.innerWidth <= 400 && window.innerWidth > 300) {
-      startTabletPosition = 30;
-    } else {
-      startTabletPosition = 40;
-    }
-    videoShow = 1
-    contactTitleShow = 0.8
-  } else {
-    if (page === 'index') desktopScrolling();
-    numberOffset = -200;
-    numberYpercentStart = -20;
-    numberYpercent = 50;
-    skillsFixedDuration = '100%' //0.01%
-    talkRight = 800
-    contactYpercent = -25
-    socialOffset = 100
-    talkDuration = '70%'
-    socialDuration = '70%'
-    bioStartPosition = 0
-    if (window.innerWidth >= 1250) {
-      startTabletPosition = 50;
-    } else if (window.innerWidth >= 1000 && window.innerWidth < 1250) {
-      startTabletPosition = 80;
-    } else if (window.innerWidth > 900 && window.innerWidth < 1000) {
-      startTabletPosition = -40;
-    } else if (window.innerWidth > 770 && window.innerWidth <= 900) {
-      startTabletPosition = -20;
-    } else if (window.innerHeight <= 770 && window.innerWidth > 650) {
-      startTabletPosition = 0;
-    } else {
-      startTabletPosition = 0;
-    }
-    videoShow = 1
-    contactTitleShow = 1
-  }
 
   // Hamburguer Menu
   hamburguerButton.addEventListener('click', () => {
@@ -183,323 +93,59 @@ export function wholeScripts(scrollMagicLib, firstLayer) {
     }
   })
 
-  // 2 Parallax Effect with scrollMagic
-  // let controller = new ScrollMagic.Controller();
+  if (isMobile) {
+    if (page === 'index') mobileScrolling();
+  }
+  else {
+    if (page === 'index') desktopScrolling();
+  }
 
-  // // Logo scene
-  // let tweenLogo = new TimelineMax()
-  //   .add([
-  //     TweenMax.fromTo(".logoContainer", 20, { yPercent: '0', ease: Power0.easeNone }, { yPercent: '50', ease: Power0.easeNone }, 0),
-  //     TweenMax.fromTo(".photolayer", { filter: 'blur(50px)', ease: Power0.easeNone }, { filter: 'blur(0px)', ease: Power0.easeNone })
-  //   ]);
 
-  // let sceneLogo = new ScrollMagic.Scene({
-  //   triggerElement: ".firstView",
-  //   triggerHook: 0,
-  //   duration: '100%',
-  // })
-  //   .setTween(tweenLogo)
-  //   // .addIndicators({name: "logoScene"}) // add indicators (requires plugin)
-  //   .addTo(controller)
-  // firstView
+
+  // SCROLLMAGIC  //////////////************** */
+ 
   sceneLogo(scrollMagicLib)
 
-  // // Nav Logo scene
-  // let sceneNavlogo = new ScrollMagic.Scene({
-  //   triggerElement: "#shortbio",
-  //   triggerHook: 0,
-  //   duration: 100
-  // })
-  //   .setClassToggle(".nav-logo", "typing-nav-logo")
-  //   // .addIndicators({name: "nav-logo"}) // add indicators (requires plugin)
-  //   .addTo(controller)
   sceneNavlogo(scrollMagicLib)
 
-
-  // // Bio Photo scene
-  // let sceneBio = new ScrollMagic.Scene({
-  //   triggerElement: ".firstView",
-  //   triggerHook: 0,
-  // },)
-  //   .setPin("#photo")
-  //   // .addIndicators({name: "1 (photo: 500%)"}) 
-  //   .addTo(controller)
   sceneBio(scrollMagicLib)
 
-  // // Photo animation
-  // let tweenPhoto = new TimelineMax()
-  //   .add([
-  //     TweenMax.to(".photolayer", { autoAlpha: 0.8, ease: Power0.easeNone, reversed: false }),
-  //   ])
-
-  // let scenePhoto = new ScrollMagic.Scene({
-  //   triggerElement: "#shortbio",
-  //   triggerHook: 0,
-  //   duration: '10%',
-  // })
-  //   .setTween(tweenPhoto)
-  //   // .addIndicators({name: "photoOpacity"})
-  //   .addTo(controller)
   scenePhoto(scrollMagicLib)
 
-  // richiBio animation
-  let tweenRichibio = new TimelineMax()
-    .add([
-      TweenMax.fromTo("#shortbio-title", { autoAlpha: 0, yPercent: 50, filter: 'blur(3px)', ease: Power0.easeNone }, { autoAlpha: 1, yPercent: 0, filter: 'blur(0px)', ease: Power0.easeNone })
-    ])
+  sceneRichiBio(scrollMagicLib)
 
-  let sceneRichiBio = new ScrollMagic.Scene({
-    triggerElement: "#shortbio-title",
-    triggerHook: 1,
-    duration: '20%',
-    offset: 100
-  })
-    .setTween(tweenRichibio)
-    // .addIndicators({name: "richiBio"})
-    .addTo(controller)
+  sceneRichiTablet(scrollMagicLib)
 
-  // tabletAnimation
+  sceneRichiProjects(scrollMagicLib)
 
-  let tweenRichiTablet = new TimelineMax()
-    .add([
-      TweenMax.fromTo("#richi-tablet", { xPercent: -250, yPercent: startTabletPosition, rotate: 15, scale: 2, ease: Power0.easeNone }, { xPercent: 150, yPercent: -50, rotate: -30, scale: 0.1, ease: Power0.easeNone })
-    ])
+  oddScene(scrollMagicLib, '#bio1')
+  oddScene(scrollMagicLib, '#bio3')
+  oddScene(scrollMagicLib, '#bio5')
+  oddScene(scrollMagicLib, '#bio7')
+  oddScene(scrollMagicLib, '#bio9')
+  oddScene(scrollMagicLib, '#bio11')
+  oddScene(scrollMagicLib, '#bio13')
 
-  let sceneRichiTablet = new ScrollMagic.Scene({
-    triggerElement: "#richi-tablet",
-    triggerHook: 1,
-    duration: '200%',
-  })
-    .setTween(tweenRichiTablet)
-    // .addIndicators({name: "richiTablet"}) 
-    .addTo(controller)
+  evenScene(scrollMagicLib, '#bio2')
+  evenScene(scrollMagicLib, '#bio4')
+  evenScene(scrollMagicLib, '#bio6')
+  evenScene(scrollMagicLib, '#bio8')
+  evenScene(scrollMagicLib, '#bio10')
+  evenScene(scrollMagicLib, '#bio12')
+  evenScene(scrollMagicLib, '#bio14')
 
-  // richiProjects animation
-  let tweenRichiprojects = new TimelineMax()
-    .add([
-      TweenMax.fromTo("#projects-title", { autoAlpha: 0, yPercent: 50, filter: 'blur(3px)', ease: Power0.easeNone }, { autoAlpha: 1, yPercent: 0, filter: 'blur(0px)', ease: Power0.easeNone })
-    ])
+  sceneLayer(scrollMagicLib)
 
-  let sceneRichiprojects = new ScrollMagic.Scene({
-    triggerElement: "#projects-title",
-    triggerHook: 1,
-    duration: '20%',
-    offset: 100
-  })
-    .setTween(tweenRichiprojects)
-    // .addIndicators({name: "richiProjects"})
-    .addTo(controller)
+  sceneMybioOff(scrollMagicLib)
 
-  // Mybio animations
+  sceneProject(scrollMagicLib, '#n-01')
+  sceneProject(scrollMagicLib, '#n-02')
+  sceneProject(scrollMagicLib, '#n-03')
+  sceneProject(scrollMagicLib, '#n-04')
+  sceneProject(scrollMagicLib, '#n-05')
 
-  let sceneMybio1;
-  let sceneMybio3;
-  let sceneMybio5;
-  let sceneMybio7;
-  let sceneMybio9;
-  let sceneMybio11;
-  let sceneMybio13;
-
-  let sceneMybio2;
-  let sceneMybio4;
-  let sceneMybio6;
-  let sceneMybio8;
-  let sceneMybio10;
-  let sceneMybio12;
-  let sceneMybio14;
-
-  // oddScenes
-  function oddScene(sceneOdd, number) {
-    sceneOdd = new ScrollMagic.Scene({
-      triggerElement: number,
-      triggerHook: 1,
-      duration: '10%',
-      offset: 100
-    })
-      .setTween(new TimelineMax()
-        .add([
-          TweenMax.fromTo(number, { autoAlpha: 0, filter: 'blur(5px)', ease: Power0.easeNone }, { autoAlpha: 1, filter: 'blur(0px)', ease: Power0.easeNone }),
-        ]))
-      // .addIndicators({name: `scene ${number}`})
-      .addTo(controller)
-    return sceneOdd
-  }
-  sceneMybio1 = oddScene(sceneMybio1, '#bio1')
-  sceneMybio3 = oddScene(sceneMybio3, '#bio3')
-  sceneMybio5 = oddScene(sceneMybio5, '#bio5')
-  sceneMybio7 = oddScene(sceneMybio7, '#bio7')
-  sceneMybio9 = oddScene(sceneMybio9, '#bio9')
-  sceneMybio11 = oddScene(sceneMybio11, '#bio11')
-  sceneMybio13 = oddScene(sceneMybio13, '#bio13')
-
-  // evenScenes
-  function evenScene(sceneEven, number) {
-    sceneEven = new ScrollMagic.Scene({
-      triggerElement: number,
-      triggerHook: 1,
-      duration: '10%',
-      offset: 180
-    })
-      .setTween(new TimelineMax()
-        .add([
-          TweenMax.fromTo(number, { autoAlpha: 0, yPercent: bioStartPosition, ease: Power0.easeNone }, { autoAlpha: 1, yPercent: 100, ease: Power0.easeNone })
-        ]))
-      // .addIndicators({name: `scene ${number}`})
-      .addTo(controller)
-    return sceneEven
-  }
-
-  sceneMybio2 = evenScene(sceneMybio2, '#bio2')
-  sceneMybio4 = evenScene(sceneMybio4, '#bio4')
-  sceneMybio6 = evenScene(sceneMybio6, '#bio6')
-  sceneMybio8 = evenScene(sceneMybio8, '#bio8')
-  sceneMybio10 = evenScene(sceneMybio10, '#bio10')
-  sceneMybio12 = evenScene(sceneMybio12, '#bio12')
-  sceneMybio14 = evenScene(sceneMybio14, '#bio14')
-
-  // sceneLayerBlack
-  let tweenLayer = new TimelineMax()
-    .add([
-      TweenMax.to(".photolayer", { backgroundColor: 'rgb(10,10,10)', zIndex: 50, ease: Power0.easeNone }),
-      TweenMax.to("#shortbio-title", { color: 'white', ease: Power0.easeNone }),
-      TweenMax.to(".bio", { color: 'white', ease: Power0.easeNone })
-    ])
-
-  let sceneLayer = new ScrollMagic.Scene({
-    triggerElement: ".portfolio",
-    triggerHook: 1,
-    offset: -1500
-  })
-    .setTween(tweenLayer)
-    // .addIndicators({name: "layerBlack"})
-    .addTo(controller)
-
-  // sceneMybioOff
-  let tweenOff = new TimelineMax()
-    .add([
-      // TweenMax.to(".bio", {autoAlpha: 0, ease: Power0.easeNone }),
-      TweenMax.to(".photolayer", 5, { autoAlpha: 1, ease: Power0.easeNone }, 0)
-    ])
-
-  let sceneMybioOff = new ScrollMagic.Scene({
-    triggerElement: ".portfolio",
-    triggerHook: 1,
-    offset: -800
-  })
-    .setTween(tweenOff)
-    // .addIndicators({name: "PORTFOLIO"})
-    .addTo(controller)
-
-  // Number scene          
-  let tweenNumber1 = new TimelineMax()
-    .add([
-      TweenMax.fromTo("#n-01", { autoAlpha: 0, yPercent: numberYpercentStart, ease: Power0.easeNone }, { autoAlpha: 1, yPercent: numberYpercent, ease: Power0.easeNone })
-    ])
-
-  let sceneNumber1 = new ScrollMagic.Scene({
-    triggerElement: "#n-01",
-    duration: '100%',
-    triggerHook: 0,
-    offset: numberOffset
-  })
-    .setTween(tweenNumber1)
-    // .addIndicators({name: "Number 01"})
-    .addTo(controller)
-
-  let tweenNumber2 = new TimelineMax()
-    .add([
-      TweenMax.fromTo("#n-02", 15, { autoAlpha: 0, yPercent: numberYpercentStart, ease: Power0.easeNone }, { autoAlpha: 1, yPercent: numberYpercent, ease: Power0.easeNone }, 0)
-    ])
-
-  let sceneNumber2 = new ScrollMagic.Scene({
-    triggerElement: "#n-02",
-    duration: '100%',
-    triggerHook: 0,
-    offset: numberOffset
-  })
-    .setTween(tweenNumber2)
-    // .addIndicators({name: "Number 02"})
-    .addTo(controller)
-
-  let tweenNumber3 = new TimelineMax()
-    .add([
-      TweenMax.fromTo("#n-03", 15, { autoAlpha: 0, yPercent: numberYpercentStart, ease: Power0.easeNone }, { autoAlpha: 1, yPercent: numberYpercent, ease: Power0.easeNone }, 0)
-    ])
-
-  let sceneNumber3 = new ScrollMagic.Scene({
-    triggerElement: "#n-03",
-    duration: '100%',
-    triggerHook: 0,
-    offset: numberOffset
-  })
-    .setTween(tweenNumber3)
-    // .addIndicators({name: "Number 03"})
-    .addTo(controller)
-
-  let tweenNumber4 = new TimelineMax()
-    .add([
-      TweenMax.fromTo("#n-04", 15, { autoAlpha: 0, yPercent: numberYpercentStart, ease: Power0.easeNone }, { autoAlpha: 1, yPercent: numberYpercent, ease: Power0.easeNone }, 0)
-    ])
-
-  let sceneNumber4 = new ScrollMagic.Scene({
-    triggerElement: "#n-04",
-    duration: '100%',
-    triggerHook: 0,
-    offset: numberOffset
-  })
-    .setTween(tweenNumber4)
-    // .addIndicators({name: "Number 03"})
-    .addTo(controller)
-
-  let tweenNumber5 = new TimelineMax()
-    .add([
-      TweenMax.fromTo("#n-05", 15, { autoAlpha: 0, yPercent: numberYpercentStart, ease: Power0.easeNone }, { autoAlpha: 1, yPercent: numberYpercent, ease: Power0.easeNone }, 0)
-    ])
-
-  let sceneNumber5 = new ScrollMagic.Scene({
-    triggerElement: "#n-05",
-    duration: '100%',
-    triggerHook: 0,
-    offset: numberOffset
-  })
-    .setTween(tweenNumber5)
-    // .addIndicators({name: "Number 03"})
-    .addTo(controller)
-
-  // SkillsTitle Prereveal scene          
-  let tweenSkillsPrereveal = new TimelineMax()
-    .add([
-      TweenMax.to(".myphoto", { autoAlpha: 0, zIndex: -60, ease: Power0.easeNone }),
-      TweenMax.to(".titleContainer", { autoAlpha: 0, zIndex: -60, ease: Power0.easeNone }),
-      TweenMax.to(".photolayer", { autoAlpha: 1, zIndex: 60, ease: Power0.easeNone }),
-      TweenMax.fromTo(".skillsTitleContainer", { autoAlpha: 0, ease: Power0.easeNone }, { autoAlpha: 1, zIndex: 70, ease: Power0.easeNone })
-    ])
-
-  let sceneSkillsPrereveal = new ScrollMagic.Scene({
-    triggerElement: "#shortbio2",
-    triggerHook: 0,
-    offset: -1000,
-  })
-
-    .setTween(tweenSkillsPrereveal)
-    // .addIndicators({name: "Skills Prereveal"})
-    .addTo(controller)
-
-  // SkillsTitle Prereveal scene          
-  let tweenSkillsReveal = new TimelineMax()
-    .add([
-      TweenMax.fromTo("#skills-title", { filter: 'blur(10px)', yPercent: 200, ease: Power0.easeNone }, { filter: 'blur(0px)', yPercent: 0, ease: Power0.easeNone }),
-    ])
-
-  let sceneSkillsReveal = new ScrollMagic.Scene({
-    triggerElement: "#shortbio2",
-    triggerHook: 0.9,
-    duration: '80%'
-  })
-
-    .setTween(tweenSkillsReveal)
-    // .addIndicators({name: "Skills SHOWUP"})
-    .addTo(controller)
+  sceneSkillsPrereveal(scrollMagicLib)
+  sceneSkillsReveal(scrollMagicLib)
 
   // skillSlider         
   let tweenSkillSlider = new TimelineMax()
@@ -653,35 +299,14 @@ let sceneVideo = new ScrollMagic.Scene({
       fixedPhoto.style.top = offset.y + 'px';
       fixedPhoto.style.left = offset.x + 'px';
       fixedNav.style.top = offset.y + 'px';
-      // sceneLogo.refresh()
-      // sceneNavlogo.refresh()
-      // scenePhoto.refresh()
-      sceneRichiBio.refresh()
-      sceneRichiprojects.refresh()
-      sceneMybio1.refresh()
-      sceneMybio3.refresh()
-      sceneMybio5.refresh()
-      sceneMybio7.refresh()
-      sceneMybio9.refresh()
-      sceneMybio11.refresh()
-      sceneMybio13.refresh()
-      sceneMybio2.refresh()
-      sceneMybio4.refresh()
-      sceneMybio6.refresh()
-      sceneMybio8.refresh()
-      sceneMybio10.refresh()
-      sceneMybio12.refresh()
-      sceneMybio14.refresh()
-      sceneLayer.refresh()
-      sceneRichiTablet.refresh()
-      sceneMybioOff.refresh()
-      sceneNumber1.refresh()
-      sceneNumber2.refresh()
-      sceneNumber3.refresh()
-      sceneNumber4.refresh()
-      sceneNumber5.refresh()
-      sceneSkillsPrereveal.refresh()
-      sceneSkillsReveal.refresh()
+      // sceneMybioOff.refresh()
+      // sceneNumber1.refresh()
+      // sceneNumber2.refresh()
+      // sceneNumber3.refresh()
+      // sceneNumber4.refresh()
+      // sceneNumber5.refresh()
+      // sceneSkillsPrereveal.refresh()
+      // sceneSkillsReveal.refresh()
       sceneSkillSlider.refresh()
       sceneVideo.refresh()
       sceneReviewsEnd.refresh()

@@ -2,7 +2,7 @@ import { getAuth, signOut } from 'firebase/auth';
 import React, { useEffect } from 'react'
 import { useLocation } from 'react-router';
 import { useFormContext, useUpdateFormContext } from './AppContext';
-import { userAnotherAccount } from '../scripts/firebase';
+import { userAnotherAccount } from '../scripts/services/firebase';
 
 function SignOutButton() {
     const auth = getAuth();

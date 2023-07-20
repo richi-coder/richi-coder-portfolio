@@ -1,4 +1,4 @@
-import { pageLoad } from "./firebase";
+import { pageLoad } from "./services/firebase";
 
 export const registerPageLoad = () => {
     ipservice()

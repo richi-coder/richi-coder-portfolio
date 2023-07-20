@@ -8,7 +8,7 @@ import SignOutButton from "./SignOutButton";
 import RootContact from "./RootContact";
 import FormEnd from "./FormEnd";
 import { registerPageLoad } from "../scripts/ipservice";
-import { auth, checkJobContact } from "../scripts/firebase";
+import { auth, checkJobContact } from "../scripts/services/firebase";
 import Presentation from "./Presentation";
 
 
