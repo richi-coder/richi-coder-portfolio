@@ -1,46 +1,10 @@
 import { scrollFunction } from "./scrollFunction";
-// import Scrollbar from 'smooth-scrollbar';
-// import ScrollMagic from "scrollmagic";
-// import { TweenMax, TimelineMax, Power0, Back } from "gsap";
-// import { ScrollMagicPluginGsap } from "scrollmagic-plugins";
-// import { ScrollMagicPluginIndicator } from "scrollmagic-plugins";
-// ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
-// ScrollMagicPluginIndicator(ScrollMagic);
 import { scrollBar, controller, isMobile } from './main.js'
+import { sceneLogo } from "./firstView/sceneLogo";
+import { sceneNavlogo } from "./firstView/sceneNavlogo";
+import { sceneBio } from "./richiBio/sceneBio";
+import { scenePhoto } from "./richiBio/scenePhoto";
 
-
-// document.fonts.onloadingerror = () => {
-//   console.log("Font loading error");
-// };
-// window.addEventListener('keydown', (e) => {
-//   if (e.key === 'Enter') {
-//     const link = document.createElement('link');
-//     link.href = 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css';
-//     link.media = 'print';
-//     link.onload = 'this.media="all"'
-//     const head = document.head; 
-//     console.log(head);
-//     head.appendChild(link)
-//     let iFrame = document.querySelector('.hey')
-//     console.log(iFrame.classList );
-//     iFrame.classList.add('devicon-npm-original-wordmark text-5xl sm:text-7xl')
-//     console.log(iFrame);
-//   }
-// })
-// Font loaded Listener
-// document.fonts.ready
-//   .then(() => {
-//     firstLayer.style.opacity = 0
-//     setTimeout(() => {
-//       wholeScripts()
-//     }, 1000);
-//     setTimeout(() => {
-//       firstLayer.style.animation = 'none';
-//       firstLayer.style.zIndex = -999999;
-//       firstLayer.style.display = 'none';
-//     }, 2000);
-//   })
-//   .catch(wholeScripts)
 
 export function wholeScripts(scrollMagicLib, firstLayer) {
   const { ScrollMagic, TimelineMax, TweenMax, Power0, Back } = scrollMagicLib;
@@ -118,7 +82,8 @@ export function wholeScripts(scrollMagicLib, firstLayer) {
   let socialDuration;
   let startTabletPosition;
   let bioStartPosition;
-
+  let videoShow;
+  let contactTitleShow;
   if (isMobile) {
     if (page === 'index') mobileScrolling();
     numberOffset = -500;
@@ -142,6 +107,8 @@ export function wholeScripts(scrollMagicLib, firstLayer) {
     } else {
       startTabletPosition = 40;
     }
+    videoShow = 1
+    contactTitleShow = 0.8
   } else {
     if (page === 'index') desktopScrolling();
     numberOffset = -200;
@@ -167,6 +134,8 @@ export function wholeScripts(scrollMagicLib, firstLayer) {
     } else {
       startTabletPosition = 0;
     }
+    videoShow = 1
+    contactTitleShow = 1
   }
 
   // Hamburguer Menu
@@ -217,55 +186,61 @@ export function wholeScripts(scrollMagicLib, firstLayer) {
   // 2 Parallax Effect with scrollMagic
   // let controller = new ScrollMagic.Controller();
 
-  // Logo scene
-  let tweenLogo = new TimelineMax()
-    .add([
-      TweenMax.fromTo(".logoContainer", 20, { yPercent: '0', ease: Power0.easeNone }, { yPercent: '50', ease: Power0.easeNone }, 0),
-      TweenMax.fromTo(".photolayer", { filter: 'blur(50px)', ease: Power0.easeNone }, { filter: 'blur(0px)', ease: Power0.easeNone })
-    ]);
+  // // Logo scene
+  // let tweenLogo = new TimelineMax()
+  //   .add([
+  //     TweenMax.fromTo(".logoContainer", 20, { yPercent: '0', ease: Power0.easeNone }, { yPercent: '50', ease: Power0.easeNone }, 0),
+  //     TweenMax.fromTo(".photolayer", { filter: 'blur(50px)', ease: Power0.easeNone }, { filter: 'blur(0px)', ease: Power0.easeNone })
+  //   ]);
 
-  let sceneLogo = new ScrollMagic.Scene({
-    triggerElement: ".firstView",
-    triggerHook: 0,
-    duration: '100%',
-  })
-    .setTween(tweenLogo)
-    // .addIndicators({name: "logoScene"}) // add indicators (requires plugin)
-    .addTo(controller)
+  // let sceneLogo = new ScrollMagic.Scene({
+  //   triggerElement: ".firstView",
+  //   triggerHook: 0,
+  //   duration: '100%',
+  // })
+  //   .setTween(tweenLogo)
+  //   // .addIndicators({name: "logoScene"}) // add indicators (requires plugin)
+  //   .addTo(controller)
+  // firstView
+  sceneLogo(scrollMagicLib)
 
-  // Nav Logo scene
-  let sceneNavlogo = new ScrollMagic.Scene({
-    triggerElement: "#shortbio",
-    triggerHook: 0,
-    duration: 100
-  })
-    .setClassToggle(".nav-logo", "typing-nav-logo")
-    // .addIndicators({name: "nav-logo"}) // add indicators (requires plugin)
-    .addTo(controller)
+  // // Nav Logo scene
+  // let sceneNavlogo = new ScrollMagic.Scene({
+  //   triggerElement: "#shortbio",
+  //   triggerHook: 0,
+  //   duration: 100
+  // })
+  //   .setClassToggle(".nav-logo", "typing-nav-logo")
+  //   // .addIndicators({name: "nav-logo"}) // add indicators (requires plugin)
+  //   .addTo(controller)
+  sceneNavlogo(scrollMagicLib)
 
-  // Bio Photo scene
-  let sceneBio = new ScrollMagic.Scene({
-    triggerElement: ".firstView",
-    triggerHook: 0,
-  },)
-    .setPin("#photo")
-    // .addIndicators({name: "1 (photo: 500%)"}) 
-    .addTo(controller)
 
-  // Photo animation
-  let tweenPhoto = new TimelineMax()
-    .add([
-      TweenMax.to(".photolayer", { autoAlpha: 0.8, ease: Power0.easeNone, reversed: false }),
-    ])
+  // // Bio Photo scene
+  // let sceneBio = new ScrollMagic.Scene({
+  //   triggerElement: ".firstView",
+  //   triggerHook: 0,
+  // },)
+  //   .setPin("#photo")
+  //   // .addIndicators({name: "1 (photo: 500%)"}) 
+  //   .addTo(controller)
+  sceneBio(scrollMagicLib)
 
-  let scenePhoto = new ScrollMagic.Scene({
-    triggerElement: "#shortbio",
-    triggerHook: 0,
-    duration: '10%',
-  })
-    .setTween(tweenPhoto)
-    // .addIndicators({name: "photoOpacity"})
-    .addTo(controller)
+  // // Photo animation
+  // let tweenPhoto = new TimelineMax()
+  //   .add([
+  //     TweenMax.to(".photolayer", { autoAlpha: 0.8, ease: Power0.easeNone, reversed: false }),
+  //   ])
+
+  // let scenePhoto = new ScrollMagic.Scene({
+  //   triggerElement: "#shortbio",
+  //   triggerHook: 0,
+  //   duration: '10%',
+  // })
+  //   .setTween(tweenPhoto)
+  //   // .addIndicators({name: "photoOpacity"})
+  //   .addTo(controller)
+  scenePhoto(scrollMagicLib)
 
   // richiBio animation
   let tweenRichibio = new TimelineMax()
@@ -563,36 +538,22 @@ export function wholeScripts(scrollMagicLib, firstLayer) {
     // .addIndicators({name: "skillSlider"})
     .addTo(controller)
 
-  // Video scene          
-  let tweenVideo = new TimelineMax()
-    .add([
-      TweenMax.fromTo(".orange", { yPercent: 0, autoAlpha: 1 }, { yPercent: -30, autoAlpha: 1, ease: Power0.easeNone })
-    ])
-
-  let sceneVideo = new ScrollMagic.Scene({
-    triggerElement: "#video",
-    duration: '50%',
-    triggerHook: 1,
-  })
-    .setTween(tweenVideo)
-    // .addIndicators({name: "Video OFF"})
-    .addTo(controller)
-
   // Video Start Scene        
-  let tweenReviews = new TimelineMax()
-    .add([
-      TweenMax.fromTo("#video", { filter: 'blur(5px)', autoAlpha: 0, ease: Power0.easeNone }, { filter: 'blur(0px)', autoAlpha: 1, ease: Power0.easeNone })
-    ])
+  let tweenVideo = new TimelineMax()
+  .add([
+    TweenMax.fromTo("#video", { filter: 'blur(5px)', autoAlpha: 0, ease: Power0.easeNone }, { filter: 'blur(0px)', autoAlpha: 1, ease: Power0.easeNone }),
+    TweenMax.fromTo("#videoFallback", { filter: 'blur(5px)', autoAlpha: 0, ease: Power0.easeNone }, { filter: 'blur(0px)', autoAlpha: 1, ease: Power0.easeNone }),
+    TweenMax.fromTo(".orange", { yPercent: 0, autoAlpha: 1, ease: Power0.easeNone }, { yPercent: -30, autoAlpha: 1, ease: Power0.easeNone })
+  ])
 
-  let sceneReviews = new ScrollMagic.Scene({
-    triggerElement: "#video",
-    duration: '40%',
-    triggerHook: 1,
-  })
-    .setTween(tweenReviews)
-    // .addIndicators({name: "Video OFF"})
-    .addTo(controller)
-
+let sceneVideo = new ScrollMagic.Scene({
+  triggerElement: "#video",
+  duration: '40%',
+  triggerHook: videoShow,
+})
+  .setTween(tweenVideo)
+  // .addIndicators({name: "Video SHOW"})
+  .addTo(controller)
 
   // Contact scene          
   let tweenContact = new TimelineMax()
@@ -604,17 +565,17 @@ export function wholeScripts(scrollMagicLib, firstLayer) {
   let sceneContact = new ScrollMagic.Scene({
     triggerElement: "#contact-title",
     duration: '40%',
-    triggerHook: 1,
+    triggerHook: contactTitleShow,
     offset: 100
   })
     .setTween(tweenContact)
-    // .addIndicators({name: "Contact"})
+    .addIndicators({name: "Contact Title / Video OFF"})
     .addTo(controller)
 
   // Reviews End Scene        
   let tweenReviewsEnd = new TimelineMax()
     .add([
-      TweenMax.fromTo("#reviews", { yPercent: 25, opacity: 0, filter: 'blur(3px)', ease: Power0.easeNone }, { yPercent: 0, opacity: 1, filter: 'blur(0px)', ease: Power0.easeNone })
+      TweenMax.fromTo("#reviews", { yPercent: 25, autoAlpha: 0, filter: 'blur(3px)', ease: Power0.easeNone }, { yPercent: 0, autoAlpha: 1, filter: 'blur(0px)', ease: Power0.easeNone })
     ])
 
   let sceneReviewsEnd = new ScrollMagic.Scene({
@@ -692,9 +653,9 @@ export function wholeScripts(scrollMagicLib, firstLayer) {
       fixedPhoto.style.top = offset.y + 'px';
       fixedPhoto.style.left = offset.x + 'px';
       fixedNav.style.top = offset.y + 'px';
-      sceneLogo.refresh()
-      sceneNavlogo.refresh()
-      scenePhoto.refresh()
+      // sceneLogo.refresh()
+      // sceneNavlogo.refresh()
+      // scenePhoto.refresh()
       sceneRichiBio.refresh()
       sceneRichiprojects.refresh()
       sceneMybio1.refresh()
@@ -723,10 +684,8 @@ export function wholeScripts(scrollMagicLib, firstLayer) {
       sceneSkillsReveal.refresh()
       sceneSkillSlider.refresh()
       sceneVideo.refresh()
-      // sceneReviews.refresh()
       sceneReviewsEnd.refresh()
       sceneContact.refresh()
-      // sceneMap.refresh()
       sceneBlockContact.refresh()
       sceneTalk.refresh()
       sceneSocials.refresh()

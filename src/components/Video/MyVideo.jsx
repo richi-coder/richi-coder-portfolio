@@ -12,6 +12,7 @@ export default function MyVideo() {
       autoplay: 0,
     },
   });
+  console.log('MyVideo render');
 
   const onPlayerReady = (e) => {
     // e.target.play();
@@ -20,7 +21,7 @@ export default function MyVideo() {
   };
 
   useEffect(() => {
-    if (window.innerWidth < 1000) {
+    if (window.innerWidth < 1024) {
       setOpts({
         width: window.innerWidth,
         height: (window.innerWidth * 9) / 16,
@@ -33,7 +34,11 @@ export default function MyVideo() {
 
   return (
     <>
-      <YouTube videoId="GSRLqV3OE18" opts={opts} onReady={onPlayerReady} />
+      <YouTube 
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        videoId="GSRLqV3OE18" 
+        opts={opts} 
+        onReady={onPlayerReady} />
       {mount ? null : <VideoFallback />}
     </>
   );

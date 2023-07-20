@@ -1,9 +1,6 @@
 .preVideo {
     background: linear-gradient(0, rgb(10,10,10), transparent)
 }
-.videoContainer {
-    background: rgb(10,10,10);
-}
 
 .showVideo {
     animation: showVideo 1s ease-in-out 1;
