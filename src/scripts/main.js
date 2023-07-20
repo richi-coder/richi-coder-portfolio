@@ -7,6 +7,7 @@ import { wholeScripts } from './wholeScripts';
 import { initializeValues } from './initializeValues';
 import { initializeDomElements } from './initializeDomElements';
 import { initializeDomSections } from './initializeDomSections';
+import { initializeDomLinks } from './initializeDomLinks';
 ScrollMagicPluginGsap(ScrollMagic, TweenMax, TimelineMax);
 ScrollMagicPluginIndicator(ScrollMagic);
 
@@ -18,7 +19,7 @@ export const scrollBar = isMobile ? undefined : Scrollbar.init(document.body, {
   renderByPixels: true
 });;
 
-// 3. ScrollMagic controller to export
+// 3. ScrollMagic controller initializing and to export
 export const controller = new ScrollMagic.Controller();
 export const scrollMagic = ScrollMagic;
 
@@ -36,14 +37,16 @@ export const domElements = initializeDomElements();
 // 6. Init values for ScrollMagic
 export const initValues = initializeValues(isMobile)
 // 7. Init sections
-export const initSections = initializeDomSections();
+export const domSections = initializeDomSections();
+// 8. Init DOM Links
+export const domLinks = initializeDomLinks();
 
 document.fonts.onloadingerror = () => {
   console.log("Font loading error");
 };
 
-// Entry point for wholeScripts (instatiation)
-let firstLayer = document.querySelector('.firstLayer');
+// Entry point for wholeScripts (instatiation) 
+const { firstLayer } = domSections
 firstLayer.style.opacity = 0
 document.fonts.ready
   .then(() => {

@@ -1,7 +1,8 @@
-import { domElements } from "./main";
+import { domElements, domSections } from "./main";
 
-export function firstAnimations(firstLayer) {
+export function firstAnimations() {
     const { page, body, richiLogo, coderLogo, techLogo, barLogo, viewNavbar, scrollDown, bio7, daysCoding } = domElements;
+    const { firstLayer} = domSections
     setTimeout(() => {
         firstLayer.style.animation = 'none';
         firstLayer.style.zIndex = -999999;
