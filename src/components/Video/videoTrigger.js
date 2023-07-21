@@ -7,6 +7,5 @@ export function videoTrigger() {
     })
             .addTo(controller)
             // .addIndicators({ name: 'HEY'})
-            console.log(sceneVideoTrigger);
     return sceneVideoTrigger;
 }
