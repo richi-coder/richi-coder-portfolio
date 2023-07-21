@@ -12,17 +12,6 @@ export default function VideoContainer() {
   const [loadVideo, setLoadVideo] = useState(false);
   console.log('videoRENDER');
 
-  const checkPositionDesktop = (status) => {
-    if (status.offset.y > 5000) {
-      setLoadVideo(true)
-    }
-  }
-  const checkPositionMobile = (e) => {
-    if (window.scrollY() > 5000) {
-      setLoadVideo(true)
-    }
-  }
-
   useEffect(() => {
 
     let videoState = true;

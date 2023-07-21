@@ -2,12 +2,12 @@ import { controller, initValues, scrollBar } from '../../main';
 
 export function sceneRichiTablet(scrollMagicLib) {
     const { ScrollMagic, TimelineMax, TweenMax, Power0 } = scrollMagicLib
-    const { startTabletPosition } = initValues
+    const { startTabletPositionX, startTabletPositionY, endTabletPositionX, endTabletPositionY } = initValues
 
     // tabletAnimation
     let tweenRichiTablet = new TimelineMax()
         .add([
-            TweenMax.fromTo("#richi-tablet", { xPercent: -250, yPercent: startTabletPosition, rotate: 15, scale: 2, ease: Power0.easeNone }, { xPercent: 150, yPercent: -50, rotate: -30, scale: 0.1, ease: Power0.easeNone })
+            TweenMax.fromTo("#richi-tablet", { xPercent: startTabletPositionX, yPercent: startTabletPositionY, rotate: 15, scale: 2, ease: Power0.easeNone }, { xPercent: endTabletPositionX, yPercent: endTabletPositionY, rotate: -30, scale: 0.1, ease: Power0.easeNone })
         ])
 
     let sceneRichiTablet = new ScrollMagic.Scene({

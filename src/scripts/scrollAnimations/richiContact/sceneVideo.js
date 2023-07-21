@@ -7,9 +7,9 @@ export function sceneForVideo(scrollMagicLib) {
     // Video Start Scene        
     let tweenVideo = new TimelineMax()
         .add([
-            TweenMax.fromTo("#video", { filter: 'blur(5px)', autoAlpha: 0, ease: Power0.easeNone }, { filter: 'blur(0px)', autoAlpha: 1, ease: Power0.easeNone }),
-            TweenMax.fromTo("#videoFallback", { filter: 'blur(5px)', autoAlpha: 0, ease: Power0.easeNone }, { filter: 'blur(0px)', autoAlpha: 1, ease: Power0.easeNone }),
-            TweenMax.fromTo(".orange", { yPercent: 0, autoAlpha: 1, ease: Power0.easeNone }, { yPercent: -30, autoAlpha: 1, ease: Power0.easeNone })
+            TweenMax.fromTo("#video", { filter: 'blur(5px)', autoAlpha: 0, ease: Power0.easeNone }, { filter: 'blur(0px)', autoAlpha: 1, ease: Power0.easeNone }, 1),
+            // TweenMax.fromTo("#videoFallback", { filter: 'blur(5px)', autoAlpha: 0, ease: Power0.easeNone }, { filter: 'blur(0px)', autoAlpha: 1, ease: Power0.easeNone }, 1),
+            TweenMax.fromTo(".orange", { yPercent: 0, autoAlpha: 1, ease: Power0.easeNone }, { yPercent: -25, autoAlpha: 0, ease: Power0.easeNone })
         ])
 
     let sceneVideo = new ScrollMagic.Scene({

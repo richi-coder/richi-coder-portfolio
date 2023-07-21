@@ -2,7 +2,7 @@ import { controller, initValues, scrollBar } from '../../main';
 
 export function evenScene(scrollMagicLib, number) {
     const { ScrollMagic, TimelineMax, TweenMax, Power0 } = scrollMagicLib
-    const { bioStartPosition} = initValues
+    const { bioStartPosition} = initValues;
 
     let sceneEven = new ScrollMagic.Scene({
         triggerElement: number,
@@ -16,7 +16,6 @@ export function evenScene(scrollMagicLib, number) {
             ]))
         // .addIndicators({name: `scene ${number}`})
         .addTo(controller)
-      return sceneEven
 
     // Refreshing at scrollBar
     scrollBar?.addListener(() => {

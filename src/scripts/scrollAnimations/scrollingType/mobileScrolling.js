@@ -3,7 +3,7 @@ import { myAnimationScroll } from "./myAnimationScroll"
 
 export function mobileScrolling() {
     const { firstView, bioSection, portfolioSection, skillsSection, contactSection} = domSections
-    const { navLink, navLogoLink1, mobileBioLink, mobilePortfolioLink, mobileMenu,  } = domLinks
+    const { navLink, navLogoLink1, mobileBioLink, mobilePortfolioLink, mobileMenu, mobileSkillsLink, mobileContactLink  } = domLinks
     
     // //firstScroll(window)
     // window.addEventListener("scroll", () => {

@@ -13,7 +13,10 @@ export function initializeValues(isMobile) {
     let socialOffset;
     let talkDuration;
     let socialDuration;
-    let startTabletPosition;
+    let startTabletPositionX;
+    let startTabletPositionY;
+    let endTabletPositionX;
+    let endTabletPositionY;
     let bioStartPosition;
     let videoShow;
     let contactTitleShow;
@@ -28,17 +31,29 @@ export function initializeValues(isMobile) {
         socialOffset = 0
         socialDuration = 180
         bioStartPosition = 50
-        if (window.innerWidth > 650) {
-            startTabletPosition = 5;
-        } else if (window.innerWidth <= 650 && window.innerWidth > 500) {
-            startTabletPosition = 70;
-        } else if (window.innerWidth <= 500 && window.innerWidth > 400) {
-            startTabletPosition = 20;
-        } else if (window.innerWidth <= 400 && window.innerWidth > 300) {
-            startTabletPosition = 30;
-        } else {
-            startTabletPosition = 40;
+        if (window.innerWidth < 300) {
+            startTabletPositionX = -250
+            endTabletPositionX = 250
+            startTabletPositionY = 50;
+            endTabletPositionY = -30
         }
+        else if (window.innerWidth / window.innerHeight >= 0.7) {
+            startTabletPositionX = -250
+            endTabletPositionX = 250
+            startTabletPositionY = -40;
+            endTabletPositionY = -100
+        } else if(window.innerWidth / window.innerHeight >= 0.5 && window.innerWidth / window.innerHeight < 0.7) {
+            startTabletPositionX = -250
+            endTabletPositionX = 250
+            startTabletPositionY = 100;
+            endTabletPositionY = -50
+        } else {
+            startTabletPositionX = -250
+            endTabletPositionX = 250
+            startTabletPositionY = -30;
+            endTabletPositionY = -150
+        }
+        
         videoShow = 1
         contactTitleShow = 0.8
     } else {
@@ -53,17 +68,35 @@ export function initializeValues(isMobile) {
         socialDuration = '70%'
         bioStartPosition = 0
         if (window.innerWidth >= 1250) {
-            startTabletPosition = 50;
+            startTabletPositionX = -300
+            endTabletPositionX = 200;
+            startTabletPositionY = 60;
+            endTabletPositionY = -10;
         } else if (window.innerWidth >= 1000 && window.innerWidth < 1250) {
-            startTabletPosition = 80;
+            startTabletPositionX = -300
+            endTabletPositionX = 200;
+            startTabletPositionY = 90;
+            endTabletPositionY = -10;
         } else if (window.innerWidth > 900 && window.innerWidth < 1000) {
-            startTabletPosition = -40;
+            startTabletPositionX = -300
+            endTabletPositionX = 200;
+            startTabletPositionY = 0;
+            endTabletPositionY = -30;
         } else if (window.innerWidth > 770 && window.innerWidth <= 900) {
-            startTabletPosition = -20;
+            startTabletPositionX = -300
+            endTabletPositionX = 200;
+            startTabletPositionY = 10;
+            endTabletPositionY = -30;
         } else if (window.innerHeight <= 770 && window.innerWidth > 650) {
-            startTabletPosition = 0;
+            startTabletPositionX = -300
+            endTabletPositionX = 200;
+            startTabletPositionY = 0;
+            endTabletPositionY = -30;
         } else {
-            startTabletPosition = 0;
+            startTabletPositionX = -300
+            endTabletPositionX = 200;
+            startTabletPositionY = 0;
+            endTabletPositionY = -30;
         }
         videoShow = 1
         contactTitleShow = 1
@@ -79,7 +112,10 @@ export function initializeValues(isMobile) {
         socialOffset,
         talkDuration,
         socialDuration,
-        startTabletPosition,
+        startTabletPositionX,
+        startTabletPositionY,
+        endTabletPositionX,
+        endTabletPositionY,
         bioStartPosition,
         videoShow,
         contactTitleShow
