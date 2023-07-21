@@ -1,14 +1,9 @@
-import { domLinks, domSections } from "../../main"
-import { myAnimationScroll } from "./myAnimationScroll"
+import { domLinks, domSections, isMobile } from "../../main"
 
 export function mobileScrolling() {
     const { firstView, bioSection, portfolioSection, skillsSection, contactSection} = domSections
     const { navLink, navLogoLink1, mobileBioLink, mobilePortfolioLink, mobileMenu, mobileSkillsLink, mobileContactLink  } = domLinks
     
-    // //firstScroll(window)
-    // window.addEventListener("scroll", () => {
-    //   // myAnimationScroll()
-    // })
     // Link scrolling MOBILE
     navLink.addEventListener('click', () => {
       if (isMobile) {

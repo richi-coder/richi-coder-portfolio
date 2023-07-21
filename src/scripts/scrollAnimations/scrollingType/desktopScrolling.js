@@ -1,9 +1,8 @@
-import { domElements, domLinks, domSections, scrollBar } from "../../main";
-import { myAnimationScroll } from "./myAnimationScroll";
+import { domElements, domLinks, domSections, isMobile, scrollBar } from "../../main";
 
 export function desktopScrolling() {
     const { fixedNav, fixedPhoto } = domElements
-    const { firstLayer } = domSections
+    const { firstLayer, bioSection, firstView, portfolioSection, skillsSection, contactSection } = domSections
     const { 
         navLogoLink2, 
         navLink, 
@@ -19,7 +18,6 @@ export function desktopScrolling() {
       fixedPhoto.style.top = offset.y + 'px';
       fixedPhoto.style.left = offset.x + 'px';
       fixedNav.style.top = offset.y + 'px';
-      // myAnimationScroll();
     });
 
     // Link scrolling DESKTOP

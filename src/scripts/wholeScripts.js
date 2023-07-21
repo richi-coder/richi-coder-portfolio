@@ -120,13 +120,4 @@ export function wholeScripts(scrollMagicLib) {
   sceneForTalk(scrollMagicLib)
   sceneForSocials(scrollMagicLib)
 
-  // 3 Add classes to hide elements (case using JS)
-  window.addEventListener("DOMContentLoaded", () => {
-    const projects = Array.from(document.querySelectorAll(".project-component"));
-    projects.forEach(project => {
-      project.classList.add("notShown")
-    })
-  })
-
-
 }
