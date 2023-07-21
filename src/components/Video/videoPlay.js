@@ -4,10 +4,10 @@ export function videoPlay() {
     const sceneVideoPlay = new scrollMagic.Scene({
         triggerElement: '#video',
         triggerHook: 0.6,
-        duration: '50%'
+        duration: '75%'
     })
             .addTo(controller)
-            .addIndicators({ name: 'Video plays when passing here!'})
+            // .addIndicators({ name: 'Video plays when passing here!'})
             console.log(sceneVideoPlay);
     return sceneVideoPlay;
 }
