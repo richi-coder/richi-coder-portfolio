@@ -1,7 +1,7 @@
 import { controller, scrollBar } from '../../main';
 
 export function sceneSkillSlider(scrollMagicLib) {
-    const { ScrollMagic, TimelineMax, TweenMax, Power0 } = scrollMagicLib
+    const { ScrollMagic, TimelineMax } = scrollMagicLib
 
     // skillSlider         
     let tweenSkillSlider = new TimelineMax()

@@ -8,9 +8,6 @@ export function initializeDomElements() {
     barLogo: document.querySelector('.bar'),
     viewNavbar: document.querySelector('.view-navbar'),
     scrollDown: document.querySelector('.scrolldown'),
-    bio7: document.querySelector('#bio7'),
-    timeCoding: (new Date() - new Date(2022, 0, 28)) / 1000,
-    daysCoding: Math.floor(((new Date() - new Date(2022, 0, 28)) / 1000) / (3600 * 24)), 
     fixedPhoto: document.querySelector(".photo"),
     fixedNav: document.querySelector(".view-navbar")
   }

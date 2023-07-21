@@ -6,7 +6,6 @@ export function sceneProjectExit(scrollMagicLib, projectID) {
   // Project Card scene          
   let tweenNumber = new TimelineMax()
     .add([
-      // TweenMax.fromTo(projectID, { transform: 'perspective(1000px) rotate3d(1,0,0,0deg)', ease: Power0.easeNone }, { transform: 'perspective(1000px) rotate3d(1,0,1,-45deg)', ease: Power0.easeNone }),
       TweenMax.fromTo(projectID, { autoAlpha: 1, ease: Power0.easeNone }, { autoAlpha: 0, ease: Power0.easeNone }),
       TweenMax.fromTo(projectID, { filter: 'blur(0px)', ease: Power0.easeNone }, { filter: 'blur(15px)', ease: Power0.easeNone }),
     ])

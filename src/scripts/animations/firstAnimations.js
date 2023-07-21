@@ -1,7 +1,7 @@
 import { domElements, domSections } from "../main";
 
 export function firstAnimations() {
-    const { page, body, richiLogo, coderLogo, techLogo, barLogo, viewNavbar, scrollDown, bio7, daysCoding } = domElements;
+    const { page, body, richiLogo, coderLogo, techLogo, barLogo, viewNavbar, scrollDown } = domElements;
     const { firstLayer} = domSections
     setTimeout(() => {
         firstLayer.style.animation = 'none';
@@ -12,7 +12,6 @@ export function firstAnimations() {
       // Procedures
       if (page === 'index') {
         body.classList.add('body-animation')
-        bio7.innerHTML = `${daysCoding} days`;
       } else {
         body.classList.add('body-another-page')
       }

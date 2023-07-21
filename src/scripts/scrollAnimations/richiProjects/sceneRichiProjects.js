@@ -2,7 +2,6 @@ import { controller, initValues, scrollBar } from '../../main';
 
 export function sceneRichiProjects(scrollMagicLib) {
     const { ScrollMagic, TimelineMax, TweenMax, Power0 } = scrollMagicLib
-    const { startTabletPosition } = initValues
 
     // richiProjects animation
     let tweenRichiprojects = new TimelineMax()

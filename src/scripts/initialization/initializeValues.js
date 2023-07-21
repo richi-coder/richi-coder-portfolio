@@ -1,9 +1,5 @@
-import { domElements, isMobile } from "../main";
-
 export function initializeValues(isMobile) {
-    const { page } = domElements
-    // let page = document.title === 'richiCoder | Frontend Developer | Building client apps' ? 'index' : document.title;
-    // isMobile?
+   
     let numberOffset = 0;
     let numberYpercent = 0;
     let numberYpercentStart = 0;
