@@ -27,19 +27,18 @@ export function initializeValues(isMobile) {
         socialOffset = 0
         socialDuration = 180
         bioStartPosition = 50
-        alert(window.innerWidth/window.innerHeight)
+        
         if (window.innerWidth < 300) {
             startTabletPositionX = -250
             endTabletPositionX = 250
             startTabletPositionY = 0;
             endTabletPositionY = -30
-        }
-        else if (window.innerWidth / window.innerHeight >= 0.7) {
+        } else if (window.innerWidth / window.innerHeight >= 0.7) {
             startTabletPositionX = -250
             endTabletPositionX = 250
             startTabletPositionY = -40;
             endTabletPositionY = -100
-        }  else if(window.innerWidth / window.innerHeight >= 0.5 && window.innerWidth / window.innerHeight < 0.7) {
+        } else if(window.innerWidth / window.innerHeight >= 0.5 && window.innerWidth / window.innerHeight < 0.7) {
             startTabletPositionX = -250
             endTabletPositionX = 250
             startTabletPositionY = -(window.innerWidth/window.innerHeight)*100; // A12 my phone
