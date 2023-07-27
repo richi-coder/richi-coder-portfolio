@@ -1,9 +1,12 @@
 import { domLinks, domSections, isMobile } from "../../main"
+import { landScapeModal } from "./landscapeModal"
 
 export function mobileScrolling() {
     const { firstView, bioSection, portfolioSection, skillsSection, contactSection} = domSections
     const { navLink, navLogoLink1, mobileBioLink, mobilePortfolioLink, mobileMenu, mobileSkillsLink, mobileContactLink  } = domLinks
-    
+
+    landScapeModal()
+
     // Link scrolling MOBILE
     navLink.addEventListener('click', () => {
       if (isMobile) {

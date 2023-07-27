@@ -1,0 +1,11 @@
+#landscape-modal {
+    display: none;
+    z-index: 0;
+}
+
+@media screen and (orientation: landscape) and (max-width: 680px) {
+    #landscape-modal {
+        display: block;
+        z-index: 2000;
+    }
+}

@@ -10,6 +10,7 @@ import Contact from '../components/Contact.astro';
 import Header from '../components/Header.astro';
 import Bios from '../components/Bios.astro';
 import VideoContainer from '../components/Video/VideoContainer.jsx';
+import LandscapeModal from '../components/Landscape/LandscapeModal.astro';
 
 const Gallery3d = {
 	id: 'gallery',
@@ -73,7 +74,6 @@ const streamingProps = {
 		<Header />
 		<FirstView />
 		<Photo />
-		<!-- <Precomponent /> -->
 		<Shortbio id='shortbio' ownClass='h-[350vh] sm:h-[450vh]'>
 			<div id='bio-title-container' class='w-full h-screen relative'>
 				<Title id="shortbio-title" title="Bio" preTitle='richi' titleClass='absolute top-2/3 sm:top-3/4 text-6xl sm:text-9xl' />
@@ -86,7 +86,6 @@ const streamingProps = {
 			<div id='projects-title-container' class='w-full h-[25vh] relative'>
 			<Title id="projects-title" title="Projects" preTitle='richi' titleClass='absolute top-3/4 sm:top-1/2 text-6xl sm:text-9xl' />
 			</div>
-			<!-- <ProjectDetails /> -->
 			<Project projectDetails={Gallery3d} />
 			<Project projectDetails={calculatorProps} />
 			<Project projectDetails={ecommerceProps} />
@@ -94,11 +93,9 @@ const streamingProps = {
 			<Project projectDetails={streamingProps} />
 		</Portfolio>
 		<Shortbio id='shortbio2' ownClass='h-[500vh]' />
-		<!-- <SkillsTitle /> -->
-		<!-- <Video id="video" />  -->
 		<VideoContainer client:only="react" />
-		<!-- <Reviews /> -->
 		<Contact  />
+		<LandscapeModal /> 
 	</main>
 </Layout>
 
