@@ -7,7 +7,7 @@ import { getRedirectResult, onAuthStateChanged } from "firebase/auth";
 import SignOutButton from "./SignOutButton";
 import RootContact from "./RootContact";
 import FormEnd from "./FormEnd";
-import { registerPageLoad } from "../scripts/ipservice";
+import { registerPageLoad } from "../scripts/services/ipservice";
 import { auth, checkJobContact } from "../scripts/services/firebase";
 import Presentation from "./Presentation";
 

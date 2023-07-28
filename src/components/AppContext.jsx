@@ -1,6 +1,4 @@
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { createContext, useContext, useState } from 'react'
-import { auth } from '../scripts/services/firebase';
 
 const FormContext = createContext();
 const UpdateFormContext = createContext();

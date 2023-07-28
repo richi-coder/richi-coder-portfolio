@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useFormContext } from './AppContext'
 import { RecaptchaVerifier, linkWithPhoneNumber } from 'firebase/auth';
 import { auth, userAnotherAccount } from '../scripts/services/firebase';

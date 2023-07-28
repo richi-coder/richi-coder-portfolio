@@ -1,4 +1,3 @@
-import React from 'react'
 import { Suspense } from 'react'
 
 function Review({ tweetCard }) {
