@@ -83,7 +83,7 @@ function Input({ inputName, color, value, id, inputType, dataType, message }) {
               location.pathname !== '/contact/inputJ' ?
               <>
                 <label htmlFor={id} className='pl-2 py-1 text-3xl w-full mb-1'>{message}</label>
-                <input id={id} onChange={onChange} onKeyDown={onKey} className={`text-black ${id === 'telephone' ? 'pl-2' : 'pl-2'} py-1 text-4xl w-full`} type={inputType} value={value} placeholder={`Enter ${inputName}`} autoFocus />
+                <input data-cy='wizard-input' id={id} onChange={onChange} onKeyDown={onKey} className={`text-black ${id === 'telephone' ? 'pl-2' : 'pl-2'} py-1 text-4xl w-full`} type={inputType} value={value} placeholder={`Enter ${inputName}`} autoFocus />
                 <div className='w-full text-center absolute bottom-0 left-1/2 translate-y-[110%] -translate-x-1/2 text-red-500 text-xl animate-pulse'>{formData.inputErrorMessage}</div>
               </> :
               <PhoneTest inputProps={{ inputName, color, value, id, inputType, dataType, message }} />

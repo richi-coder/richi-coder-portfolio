@@ -154,6 +154,7 @@ function FormButton({ direction, user }) {
             location === '/contact/inputJ' && direction === 'forward' ?
             null :
           <button
+            data-cy={direction === 'forward' ? 'next-button' : 'back-button'}
             onClick={navigation}
             className={
               isButton

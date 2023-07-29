@@ -149,7 +149,7 @@ function PhoneTest({inputProps}) {
               <div className='pl-2 text-3xl text-center w-full animate-pulse'>{message} <br /><div className='mx-auto text-center w-full'>{formData.telephone}</div> </div>
                 <div className='flex flex-col items-center w-fit bg-white h-full rounded relative'>
                     <div className='text-xl w-full mb-1 text-center text-white absolute top-0 left-1/2 -translate-y-full -translate-x-1/2'>{phoneTestState.codeColor === 'bg-red-700' ? 'Incorrect code!' : phoneTestState.codeColor === 'bg-green-600' ? 'Succeeded!' : phoneTestState.codeColor === 'bg-red-900' ? 'Code expired!' : phoneTestState.codeColor === 'bg-red-600' ? 'Unavailable number...' : 'Enter the code!'}</div>
-                    <input onChange={onChange} autoFocus className={`text-center text-[2rem] w-[12rem] h-2/3 bg-transparent m-0 p-0 border-none outline-none ${phoneTestState.inputCodeColor}`} type={inputType} placeholder={`Enter ${inputName}`} disabled={phoneTestState.codeInputDisabled} />
+                    <input data-cy='tel_code' onChange={onChange} autoFocus className={`text-center text-[2rem] w-[12rem] h-2/3 bg-transparent m-0 p-0 border-none outline-none ${phoneTestState.inputCodeColor}`} type={inputType} placeholder={`Enter ${inputName}`} disabled={phoneTestState.codeInputDisabled} />
                 </div>
               </div> :
               <div className={`absolute top-0 left-1/2 -translate-x-1/2 -translate-y-2 show w-[120%] py-10 flex flex-col items-center gap-10  rounded-xl bg-blue-800`}>

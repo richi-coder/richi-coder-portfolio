@@ -27,7 +27,7 @@ export function initializeValues(isMobile) {
         socialOffset = 0
         socialDuration = 180
         bioStartPosition = 50
-        
+
         if (window.innerWidth < 300) {
             startTabletPositionX = -250
             endTabletPositionX = 250
@@ -38,12 +38,18 @@ export function initializeValues(isMobile) {
             endTabletPositionX = 250
             startTabletPositionY = -40;
             endTabletPositionY = -100
-        } else if(window.innerWidth / window.innerHeight >= 0.5 && window.innerWidth / window.innerHeight < 0.7) {
+        } else if(window.innerWidth / window.innerHeight >= 0.55 && window.innerWidth / window.innerHeight < 0.7) {
+            startTabletPositionX = -250
+            endTabletPositionX = 250
+            startTabletPositionY = 0; // iPhone SE
+            endTabletPositionY = 0
+        } else if(window.innerWidth / window.innerHeight >= 0.5 && window.innerWidth / window.innerHeight < 0.55) {
             startTabletPositionX = -250
             endTabletPositionX = 250
             startTabletPositionY = -(window.innerWidth/window.innerHeight)*100; // A12 my phone
             endTabletPositionY = -100
-        } else {
+        }
+         else {
             startTabletPositionX = -250
             endTabletPositionX = 250
             startTabletPositionY = -30;

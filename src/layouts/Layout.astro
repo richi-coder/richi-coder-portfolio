@@ -52,9 +52,7 @@ const { title } = Astro.props;
     <!-- Image preload -->
     {title === 'index' ? <link rel="preload" href="richicoder.png" as="image" /> : null}
     <!-- Scripts -->
-    <!-- <script src="../scripts/scrollFunction.js"></script> -->
-    <script src="../scripts/main.js"></script>
-    <!-- {title === 'Contact | richiCoder' ? <script src='../scripts/contact.js'></script> : null} -->
+    {title === 'index' ? <script src="../scripts/main.js"></script> : null}
     <!-- Normal font load -->
     <link
       href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap"

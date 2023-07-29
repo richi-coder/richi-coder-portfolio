@@ -17,5 +17,8 @@ pnpm-debug.log*
 .env
 .env.production
 
+# cypress env variables
+cypress.env.json
+
 # macOS-specific files
 .DS_Store
