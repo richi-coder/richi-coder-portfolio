@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { readResumeDownloadURl } from "../scripts/services/firebase";
-import './styles/show.css'
+import { readResumeDownloadURl } from "@services/firebase";
+import '@styles/show.css'
 
 function DownloadResumeButton({ background }) {
   const [buttonState, setButtonState] = useState(null);

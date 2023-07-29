@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router';
 import { useFormContext, useUpdateFormContext } from './AppContext';
-import { userAnotherAccount } from '../scripts/services/firebase';
+import { userAnotherAccount } from '@services/firebase';
 
 function SignOutButton() {
     const location = useLocation().pathname;
