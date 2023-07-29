@@ -1,7 +1,7 @@
 import { GoogleAuthProvider, signInWithPopup, getAuth, GithubAuthProvider, signInWithRedirect } from "firebase/auth";
 import { app } from "@services/firebase";
 import { useEffect, useState } from "react";
-import { useUpdateFormContext } from "./AppContext";
+import { useUpdateFormContext } from "../context/AppContext";
 
 function LoginButton() {
     const auth = getAuth(app);

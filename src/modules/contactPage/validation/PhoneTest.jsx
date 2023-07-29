@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useFormContext } from './AppContext'
+import { useFormContext } from '../context/AppContext'
 import { RecaptchaVerifier, linkWithPhoneNumber } from 'firebase/auth';
 import { auth, userAnotherAccount } from '@services/firebase';
 import { useNavigate } from 'react-router';

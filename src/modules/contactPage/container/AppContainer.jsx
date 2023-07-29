@@ -1,15 +1,15 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { inputTypes, useFormContext, useUpdateFormContext } from "./AppContext"
-import Input from "./Input";
-import FormButtons from "./FormButtons";
+import { inputTypes, useFormContext, useUpdateFormContext } from "../context/AppContext"
+import Input from "../form/Input";
+import FormButtons from "../form/FormButtons";
 import { useEffect, useState } from "react";
 import { getRedirectResult, onAuthStateChanged } from "firebase/auth";
-import SignOutButton from "./SignOutButton";
-import RootContact from "./RootContact";
-import FormEnd from "./FormEnd";
+import SignOutButton from "../session/SignOutButton";
+import RootContact from "../form/RootContact";
+import FormEnd from "../endScreen/FormEnd";
 import { registerPageLoad } from "@services/ipservice";
 import { auth, checkJobContact } from "@services/firebase";
-import Presentation from "./Presentation";
+import Presentation from "../session/Presentation";
 
 
 function AppContainer() {

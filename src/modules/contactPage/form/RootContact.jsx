@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router'
-import { useFormContext, useUpdateFormContext } from './AppContext';
+import { useFormContext, useUpdateFormContext } from '../context/AppContext';
 
 function RootContact({user}) {
     const location = useLocation().pathname;

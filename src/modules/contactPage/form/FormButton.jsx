@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { inputTypes, useFormContext, useUpdateFormContext } from "./AppContext";
+import { inputTypes, useFormContext, useUpdateFormContext } from "../context/AppContext";
 import { db, readUserData } from "@services/firebase";
 import { useEffect, useState } from "react";
 import { doc, updateDoc } from "firebase/firestore";

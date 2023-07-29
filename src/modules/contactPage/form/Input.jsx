@@ -1,7 +1,7 @@
 import { useEffect} from 'react'
-import { useFormContext, useUpdateFormContext } from './AppContext'
+import { useFormContext, useUpdateFormContext } from '../context/AppContext'
 import { useLocation, useNavigate } from 'react-router';
-import PhoneTest from './PhoneTest';
+import PhoneTest from '../validation/PhoneTest';
 
 function Input({ inputName, color, value, id, inputType, dataType, message }) {
   
