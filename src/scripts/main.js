@@ -46,13 +46,13 @@ document.fonts.onloadingerror = () => {
 };
 
 // Entry point for wholeScripts (instatiation) 
-const { firstLayer } = domSections
-firstLayer.style.opacity = 0
+const { firstLayer } = domSections;
+firstLayer.style.opacity = 0;
+
 document.fonts.ready
   .then(() => {
     setTimeout(() => {
       wholeScripts(scrollMagicLib, firstLayer)
-    }, 1000);
-
+    }, 1000)
   })
   .catch(wholeScripts) 
