@@ -1,10 +1,10 @@
 describe('template spec', () => {
   // Using my github account
-  beforeEach('first visit /contact', () => {
+  beforeEach(() => {
     cy.visit('/contact')
   })
 
-  it('passes', () => {
+  it('Registration Succesful!', () => {
 
     // cy.contains('Github', {
     //   timeout: 60000
