@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getAuth, signOut } from "firebase/auth";
 import { getDownloadURL, getStorage, ref } from 'firebase/storage'
 import { addDoc, collection, doc, getDoc, getDocs, getFirestore, query, setDoc, updateDoc, where } from "firebase/firestore";
-import { dataToFront } from "../pages/contact/components/AppContext";
+import { dataToFront } from "../modules/contact/AppContext";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
