@@ -1,5 +1,5 @@
 import LoginButton from "./LoginButton";
-import EmailButton from "src/modules/EmailButton";
+import EmailButton from "@modules/EmailButton";
 
 function Presentation() {
   return (

@@ -1,4 +1,4 @@
-import { GoogleAuthProvider, signInWithPopup, getAuth, GithubAuthProvider, onAuthStateChanged, signInWithRedirect, signOut } from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup, getAuth, GithubAuthProvider, signInWithRedirect } from "firebase/auth";
 import { app } from "@services/firebase";
 import { useEffect, useState } from "react";
 import { useUpdateFormContext } from "./AppContext";
