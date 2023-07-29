@@ -1,7 +1,7 @@
 import YouTube from "react-youtube";
 import VideoFallback from "./VideoFallback";
-import { videoPlay } from "./videoPlay";
-import useVideo from "./hooks/useVideo";
+import { videoPlay } from "../scripts/videoPlay";
+import useVideo from "../hooks/useVideo";
 
 const sceneVideoPlay = videoPlay();
 

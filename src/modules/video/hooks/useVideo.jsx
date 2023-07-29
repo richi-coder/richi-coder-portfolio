@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { isMobile, scrollBar } from "../../../scripts/main";
+import { isMobile, scrollBar } from "@scripts/main";
 
 export default function useVideo(sceneVideoPlay) {
   const [video, setVideo] = useState({

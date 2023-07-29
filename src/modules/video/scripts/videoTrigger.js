@@ -1,4 +1,4 @@
-import { controller, scrollMagic } from "../../scripts/main";
+import { controller, scrollMagic } from "@scripts/main";
 
 export function videoTrigger() {
     const sceneVideoTrigger = new scrollMagic.Scene({

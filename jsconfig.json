@@ -6,9 +6,9 @@
     "baseUrl": ".",
     "paths": {
       "@services/*": ["src/services/*"],
-      "@components/*": ["src/modules/*"],
+      "@modules/*": ["src/modules/*"],
+      "@scripts/*": ["src/scripts/*"], 
       "@styles/*": ["src/styles/*"],
-      "@modules/*": ["src/modules/*"]
     }
   }
 }

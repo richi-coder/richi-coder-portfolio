@@ -1,7 +1,7 @@
 import VideoFallback from "./VideoFallback";
-import "./video.css";
+import "../styles/video.css";
 import React, { Suspense, lazy, useEffect, useState } from "react";
-import { videoTrigger } from "./videoTrigger";
+import { videoTrigger } from "../scripts/videoTrigger";
 
 const RichiVideo = lazy(() => import("./MyVideo.jsx"));
 const sceneVideoTrigger = videoTrigger();

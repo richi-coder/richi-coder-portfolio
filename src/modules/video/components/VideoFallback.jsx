@@ -1,4 +1,4 @@
-import '../styles/firstLayer.css' 
+import '@modules/styles/firstLayer.css' 
 
 export default function VideoFallback() {
   return (
