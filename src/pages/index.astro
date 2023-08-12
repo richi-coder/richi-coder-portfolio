@@ -76,7 +76,7 @@ const streamingProps = {
 		<Header />
 		<FirstView />
 		<Photo />
-		<Shortbio id='shortbio' ownClass='h-[350vh] sm:h-[450vh]'>
+		<Shortbio id='shortbio' ownClass='h-[330vh] sm:h-[430vh]'>
 			<div id='bio-title-container' class='w-full h-screen relative'>
 				<Title id="shortbio-title" title="Bio" preTitle='richi' titleClass='absolute top-2/3 sm:top-3/4 text-6xl sm:text-9xl' />
 			</div>
@@ -84,9 +84,8 @@ const streamingProps = {
 		</Shortbio>
 		
 		<Portfolio>
-			<img id='richi-tablet' src="/richicoder_tablet.png" alt="" class="mx-auto absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full z-50 w-[70vw] max-w-xs h-auto sm:max-w-none sm:w-[550px] sm:h-[550px]" loading='lazy'>
-			<div id='projects-title-container' class='w-full h-[25vh] relative'>
-			<Title id="projects-title" title="Projects" preTitle='richi' titleClass='absolute top-3/4 sm:top-1/2 text-6xl sm:text-9xl' />
+			<div id='projects-title-container' class='w-full h-16 sm:h-[25vh] relative'>
+			<Title id="projects-title" title="Projects" preTitle='richi' titleClass='absolute top-0 text-6xl sm:text-9xl' />
 			</div>
 			<Project projectDetails={Gallery3d} />
 			<Project projectDetails={calculatorProps} />

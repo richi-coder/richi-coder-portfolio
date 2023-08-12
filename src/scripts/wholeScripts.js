@@ -83,7 +83,7 @@ export function wholeScripts(scrollMagicLib) {
   sceneMybioOff(scrollMagicLib)
 
   // richiProjects
-  sceneRichiTablet(scrollMagicLib)
+  // sceneRichiTablet(scrollMagicLib)
 
   sceneRichiProjects(scrollMagicLib)
 
