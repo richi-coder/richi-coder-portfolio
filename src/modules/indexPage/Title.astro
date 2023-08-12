@@ -2,7 +2,7 @@
 import "@styles/title.css"
 const { id, title, preTitle, titleClass } = Astro.props;
 ---
-    <div id={id} class={`title text-white w-full text-center  ${titleClass}`}>
+    <div id={id} class={`title text-white w-full text-center hidden sm:block ${titleClass}`}>
       
             <h2 class="logoTitle">
             {preTitle}<span class="text-gradient">{title}</span>

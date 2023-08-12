@@ -2,7 +2,7 @@ import { controller, initValues, scrollBar } from '../../main';
 
 export function sceneContactBlock(scrollMagicLib) {
     const { ScrollMagic, TimelineMax, TweenMax, Power0 } = scrollMagicLib
-    const { contactYpercent } = initValues
+    const { contactYpercent, contactBlockOffset } = initValues
 
     // Contact block (talk and socials)
     let tweenBlockContact = new TimelineMax()
@@ -14,6 +14,7 @@ export function sceneContactBlock(scrollMagicLib) {
         triggerElement: "#contact-block",
         duration: '50%',
         triggerHook: 1,
+        offset: contactBlockOffset
     })
         .setTween(tweenBlockContact)
         // .addIndicators({name: "contactBLOCK"})

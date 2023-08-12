@@ -115,7 +115,7 @@ export function wholeScripts(scrollMagicLib) {
 
   sceneForVideo(scrollMagicLib)
   sceneForContact(scrollMagicLib)
-  sceneForReviews(scrollMagicLib)
+  // sceneForReviews(scrollMagicLib)
   sceneContactBlock(scrollMagicLib)
   sceneForTalk(scrollMagicLib)
   sceneForSocials(scrollMagicLib)

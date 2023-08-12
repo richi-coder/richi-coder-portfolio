@@ -16,17 +16,22 @@ export function initializeValues(isMobile) {
     let bioStartPosition;
     let videoShow;
     let contactTitleShow;
+    let contactBlockOffset;
+    let talkOffset;
+
     if (isMobile) {
         numberOffset = -500;
         numberYpercentStart = 0;
         numberYpercent = 80;
         skillsFixedDuration = '400%';
         talkRight = 400
-        contactYpercent = -10
-        talkDuration = '50%'
+        contactYpercent = -30
+        talkDuration = '25%'
         socialOffset = 0
         socialDuration = 180
         bioStartPosition = 50
+        contactBlockOffset = 0;
+        talkOffset = '350%';
 
         if (window.innerWidth < 300) {
             startTabletPositionX = -250
@@ -69,6 +74,9 @@ export function initializeValues(isMobile) {
         talkDuration = '70%'
         socialDuration = '70%'
         bioStartPosition = 0
+        contactBlockOffset = 0;
+        talkOffset = 0;
+
         if (window.innerWidth >= 1250) {
             startTabletPositionX = -300
             endTabletPositionX = 200;
@@ -120,7 +128,9 @@ export function initializeValues(isMobile) {
         endTabletPositionY,
         bioStartPosition,
         videoShow,
-        contactTitleShow
+        contactTitleShow,
+        contactBlockOffset,
+        talkOffset
     }
 
 } 
