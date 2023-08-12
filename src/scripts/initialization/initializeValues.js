@@ -75,7 +75,7 @@ export function initializeValues(isMobile) {
         socialDuration = '70%'
         bioStartPosition = 0
         contactBlockOffset = 0;
-        talkOffset = 0;
+        talkOffset = 100;
 
         if (window.innerWidth >= 1250) {
             startTabletPositionX = -300
