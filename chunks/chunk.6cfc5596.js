@@ -817,7 +817,7 @@ const $$Resume = createComponent(async ($$result, $$props, $$slots) => {
             richi<span class="text-gradient">Coder</span>
         </a>
         ${renderComponent($$result2, "EmailCopied", $$EmailCopied, {})}
-    </main>` })}../modules/EmailCopied.astro../modules/EmailButton.jsx../modules/components/DownloadResumeButton`;
+    </main>` })}`;
 }, "/home/richicoderlinux/Desktop/richi-portfolio/src/pages/resume.astro");
 
 const $$file$1 = "/home/richicoderlinux/Desktop/richi-portfolio/src/pages/resume.astro";
